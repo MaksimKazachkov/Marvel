@@ -10,51 +10,63 @@ import Foundation
 import Combine
 
 public class MarvelClient: Client {
-        
-    private let ts: Int
     
-    private let privateKey: String
+    private let hash: String?
     
-    private let publicKey: String
-    
-    lazy var hash: String? = {
-        let encryptor = SHA256Encryptor()
-        let rawHash = "\(ts)\(privateKey)\(publicKey)"
-        return encryptor.encrypt(rawHash: rawHash)
-    }()
+    private let session: URLSession = .shared
     
     public init(
         baseURL: String,
         ts: Int,
         privateKey: String,
         publicKey: String) {
-        self.ts = ts
-        self.privateKey = privateKey
-        self.publicKey = publicKey
+        let rawHash = "\(ts)\(privateKey)\(publicKey)"
+        let encryptor = SHA256Encryptor()
+        hash = encryptor.encrypt(rawHash: rawHash)
     }
     
-    public func makeRequestObject<Codable>(route: Route, at keyPath: String) -> Future<Codable, ApiError> {
-        return Future { (promise) in
-            // TODO: - implement logic
-        }
+    public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Error> {
+        let request = prepare(route: route)
+        return session.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
     }
     
-    public func makeRequest<Codable>(route: Route, at keyPath: String) -> Future<[Codable], ApiError> {
-        return Future { (promise) in
-            // TODO: - implement logic
-        }
+    public func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Error> {
+        let request = prepare(route: route)
+        return session.dataTaskPublisher(for: request)
+        .map(\.data)
+        .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
+        .receive(on: RunLoop.main)
+        .eraseToAnyPublisher()
     }
     
-    public func makeRequestVoid(route: Route) -> Future<Void, ApiError> {
-        return Future { (promise) in
+    public func request(route: Route) -> AnyPublisher<Void, Error> {
+        let request = prepare(route: route)
+                return Future { (promise) in
             // TODO: - implement logic
-        }
+        }.eraseToAnyPublisher()
     }
     
-    public func makeRequestAny(route: Route) -> Future<Any, ApiError> {
+    public func requestAny(route: Route) -> AnyPublisher<Any, Error> {
+        let request = prepare(route: route)
         return Future { (promise) in
             // TODO: - implement logic
+        }.eraseToAnyPublisher()
+    }
+    
+}
+
+private extension MarvelClient {
+    
+    func prepare(route: Route) -> URLRequest {
+        var urlRequest = route.asURLRequest()
+        if let hash = hash {
+            urlRequest.url?.appendPathComponent(hash)
         }
+        return urlRequest
     }
     
 }

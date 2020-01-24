@@ -11,9 +11,9 @@ import Combine
 
 public protocol Client {
         
-    func makeRequestObject<Codable>(route: Route, at keyPath: String) -> Future<Codable, ApiError>
-    func makeRequest<Codable>(route: Route, at keyPath: String) -> Future<[Codable], ApiError>
-    func makeRequestVoid(route: Route) -> Future<Void, ApiError>
-    func makeRequestAny(route: Route) -> Future<Any, ApiError>
+    func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Error>
+    func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Error>
+    func request(route: Route) -> AnyPublisher<Void, Error>
+    func requestAny(route: Route) -> AnyPublisher<Any, Error>
     
 }
