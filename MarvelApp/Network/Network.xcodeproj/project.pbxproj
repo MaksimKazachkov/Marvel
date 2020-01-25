@@ -10,6 +10,10 @@
 		5C8E0BC023DC925500E333F6 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E0BB623DC925500E333F6 /* Network.framework */; };
 		5C8E0BC523DC925500E333F6 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BC423DC925500E333F6 /* NetworkTests.swift */; };
 		5C8E0BC723DC925500E333F6 /* Network.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C8E0BB923DC925500E333F6 /* Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C8E0BD323DC929000E333F6 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BD223DC929000E333F6 /* Client.swift */; };
+		5C8E0BDA23DC92F100E333F6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BD923DC92F100E333F6 /* Route.swift */; };
+		5C8E0BDC23DC92F900E333F6 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BDB23DC92F900E333F6 /* HTTPMethod.swift */; };
+		5C8E0BDE23DC930100E333F6 /* JSONNestedDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BDD23DC930100E333F6 /* JSONNestedDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		5C8E0BBF23DC925500E333F6 /* NetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8E0BC423DC925500E333F6 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		5C8E0BC623DC925500E333F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C8E0BD223DC929000E333F6 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		5C8E0BD923DC92F100E333F6 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		5C8E0BDB23DC92F900E333F6 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		5C8E0BDD23DC930100E333F6 /* JSONNestedDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNestedDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,10 @@
 		5C8E0BB823DC925500E333F6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				5C8E0BD223DC929000E333F6 /* Client.swift */,
+				5C8E0BD923DC92F100E333F6 /* Route.swift */,
+				5C8E0BDB23DC92F900E333F6 /* HTTPMethod.swift */,
+				5C8E0BDD23DC930100E333F6 /* JSONNestedDecoder.swift */,
 				5C8E0BB923DC925500E333F6 /* Network.h */,
 				5C8E0BBA23DC925500E333F6 /* Info.plist */,
 			);
@@ -195,6 +207,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8E0BD323DC929000E333F6 /* Client.swift in Sources */,
+				5C8E0BDE23DC930100E333F6 /* JSONNestedDecoder.swift in Sources */,
+				5C8E0BDA23DC92F100E333F6 /* Route.swift in Sources */,
+				5C8E0BDC23DC92F900E333F6 /* HTTPMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +402,7 @@
 		5C8E0BCE23DC925500E333F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NetworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -403,6 +420,7 @@
 		5C8E0BCF23DC925500E333F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NetworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

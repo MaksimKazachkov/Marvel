@@ -11,13 +11,13 @@ import Foundation
 /// The keypath key in the `userInfo`
 private let keyPathUserInfoKey = CodingUserInfoKey(rawValue: "keyPathUserInfoKey")!
 
-class JSONNestedDecoder: JSONDecoder {
+public class JSONNestedDecoder: JSONDecoder {
     
     private let keyPath: String
     
     private let separator: String
     
-    init(
+    public init(
         keyPath: String,
         keyPathSeparator separator: String = "."
     ) {
@@ -25,7 +25,7 @@ class JSONNestedDecoder: JSONDecoder {
         self.separator = separator
     }
     
-    override func decode<T>(_ type: T.Type, from data: Data) throws -> T where T : Decodable {
+    override public func decode<T>(_ type: T.Type, from data: Data) throws -> T where T : Decodable {
         userInfo[keyPathUserInfoKey] = keyPath.components(separatedBy: separator)
         return try super.decode(KeyPathWrapper<T>.self, from: data).object
     }

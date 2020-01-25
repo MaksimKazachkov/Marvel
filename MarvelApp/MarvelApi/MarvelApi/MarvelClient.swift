@@ -8,7 +8,7 @@
 
 import Foundation
 import Combine
-
+import Network
 
 public class MarvelClient: Client {
 
