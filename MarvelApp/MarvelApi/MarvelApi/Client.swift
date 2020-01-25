@@ -33,8 +33,7 @@ public class Client: Network.Client {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
-                .mapError({ Network.Error.create($0) })
-                .map(\.data)
+                .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
                 .mapError({ Network.Error.create($0) })
                 .receive(on: RunLoop.main)
@@ -50,8 +49,7 @@ public class Client: Network.Client {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
-                .mapError({ Network.Error.create($0) })
-                .map(\.data)
+                .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
                 .mapError({ Network.Error.create($0) })
                 .receive(on: RunLoop.main)
@@ -63,12 +61,28 @@ public class Client: Network.Client {
         }
     }
     
-    public func request(route: Route, at keyPath: String) -> AnyPublisher<(), Network.Error> {
+    public func requestData(route: Route) -> AnyPublisher<Data, Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
+                .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .mapError({ Network.Error.create($0) })
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error)
+                .mapError({ Network.Error.create($0) })
+                .eraseToAnyPublisher()
+        }
+    }
+    
+    public func request(route: Route) -> AnyPublisher<(), Network.Error> {
+        do {
+            let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
+            return session.dataTaskPublisher(for: request)
+                .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .map({ _ in return Void() })
+                .mapError({ Network.Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
@@ -89,7 +103,7 @@ private extension Client {
         return [
             URLQueryItem(name: "ts", value: credentials.ts.description),
             URLQueryItem(name: "apikey", value: credentials.publicKey),
-            URLQueryItem(name: "hash", value: hash)
+            URLQueryItem(name: "hash", value: "5db7842e42bebe2e74c207628b39fa2c")
         ]
     }
     

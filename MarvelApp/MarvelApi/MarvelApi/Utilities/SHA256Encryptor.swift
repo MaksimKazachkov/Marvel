@@ -15,7 +15,6 @@ import CommonCrypto
 * https://opensource.apple.com/source/CommonCrypto/CommonCrypto-60118.50.1/include/CommonDigest.h.auto.html
 **/
 class SHA256Encryptor {
-    
     func encrypt(hash: String) -> String? {
         guard let data = hash.data(using: String.Encoding.utf8) else {
             return nil
@@ -42,5 +41,4 @@ class SHA256Encryptor {
         
         return sha256String
     }
-
 }

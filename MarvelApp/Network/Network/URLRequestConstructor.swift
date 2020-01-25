@@ -65,6 +65,7 @@ public struct URLRequestConstructor {
         components.scheme = scheme
         components.host = host
         components.port = port
+        components.path = route.path
         components.queryItems = makeQueryItems(from: route.parameters)
         
         return components

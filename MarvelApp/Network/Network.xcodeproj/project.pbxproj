@@ -16,6 +16,7 @@
 		5C8E0BDE23DC930100E333F6 /* JSONNestedDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BDD23DC930100E333F6 /* JSONNestedDecoder.swift */; };
 		5C8E0BE323DC9B4A00E333F6 /* URLRequestConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BE223DC9B4A00E333F6 /* URLRequestConstructor.swift */; };
 		5C8E0BE723DCA22400E333F6 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BE623DCA22400E333F6 /* Error.swift */; };
+		5C8E0BF423DCCC3B00E333F6 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BF323DCCC3B00E333F6 /* ServerError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		5C8E0BDD23DC930100E333F6 /* JSONNestedDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNestedDecoder.swift; sourceTree = "<group>"; };
 		5C8E0BE223DC9B4A00E333F6 /* URLRequestConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConstructor.swift; sourceTree = "<group>"; };
 		5C8E0BE623DCA22400E333F6 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		5C8E0BF323DCCC3B00E333F6 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				5C8E0BD223DC929000E333F6 /* Client.swift */,
 				5C8E0BE623DCA22400E333F6 /* Error.swift */,
+				5C8E0BF323DCCC3B00E333F6 /* ServerError.swift */,
 				5C8E0BD923DC92F100E333F6 /* Route.swift */,
 				5C8E0BDB23DC92F900E333F6 /* HTTPMethod.swift */,
 				5C8E0BE223DC9B4A00E333F6 /* URLRequestConstructor.swift */,
@@ -219,6 +222,7 @@
 				5C8E0BDC23DC92F900E333F6 /* HTTPMethod.swift in Sources */,
 				5C8E0BE723DCA22400E333F6 /* Error.swift in Sources */,
 				5C8E0BE323DC9B4A00E333F6 /* URLRequestConstructor.swift in Sources */,
+				5C8E0BF423DCCC3B00E333F6 /* ServerError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

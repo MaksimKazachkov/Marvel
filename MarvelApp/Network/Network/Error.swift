@@ -12,6 +12,7 @@ indirect public enum Error: Swift.Error {
     
     case decode(DecodingError)
     case url(URLError)
+    case server(ServerError)
     case undefined(Swift.Error)
     
     static public func create(_ error: Swift.Error) -> Error {
