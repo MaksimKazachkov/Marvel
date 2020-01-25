@@ -10,7 +10,7 @@ import Foundation
 import Combine
 import Network
 
-public class MarvelClient: Client {
+public class Client: Network.Client {
 
     private let configuration: URLSessionConfiguration = .default
     
@@ -64,7 +64,7 @@ public class MarvelClient: Client {
     
 }
 
-private extension MarvelClient {
+private extension Client {
     
     func prepare(route: Route) throws -> URLRequest {
         let components = makeURLComponents(for: route)

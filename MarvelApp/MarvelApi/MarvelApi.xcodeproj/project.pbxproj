@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C44891B23DA4795001F310F /* SHA256Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C44891A23DA4795001F310F /* SHA256Encryptor.swift */; };
-		5C44891D23DA4AD0001F310F /* MarvelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C44891C23DA4AD0001F310F /* MarvelClient.swift */; };
+		5C44891D23DA4AD0001F310F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C44891C23DA4AD0001F310F /* Client.swift */; };
 		5C73D5EC23DA2F6A000DDE85 /* MarvelApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C73D5E223DA2F69000DDE85 /* MarvelApi.framework */; };
 		5C73D5F123DA2F6A000DDE85 /* MarvelApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5F023DA2F6A000DDE85 /* MarvelApiTests.swift */; };
 		5C73D5F323DA2F6A000DDE85 /* MarvelApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C73D5E523DA2F69000DDE85 /* MarvelApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		5C44891A23DA4795001F310F /* SHA256Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256Encryptor.swift; sourceTree = "<group>"; };
-		5C44891C23DA4AD0001F310F /* MarvelClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelClient.swift; sourceTree = "<group>"; };
+		5C44891C23DA4AD0001F310F /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		5C73D5E223DA2F69000DDE85 /* MarvelApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C73D5E523DA2F69000DDE85 /* MarvelApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelApi.h; sourceTree = "<group>"; };
 		5C73D5E623DA2F69000DDE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			children = (
 				5C73D5E523DA2F69000DDE85 /* MarvelApi.h */,
 				5C73D5E623DA2F69000DDE85 /* Info.plist */,
-				5C44891C23DA4AD0001F310F /* MarvelClient.swift */,
+				5C44891C23DA4AD0001F310F /* Client.swift */,
 				5C44891A23DA4795001F310F /* SHA256Encryptor.swift */,
 				5C8E0BAA23DC91E600E333F6 /* Credentials.swift */,
 			);
@@ -235,7 +235,7 @@
 			files = (
 				5C44891B23DA4795001F310F /* SHA256Encryptor.swift in Sources */,
 				5C8E0BAB23DC91E600E333F6 /* Credentials.swift in Sources */,
-				5C44891D23DA4AD0001F310F /* MarvelClient.swift in Sources */,
+				5C44891D23DA4AD0001F310F /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
