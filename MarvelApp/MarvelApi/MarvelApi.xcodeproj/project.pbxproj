@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C44891B23DA4795001F310F /* SHA256Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C44891A23DA4795001F310F /* SHA256Encryptor.swift */; };
+		5C44891B23DA4795001F310F /* MD5Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C44891A23DA4795001F310F /* MD5Encryptor.swift */; };
 		5C44891D23DA4AD0001F310F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C44891C23DA4AD0001F310F /* Client.swift */; };
 		5C73D5EC23DA2F6A000DDE85 /* MarvelApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C73D5E223DA2F69000DDE85 /* MarvelApi.framework */; };
 		5C73D5F123DA2F6A000DDE85 /* MarvelApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5F023DA2F6A000DDE85 /* MarvelApiTests.swift */; };
@@ -45,7 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C44891A23DA4795001F310F /* SHA256Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256Encryptor.swift; sourceTree = "<group>"; };
+		5C44891A23DA4795001F310F /* MD5Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Encryptor.swift; sourceTree = "<group>"; };
 		5C44891C23DA4AD0001F310F /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		5C73D5E223DA2F69000DDE85 /* MarvelApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C73D5E523DA2F69000DDE85 /* MarvelApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelApi.h; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		5C8E0BDF23DC94C100E333F6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5C44891A23DA4795001F310F /* SHA256Encryptor.swift */,
+				5C44891A23DA4795001F310F /* MD5Encryptor.swift */,
 				5C8E0BF523DCCCE700E333F6 /* HTTPURLResponseValidator.swift */,
 			);
 			path = Utilities;
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C44891B23DA4795001F310F /* SHA256Encryptor.swift in Sources */,
+				5C44891B23DA4795001F310F /* MD5Encryptor.swift in Sources */,
 				5C8E0BAB23DC91E600E333F6 /* Credentials.swift in Sources */,
 				5C8E0BF623DCCCE700E333F6 /* HTTPURLResponseValidator.swift in Sources */,
 				5C44891D23DA4AD0001F310F /* Client.swift in Sources */,

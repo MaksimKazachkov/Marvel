@@ -103,7 +103,7 @@ private extension Client {
         return [
             URLQueryItem(name: "ts", value: credentials.ts.description),
             URLQueryItem(name: "apikey", value: credentials.publicKey),
-            URLQueryItem(name: "hash", value: "5db7842e42bebe2e74c207628b39fa2c")
+            URLQueryItem(name: "hash", value: hash)
         ]
     }
     

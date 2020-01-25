@@ -26,7 +26,7 @@ public class Credentials {
         self.publicKey = publicKey
         self.privateKey = privateKey
         let rawHash = "\(ts)\(privateKey)\(publicKey)"
-        let encryptor = SHA256Encryptor()
+        let encryptor = MD5Encryptor()
         hash = encryptor.encrypt(hash: rawHash)
     }
     
