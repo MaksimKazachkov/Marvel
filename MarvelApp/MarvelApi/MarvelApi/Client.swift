@@ -11,88 +11,77 @@ import Combine
 import Network
 
 public class Client: Network.Client {
-
-    private let configuration: URLSessionConfiguration = .default
     
-    private let credentials: Credentials
+    private let configuration: URLSessionConfiguration = .default
     
     private let session: URLSession
     
-    private let scheme: String
-    
-    private let host: String
-    
-    private let port: Int?
+    private let credentials: Credentials
+        
+    private let constructor: URLRequestConstructor
     
     public init(
-        scheme: String,
-        host: String,
-        port: Int?,
+        constructor: URLRequestConstructor,
         credentials: Credentials) {
-        self.scheme = scheme
-        self.host = host
-        self.port = port
+        self.constructor = constructor
         self.credentials = credentials
+        configuration.waitsForConnectivity = true
         session = URLSession(configuration: configuration)
     }
     
-    public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Error> {
+    public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Network.Error> {
         do {
-            let request = try prepare(route: route)
+            let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
+                .mapError({ Network.Error.create($0) })
                 .map(\.data)
                 .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
+                .mapError({ Network.Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
-            return Fail(error: error).eraseToAnyPublisher()
+            return Fail(error: error)
+                .mapError({ Network.Error.create($0) })
+                .eraseToAnyPublisher()
         }
     }
     
-    public func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Error> {
+    public func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Network.Error> {
         do {
-            let request = try prepare(route: route)
+            let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
+                .mapError({ Network.Error.create($0) })
                 .map(\.data)
                 .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
+                .mapError({ Network.Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
-            return Fail(error: error).eraseToAnyPublisher()
+            return Fail(error: error)
+                .mapError({ Network.Error.create($0) })
+                .eraseToAnyPublisher()
+        }
+    }
+    
+    public func request(route: Route, at keyPath: String) -> AnyPublisher<(), Network.Error> {
+        do {
+            let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
+            return session.dataTaskPublisher(for: request)
+                .mapError({ Network.Error.create($0) })
+                .map({ _ in return Void() })
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error)
+                .mapError({ Network.Error.create($0) })
+                .eraseToAnyPublisher()
         }
     }
     
 }
 
 private extension Client {
-    
-    func prepare(route: Route) throws -> URLRequest {
-        let components = makeURLComponents(for: route)
-        
-        guard let url = components.url else {
-            throw URLError(.badURL)
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpBody = route.data
-        
-        return URLRequest(url: url)
-    }
-    
-    func makeURLComponents(for route: Route) -> URLComponents {
-        var components = URLComponents()
-        components.scheme = scheme
-        components.host = host
-        components.port = port
-        components.queryItems = makeQueryItems(from: route.parameters)
-                
-        return components
-    }
-    
-    func makeQueryItems(from parameters: Route.Parameters?) -> [URLQueryItem]? {
-        return parameters?.compactMap({ URLQueryItem(name: $0.key, value: $0.value.description) })
-    }
-    
+
     func makeQueryItems(from credentials: Credentials) throws -> [URLQueryItem] {
         guard let hash = credentials.hash else {
             throw URLError(.fileDoesNotExist)
@@ -103,5 +92,5 @@ private extension Client {
             URLQueryItem(name: "hash", value: hash)
         ]
     }
-        
+    
 }

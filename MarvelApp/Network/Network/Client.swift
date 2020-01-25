@@ -13,5 +13,6 @@ public protocol Client {
         
     func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Error>
     func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Error>
-
+    func request(route: Route, at keyPath: String) -> AnyPublisher<(), Error>
+    
 }

@@ -99,8 +99,9 @@
 				5C73D5E523DA2F69000DDE85 /* MarvelApi.h */,
 				5C73D5E623DA2F69000DDE85 /* Info.plist */,
 				5C44891C23DA4AD0001F310F /* Client.swift */,
-				5C44891A23DA4795001F310F /* SHA256Encryptor.swift */,
 				5C8E0BAA23DC91E600E333F6 /* Credentials.swift */,
+				5C8E0BE823DCAF8D00E333F6 /* Routes */,
+				5C8E0BDF23DC94C100E333F6 /* Utilities */,
 			);
 			path = MarvelApi;
 			sourceTree = "<group>";
@@ -120,6 +121,21 @@
 				5C8E0BD523DC92DF00E333F6 /* Network.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C8E0BDF23DC94C100E333F6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5C44891A23DA4795001F310F /* SHA256Encryptor.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5C8E0BE823DCAF8D00E333F6 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Routes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

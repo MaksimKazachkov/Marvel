@@ -10,6 +10,10 @@ import XCTest
 @testable import MarvelApi
 
 class MarvelApiTests: XCTestCase {
+    
+    let credentials = Credentials.init(ts: 1,
+                                       publicKey: "5812e43551bf26c47f860ccc020c1154",
+                                       privateKey: "a8d3b2a68f8266f631feac88f7dac78313d0745e")
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

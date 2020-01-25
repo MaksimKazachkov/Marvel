@@ -35,7 +35,7 @@ public class JSONNestedDecoder: JSONDecoder {
 /// Object which is representing value
 private final class KeyPathWrapper<T: Decodable>: Decodable {
     
-    enum KeyPathError: Error {
+    enum KeyPathError: Swift.Error {
         case `internal`
     }
     
