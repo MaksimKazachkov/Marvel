@@ -16,7 +16,6 @@
 		5C73D5F123DA2F6A000DDE85 /* MarvelApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5F023DA2F6A000DDE85 /* MarvelApiTests.swift */; };
 		5C73D5F323DA2F6A000DDE85 /* MarvelApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C73D5E523DA2F69000DDE85 /* MarvelApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C73D5FD23DA3161000DDE85 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5FC23DA3161000DDE85 /* Client.swift */; };
-		5C893DD723DA3B9F0052F169 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C893DD623DA3B9F0052F169 /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,6 @@
 		5C73D5F023DA2F6A000DDE85 /* MarvelApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApiTests.swift; sourceTree = "<group>"; };
 		5C73D5F223DA2F6A000DDE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C73D5FC23DA3161000DDE85 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		5C893DD623DA3B9F0052F169 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +87,6 @@
 				5C73D5E623DA2F69000DDE85 /* Info.plist */,
 				5C73D5FC23DA3161000DDE85 /* Client.swift */,
 				5C44891C23DA4AD0001F310F /* MarvelClient.swift */,
-				5C893DD623DA3B9F0052F169 /* ApiError.swift */,
 				5C44891A23DA4795001F310F /* SHA256Encryptor.swift */,
 				5C2690A423DA375C00B939DF /* Route.swift */,
 				5C2690A623DA38A500B939DF /* HTTPMethod.swift */,
@@ -220,7 +217,6 @@
 				5C44892023DA5B4B001F310F /* JSONNestedDecoder.swift in Sources */,
 				5C44891B23DA4795001F310F /* SHA256Encryptor.swift in Sources */,
 				5C73D5FD23DA3161000DDE85 /* Client.swift in Sources */,
-				5C893DD723DA3B9F0052F169 /* ApiError.swift in Sources */,
 				5C44891D23DA4AD0001F310F /* MarvelClient.swift in Sources */,
 				5C2690A523DA375C00B939DF /* Route.swift in Sources */,
 				5C2690A723DA38A500B939DF /* HTTPMethod.swift in Sources */,

@@ -9,11 +9,35 @@
 import Foundation
 import Combine
 
+public class MarvelCredentials {
+    
+    public let ts: Int
+    
+    public let publicKey: String
+    
+    public let privateKey: String
+    
+    public let hash: String?
+    
+    public init(
+        ts: Int,
+        publicKey: String,
+        privateKey: String) {
+        self.ts = ts
+        self.publicKey = publicKey
+        self.privateKey = privateKey
+        let rawHash = "\(ts)\(privateKey)\(publicKey)"
+        let encryptor = SHA256Encryptor()
+        hash = encryptor.encrypt(hash: rawHash)
+    }
+    
+}
+
 public class MarvelClient: Client {
-    
-    private let apiKey: String?
-    
+
     private let configuration: URLSessionConfiguration = .default
+    
+    private let credentials: MarvelCredentials
     
     private let session: URLSession
     
@@ -27,15 +51,11 @@ public class MarvelClient: Client {
         scheme: String,
         host: String,
         port: Int?,
-        ts: Int,
-        privateKey: String,
-        publicKey: String) {
+        credentials: MarvelCredentials) {
         self.scheme = scheme
         self.host = host
         self.port = port
-        let hash = "\(ts)\(privateKey)\(publicKey)"
-        let encryptor = SHA256Encryptor()
-        apiKey = encryptor.encrypt(hash: hash)
+        self.credentials = credentials
         session = URLSession(configuration: configuration)
     }
     
@@ -88,7 +108,7 @@ private extension MarvelClient {
         components.host = host
         components.port = port
         components.queryItems = makeQueryItems(from: route.parameters)
-        
+                
         return components
     }
     
@@ -96,4 +116,15 @@ private extension MarvelClient {
         return parameters?.compactMap({ URLQueryItem(name: $0.key, value: $0.value.description) })
     }
     
+    func makeQueryItems(from credentials: MarvelCredentials) throws -> [URLQueryItem] {
+        guard let hash = credentials.hash else {
+            throw URLError(.fileDoesNotExist)
+        }
+        return [
+            URLQueryItem(name: "ts", value: credentials.ts.description),
+            URLQueryItem(name: "apikey", value: credentials.publicKey),
+            URLQueryItem(name: "hash", value: hash)
+        ]
+    }
+        
 }
