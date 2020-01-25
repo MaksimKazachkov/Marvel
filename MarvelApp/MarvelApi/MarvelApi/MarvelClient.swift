@@ -43,20 +43,6 @@ public class MarvelClient: Client {
         .eraseToAnyPublisher()
     }
     
-    public func request(route: Route) -> AnyPublisher<Void, Error> {
-        let request = prepare(route: route)
-                return Future { (promise) in
-            // TODO: - implement logic
-        }.eraseToAnyPublisher()
-    }
-    
-    public func requestAny(route: Route) -> AnyPublisher<Any, Error> {
-        let request = prepare(route: route)
-        return Future { (promise) in
-            // TODO: - implement logic
-        }.eraseToAnyPublisher()
-    }
-    
 }
 
 private extension MarvelClient {
