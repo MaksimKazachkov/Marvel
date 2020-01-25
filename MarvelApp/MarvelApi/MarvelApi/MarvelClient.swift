@@ -9,35 +9,12 @@
 import Foundation
 import Combine
 
-public class MarvelCredentials {
-    
-    public let ts: Int
-    
-    public let publicKey: String
-    
-    public let privateKey: String
-    
-    public let hash: String?
-    
-    public init(
-        ts: Int,
-        publicKey: String,
-        privateKey: String) {
-        self.ts = ts
-        self.publicKey = publicKey
-        self.privateKey = privateKey
-        let rawHash = "\(ts)\(privateKey)\(publicKey)"
-        let encryptor = SHA256Encryptor()
-        hash = encryptor.encrypt(hash: rawHash)
-    }
-    
-}
 
 public class MarvelClient: Client {
 
     private let configuration: URLSessionConfiguration = .default
     
-    private let credentials: MarvelCredentials
+    private let credentials: Credentials
     
     private let session: URLSession
     
@@ -51,7 +28,7 @@ public class MarvelClient: Client {
         scheme: String,
         host: String,
         port: Int?,
-        credentials: MarvelCredentials) {
+        credentials: Credentials) {
         self.scheme = scheme
         self.host = host
         self.port = port
@@ -116,7 +93,7 @@ private extension MarvelClient {
         return parameters?.compactMap({ URLQueryItem(name: $0.key, value: $0.value.description) })
     }
     
-    func makeQueryItems(from credentials: MarvelCredentials) throws -> [URLQueryItem] {
+    func makeQueryItems(from credentials: Credentials) throws -> [URLQueryItem] {
         guard let hash = credentials.hash else {
             throw URLError(.fileDoesNotExist)
         }
