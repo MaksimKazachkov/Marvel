@@ -16,8 +16,8 @@ import CommonCrypto
 **/
 class SHA256Encryptor {
     
-    func encrypt(rawHash: String) -> String? {
-        guard let data = rawHash.data(using: String.Encoding.utf8) else {
+    func encrypt(hash: String) -> String? {
+        guard let data = hash.data(using: String.Encoding.utf8) else {
             return nil
         }
         /// #define CC_SHA256_DIGEST_LENGTH     32

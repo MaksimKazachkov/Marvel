@@ -11,48 +11,89 @@ import Combine
 
 public class MarvelClient: Client {
     
-    private let hash: String?
+    private let apiKey: String?
     
-    private let session: URLSession = .shared
+    private let configuration: URLSessionConfiguration = .default
+    
+    private let session: URLSession
+    
+    private let scheme: String
+    
+    private let host: String
+    
+    private let port: Int?
     
     public init(
-        baseURL: String,
+        scheme: String,
+        host: String,
+        port: Int?,
         ts: Int,
         privateKey: String,
         publicKey: String) {
-        let rawHash = "\(ts)\(privateKey)\(publicKey)"
+        self.scheme = scheme
+        self.host = host
+        self.port = port
+        let hash = "\(ts)\(privateKey)\(publicKey)"
         let encryptor = SHA256Encryptor()
-        hash = encryptor.encrypt(rawHash: rawHash)
+        apiKey = encryptor.encrypt(hash: hash)
+        session = URLSession(configuration: configuration)
     }
     
     public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Error> {
-        let request = prepare(route: route)
-        return session.dataTaskPublisher(for: request)
-            .map(\.data)
-            .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+        do {
+            let request = try prepare(route: route)
+            return session.dataTaskPublisher(for: request)
+                .map(\.data)
+                .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
     }
     
     public func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Error> {
-        let request = prepare(route: route)
-        return session.dataTaskPublisher(for: request)
-        .map(\.data)
-        .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
-        .receive(on: RunLoop.main)
-        .eraseToAnyPublisher()
+        do {
+            let request = try prepare(route: route)
+            return session.dataTaskPublisher(for: request)
+                .map(\.data)
+                .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
+        }
     }
     
 }
 
 private extension MarvelClient {
     
-    func prepare(route: Route) -> URLRequest {
-        var urlRequest = route.asURLRequest()
-        if let hash = hash {
-            urlRequest.url?.appendPathComponent(hash)
+    func prepare(route: Route) throws -> URLRequest {
+        let components = makeURLComponents(for: route)
+        
+        guard let url = components.url else {
+            throw URLError(.badURL)
         }
-        return urlRequest
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpBody = route.data
+        
+        return URLRequest(url: url)
+    }
+    
+    func makeURLComponents(for route: Route) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.port = port
+        components.queryItems = makeQueryItems(from: route.parameters)
+        
+        return components
+    }
+    
+    func makeQueryItems(from parameters: Route.Parameters?) -> [URLQueryItem]? {
+        return parameters?.compactMap({ URLQueryItem(name: $0.key, value: $0.value.description) })
     }
     
 }

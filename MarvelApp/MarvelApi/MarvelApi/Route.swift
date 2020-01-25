@@ -10,12 +10,14 @@ import Foundation
 
 public protocol Route {
     
-    func asURLRequest() -> URLRequest
-    
-    var baseURL: URL { get }
-    
+    typealias Parameters = [String: CustomStringConvertible]
+            
     var method: HTTPMethod { get }
     
     var path: String { get }
+    
+    var parameters: Parameters? { get }
+    
+    var data: Data? { get }
     
 }
