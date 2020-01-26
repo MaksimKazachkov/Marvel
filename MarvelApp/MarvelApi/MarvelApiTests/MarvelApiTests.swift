@@ -31,7 +31,7 @@ class MarvelApiTests: XCTestCase {
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        //        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
+        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
         client = MarvelApi.Client(
             constructor: constructor,
             credentials: credentials
@@ -41,11 +41,6 @@ class MarvelApiTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         subscriptions.removeAll()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testfetchCharacters() {
@@ -59,8 +54,13 @@ class MarvelApiTests: XCTestCase {
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
-            }) { _ in
-                expectation.fulfill()
+            }) { data in
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    XCTFail(error.localizedDescription)
+                }
         }
         .store(in: &subscriptions)
         
