@@ -10,6 +10,7 @@ import XCTest
 @testable import MarvelApi
 import Network
 import Combine
+import MarvelDomain
 
 class MarvelApiTests: XCTestCase {
     
@@ -61,6 +62,25 @@ class MarvelApiTests: XCTestCase {
                 } catch {
                     XCTFail(error.localizedDescription)
                 }
+        }
+        .store(in: &subscriptions)
+        
+        wait(for: [expectation], timeout: 15)
+    }
+    
+    func testFetchAndDecodeCharacters() {
+        let expectation = XCTestExpectation()
+        client?.requestObjects(Character.self, route: CharactersRoute.characters, at: "data.results")
+            .print()
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                case .finished:
+                    expectation.fulfill()
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+            }) { characters in
+                print(characters)
         }
         .store(in: &subscriptions)
         

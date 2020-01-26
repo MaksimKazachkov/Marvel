@@ -18,6 +18,13 @@
 		5C8E0BF023DCB77400E333F6 /* Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E0BD523DC92DF00E333F6 /* Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C8E0BF223DCB77F00E333F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8E0BEB23DCB6CC00E333F6 /* Foundation.framework */; };
 		5C8E0BF623DCCCE700E333F6 /* HTTPURLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E0BF523DCCCE700E333F6 /* HTTPURLResponseValidator.swift */; };
+		5CD7B3BF23DD5BB600E52D0E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD7B3BE23DD5BB600E52D0E /* MarvelDomain.framework */; };
+		5CD7B3C023DD5BB600E52D0E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD7B3BE23DD5BB600E52D0E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CD7B3C623DD5D8B00E52D0E /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3C523DD5D8B00E52D0E /* URLTransformer.swift */; };
+		5CD7B3CA23DD5E2C00E52D0E /* CodableContainerTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3C923DD5E2C00E52D0E /* CodableContainerTransformer.swift */; };
+		5CD7B3D023DDA43700E52D0E /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3CF23DDA43700E52D0E /* URLType.swift */; };
+		5CD7B3D223DDB8A300E52D0E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3D123DDB8A300E52D0E /* Resource.swift */; };
+		5CD7B3D423DDB9F700E52D0E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3D323DDB9F700E52D0E /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +45,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5C8E0BF023DCB77400E333F6 /* Network.framework in Embed Frameworks */,
+				5CD7B3C023DD5BB600E52D0E /* MarvelDomain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +66,12 @@
 		5C8E0BE923DCAFC100E333F6 /* CharactersRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRoute.swift; sourceTree = "<group>"; };
 		5C8E0BEB23DCB6CC00E333F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5C8E0BF523DCCCE700E333F6 /* HTTPURLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseValidator.swift; sourceTree = "<group>"; };
+		5CD7B3BE23DD5BB600E52D0E /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CD7B3C523DD5D8B00E52D0E /* URLTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTransformer.swift; sourceTree = "<group>"; };
+		5CD7B3C923DD5E2C00E52D0E /* CodableContainerTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableContainerTransformer.swift; sourceTree = "<group>"; };
+		5CD7B3CF23DDA43700E52D0E /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
+		5CD7B3D123DDB8A300E52D0E /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		5CD7B3D323DDB9F700E52D0E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD7B3BF23DD5BB600E52D0E /* MarvelDomain.framework in Frameworks */,
 				5C8E0BEF23DCB77400E333F6 /* Network.framework in Frameworks */,
 				5C8E0BF223DCB77F00E333F6 /* Foundation.framework in Frameworks */,
 			);
@@ -103,11 +118,13 @@
 		5C73D5E423DA2F69000DDE85 /* MarvelApi */ = {
 			isa = PBXGroup;
 			children = (
+				5CD7B3CE23DDA42600E52D0E /* Entries */,
 				5C73D5E523DA2F69000DDE85 /* MarvelApi.h */,
 				5C73D5E623DA2F69000DDE85 /* Info.plist */,
 				5C44891C23DA4AD0001F310F /* Client.swift */,
 				5C8E0BAA23DC91E600E333F6 /* Credentials.swift */,
 				5C8E0BE823DCAF8D00E333F6 /* Routes */,
+				5CD7B3C423DD5D7400E52D0E /* Transformers */,
 				5C8E0BDF23DC94C100E333F6 /* Utilities */,
 			);
 			path = MarvelApi;
@@ -125,6 +142,7 @@
 		5C8E0BD423DC92DF00E333F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CD7B3BE23DD5BB600E52D0E /* MarvelDomain.framework */,
 				5C8E0BEB23DCB6CC00E333F6 /* Foundation.framework */,
 				5C8E0BD523DC92DF00E333F6 /* Network.framework */,
 			);
@@ -136,6 +154,7 @@
 			children = (
 				5C44891A23DA4795001F310F /* MD5Encryptor.swift */,
 				5C8E0BF523DCCCE700E333F6 /* HTTPURLResponseValidator.swift */,
+				5CD7B3C923DD5E2C00E52D0E /* CodableContainerTransformer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -146,6 +165,24 @@
 				5C8E0BE923DCAFC100E333F6 /* CharactersRoute.swift */,
 			);
 			path = Routes;
+			sourceTree = "<group>";
+		};
+		5CD7B3C423DD5D7400E52D0E /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				5CD7B3C523DD5D8B00E52D0E /* URLTransformer.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+		5CD7B3CE23DDA42600E52D0E /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				5CD7B3CF23DDA43700E52D0E /* URLType.swift */,
+				5CD7B3D123DDB8A300E52D0E /* Resource.swift */,
+				5CD7B3D323DDB9F700E52D0E /* Image.swift */,
+			);
+			path = Entries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,11 +296,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD7B3D223DDB8A300E52D0E /* Resource.swift in Sources */,
 				5C44891B23DA4795001F310F /* MD5Encryptor.swift in Sources */,
 				5C8E0BAB23DC91E600E333F6 /* Credentials.swift in Sources */,
 				5C8E0BF623DCCCE700E333F6 /* HTTPURLResponseValidator.swift in Sources */,
+				5CD7B3CA23DD5E2C00E52D0E /* CodableContainerTransformer.swift in Sources */,
 				5C44891D23DA4AD0001F310F /* Client.swift in Sources */,
+				5CD7B3D023DDA43700E52D0E /* URLType.swift in Sources */,
 				5C8E0BEA23DCAFC100E333F6 /* CharactersRoute.swift in Sources */,
+				5CD7B3C623DD5D8B00E52D0E /* URLTransformer.swift in Sources */,
+				5CD7B3D423DDB9F700E52D0E /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

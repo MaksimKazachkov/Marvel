@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MarvelApp/MarvelDomain/MarvelDomain.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MarvelApp/Network/Network.xcodeproj">
    </FileRef>
    <FileRef
