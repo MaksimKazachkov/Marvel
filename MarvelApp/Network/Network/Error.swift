@@ -20,6 +20,8 @@ indirect public enum Error: Swift.Error {
             return .decode(error)
         } else if let error = error as? URLError {
             return .url(error)
+        } else if let error = error as? ServerError {
+            return .server(error)
         } else {
             return .undefined(error)
         }
