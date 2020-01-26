@@ -65,7 +65,7 @@ class MarvelApiTests: XCTestCase {
         }
         .store(in: &subscriptions)
         
-        wait(for: [expectation], timeout: 15)
+        wait(for: [expectation], timeout: 60)
     }
     
     func testFetchAndDecodeCharacters() {
@@ -80,11 +80,11 @@ class MarvelApiTests: XCTestCase {
                     XCTFail(error.localizedDescription)
                 }
             }) { characters in
-                print(characters)
+                expectation.fulfill()
         }
         .store(in: &subscriptions)
         
-        wait(for: [expectation], timeout: 15)
+        wait(for: [expectation], timeout: 60)
     }
     
     func testPerformanceExample() {

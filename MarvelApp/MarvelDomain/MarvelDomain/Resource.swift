@@ -22,7 +22,7 @@ public struct Resource {
     // A list of summary views of the items in this resource list.
     public let items: [Item]
     
-    public struct Item: Codable {
+    public struct Item {
         
         public let name: String
         

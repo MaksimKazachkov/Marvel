@@ -29,16 +29,16 @@ public struct Character {
     public let urls: [URLType]
     
     // A resource list containing comics which feature this character.
-    public let comics: [Resource]
+    public let comics: Resource
     
     // A resource list of stories in which this character appears.
-    public let stories: [Resource]
+    public let stories: Resource
     
     // A resource list of events in which this character appears.
-    public let events: [Resource]
+    public let events: Resource
     
     // A resource list of series in which this character appears.
-    public let series: [Resource]
+    public let series: Resource
     
     public init(
         id: Int,
@@ -47,10 +47,10 @@ public struct Character {
         modified: Date,
         resourceURI: URL,
         urls: [URLType],
-        comics: [Resource],
-        stories: [Resource],
-        events: [Resource],
-        series: [Resource]
+        comics: Resource,
+        stories: Resource,
+        events: Resource,
+        series: Resource
     ) {
         self.id = id
         self.name = name

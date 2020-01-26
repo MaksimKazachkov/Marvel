@@ -25,6 +25,7 @@
 		5CD7B3D023DDA43700E52D0E /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3CF23DDA43700E52D0E /* URLType.swift */; };
 		5CD7B3D223DDB8A300E52D0E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3D123DDB8A300E52D0E /* Resource.swift */; };
 		5CD7B3D423DDB9F700E52D0E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3D323DDB9F700E52D0E /* Image.swift */; };
+		5CD7B3D623DDF83900E52D0E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3D523DDF83900E52D0E /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		5CD7B3CF23DDA43700E52D0E /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
 		5CD7B3D123DDB8A300E52D0E /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5CD7B3D323DDB9F700E52D0E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		5CD7B3D523DDF83900E52D0E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				5CD7B3CF23DDA43700E52D0E /* URLType.swift */,
+				5CD7B3D523DDF83900E52D0E /* Character.swift */,
 				5CD7B3D123DDB8A300E52D0E /* Resource.swift */,
 				5CD7B3D323DDB9F700E52D0E /* Image.swift */,
 			);
@@ -298,6 +301,7 @@
 			files = (
 				5CD7B3D223DDB8A300E52D0E /* Resource.swift in Sources */,
 				5C44891B23DA4795001F310F /* MD5Encryptor.swift in Sources */,
+				5CD7B3D623DDF83900E52D0E /* Character.swift in Sources */,
 				5C8E0BAB23DC91E600E333F6 /* Credentials.swift in Sources */,
 				5C8E0BF623DCCCE700E333F6 /* HTTPURLResponseValidator.swift in Sources */,
 				5CD7B3CA23DD5E2C00E52D0E /* CodableContainerTransformer.swift in Sources */,
