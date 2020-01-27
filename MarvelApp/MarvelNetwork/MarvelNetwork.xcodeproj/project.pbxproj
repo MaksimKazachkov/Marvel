@@ -25,6 +25,7 @@
 		5C007DD623DF97BC00FD8AFB /* MD5Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007DC423DF95DA00FD8AFB /* MD5Encryptor.swift */; };
 		5C007DD723DF97BC00FD8AFB /* HTTPURLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007DC523DF95DA00FD8AFB /* HTTPURLResponseValidator.swift */; };
 		5C007DD823DF97BC00FD8AFB /* CodableContainerTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007DC623DF95DA00FD8AFB /* CodableContainerTransformer.swift */; };
+		5CA2785D23DF99E10091ACD1 /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2785C23DF99E10091ACD1 /* ImageClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		5C007DC623DF95DA00FD8AFB /* CodableContainerTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableContainerTransformer.swift; sourceTree = "<group>"; };
 		5C007DC923DF967F00FD8AFB /* CoreNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C007DCD23DF968300FD8AFB /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CA2785C23DF99E10091ACD1 /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				5C007DC123DF95DA00FD8AFB /* Routes */,
 				5C007DC323DF95DA00FD8AFB /* Transformers */,
 				5C007DC723DF95DA00FD8AFB /* Utilities */,
+				5CA2785C23DF99E10091ACD1 /* ImageClient.swift */,
 			);
 			path = MarvelNetwork;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				5C007DD323DF97BC00FD8AFB /* Image.swift in Sources */,
 				5C007DD423DF97BC00FD8AFB /* CharactersRoute.swift in Sources */,
 				5C007DD523DF97BC00FD8AFB /* URLTransformer.swift in Sources */,
+				5CA2785D23DF99E10091ACD1 /* ImageClient.swift in Sources */,
 				5C007DD623DF97BC00FD8AFB /* MD5Encryptor.swift in Sources */,
 				5C007DD723DF97BC00FD8AFB /* HTTPURLResponseValidator.swift in Sources */,
 				5C007DD823DF97BC00FD8AFB /* CodableContainerTransformer.swift in Sources */,

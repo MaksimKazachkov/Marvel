@@ -17,6 +17,7 @@
 		5C007D9023DF957E00FD8AFB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007D8723DF957E00FD8AFB /* Error.swift */; };
 		5C007D9123DF957E00FD8AFB /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007D8623DF957D00FD8AFB /* Client.swift */; };
 		5C007D9223DF957E00FD8AFB /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007D8B23DF957E00FD8AFB /* ServerError.swift */; };
+		5CA2785B23DF994C0091ACD1 /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2785A23DF994C0091ACD1 /* ImageClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		5C007D8923DF957E00FD8AFB /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		5C007D8A23DF957E00FD8AFB /* URLRequestConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConstructor.swift; sourceTree = "<group>"; };
 		5C007D8B23DF957E00FD8AFB /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		5CA2785A23DF994C0091ACD1 /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,15 +87,16 @@
 		5C007D6D23DF957400FD8AFB /* CoreNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				5C007D8623DF957D00FD8AFB /* Client.swift */,
-				5C007D8723DF957E00FD8AFB /* Error.swift */,
-				5C007D8B23DF957E00FD8AFB /* ServerError.swift */,
-				5C007D8923DF957E00FD8AFB /* Route.swift */,
-				5C007D8523DF957D00FD8AFB /* HTTPMethod.swift */,
-				5C007D8A23DF957E00FD8AFB /* URLRequestConstructor.swift */,
-				5C007D8823DF957E00FD8AFB /* JSONNestedDecoder.swift */,
 				5C007D6E23DF957400FD8AFB /* CoreNetwork.h */,
 				5C007D6F23DF957400FD8AFB /* Info.plist */,
+				5C007D8623DF957D00FD8AFB /* Client.swift */,
+				5C007D8723DF957E00FD8AFB /* Error.swift */,
+				5C007D8523DF957D00FD8AFB /* HTTPMethod.swift */,
+				5CA2785A23DF994C0091ACD1 /* ImageClient.swift */,
+				5C007D8823DF957E00FD8AFB /* JSONNestedDecoder.swift */,
+				5C007D8923DF957E00FD8AFB /* Route.swift */,
+				5C007D8B23DF957E00FD8AFB /* ServerError.swift */,
+				5C007D8A23DF957E00FD8AFB /* URLRequestConstructor.swift */,
 			);
 			path = CoreNetwork;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				5C007D8E23DF957E00FD8AFB /* URLRequestConstructor.swift in Sources */,
 				5C007D9023DF957E00FD8AFB /* Error.swift in Sources */,
 				5C007D8C23DF957E00FD8AFB /* JSONNestedDecoder.swift in Sources */,
+				5CA2785B23DF994C0091ACD1 /* ImageClient.swift in Sources */,
 				5C007D9223DF957E00FD8AFB /* ServerError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
