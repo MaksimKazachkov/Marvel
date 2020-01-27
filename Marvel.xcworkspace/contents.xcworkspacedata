@@ -2,13 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MarvelApp/MarvelNetwork/MarvelNetwork.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MarvelApp/CoreNetwork/CoreNetwork.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MarvelApp/MarvelDomain/MarvelDomain.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MarvelApp/Network/Network.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MarvelApp/MarvelApi/MarvelApi.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MarvelApp/Marvel/Marvel.xcodeproj">

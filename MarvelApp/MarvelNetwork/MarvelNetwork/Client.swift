@@ -8,9 +8,9 @@
 
 import Foundation
 import Combine
-import Network
+import CoreNetwork
 
-public class Client: Network.Client {
+public class Client: CoreNetwork.Client {
     
     private let configuration: URLSessionConfiguration = .default
     
@@ -29,65 +29,65 @@ public class Client: Network.Client {
         session = URLSession(configuration: configuration)
     }
     
-    public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Network.Error> {
+    public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, CoreNetwork.Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
     
-    public func requestObjects<T: Codable>(_ type: T.Type, route: Route, at keyPath: String) -> AnyPublisher<[T], Network.Error> {
+    public func requestObjects<T: Codable>(_ type: T.Type, route: Route, at keyPath: String) -> AnyPublisher<[T], CoreNetwork.Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
     
-    public func requestData(route: Route) -> AnyPublisher<Data, Error> {
+    public func requestData(route: Route) -> AnyPublisher<Data, CoreNetwork.Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
     
-    public func request(route: Route) -> AnyPublisher<(), Network.Error> {
+    public func request(route: Route) -> AnyPublisher<(), CoreNetwork.Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .map({ _ in return Void() })
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Network.Error.create($0) })
+                .mapError({ CoreNetwork.Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }

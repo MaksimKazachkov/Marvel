@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MarvelApi.xcscheme_^#shared#^_</key>
+		<key>MarvelNetwork.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5C73D5E123DA2F69000DDE85</key>
+		<key>5C007D9C23DF95B800FD8AFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C73D5EA23DA2F6A000DDE85</key>
+		<key>5C007DA523DF95B800FD8AFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Network
+import CoreNetwork
 
 enum CharactersRoute: Route {
     

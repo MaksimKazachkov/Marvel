@@ -1,18 +1,18 @@
 //
-//  MarvelApiTests.swift
-//  MarvelApiTests
+//  MarvelNetworkTests.swift
+//  MarvelNetworkTests
 //
-//  Created by Maksim Kazachkov on 23.01.2020.
+//  Created by Maksim Kazachkov on 28.01.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 
 import XCTest
-@testable import MarvelApi
-import Network
+@testable import MarvelNetwork
+import CoreNetwork
 import Combine
 import MarvelDomain
 
-class MarvelApiTests: XCTestCase {
+class MarvelNetworkTests: XCTestCase {
     
     let credentials = Credentials(
         ts: 1,
@@ -28,20 +28,20 @@ class MarvelApiTests: XCTestCase {
     
     var subscriptions = Set<AnyCancellable>()
     
-    var client: Network.Client!
+    var client: CoreNetwork.Client!
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
-        client = MarvelApi.Client(
-            constructor: constructor,
-            credentials: credentials
-        )
+        client = MarvelNetwork.Client(
+             constructor: constructor,
+             credentials: credentials
+         )
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         subscriptions.removeAll()
+
     }
     
     func testfetchCharacters() {
@@ -85,6 +85,11 @@ class MarvelApiTests: XCTestCase {
         .store(in: &subscriptions)
         
         wait(for: [expectation], timeout: 60)
+    }
+    
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testPerformanceExample() {

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C73D5E123DA2F69000DDE85"
-               BuildableName = "MarvelApi.framework"
-               BlueprintName = "MarvelApi"
-               ReferencedContainer = "container:MarvelApi.xcodeproj">
+               BlueprintIdentifier = "5C007D9C23DF95B800FD8AFB"
+               BuildableName = "MarvelNetwork.framework"
+               BlueprintName = "MarvelNetwork"
+               ReferencedContainer = "container:MarvelNetwork.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C73D5EA23DA2F6A000DDE85"
-               BuildableName = "MarvelApiTests.xctest"
-               BlueprintName = "MarvelApiTests"
-               ReferencedContainer = "container:MarvelApi.xcodeproj">
+               BlueprintIdentifier = "5C007DA523DF95B800FD8AFB"
+               BuildableName = "MarvelNetworkTests.xctest"
+               BlueprintName = "MarvelNetworkTests"
+               ReferencedContainer = "container:MarvelNetwork.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -50,13 +50,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "CFNETWORK_DIAGNOSTICS"
-            value = "3"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,10 +60,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C73D5E123DA2F69000DDE85"
-            BuildableName = "MarvelApi.framework"
-            BlueprintName = "MarvelApi"
-            ReferencedContainer = "container:MarvelApi.xcodeproj">
+            BlueprintIdentifier = "5C007D9C23DF95B800FD8AFB"
+            BuildableName = "MarvelNetwork.framework"
+            BlueprintName = "MarvelNetwork"
+            ReferencedContainer = "container:MarvelNetwork.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
