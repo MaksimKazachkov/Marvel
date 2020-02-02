@@ -12,6 +12,7 @@
 		5CA2789F23DF9F610091ACD1 /* MarvelRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2789E23DF9F610091ACD1 /* MarvelRepositoryTests.swift */; };
 		5CA278A123DF9F610091ACD1 /* MarvelRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA2789323DF9F610091ACD1 /* MarvelRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CA278AB23DF9F6E0091ACD1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA278AA23DF9F6E0091ACD1 /* Repository.swift */; };
+		5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		5CA278A023DF9F610091ACD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CA278AA23DF9F6E0091ACD1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		5CA278AD23DF9F760091ACD1 /* CoreRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CCDD2B823E76CA80069207E /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				5CA2789423DF9F610091ACD1 /* Info.plist */,
 				5CA278AA23DF9F6E0091ACD1 /* Repository.swift */,
 				5C2C62C123E3834F0076C4E2 /* BasePersistentContainer.swift */,
+				5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */,
 			);
 			path = MarvelRepository;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				5CA278AB23DF9F6E0091ACD1 /* Repository.swift in Sources */,
 				5C2C62C223E3834F0076C4E2 /* BasePersistentContainer.swift in Sources */,
+				5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +476,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5CCDD2B823E76CA80069207E /* Characters.xcdatamodel */,
+			);
+			currentVersion = 5CCDD2B823E76CA80069207E /* Characters.xcdatamodel */;
+			path = Characters.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5CA2788723DF9F610091ACD1 /* Project object */;
 }

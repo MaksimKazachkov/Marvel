@@ -10,7 +10,7 @@ import Foundation
 import Combine
 import CoreData
 
-public class Repository /*: CoreRepository.RepositoryType*/ {
+public class Repository<T: NSManagedObject> {
     
     private let context: NSManagedObjectContext
     
@@ -19,5 +19,43 @@ public class Repository /*: CoreRepository.RepositoryType*/ {
     public init(context: NSManagedObjectContext) {
         self.context = context
     }
+    
+    func create() -> T {
+        return T(context: context)
+    }
+    
+    func queryResult(by request: NSFetchRequest<T>) throws -> T? {
+        return try request.execute().first
+    }
+    
+    func queryResults(by request: NSFetchRequest<T>) throws -> [T] {
+        return try request.execute()
+    }
+    
+    func findObject(by predicate: NSPredicate) -> T? {
+        context.registeredObjects
+            .filter({ !$0.isFault })
+            .filter({ predicate.evaluate(with: $0) })
+            .first as? T
+    }
+    
+    func updateObject(by predicate: NSPredicate, configure: (T) -> Void) throws {
+        if let object = findObject(by: predicate) {
+            configure(object)
+        } else {
+            let request = NSFetchRequest<T>()
+            request.predicate = predicate
+            guard let object = try queryResult(by: request) else {
+                return
+            }
+            configure(object)
+        }
+    }
+    
+    func delete(object: T, in context: NSManagedObjectContext) {
+        context.delete(object)
+    }
+    
+
     
 }

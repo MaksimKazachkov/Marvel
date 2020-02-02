@@ -11,7 +11,7 @@ import CoreData
 
 class BasePersistenceContainer: NSPersistentContainer {
     
-    func save(in context: NSManagedObjectContext) throws {
+    func save(context: NSManagedObjectContext) throws {
         guard context.hasChanges else {
             return
         }
@@ -23,11 +23,6 @@ class BasePersistenceContainer: NSPersistentContainer {
         }
     }
     
-    func materialize(in context: NSManagedObjectContext, by predicate: NSPredicate) -> NSManagedObject? {
-        context.registeredObjects
-            .filter({ !$0.isFault })
-            .filter({ predicate.evaluate(with: $0) })
-            .first
-    }
-    
+
+        
 }
