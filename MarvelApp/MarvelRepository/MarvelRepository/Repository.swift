@@ -21,15 +21,15 @@ public class Repository<T: NSManagedObject> {
     }
     
     func create() -> T {
-        return T(context: context)
+        T(context: context)
     }
     
     func queryResult(by request: NSFetchRequest<T>) throws -> T? {
-        return try request.execute().first
+        try request.execute().first
     }
     
     func queryResults(by request: NSFetchRequest<T>) throws -> [T] {
-        return try request.execute()
+        try request.execute()
     }
     
     func findObject(by predicate: NSPredicate) -> T? {
