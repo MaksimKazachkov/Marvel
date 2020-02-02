@@ -8,32 +8,32 @@
 
 import Foundation
 
-enum CharactersRoute: Route {
+public enum CharactersRoute: Route {
     
     case characters(CharactersRO)
     
-    var method: HTTPMethod {
+    public var method: HTTPMethod {
         switch self {
         case .characters:
             return .get
         }
     }
     
-    var path: String {
+    public var path: String {
         switch self {
         case .characters:
             return "/v1/public/characters"
         }
     }
     
-    var parameters: Self.Parameters? {
+    public var parameters: Self.Parameters? {
         switch self {
         case .characters:
             return nil
         }
     }
     
-    var data: Data? {
+    public var data: Data? {
         switch self {
         case .characters(let model):
             return try? JSONEncoder().encode(model)

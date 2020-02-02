@@ -7,12 +7,24 @@
 //
 
 import Foundation
+import Combine
 import MarvelNetwork
+import MarvelDomain
 
-final class NetworkCharactersService: CharactersService {
-
-    func characters(limit: Int, offset: Int) -> AnyPublisher<[Character], Error> {
-        
+final public class NetworkCharactersService {
+    
+    private let client: Client
+    
+    public init(client: Client) {
+        self.client = client
+    }
+    
+    public func characters(limit: Int, offset: Int) -> AnyPublisher<[Character], Error> {
+        let model = CharactersRO(limit: limit, offset: offset)
+        return client.requestObjects(
+            route: CharactersRoute.characters(model),
+            at: "data.results"
+        )
     }
     
 }

@@ -71,7 +71,7 @@ class MarvelNetworkTests: XCTestCase {
     func testFetchAndDecodeCharacters() {
         let expectation = XCTestExpectation()
         let model = CharactersRO(limit: 20, offset: 0)
-        client?.requestObjects(Character.self, route: CharactersRoute.characters(model), at: "data.results")
+        client?.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
             .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
@@ -80,7 +80,7 @@ class MarvelNetworkTests: XCTestCase {
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
-            }) { characters in
+            }) { (characters: [Character]) in
                 expectation.fulfill()
         }
         .store(in: &subscriptions)

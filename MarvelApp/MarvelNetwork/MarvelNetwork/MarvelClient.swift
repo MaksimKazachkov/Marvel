@@ -44,7 +44,7 @@ public class MarvelClient: Client {
         }
     }
     
-    public func requestObjects<T: Codable>(_ type: T.Type, route: Route, at keyPath: String) -> AnyPublisher<[T], Error> {
+    public func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)

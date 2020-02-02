@@ -12,8 +12,6 @@
 		5CA2789F23DF9F610091ACD1 /* MarvelRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2789E23DF9F610091ACD1 /* MarvelRepositoryTests.swift */; };
 		5CA278A123DF9F610091ACD1 /* MarvelRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA2789323DF9F610091ACD1 /* MarvelRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CA278AB23DF9F6E0091ACD1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA278AA23DF9F6E0091ACD1 /* Repository.swift */; };
-		5CA278AE23DF9F760091ACD1 /* CoreRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA278AD23DF9F760091ACD1 /* CoreRepository.framework */; };
-		5CA278AF23DF9F760091ACD1 /* CoreRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA278AD23DF9F760091ACD1 /* CoreRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,20 +23,6 @@
 			remoteInfo = MarvelRepository;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5CA278B023DF9F760091ACD1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5CA278AF23DF9F760091ACD1 /* CoreRepository.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C2C62C123E3834F0076C4E2 /* BasePersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePersistentContainer.swift; sourceTree = "<group>"; };
@@ -57,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CA278AE23DF9F760091ACD1 /* CoreRepository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +124,6 @@
 				5CA2788C23DF9F610091ACD1 /* Sources */,
 				5CA2788D23DF9F610091ACD1 /* Frameworks */,
 				5CA2788E23DF9F610091ACD1 /* Resources */,
-				5CA278B023DF9F760091ACD1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

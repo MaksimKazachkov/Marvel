@@ -11,13 +11,13 @@
 		5CCDD25023E711FD0069207E /* MarvelServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD24F23E711FD0069207E /* MarvelServicesTests.swift */; };
 		5CCDD25223E711FD0069207E /* MarvelServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CCDD24423E711FD0069207E /* MarvelServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CCDD25C23E712510069207E /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD25B23E712510069207E /* CharactersService.swift */; };
-		5CCDD26123E712660069207E /* CoreNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD25E23E712660069207E /* CoreNetwork.framework */; };
-		5CCDD26223E712660069207E /* CoreNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD25E23E712660069207E /* CoreNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD26323E712660069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD25F23E712660069207E /* MarvelDomain.framework */; };
 		5CCDD26423E712660069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD25F23E712660069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD26523E712660069207E /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD26023E712660069207E /* MarvelRepository.framework */; };
 		5CCDD26623E712660069207E /* MarvelRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD26023E712660069207E /* MarvelRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD26C23E71CCB0069207E /* NetworkCharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD26B23E71CCB0069207E /* NetworkCharactersService.swift */; };
+		5CCDD28723E724820069207E /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD28623E724820069207E /* MarvelNetwork.framework */; };
+		5CCDD28823E724820069207E /* MarvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD28623E724820069207E /* MarvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5CCDD26223E712660069207E /* CoreNetwork.framework in Embed Frameworks */,
+				5CCDD28823E724820069207E /* MarvelNetwork.framework in Embed Frameworks */,
 				5CCDD26623E712660069207E /* MarvelRepository.framework in Embed Frameworks */,
 				5CCDD26423E712660069207E /* MarvelDomain.framework in Embed Frameworks */,
 			);
@@ -58,6 +58,7 @@
 		5CCDD25F23E712660069207E /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCDD26023E712660069207E /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCDD26B23E71CCB0069207E /* NetworkCharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCharactersService.swift; sourceTree = "<group>"; };
+		5CCDD28623E724820069207E /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CCDD26123E712660069207E /* CoreNetwork.framework in Frameworks */,
+				5CCDD28723E724820069207E /* MarvelNetwork.framework in Frameworks */,
 				5CCDD26523E712660069207E /* MarvelRepository.framework in Frameworks */,
 				5CCDD26323E712660069207E /* MarvelDomain.framework in Frameworks */,
 			);
@@ -123,6 +124,7 @@
 		5CCDD25D23E712660069207E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CCDD28623E724820069207E /* MarvelNetwork.framework */,
 				5CCDD25E23E712660069207E /* CoreNetwork.framework */,
 				5CCDD25F23E712660069207E /* MarvelDomain.framework */,
 				5CCDD26023E712660069207E /* MarvelRepository.framework */,
