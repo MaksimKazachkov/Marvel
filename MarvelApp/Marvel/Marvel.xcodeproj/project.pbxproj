@@ -16,6 +16,12 @@
 		5C73D5B523DA2F39000DDE85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C73D5B323DA2F39000DDE85 /* LaunchScreen.storyboard */; };
 		5C73D5C023DA2F39000DDE85 /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5BF23DA2F39000DDE85 /* MarvelTests.swift */; };
 		5C73D5CB23DA2F39000DDE85 /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5CA23DA2F39000DDE85 /* MarvelUITests.swift */; };
+		5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; };
+		5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CCDD23223E711B30069207E /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22E23E711B30069207E /* MarvelNetwork.framework */; };
+		5CCDD23323E711B30069207E /* MarvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22E23E711B30069207E /* MarvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22F23E711B30069207E /* MarvelRepository.framework */; };
+		5CCDD23523E711B30069207E /* MarvelRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22F23E711B30069207E /* MarvelRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5CCDD23623E711B30069207E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CCDD23323E711B30069207E /* MarvelNetwork.framework in Embed Frameworks */,
+				5CCDD23523E711B30069207E /* MarvelRepository.framework in Embed Frameworks */,
+				5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5C73D5A223DA2F38000DDE85 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +73,9 @@
 		5C73D5C623DA2F39000DDE85 /* MarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C73D5CA23DA2F39000DDE85 /* MarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelUITests.swift; sourceTree = "<group>"; };
 		5C73D5CC23DA2F39000DDE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CCDD22D23E711B30069207E /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CCDD22E23E711B30069207E /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CCDD22F23E711B30069207E /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCDD23223E711B30069207E /* MarvelNetwork.framework in Frameworks */,
+				5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */,
+				5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +113,7 @@
 				5C73D5BE23DA2F39000DDE85 /* MarvelTests */,
 				5C73D5C923DA2F39000DDE85 /* MarvelUITests */,
 				5C73D5A323DA2F38000DDE85 /* Products */,
+				5CCDD22C23E711B30069207E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +168,16 @@
 			path = MarvelUITests;
 			sourceTree = "<group>";
 		};
+		5CCDD22C23E711B30069207E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CCDD22D23E711B30069207E /* MarvelDomain.framework */,
+				5CCDD22E23E711B30069207E /* MarvelNetwork.framework */,
+				5CCDD22F23E711B30069207E /* MarvelRepository.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +188,7 @@
 				5C73D59E23DA2F38000DDE85 /* Sources */,
 				5C73D59F23DA2F38000DDE85 /* Frameworks */,
 				5C73D5A023DA2F38000DDE85 /* Resources */,
+				5CCDD23623E711B30069207E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

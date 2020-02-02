@@ -8,9 +8,8 @@
 
 import Foundation
 import Combine
-import CoreNetwork
 
-public class Client: CoreNetwork.Client {
+public class MarvelClient: Client {
     
     private let configuration: URLSessionConfiguration = .default
     
@@ -29,65 +28,65 @@ public class Client: CoreNetwork.Client {
         session = URLSession(configuration: configuration)
     }
     
-    public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, CoreNetwork.Error> {
+    public func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
     
-    public func requestObjects<T: Codable>(_ type: T.Type, route: Route, at keyPath: String) -> AnyPublisher<[T], CoreNetwork.Error> {
+    public func requestObjects<T: Codable>(_ type: T.Type, route: Route, at keyPath: String) -> AnyPublisher<[T], Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
     
-    public func requestData(route: Route) -> AnyPublisher<Data, CoreNetwork.Error> {
+    public func requestData(route: Route) -> AnyPublisher<Data, Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
     
-    public func request(route: Route) -> AnyPublisher<(), CoreNetwork.Error> {
+    public func request(route: Route) -> AnyPublisher<(), Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .map({ _ in return Void() })
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ CoreNetwork.Error.create($0) })
+                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }

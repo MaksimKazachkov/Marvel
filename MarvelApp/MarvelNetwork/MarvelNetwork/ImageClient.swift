@@ -8,9 +8,8 @@
 
 import Foundation
 import Combine
-import CoreNetwork
 
-public class ImageClient: CoreNetwork.ImageClient {
+public class MarvelImageClient: ImageClient {
         
     private let configuration: URLSessionConfiguration = {
         let config: URLSessionConfiguration = .default
@@ -32,7 +31,7 @@ public class ImageClient: CoreNetwork.ImageClient {
     public func image(for url: URL) -> AnyPublisher<Data, Error> {
         return session.dataTaskPublisher(for: url)
             .map(\.data)
-            .mapError({ CoreNetwork.Error.create($0) })
+            .mapError({ Error.create($0) })
             .eraseToAnyPublisher()
     }
     

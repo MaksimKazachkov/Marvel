@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import CoreNetwork
 
 enum CharactersRoute: Route {
     
-    case characters
+    case characters(CharactersRO)
     
     var method: HTTPMethod {
         switch self {
@@ -36,8 +35,8 @@ enum CharactersRoute: Route {
     
     var data: Data? {
         switch self {
-        case .characters:
-            return nil
+        case .characters(let model):
+            return try? JSONEncoder().encode(model)
         }
     }
     

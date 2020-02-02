@@ -8,7 +8,6 @@
 
 import XCTest
 @testable import MarvelNetwork
-import CoreNetwork
 import Combine
 import MarvelDomain
 
@@ -28,11 +27,11 @@ class MarvelNetworkTests: XCTestCase {
     
     var subscriptions = Set<AnyCancellable>()
     
-    var client: CoreNetwork.Client!
+    var client: Client!
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        client = MarvelNetwork.Client(
+        client = MarvelClient(
              constructor: constructor,
              credentials: credentials
          )
@@ -46,7 +45,8 @@ class MarvelNetworkTests: XCTestCase {
     
     func testfetchCharacters() {
         let expectation = XCTestExpectation()
-        client?.requestData(route: CharactersRoute.characters)
+        let model = CharactersRO(limit: 20, offset: 0)
+        client?.requestData(route: CharactersRoute.characters(model))
             .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
@@ -70,7 +70,8 @@ class MarvelNetworkTests: XCTestCase {
     
     func testFetchAndDecodeCharacters() {
         let expectation = XCTestExpectation()
-        client?.requestObjects(Character.self, route: CharactersRoute.characters, at: "data.results")
+        let model = CharactersRO(limit: 20, offset: 0)
+        client?.requestObjects(Character.self, route: CharactersRoute.characters(model), at: "data.results")
             .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {

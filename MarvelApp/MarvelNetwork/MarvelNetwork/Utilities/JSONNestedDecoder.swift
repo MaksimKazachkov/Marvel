@@ -11,7 +11,7 @@ import Foundation
 /// The keypath key in the `userInfo`
 private let keyPathUserInfoKey = CodingUserInfoKey(rawValue: "keyPathUserInfoKey")!
 
-public class JSONNestedDecoder: JSONDecoder {
+class JSONNestedDecoder: JSONDecoder {
     
     private let keyPath: String
     
