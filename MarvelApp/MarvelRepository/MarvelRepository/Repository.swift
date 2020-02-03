@@ -27,6 +27,13 @@ public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.Doma
         return entity
     }
     
+    
+    func fetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.predicate = predicate
+        return try queryResult(by: request) as? T.CoreDataType
+    }
+    
     func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> NSFetchRequestResult? {
         try request.execute().first
     }
@@ -61,12 +68,6 @@ private extension Repository {
     
     func findOrFetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
         return try find(by: predicate) ?? fetch(by: predicate)
-    }
-    
-    func fetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
-        let request = NSFetchRequest<NSFetchRequestResult>()
-        request.predicate = predicate
-        return try queryResult(by: request) as? T.CoreDataType
     }
     
     func find(by predicate: NSPredicate) -> T.CoreDataType? {
