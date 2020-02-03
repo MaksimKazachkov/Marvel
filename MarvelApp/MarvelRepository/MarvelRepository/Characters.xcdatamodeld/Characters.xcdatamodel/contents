@@ -6,9 +6,15 @@
         <attribute name="modified" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="resourceURI" attributeType="URI"/>
+        <fetchedProperty name="fetchedProperty" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Character"/>
+        </fetchedProperty>
+        <fetchIndex name="byPropertyIndex">
+            <fetchIndexElement property="id" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <fetchRequest name="CharacterFetchRequest" entity="Character" fetchLimit="20"/>
     <elements>
-        <element name="Character" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Character" positionX="-63" positionY="-18" width="128" height="146"/>
     </elements>
 </model>

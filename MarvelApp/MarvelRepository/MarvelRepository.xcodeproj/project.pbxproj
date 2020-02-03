@@ -14,6 +14,8 @@
 		5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */; };
 		5CCDD2CC23E778B90069207E /* CharacterMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CA23E778B90069207E /* CharacterMO+CoreDataClass.swift */; };
 		5CCDD2CD23E778B90069207E /* CharacterMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CB23E778B90069207E /* CharacterMO+CoreDataProperties.swift */; };
+		5CCDD2CF23E7D3570069207E /* CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */; };
+		5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		5CCDD2B823E76CA80069207E /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 		5CCDD2CA23E778B90069207E /* CharacterMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5CCDD2CB23E778B90069207E /* CharacterMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepresentable.swift; sourceTree = "<group>"; };
+		5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertableType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				5CA2789323DF9F610091ACD1 /* MarvelRepository.h */,
 				5CA2789423DF9F610091ACD1 /* Info.plist */,
 				5CA278AA23DF9F6E0091ACD1 /* Repository.swift */,
+				5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */,
+				5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */,
 				5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */,
 			);
 			path = MarvelRepository;
@@ -222,6 +228,8 @@
 				5CCDD2CD23E778B90069207E /* CharacterMO+CoreDataProperties.swift in Sources */,
 				5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */,
 				5CCDD2CC23E778B90069207E /* CharacterMO+CoreDataClass.swift in Sources */,
+				5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */,
+				5CCDD2CF23E7D3570069207E /* CoreDataRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

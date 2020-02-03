@@ -10,7 +10,7 @@ import Foundation
 import Combine
 import CoreData
 
-public class Repository<T: NSManagedObject> {
+public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.DomainType {
     
     private let container: NSPersistentContainer
     
@@ -21,8 +21,35 @@ public class Repository<T: NSManagedObject> {
         self.context = container.newBackgroundContext()
     }
     
-    func create() -> T {
-        T(context: context)
+    private func sync<P>(object: T, update: @escaping (P) -> Void) where T.CoreDataType == P {
+        let predicate = NSPredicate(
+            format: "%@ == %@",
+            T.primaryAttribute,
+            object.uid
+        )
+        if let result = find(by: predicate) {
+            //            sync(object: <#T##T#>, update: <#T##(P) -> Void#>)
+        } else {
+            let request = NSFetchRequest<NSFetchRequestResult>()
+            request.predicate = predicate
+            do {
+                if let result = try queryResult(by: request) {
+                    
+                } else {
+                    create(object: object)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    
+    func create(object: T) -> T.CoreDataType {
+        let entity = T.CoreDataType(context: context)
+        //        object.update(entity: entity)
+        
+        return entity
     }
     
     func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> NSFetchRequestResult? {
@@ -54,7 +81,7 @@ public class Repository<T: NSManagedObject> {
     }
     
     func delete(object: T) {
-        context.delete(object)
+        //        context.delete(object)
     }
     
     private func save(context: NSManagedObjectContext) throws {
