@@ -16,10 +16,6 @@ extension CharacterMO {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CharacterMO> {
         return NSFetchRequest<CharacterMO>(entityName: "Character")
     }
-    
-    @nonobjc public class func charactersFetchRequest() -> NSFetchRequest<NSFetchRequestResult> {
-        return entity().managedObjectModel.fetchRequestTemplate(forName: "CharacterFetchRequest")!
-    }
 
     @NSManaged public var desc: String?
     @NSManaged public var id: Int64

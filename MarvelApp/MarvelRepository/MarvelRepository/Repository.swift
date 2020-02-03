@@ -12,7 +12,7 @@ import CoreData
 
 public class Repository<T: NSManagedObject> {
     
-    let container: NSPersistentContainer
+    private let container: NSPersistentContainer
     
     private let context: NSManagedObjectContext
     
