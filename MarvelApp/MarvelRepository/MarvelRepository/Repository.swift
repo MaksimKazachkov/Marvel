@@ -36,22 +36,23 @@ public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.Doma
     }
     
     func update(object: T) throws {
-        try 
         let predicate = NSPredicate(format: "id == %@", object.uid)
-        if let entity = find(by: predicate) {
-            object.update(entity: entity)
-        } else {
-            let request = NSFetchRequest<NSFetchRequestResult>()
-            request.predicate = predicate
-            guard let entity = try queryResult(by: request) as? T.CoreDataType else {
-                return
-            }
-            object.update(entity: entity)
+        guard let entity = try findOrFetch(by: predicate) else {
+            return
         }
+        object.update(entity: entity)
     }
     
     func delete(object: T) {
-        context.delete(object)
+        let predicate = NSPredicate(format: "id == %@", object.uid)
+        do {
+            guard let entity = try findOrFetch(by: predicate) else {
+                return
+            }
+            context.delete(entity)
+        } catch {
+            print(error)
+        }
     }
     
 }
@@ -59,16 +60,13 @@ public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.Doma
 private extension Repository {
     
     func findOrFetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
-        if let entity = find(by: predicate) {
-            return entity
-        } else {
-            let request = NSFetchRequest<NSFetchRequestResult>()
-            request.predicate = predicate
-            guard let entity = try queryResult(by: request) as? T.CoreDataType else {
-                return nil
-            }
-            return entity
-        }
+        return try find(by: predicate) ?? fetch(by: predicate)
+    }
+    
+    func fetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.predicate = predicate
+        return try queryResult(by: request) as? T.CoreDataType
     }
     
     func find(by predicate: NSPredicate) -> T.CoreDataType? {
