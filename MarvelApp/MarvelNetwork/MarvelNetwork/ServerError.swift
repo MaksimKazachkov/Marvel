@@ -9,8 +9,6 @@
 import Foundation
 
 public struct ServerError: Codable {
- 
-    
     
 }
 

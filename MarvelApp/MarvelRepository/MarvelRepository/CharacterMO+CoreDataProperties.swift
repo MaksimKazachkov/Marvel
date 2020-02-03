@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension CharacterMO {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CharacterMO> {

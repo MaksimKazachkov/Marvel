@@ -21,34 +21,9 @@ public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.Doma
         self.context = container.newBackgroundContext()
     }
     
-    private func sync<P>(object: T, update: @escaping (P) -> Void) where T.CoreDataType == P {
-        let predicate = NSPredicate(
-            format: "%@ == %@",
-            T.primaryAttribute,
-            object.uid
-        )
-        if let result = find(by: predicate) {
-            //            sync(object: <#T##T#>, update: <#T##(P) -> Void#>)
-        } else {
-            let request = NSFetchRequest<NSFetchRequestResult>()
-            request.predicate = predicate
-            do {
-                if let result = try queryResult(by: request) {
-                    
-                } else {
-                    create(object: object)
-                }
-            } catch {
-                print(error)
-            }
-            
-        }
-    }
-    
     func create(object: T) -> T.CoreDataType {
         let entity = T.CoreDataType(context: context)
-        //        object.update(entity: entity)
-        
+        object.update(entity: entity)
         return entity
     }
     
@@ -60,31 +35,50 @@ public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.Doma
         try request.execute()
     }
     
-    func find(by predicate: NSPredicate) -> T? {
-        context.registeredObjects
-            .filter({ !$0.isFault })
-            .filter({ predicate.evaluate(with: $0) })
-            .first as? T
-    }
-    
-    func update(by predicate: NSPredicate, configure: (T) -> Void) throws {
-        if let object = find(by: predicate) {
-            configure(object)
+    func update(object: T) throws {
+        try 
+        let predicate = NSPredicate(format: "id == %@", object.uid)
+        if let entity = find(by: predicate) {
+            object.update(entity: entity)
         } else {
             let request = NSFetchRequest<NSFetchRequestResult>()
             request.predicate = predicate
-            guard let object = try queryResult(by: request) as? T else {
+            guard let entity = try queryResult(by: request) as? T.CoreDataType else {
                 return
             }
-            configure(object)
+            object.update(entity: entity)
         }
     }
     
     func delete(object: T) {
-        //        context.delete(object)
+        context.delete(object)
     }
     
-    private func save(context: NSManagedObjectContext) throws {
+}
+
+private extension Repository {
+    
+    func findOrFetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
+        if let entity = find(by: predicate) {
+            return entity
+        } else {
+            let request = NSFetchRequest<NSFetchRequestResult>()
+            request.predicate = predicate
+            guard let entity = try queryResult(by: request) as? T.CoreDataType else {
+                return nil
+            }
+            return entity
+        }
+    }
+    
+    func find(by predicate: NSPredicate) -> T.CoreDataType? {
+        context.registeredObjects
+            .filter({ !$0.isFault })
+            .filter({ predicate.evaluate(with: $0) })
+            .first as? T.CoreDataType
+    }
+    
+    func save(context: NSManagedObjectContext) throws {
         guard context.hasChanges else {
             return
         }

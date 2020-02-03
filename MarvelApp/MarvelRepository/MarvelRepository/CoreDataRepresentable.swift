@@ -16,7 +16,5 @@ public protocol CoreDataRepresentable {
     var uid: String { get }
     
     func update(entity: CoreDataType)
-    
-    static var primaryAttribute: String { get }
-    
+        
 }
