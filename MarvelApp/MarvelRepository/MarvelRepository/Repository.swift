@@ -12,50 +12,61 @@ import CoreData
 
 public class Repository<T: NSManagedObject> {
     
+    let container: NSPersistentContainer
+    
     private let context: NSManagedObjectContext
     
-    private let scheduler: ImmediateScheduler = .shared
-    
-    public init(context: NSManagedObjectContext) {
-        self.context = context
+    public init(container: NSPersistentContainer) {
+        self.container = container
+        self.context = container.newBackgroundContext()
     }
     
     func create() -> T {
         T(context: context)
     }
     
-    func queryResult(by request: NSFetchRequest<T>) throws -> T? {
+    func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> NSFetchRequestResult? {
         try request.execute().first
     }
     
-    func queryResults(by request: NSFetchRequest<T>) throws -> [T] {
+    func queryResults(by request: NSFetchRequest<NSFetchRequestResult>) throws -> [NSFetchRequestResult] {
         try request.execute()
     }
     
-    func findObject(by predicate: NSPredicate) -> T? {
+    func find(by predicate: NSPredicate) -> T? {
         context.registeredObjects
             .filter({ !$0.isFault })
             .filter({ predicate.evaluate(with: $0) })
             .first as? T
     }
     
-    func updateObject(by predicate: NSPredicate, configure: (T) -> Void) throws {
-        if let object = findObject(by: predicate) {
+    func update(by predicate: NSPredicate, configure: (T) -> Void) throws {
+        if let object = find(by: predicate) {
             configure(object)
         } else {
-            let request = NSFetchRequest<T>()
+            let request = NSFetchRequest<NSFetchRequestResult>()
             request.predicate = predicate
-            guard let object = try queryResult(by: request) else {
+            guard let object = try queryResult(by: request) as? T else {
                 return
             }
             configure(object)
         }
     }
     
-    func delete(object: T, in context: NSManagedObjectContext) {
+    func delete(object: T) {
         context.delete(object)
     }
     
-
+    private func save(context: NSManagedObjectContext) throws {
+        guard context.hasChanges else {
+            return
+        }
+        do {
+            try context.save()
+        } catch {
+            context.rollback()
+            throw error
+        }
+    }
     
 }
