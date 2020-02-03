@@ -18,8 +18,6 @@
 		5C73D5CB23DA2F39000DDE85 /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5CA23DA2F39000DDE85 /* MarvelUITests.swift */; };
 		5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; };
 		5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CCDD23223E711B30069207E /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22E23E711B30069207E /* MarvelNetwork.framework */; };
-		5CCDD23323E711B30069207E /* MarvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22E23E711B30069207E /* MarvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22F23E711B30069207E /* MarvelRepository.framework */; };
 		5CCDD23523E711B30069207E /* MarvelRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22F23E711B30069207E /* MarvelRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -48,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5CCDD23323E711B30069207E /* MarvelNetwork.framework in Embed Frameworks */,
 				5CCDD23523E711B30069207E /* MarvelRepository.framework in Embed Frameworks */,
 				5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */,
 			);
@@ -83,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CCDD23223E711B30069207E /* MarvelNetwork.framework in Frameworks */,
 				5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */,
 				5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */,
 			);

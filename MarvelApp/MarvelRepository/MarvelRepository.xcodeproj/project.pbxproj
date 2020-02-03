@@ -16,7 +16,6 @@
 		5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */; };
 		5CCDD2D623E8C0430069207E /* Character+CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D523E8C0430069207E /* Character+CoreDataRepresentable.swift */; };
 		5CCDD2D823E8C05A0069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */; };
-		5CCDD2D923E8C05A0069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD2DE23E8C0F40069207E /* CharacterMO+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2DD23E8C0F40069207E /* CharacterMO+DomainConvertableType.swift */; };
 		5CCDD2E123E8C17C0069207E /* CharacterMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2DF23E8C17C0069207E /* CharacterMO+CoreDataClass.swift */; };
 		5CCDD2E223E8C17C0069207E /* CharacterMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2E023E8C17C0069207E /* CharacterMO+CoreDataProperties.swift */; };
@@ -32,20 +31,6 @@
 			remoteInfo = MarvelRepository;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5CCDD2DA23E8C05A0069207E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5CCDD2D923E8C05A0069207E /* MarvelDomain.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5CA2789023DF9F610091ACD1 /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +181,6 @@
 				5CA2788C23DF9F610091ACD1 /* Sources */,
 				5CA2788D23DF9F610091ACD1 /* Frameworks */,
 				5CA2788E23DF9F610091ACD1 /* Resources */,
-				5CCDD2DA23E8C05A0069207E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -452,6 +436,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -warn-long-function-bodies=200 -Xfrontend -warn-long-expression-type-checking=200";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelRepository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

@@ -12,12 +12,9 @@
 		5CCDD25223E711FD0069207E /* MarvelServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CCDD24423E711FD0069207E /* MarvelServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CCDD25C23E712510069207E /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD25B23E712510069207E /* CharactersService.swift */; };
 		5CCDD26323E712660069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD25F23E712660069207E /* MarvelDomain.framework */; };
-		5CCDD26423E712660069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD25F23E712660069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD26523E712660069207E /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD26023E712660069207E /* MarvelRepository.framework */; };
-		5CCDD26623E712660069207E /* MarvelRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD26023E712660069207E /* MarvelRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD26C23E71CCB0069207E /* NetworkCharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD26B23E71CCB0069207E /* NetworkCharactersService.swift */; };
 		5CCDD28723E724820069207E /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD28623E724820069207E /* MarvelNetwork.framework */; };
-		5CCDD28823E724820069207E /* MarvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD28623E724820069207E /* MarvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,22 +26,6 @@
 			remoteInfo = MarvelServices;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5CCDD26723E712670069207E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5CCDD28823E724820069207E /* MarvelNetwork.framework in Embed Frameworks */,
-				5CCDD26623E712660069207E /* MarvelRepository.framework in Embed Frameworks */,
-				5CCDD26423E712660069207E /* MarvelDomain.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5CCDD24123E711FD0069207E /* MarvelServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +144,6 @@
 				5CCDD23D23E711FD0069207E /* Sources */,
 				5CCDD23E23E711FD0069207E /* Frameworks */,
 				5CCDD23F23E711FD0069207E /* Resources */,
-				5CCDD26723E712670069207E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
