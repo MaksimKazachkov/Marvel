@@ -9,8 +9,9 @@
 import Foundation
 import Combine
 import CoreData
+import MarvelDomain
 
-public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.DomainType {
+public class MarvelRepository<T: CoreDataRepresentable>: Repository where T == T.CoreDataType.DomainType {
     
     private let container: NSPersistentContainer
     
@@ -21,17 +22,72 @@ public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.Doma
         self.context = container.newBackgroundContext()
     }
     
-    func create(object: T) -> T.CoreDataType {
-        let entity = T.CoreDataType(context: context)
-        object.update(entity: entity)
-        return entity
+    public func create(object: T) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] (promise) in
+            guard let self = self else {
+                return
+            }
+            let entity = T.CoreDataType(context: self.context)
+            object.update(entity: entity)
+            promise(.success(()))
+        }
+        .flatMap({ self.save(context: self.context) })
+        .eraseToAnyPublisher()
     }
     
+    public func read(by predicate: NSPredicate) -> AnyPublisher<T?, Error> {
+        return Future { [weak self] (promise) in
+            guard let self = self else {
+                return
+            }
+            do {
+                let entity = try self.findOrFetch(by: predicate)
+                promise(.success(entity?.asDomain()))
+            } catch {
+                promise(.failure(error))
+            }
+        }
+        .eraseToAnyPublisher()
+    }
     
-    func fetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
-        let request = NSFetchRequest<NSFetchRequestResult>()
-        request.predicate = predicate
-        return try queryResult(by: request) as? T.CoreDataType
+    public func update(object: T) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] (promise) in
+            guard let self = self else {
+                return
+            }
+            let predicate = NSPredicate(format: "id == %@", object.uid)
+            do {
+                guard let entity = try self.findOrFetch(by: predicate) else {
+                    return
+                }
+                object.update(entity: entity)
+                promise(.success(()))
+            } catch {
+                promise(.failure(error))
+            }
+        }
+        .flatMap({ self.save(context: self.context) })
+        .eraseToAnyPublisher()
+    }
+    
+    public func delete(object: T) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] (promise) in
+            guard let self = self else {
+                return
+            }
+            let predicate = NSPredicate(format: "id == %@", object.uid)
+            do {
+                guard let entity = try self.findOrFetch(by: predicate) else {
+                    return
+                }
+                self.context.delete(entity)
+                promise(.success(()))
+            } catch {
+                promise(.failure(error))
+            }
+        }
+        .flatMap({ self.save(context: self.context) })
+        .eraseToAnyPublisher()
     }
     
     func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> NSFetchRequestResult? {
@@ -42,32 +98,19 @@ public class Repository<T: CoreDataRepresentable> where T == T.CoreDataType.Doma
         try request.execute()
     }
     
-    func update(object: T) throws {
-        let predicate = NSPredicate(format: "id == %@", object.uid)
-        guard let entity = try findOrFetch(by: predicate) else {
-            return
-        }
-        object.update(entity: entity)
-    }
-    
-    func delete(object: T) {
-        let predicate = NSPredicate(format: "id == %@", object.uid)
-        do {
-            guard let entity = try findOrFetch(by: predicate) else {
-                return
-            }
-            context.delete(entity)
-        } catch {
-            print(error)
-        }
-    }
-    
 }
 
-private extension Repository {
+// MARK: - Private methods
+private extension MarvelRepository {
     
     func findOrFetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
         return try find(by: predicate) ?? fetch(by: predicate)
+    }
+    
+    func fetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.predicate = predicate
+        return try self.queryResult(by: request) as? T.CoreDataType
     }
     
     func find(by predicate: NSPredicate) -> T.CoreDataType? {
@@ -77,16 +120,19 @@ private extension Repository {
             .first as? T.CoreDataType
     }
     
-    func save(context: NSManagedObjectContext) throws {
-        guard context.hasChanges else {
-            return
-        }
-        do {
-            try context.save()
-        } catch {
-            context.rollback()
-            throw error
-        }
+    func save(context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
+        return Future { (promise) in
+            guard context.hasChanges else {
+                return
+            }
+            do {
+                try context.save()
+                promise(.success(()))
+            } catch {
+                context.rollback()
+                promise(.failure(error))
+            }
+        }.eraseToAnyPublisher()
     }
     
 }

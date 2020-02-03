@@ -12,10 +12,15 @@
 		5CA278A123DF9F610091ACD1 /* MarvelRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA2789323DF9F610091ACD1 /* MarvelRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CA278AB23DF9F6E0091ACD1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA278AA23DF9F6E0091ACD1 /* Repository.swift */; };
 		5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */; };
-		5CCDD2CC23E778B90069207E /* CharacterMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CA23E778B90069207E /* CharacterMO+CoreDataClass.swift */; };
-		5CCDD2CD23E778B90069207E /* CharacterMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CB23E778B90069207E /* CharacterMO+CoreDataProperties.swift */; };
 		5CCDD2CF23E7D3570069207E /* CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */; };
 		5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */; };
+		5CCDD2D623E8C0430069207E /* Character+CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D523E8C0430069207E /* Character+CoreDataRepresentable.swift */; };
+		5CCDD2D823E8C05A0069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */; };
+		5CCDD2D923E8C05A0069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CCDD2DE23E8C0F40069207E /* CharacterMO+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2DD23E8C0F40069207E /* CharacterMO+DomainConvertableType.swift */; };
+		5CCDD2E123E8C17C0069207E /* CharacterMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2DF23E8C17C0069207E /* CharacterMO+CoreDataClass.swift */; };
+		5CCDD2E223E8C17C0069207E /* CharacterMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2E023E8C17C0069207E /* CharacterMO+CoreDataProperties.swift */; };
+		5CCDD2E423E8C6A70069207E /* RepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2E323E8C6A70069207E /* RepositoryType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +33,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5CCDD2DA23E8C05A0069207E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CCDD2D923E8C05A0069207E /* MarvelDomain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5CA2789023DF9F610091ACD1 /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA2789323DF9F610091ACD1 /* MarvelRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelRepository.h; sourceTree = "<group>"; };
@@ -38,10 +57,14 @@
 		5CA278AA23DF9F6E0091ACD1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		5CA278AD23DF9F760091ACD1 /* CoreRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCDD2B823E76CA80069207E /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
-		5CCDD2CA23E778B90069207E /* CharacterMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5CCDD2CB23E778B90069207E /* CharacterMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepresentable.swift; sourceTree = "<group>"; };
 		5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertableType.swift; sourceTree = "<group>"; };
+		5CCDD2D523E8C0430069207E /* Character+CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataRepresentable.swift"; sourceTree = "<group>"; };
+		5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CCDD2DD23E8C0F40069207E /* CharacterMO+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+DomainConvertableType.swift"; sourceTree = "<group>"; };
+		5CCDD2DF23E8C17C0069207E /* CharacterMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5CCDD2E023E8C17C0069207E /* CharacterMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5CCDD2E323E8C6A70069207E /* RepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCDD2D823E8C05A0069207E /* MarvelDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,13 +109,12 @@
 		5CA2789223DF9F610091ACD1 /* MarvelRepository */ = {
 			isa = PBXGroup;
 			children = (
-				5CCDD2CA23E778B90069207E /* CharacterMO+CoreDataClass.swift */,
-				5CCDD2CB23E778B90069207E /* CharacterMO+CoreDataProperties.swift */,
+				5CCDD2E523E8C6B50069207E /* Abstract */,
+				5CCDD2D423E8C0230069207E /* DTO */,
+				5CCDD2DB23E8C0C50069207E /* NSManagedObjectes */,
 				5CA2789323DF9F610091ACD1 /* MarvelRepository.h */,
 				5CA2789423DF9F610091ACD1 /* Info.plist */,
 				5CA278AA23DF9F6E0091ACD1 /* Repository.swift */,
-				5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */,
-				5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */,
 				5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */,
 			);
 			path = MarvelRepository;
@@ -109,9 +132,46 @@
 		5CA278AC23DF9F760091ACD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */,
 				5CA278AD23DF9F760091ACD1 /* CoreRepository.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CCDD2D423E8C0230069207E /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				5CCDD2D523E8C0430069207E /* Character+CoreDataRepresentable.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		5CCDD2DB23E8C0C50069207E /* NSManagedObjectes */ = {
+			isa = PBXGroup;
+			children = (
+				5CCDD2DC23E8C0D80069207E /* CharacterMO */,
+			);
+			path = NSManagedObjectes;
+			sourceTree = "<group>";
+		};
+		5CCDD2DC23E8C0D80069207E /* CharacterMO */ = {
+			isa = PBXGroup;
+			children = (
+				5CCDD2DF23E8C17C0069207E /* CharacterMO+CoreDataClass.swift */,
+				5CCDD2E023E8C17C0069207E /* CharacterMO+CoreDataProperties.swift */,
+				5CCDD2DD23E8C0F40069207E /* CharacterMO+DomainConvertableType.swift */,
+			);
+			path = CharacterMO;
+			sourceTree = "<group>";
+		};
+		5CCDD2E523E8C6B50069207E /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				5CCDD2E323E8C6A70069207E /* RepositoryType.swift */,
+				5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */,
+				5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */,
+			);
+			path = Abstract;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +196,7 @@
 				5CA2788C23DF9F610091ACD1 /* Sources */,
 				5CA2788D23DF9F610091ACD1 /* Frameworks */,
 				5CA2788E23DF9F610091ACD1 /* Resources */,
+				5CCDD2DA23E8C05A0069207E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,11 +286,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CA278AB23DF9F6E0091ACD1 /* Repository.swift in Sources */,
-				5CCDD2CD23E778B90069207E /* CharacterMO+CoreDataProperties.swift in Sources */,
+				5CCDD2E123E8C17C0069207E /* CharacterMO+CoreDataClass.swift in Sources */,
 				5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */,
-				5CCDD2CC23E778B90069207E /* CharacterMO+CoreDataClass.swift in Sources */,
+				5CCDD2E423E8C6A70069207E /* RepositoryType.swift in Sources */,
+				5CCDD2E223E8C17C0069207E /* CharacterMO+CoreDataProperties.swift in Sources */,
 				5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */,
+				5CCDD2DE23E8C0F40069207E /* CharacterMO+DomainConvertableType.swift in Sources */,
 				5CCDD2CF23E7D3570069207E /* CoreDataRepresentable.swift in Sources */,
+				5CCDD2D623E8C0430069207E /* Character+CoreDataRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
