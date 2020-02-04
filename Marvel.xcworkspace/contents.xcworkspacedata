@@ -2,10 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MarvelApp/MarvelDAO/MarvelDAO.xcodeproj">
+      location = "group:MarvelApp/MarvelUseCase/MarvelUseCase.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:MarvelApp/MarvelServices/MarvelServices.xcodeproj">
+      location = "group:MarvelApp/MarvelRepository/MarvelRepository.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MarvelApp/MarvelDAO/MarvelDAO.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MarvelApp/MarvelNetwork/MarvelNetwork.xcodeproj">

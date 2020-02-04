@@ -34,12 +34,10 @@ public class MarvelClient: Client {
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: T.self, decoder: JSONNestedDecoder(keyPath: keyPath))
-                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
@@ -50,12 +48,10 @@ public class MarvelClient: Client {
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .decode(type: [T].self, decoder: JSONNestedDecoder(keyPath: keyPath))
-                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
@@ -65,12 +61,10 @@ public class MarvelClient: Client {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
-                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
@@ -81,12 +75,10 @@ public class MarvelClient: Client {
             return session.dataTaskPublisher(for: request)
                 .tryMap({ try validate(data: $0.data, response: $0.response) })
                 .map({ _ in return Void() })
-                .mapError({ Error.create($0) })
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error)
-                .mapError({ Error.create($0) })
                 .eraseToAnyPublisher()
         }
     }
