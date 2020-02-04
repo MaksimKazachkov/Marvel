@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5CA2788F23DF9F610091ACD1"
-               BuildableName = "MarvelRepository.framework"
-               BlueprintName = "MarvelRepository"
-               ReferencedContainer = "container:MarvelRepository.xcodeproj">
+               BuildableName = "MarvelDAO.framework"
+               BlueprintName = "MarvelDAO"
+               ReferencedContainer = "container:MarvelDAO.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CA2789823DF9F610091ACD1"
-               BuildableName = "MarvelRepositoryTests.xctest"
-               BlueprintName = "MarvelRepositoryTests"
-               ReferencedContainer = "container:MarvelRepository.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -61,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CA2788F23DF9F610091ACD1"
-            BuildableName = "MarvelRepository.framework"
-            BlueprintName = "MarvelRepository"
-            ReferencedContainer = "container:MarvelRepository.xcodeproj">
+            BuildableName = "MarvelDAO.framework"
+            BlueprintName = "MarvelDAO"
+            ReferencedContainer = "container:MarvelDAO.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

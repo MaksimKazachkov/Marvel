@@ -10,7 +10,7 @@ import Foundation
 import Combine
 import CoreData
 
-public protocol Repository {
+public protocol DAO {
     
     associatedtype T
     

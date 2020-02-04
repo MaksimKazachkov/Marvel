@@ -1,6 +1,6 @@
 //
-//  Repository.swift
-//  MarvelRepository
+//  CoreDataDAO.swift
+//  MarvelDAO
 //
 //  Created by Maksim Kazachkov on 28.01.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
@@ -11,7 +11,7 @@ import Combine
 import CoreData
 import MarvelDomain
 
-public class MarvelRepository<T: CoreDataRepresentable>: Repository where T == T.CoreDataType.DomainType {
+public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataType.DomainType {
     
     private let container: NSPersistentContainer
     
@@ -101,7 +101,7 @@ public class MarvelRepository<T: CoreDataRepresentable>: Repository where T == T
 }
 
 // MARK: - Private methods
-private extension MarvelRepository {
+private extension CoreDataDAO {
     
     func findOrFetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
         return try find(by: predicate) ?? fetch(by: predicate)

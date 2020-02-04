@@ -61,7 +61,6 @@
 		5C007DC423DF95DA00FD8AFB /* MD5Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Encryptor.swift; sourceTree = "<group>"; };
 		5C007DC523DF95DA00FD8AFB /* HTTPURLResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseValidator.swift; sourceTree = "<group>"; };
 		5C007DC623DF95DA00FD8AFB /* CodableContainerTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableContainerTransformer.swift; sourceTree = "<group>"; };
-		5C007DC923DF967F00FD8AFB /* CoreNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C007DCD23DF968300FD8AFB /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA2785C23DF99E10091ACD1 /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 		5CCDD26F23E71D850069207E /* CharactersRO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRO.swift; sourceTree = "<group>"; };
@@ -185,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				5C007DCD23DF968300FD8AFB /* MarvelDomain.framework */,
-				5C007DC923DF967F00FD8AFB /* CoreNetwork.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
