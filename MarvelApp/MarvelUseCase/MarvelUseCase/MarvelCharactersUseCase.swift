@@ -11,20 +11,13 @@ import Combine
 import MarvelDomain
 import MarvelRepository
 import MarvelDAO
+import Resolver
 
 final public class MarvelCharactersUseCase: CharactersUseCase {
     
-    public let repository: CharactersRepository
+    @Injected private var repository: CharactersRepository
     
-    public let dao: CoreDataDAO<Character>
-    
-    public init(
-        repository: CharactersRepository,
-        dao: CoreDataDAO<Character>
-    ) {
-        self.repository = repository
-        self.dao = dao
-    }
+    @Injected private var dao: CoreDataDAO<Character>
     
     public func fetch(limit: Int, offset: Int) -> AnyPublisher<[Character], Error> {
         return repository.characters(limit: limit, offset: offset)

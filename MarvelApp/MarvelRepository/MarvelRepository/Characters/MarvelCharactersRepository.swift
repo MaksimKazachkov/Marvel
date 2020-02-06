@@ -10,15 +10,12 @@ import Foundation
 import Combine
 import MarvelDomain
 import MarvelNetwork
+import Resolver
 
 final public class MarvelCharactersRepository: CharactersRepository {
     
-    private let client: Client
-    
-    public init(client: Client) {
-        self.client = client
-    }
-    
+    @Injected private let client: Client
+
     public func characters(limit: Int, offset: Int) -> AnyPublisher<[Character], Error> {
         let model = CharactersRO(limit: limit, offset: offset)
         return client.requestObjects(

@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import Resolver
 
 public class MarvelClient: Client {
     
@@ -15,15 +16,11 @@ public class MarvelClient: Client {
     
     private let session: URLSession
     
-    private let credentials: Credentials
+    @Injected private var credentials: Credentials
         
-    private let constructor: URLRequestConstructor
+    @Injected private var constructor: URLRequestConstructor
     
-    public init(
-        constructor: URLRequestConstructor,
-        credentials: Credentials) {
-        self.constructor = constructor
-        self.credentials = credentials
+    public init() {
         configuration.waitsForConnectivity = true
         session = URLSession(configuration: configuration)
     }

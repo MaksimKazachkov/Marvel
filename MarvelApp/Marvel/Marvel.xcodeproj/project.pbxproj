@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C63DF7823EC8B9600B61C8D /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 5C63DF7723EC8B9600B61C8D /* Resolver */; };
+		5C63DF7A23EC8D0400B61C8D /* AppDelegate+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DF7923EC8D0400B61C8D /* AppDelegate+DI.swift */; };
 		5C73D5A623DA2F39000DDE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */; };
 		5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */; };
-		5C73D5AB23DA2F39000DDE85 /* Marvel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5A923DA2F39000DDE85 /* Marvel.xcdatamodeld */; };
 		5C73D5AD23DA2F39000DDE85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5AC23DA2F39000DDE85 /* ContentView.swift */; };
 		5C73D5AF23DA2F39000DDE85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C73D5AE23DA2F39000DDE85 /* Assets.xcassets */; };
 		5C73D5B223DA2F39000DDE85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C73D5B123DA2F39000DDE85 /* Preview Assets.xcassets */; };
@@ -55,10 +56,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C63DF7923EC8D0400B61C8D /* AppDelegate+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+DI.swift"; sourceTree = "<group>"; };
 		5C73D5A223DA2F38000DDE85 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C73D5AA23DA2F39000DDE85 /* Marvel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marvel.xcdatamodel; sourceTree = "<group>"; };
 		5C73D5AC23DA2F39000DDE85 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C73D5AE23DA2F39000DDE85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C73D5B123DA2F39000DDE85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C63DF7823EC8B9600B61C8D /* Resolver in Frameworks */,
 				5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */,
 				5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */,
 			);
@@ -127,12 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */,
+				5C63DF7923EC8D0400B61C8D /* AppDelegate+DI.swift */,
 				5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */,
 				5C73D5AC23DA2F39000DDE85 /* ContentView.swift */,
 				5C73D5AE23DA2F39000DDE85 /* Assets.xcassets */,
 				5C73D5B323DA2F39000DDE85 /* LaunchScreen.storyboard */,
 				5C73D5B623DA2F39000DDE85 /* Info.plist */,
-				5C73D5A923DA2F39000DDE85 /* Marvel.xcdatamodeld */,
 				5C73D5B023DA2F39000DDE85 /* Preview Content */,
 			);
 			path = Marvel;
@@ -191,6 +193,9 @@
 			dependencies = (
 			);
 			name = Marvel;
+			packageProductDependencies = (
+				5C63DF7723EC8B9600B61C8D /* Resolver */,
+			);
 			productName = Marvel;
 			productReference = 5C73D5A223DA2F38000DDE85 /* Marvel.app */;
 			productType = "com.apple.product-type.application";
@@ -263,6 +268,9 @@
 				Base,
 			);
 			mainGroup = 5C73D59923DA2F38000DDE85;
+			packageReferences = (
+				5C63DF7623EC8B9600B61C8D /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 5C73D5A323DA2F38000DDE85 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,10 +314,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C73D5AB23DA2F39000DDE85 /* Marvel.xcdatamodeld in Sources */,
 				5C73D5A623DA2F39000DDE85 /* AppDelegate.swift in Sources */,
 				5C73D5AD23DA2F39000DDE85 /* ContentView.swift in Sources */,
 				5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */,
+				5C63DF7A23EC8D0400B61C8D /* AppDelegate+DI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,18 +637,24 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		5C73D5A923DA2F39000DDE85 /* Marvel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5C73D5AA23DA2F39000DDE85 /* Marvel.xcdatamodel */,
-			);
-			currentVersion = 5C73D5AA23DA2F39000DDE85 /* Marvel.xcdatamodel */;
-			path = Marvel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		5C63DF7623EC8B9600B61C8D /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
 		};
-/* End XCVersionGroup section */
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C63DF7723EC8B9600B61C8D /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C63DF7623EC8B9600B61C8D /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C73D59A23DA2F38000DDE85 /* Project object */;
 }

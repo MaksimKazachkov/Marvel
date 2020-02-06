@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C63DF7523EC8B7D00B61C8D /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 5C63DF7423EC8B7D00B61C8D /* Resolver */; };
 		5C7F5EC823E9F83F000FFB89 /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5EBE23E9F83F000FFB89 /* MarvelRepository.framework */; };
 		5C7F5ECD23E9F83F000FFB89 /* MarvelRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5ECC23E9F83F000FFB89 /* MarvelRepositoryTests.swift */; };
 		5C7F5ECF23E9F83F000FFB89 /* MarvelRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C7F5EC123E9F83F000FFB89 /* MarvelRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C63DF7523EC8B7D00B61C8D /* Resolver in Frameworks */,
 				5C7F5EE223E9F8D5000FFB89 /* MarvelNetwork.framework in Frameworks */,
 				5C7F5EE023E9F8D5000FFB89 /* MarvelDomain.framework in Frameworks */,
 			);
@@ -144,6 +146,9 @@
 			dependencies = (
 			);
 			name = MarvelRepository;
+			packageProductDependencies = (
+				5C63DF7423EC8B7D00B61C8D /* Resolver */,
+			);
 			productName = MarvelRepository;
 			productReference = 5C7F5EBE23E9F83F000FFB89 /* MarvelRepository.framework */;
 			productType = "com.apple.product-type.framework";
@@ -194,6 +199,9 @@
 				Base,
 			);
 			mainGroup = 5C7F5EB423E9F83F000FFB89;
+			packageReferences = (
+				5C63DF7323EC8B7D00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 5C7F5EBF23E9F83F000FFB89 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -486,6 +494,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C63DF7323EC8B7D00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C63DF7423EC8B7D00B61C8D /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C63DF7323EC8B7D00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C7F5EB523E9F83F000FFB89 /* Project object */;
 }

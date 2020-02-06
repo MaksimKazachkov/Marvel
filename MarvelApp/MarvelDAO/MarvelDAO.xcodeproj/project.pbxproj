@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C63DF7223EC8B5B00B61C8D /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 5C63DF7123EC8B5B00B61C8D /* Resolver */; };
 		5CA2789A23DF9F610091ACD1 /* MarvelDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA2789023DF9F610091ACD1 /* MarvelDAO.framework */; };
 		5CA2789F23DF9F610091ACD1 /* MarvelDAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2789E23DF9F610091ACD1 /* MarvelDAOTests.swift */; };
 		5CA278A123DF9F610091ACD1 /* MarvelDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA2789323DF9F610091ACD1 /* MarvelDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C63DF7223EC8B5B00B61C8D /* Resolver in Frameworks */,
 				5CCDD2D823E8C05A0069207E /* MarvelDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +187,9 @@
 			dependencies = (
 			);
 			name = MarvelDAO;
+			packageProductDependencies = (
+				5C63DF7123EC8B5B00B61C8D /* Resolver */,
+			);
 			productName = MarvelRepository;
 			productReference = 5CA2789023DF9F610091ACD1 /* MarvelDAO.framework */;
 			productType = "com.apple.product-type.framework";
@@ -235,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 5CA2788623DF9F610091ACD1;
+			packageReferences = (
+				5C63DF7023EC8B5B00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 5CA2789123DF9F610091ACD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -535,6 +543,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C63DF7023EC8B5B00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C63DF7123EC8B5B00B61C8D /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C63DF7023EC8B5B00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */ = {
