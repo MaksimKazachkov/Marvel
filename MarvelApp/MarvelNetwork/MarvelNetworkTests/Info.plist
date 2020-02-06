@@ -18,5 +18,17 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>HOST</key>
+	<string>$(HOST)</string>
+	<key>PORT</key>
+	<string>$(PORT)</string>
+	<key>PrivateKey</key>
+	<string>$(PRIVATE_KEY)</string>
+	<key>PublicKey</key>
+	<string>$(PUBLIC_KEY)</string>
+	<key>Scheme</key>
+	<string>$(SCHEME)</string>
+	<key>TimeStamp</key>
+	<string>$(TIME_STAMP)</string>
 </dict>
 </plist>

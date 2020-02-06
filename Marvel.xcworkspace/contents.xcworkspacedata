@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MarvelApp/DEV.xcconfig">
+   </FileRef>
+   <FileRef
       location = "group:MarvelApp/MarvelUseCase/MarvelUseCase.xcodeproj">
    </FileRef>
    <FileRef

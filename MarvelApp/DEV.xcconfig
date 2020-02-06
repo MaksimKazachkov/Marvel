@@ -1,0 +1,17 @@
+//
+//  DEV.xcconfig
+//  
+//
+//  Created by Maksim Kazachkov on 06.02.2020.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+TIME_STAMP = 1
+PUBLIC_KEY = 5812e43551bf26c47f860ccc020c1154
+PRIVATE_KEY = a8d3b2a68f8266f631feac88f7dac78313d0745e
+
+SCHEME = https
+HOST = gateway.marvel.com
+PORT = 443
