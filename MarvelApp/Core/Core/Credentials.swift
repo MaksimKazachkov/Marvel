@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Credentials: Codable {
+public class Credentials: Codable {
     
     public let ts: Int
     

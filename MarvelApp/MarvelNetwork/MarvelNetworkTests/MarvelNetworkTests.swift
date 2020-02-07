@@ -10,26 +10,17 @@ import XCTest
 @testable import MarvelNetwork
 import Combine
 import MarvelDomain
+import Resolver
 
 class MarvelNetworkTests: XCTestCase {
-    
-    let credentials = Credentials(
-        ts: 1,
-        publicKey: "5812e43551bf26c47f860ccc020c1154",
-        privateKey: "a8d3b2a68f8266f631feac88f7dac78313d0745e"
-    )
-    
-    let constructor = URLRequestConstructor(
-        scheme: "https",
-        host: "gateway.marvel.com",
-        port: 443
-    )
     
     var subscriptions = Set<AnyCancellable>()
     
     var client: Client!
     
     override func setUp() {
+        try! Injection().registerClient()
+        client = Resolver.root.resolve()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -42,7 +33,7 @@ class MarvelNetworkTests: XCTestCase {
     func testfetchCharacters() {
         let expectation = XCTestExpectation()
         let model = CharactersRO(limit: 20, offset: 0)
-        client?.requestData(route: CharactersRoute.characters(model))
+        client.requestData(route: CharactersRoute.characters(model))
             .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
@@ -67,7 +58,7 @@ class MarvelNetworkTests: XCTestCase {
     func testFetchAndDecodeCharacters() {
         let expectation = XCTestExpectation()
         let model = CharactersRO(limit: 20, offset: 0)
-        client?.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
+        client.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
             .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
@@ -82,11 +73,6 @@ class MarvelNetworkTests: XCTestCase {
         .store(in: &subscriptions)
         
         wait(for: [expectation], timeout: 60)
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testPerformanceExample() {

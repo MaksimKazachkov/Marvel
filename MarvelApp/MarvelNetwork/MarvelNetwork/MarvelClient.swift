@@ -86,7 +86,7 @@ public class MarvelClient: Client {
 private extension Client {
 
     func makeQueryItems(from credentials: Credentials) throws -> [URLQueryItem] {
-        guard var hash = credentials.hash else {
+        guard let hash = credentials.hash else {
             throw URLError(.fileDoesNotExist)
         }
         return [
