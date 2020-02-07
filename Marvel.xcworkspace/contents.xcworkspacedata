@@ -5,6 +5,15 @@
       location = "group:MarvelApp/DEV.xcconfig">
    </FileRef>
    <FileRef
+      location = "group:MarvelApp/Credentials.plist">
+   </FileRef>
+   <FileRef
+      location = "group:Configuration.plist">
+   </FileRef>
+   <FileRef
+      location = "group:MarvelApp/Core/Core.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MarvelApp/MarvelUseCase/MarvelUseCase.xcodeproj">
    </FileRef>
    <FileRef

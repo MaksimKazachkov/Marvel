@@ -7,24 +7,12 @@
 //
 
 import Foundation
+import Core
+import Resolver
 
 public struct URLRequestConstructor {
     
-    private let scheme: String
-    
-    private let host: String
-    
-    private let port: Int?
-    
-    public init(
-        scheme: String,
-        host: String,
-        port: Int?
-    ) {
-        self.scheme = scheme
-        self.host = host
-        self.port = port
-    }
+    @Injected private var configuration: Configuration
     
     public func asURLRequest(route: Route) throws -> URLRequest {
         let components = makeURLComponents(for: route)
@@ -62,9 +50,9 @@ public struct URLRequestConstructor {
     
     public func makeURLComponents(for route: Route) -> URLComponents {
         var components = URLComponents()
-        components.scheme = scheme
-        components.host = host
-        components.port = port
+        components.scheme = configuration.scheme
+        components.host = configuration.host
+        components.port = configuration.port
         components.path = route.path
         components.queryItems = makeQueryItems(from: route.parameters)
         

@@ -2,13 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SchemeUserState</key>
-	<dict>
-		<key>MarvelDomain.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-	</dict>
+	<key>scheme</key>
+	<string>$(SCHEME)</string>
+	<key>host</key>
+	<string>$(HOST)</string>
+	<key>port</key>
+	<string>$(PORT)</string>
 </dict>
 </plist>

@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import Core
 import Resolver
 
 public class MarvelClient: Client {
@@ -85,7 +86,7 @@ public class MarvelClient: Client {
 private extension Client {
 
     func makeQueryItems(from credentials: Credentials) throws -> [URLQueryItem] {
-        guard let hash = credentials.hash else {
+        guard var hash = credentials.hash else {
             throw URLError(.fileDoesNotExist)
         }
         return [
