@@ -22,4 +22,17 @@ public class Credentials: Codable {
         return encryptor.encrypt(hash: rawHash)
     }()
     
+    enum CodingKeys: String, CodingKey {
+        
+        case ts, privateKey, publicKey
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tsString = try container.decode(String.self, forKey: .ts)
+        ts = Int(tsString)!
+        privateKey = try container.decode(String.self, forKey: .privateKey)
+        publicKey = try container.decode(String.self, forKey: .publicKey)
+    }
+    
 }

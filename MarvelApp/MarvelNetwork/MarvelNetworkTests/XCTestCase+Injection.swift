@@ -24,7 +24,7 @@ class Injection {
     
     private func registerCredentials() throws {
         guard
-            let path = Bundle.main.path(forResource: "Credentials", ofType: "plist"),
+            let path = Bundle(for: type(of: self)).path(forResource: "Credentials", ofType: "plist"),
             let data = FileManager.default.contents(atPath: path) else {
                 return
         }
@@ -36,7 +36,7 @@ class Injection {
     
     private func registerConfiguration() throws {
         guard
-            let path = Bundle.main.path(forResource: "Configuration", ofType: "plist"),
+            let path = Bundle(for: type(of: self)).path(forResource: "Configuration", ofType: "plist"),
             let data = FileManager.default.contents(atPath: path) else {
                 return
         }
