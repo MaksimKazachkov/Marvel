@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Character" representedClassName="CharacterMO" syncable="YES">
         <attribute name="desc" attributeType="String"/>
         <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES"/>
         <attribute name="modified" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="resourceURI" attributeType="URI"/>
+        <relationship name="comics" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
+        <relationship name="events" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
+        <relationship name="series" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
+        <relationship name="stories" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
+        <relationship name="urls" toMany="YES" deletionRule="Cascade" destinationEntity="URLType"/>
         <fetchIndex name="byPropertyIndex">
             <fetchIndexElement property="id" type="Binary" order="ascending"/>
         </fetchIndex>
     </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="resourceURI" attributeType="URI"/>
+    </entity>
+    <entity name="Resource" representedClassName="Resource" syncable="YES" codeGenerationType="class">
+        <attribute name="available" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="collectionURI" attributeType="URI"/>
+        <attribute name="returned" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item"/>
+    </entity>
+    <entity name="URLType" representedClassName="URLType" syncable="YES" codeGenerationType="class">
+        <attribute name="type" attributeType="String"/>
+        <attribute name="url" attributeType="URI"/>
+    </entity>
     <fetchRequest name="CharacterFetchRequest" entity="Character" fetchLimit="20"/>
     <elements>
-        <element name="Character" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Character" positionX="-556.13671875" positionY="-281.76171875" width="128" height="193"/>
+        <element name="URLType" positionX="-95.41015625" positionY="59.53125" width="128" height="73"/>
+        <element name="Resource" positionX="-95.9140625" positionY="-266.62109375" width="128" height="103"/>
+        <element name="Item" positionX="249.3515625" positionY="-116.87890625" width="128" height="73"/>
     </elements>
 </model>
