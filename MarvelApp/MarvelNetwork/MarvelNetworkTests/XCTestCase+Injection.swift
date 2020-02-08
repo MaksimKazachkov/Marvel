@@ -11,39 +11,59 @@ import Core
 import Resolver
 import MarvelNetwork
 
-class Injection {
+extension Resolver: ResolverRegistering {
+    
+    public static func registerAllServices() {
+        try! Resolver.root.registerClient()
+    }
+}
+
+extension Resolver {
     
     func registerClient() throws {
+        print("🟢")
         try registerCredentials()
-        try registerClient()
-        
-        Resolver.root
+        print("🔴")
+        try registerConfiguration()
+        print("🌕")
+        registerURLConstructor()
+        Resolver
             .register { MarvelClient() }
             .implements(Client.self)
+            .scope(ResolverScopeApplication())
     }
     
     private func registerCredentials() throws {
         guard
-            let path = Bundle(for: type(of: self)).path(forResource: "Credentials", ofType: "plist"),
-            let data = FileManager.default.contents(atPath: path) else {
+            let object = Bundle(identifier: "com.MaksimKazachkov.MarvelNetworkTests")?.object(forInfoDictionaryKey: "Credentials") else {
                 return
         }
-        let credentials = try PropertyListDecoder().decode(Credentials.self, from: data)
-        Resolver.root
+        let data = try JSONSerialization.data(withJSONObject: object, options: [])
+        let credentials = try JSONDecoder().decode(Credentials.self, from: data)
+        Resolver
             .register { credentials }
             .implements(Credentials.self)
+            .scope(ResolverScopeApplication())
     }
     
     private func registerConfiguration() throws {
         guard
-            let path = Bundle(for: type(of: self)).path(forResource: "Configuration", ofType: "plist"),
-            let data = FileManager.default.contents(atPath: path) else {
+            let object = Bundle(identifier: "com.MaksimKazachkov.MarvelNetworkTests")?.object(forInfoDictionaryKey: "Configuration") else {
                 return
         }
-        let configuration = try PropertyListDecoder().decode(Configuration.self, from: data)
-        Resolver.root
+        let data = try JSONSerialization.data(withJSONObject: object, options: [])
+        let configuration = try JSONDecoder().decode(Configuration.self, from: data)
+        Resolver
             .register { configuration }
-            .implements(Credentials.self)
+            .implements(Configuration.self)
+            .scope(ResolverScopeApplication())
+    }
+    
+    private func registerURLConstructor() {
+        Resolver
+            .register { URLRequestConstructor() }
+            .implements(URLRequestConstructor.self)
+            .scope(ResolverScopeApplication())
     }
     
 }

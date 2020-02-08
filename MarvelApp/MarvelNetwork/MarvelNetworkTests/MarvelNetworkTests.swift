@@ -16,11 +16,9 @@ class MarvelNetworkTests: XCTestCase {
     
     var subscriptions = Set<AnyCancellable>()
     
-    var client: Client!
+    @LazyInjected var client: Client
     
     override func setUp() {
-        try! Injection().registerClient()
-        client = Resolver.root.resolve()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

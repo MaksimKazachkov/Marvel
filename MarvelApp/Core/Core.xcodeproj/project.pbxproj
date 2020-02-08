@@ -79,8 +79,8 @@
 			children = (
 				5C63DF8F23EDC82300B61C8D /* Core.h */,
 				5C63DF9023EDC82300B61C8D /* Info.plist */,
-				5C63DFA623EDC83700B61C8D /* Configuration.swift */,
 				5C63DFA823EDC89800B61C8D /* Credentials.swift */,
+				5C63DFA623EDC83700B61C8D /* Configuration.swift */,
 				5C63DFAC23EDC90800B61C8D /* Utilities */,
 			);
 			path = Core;

@@ -17,9 +17,9 @@ public class MarvelClient: Client {
     
     private let session: URLSession
     
-    @Injected private var credentials: Credentials
+    @Injected public var credentials: Credentials
         
-    @Injected private var constructor: URLRequestConstructor
+    @Injected public var constructor: URLRequestConstructor
     
     public init() {
         configuration.waitsForConnectivity = true

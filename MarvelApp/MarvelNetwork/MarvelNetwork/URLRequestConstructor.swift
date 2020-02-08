@@ -12,7 +12,11 @@ import Resolver
 
 public struct URLRequestConstructor {
     
-    @Injected private var configuration: Configuration
+    @Injected public var configuration: Configuration
+    
+    public init() {
+        
+    }
     
     public func asURLRequest(route: Route) throws -> URLRequest {
         let components = makeURLComponents(for: route)
