@@ -12,7 +12,7 @@ import Resolver
 import MarvelNetwork
 
 extension Resolver: ResolverRegistering {
-    
+
     public static func registerAllServices() {
         try! Resolver.root.registerClient()
     }
@@ -21,16 +21,12 @@ extension Resolver: ResolverRegistering {
 extension Resolver {
     
     func registerClient() throws {
-        print("🟢")
         try registerCredentials()
-        print("🔴")
         try registerConfiguration()
-        print("🌕")
         registerURLConstructor()
+        
         Resolver
             .register { MarvelClient() }
-            .implements(Client.self)
-            .scope(ResolverScopeApplication())
     }
     
     private func registerCredentials() throws {
@@ -42,8 +38,6 @@ extension Resolver {
         let credentials = try JSONDecoder().decode(Credentials.self, from: data)
         Resolver
             .register { credentials }
-            .implements(Credentials.self)
-            .scope(ResolverScopeApplication())
     }
     
     private func registerConfiguration() throws {
@@ -55,15 +49,11 @@ extension Resolver {
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
         Resolver
             .register { configuration }
-            .implements(Configuration.self)
-            .scope(ResolverScopeApplication())
     }
     
     private func registerURLConstructor() {
         Resolver
             .register { URLRequestConstructor() }
-            .implements(URLRequestConstructor.self)
-            .scope(ResolverScopeApplication())
     }
     
 }

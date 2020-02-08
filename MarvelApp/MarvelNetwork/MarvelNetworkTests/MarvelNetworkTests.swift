@@ -15,9 +15,7 @@ import Resolver
 class MarvelNetworkTests: XCTestCase {
     
     var subscriptions = Set<AnyCancellable>()
-    
-    @LazyInjected var client: Client
-    
+        
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -25,14 +23,13 @@ class MarvelNetworkTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         subscriptions.removeAll()
-
     }
     
     func testfetchCharacters() {
         let expectation = XCTestExpectation()
         let model = CharactersRO(limit: 20, offset: 0)
+        let client = MarvelClient()
         client.requestData(route: CharactersRoute.characters(model))
-            .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .finished:
@@ -56,6 +53,7 @@ class MarvelNetworkTests: XCTestCase {
     func testFetchAndDecodeCharacters() {
         let expectation = XCTestExpectation()
         let model = CharactersRO(limit: 20, offset: 0)
+        let client = MarvelClient()
         client.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
             .print()
             .sink(receiveCompletion: { (completion) in
