@@ -11,26 +11,26 @@ import Foundation
 public struct Resource {
     
     // The number of total available resources in this list
-    public let available: Int
+    public let available: Int?
     
     // The number of resources returned in this resource list (up to 20).
-    public let returned: Int
+    public let returned: Int?
     
     // The number of resources returned in this resource list (up to 20).
-    public let collectionURI: URL
+    public let collectionURI: URL?
     
     // A list of summary views of the items in this resource list.
-    public let items: [Item]
+    public let items: [Item]?
     
     public struct Item {
         
-        public let name: String
+        public let name: String?
         
-        public let resourceURI: URL
+        public let resourceURI: URL?
         
         public init(
-            name: String,
-            resourceURI: URL
+            name: String?,
+            resourceURI: URL?
         ) {
             self.name = name
             self.resourceURI = resourceURI
@@ -39,10 +39,10 @@ public struct Resource {
     }
     
     public init(
-        available: Int,
-        returned: Int,
-        collectionURI: URL,
-        items: [Item]
+        available: Int?,
+        returned: Int?,
+        collectionURI: URL?,
+        items: [Item]?
     ) {
         self.available = available
         self.returned = returned

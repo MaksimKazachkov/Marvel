@@ -19,11 +19,12 @@ extension Character: DomainConvertableType {
             description: desc,
             modified: modified,
             resourceURI: resourceURI,
-            urls: [],
-            comics: MarvelDomain.Resource(available: 0, returned: 0, collectionURI: URL(string: "www.google.com")!, items: []),
-            stories: MarvelDomain.Resource(available: 0, returned: 0, collectionURI: URL(string: "www.google.com")!, items: []),
-            events: MarvelDomain.Resource(available: 0, returned: 0, collectionURI: URL(string: "www.google.com")!, items: []),
-            series: MarvelDomain.Resource(available: 0, returned: 0, collectionURI: URL(string: "www.google.com")!, items: []))
+            urls: urls.map({ $0.asDomain() }),
+            comics: comics?.asDomain(),
+            stories: stories?.asDomain(),
+            events: events?.asDomain(),
+            series: series?.asDomain()
+        )
     }
     
 }

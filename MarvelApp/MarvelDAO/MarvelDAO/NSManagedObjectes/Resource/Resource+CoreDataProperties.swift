@@ -20,7 +20,7 @@ extension Resource {
     @NSManaged public var available: Int16
     @NSManaged public var collectionURI: URL?
     @NSManaged public var returned: Int16
-    @NSManaged public var items: NSSet?
+    @NSManaged public var items: Set<Item>
 
 }
 
@@ -34,9 +34,9 @@ extension Resource {
     @NSManaged public func removeFromItems(_ value: Item)
 
     @objc(addItems:)
-    @NSManaged public func addToItems(_ values: NSSet)
+    @NSManaged public func addToItems(_ values: Set<Item>)
 
     @objc(removeItems:)
-    @NSManaged public func removeFromItems(_ values: NSSet)
+    @NSManaged public func removeFromItems(_ values: Set<Item>)
 
 }

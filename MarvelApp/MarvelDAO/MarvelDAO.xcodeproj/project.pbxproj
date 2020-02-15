@@ -12,6 +12,9 @@
 		5CA2789F23DF9F610091ACD1 /* MarvelDAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2789E23DF9F610091ACD1 /* MarvelDAOTests.swift */; };
 		5CA278A123DF9F610091ACD1 /* MarvelDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA2789323DF9F610091ACD1 /* MarvelDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CA278AB23DF9F6E0091ACD1 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA278AA23DF9F6E0091ACD1 /* CoreDataDAO.swift */; };
+		5CBFB3B423F7CD1F001ED707 /* URLType+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3B323F7CD1F001ED707 /* URLType+DomainConvertableType.swift */; };
+		5CBFB3B623F7CDA3001ED707 /* Item+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3B523F7CDA3001ED707 /* Item+DomainConvertableType.swift */; };
+		5CBFB3B823F7CE8E001ED707 /* Resource+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3B723F7CE8E001ED707 /* Resource+DomainConvertableType.swift */; };
 		5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */; };
 		5CCDD2CF23E7D3570069207E /* CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */; };
 		5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */; };
@@ -47,6 +50,9 @@
 		5CA2789E23DF9F610091ACD1 /* MarvelDAOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDAOTests.swift; sourceTree = "<group>"; };
 		5CA278A023DF9F610091ACD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CA278AA23DF9F6E0091ACD1 /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
+		5CBFB3B323F7CD1F001ED707 /* URLType+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLType+DomainConvertableType.swift"; sourceTree = "<group>"; };
+		5CBFB3B523F7CDA3001ED707 /* Item+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+DomainConvertableType.swift"; sourceTree = "<group>"; };
+		5CBFB3B723F7CE8E001ED707 /* Resource+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resource+DomainConvertableType.swift"; sourceTree = "<group>"; };
 		5CCDD2B823E76CA80069207E /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 		5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepresentable.swift; sourceTree = "<group>"; };
 		5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertableType.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 			children = (
 				5CE5AE3D23F7C62400ED5501 /* Resource+CoreDataClass.swift */,
 				5CE5AE3E23F7C62400ED5501 /* Resource+CoreDataProperties.swift */,
+				5CBFB3B723F7CE8E001ED707 /* Resource+DomainConvertableType.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 			children = (
 				5CE5AE4123F7C64500ED5501 /* URLType+CoreDataClass.swift */,
 				5CE5AE4223F7C64500ED5501 /* URLType+CoreDataProperties.swift */,
+				5CBFB3B323F7CD1F001ED707 /* URLType+DomainConvertableType.swift */,
 			);
 			path = URLType;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 			children = (
 				5CE5AE3923F7C5C100ED5501 /* Item+CoreDataClass.swift */,
 				5CE5AE3A23F7C5C100ED5501 /* Item+CoreDataProperties.swift */,
+				5CBFB3B523F7CDA3001ED707 /* Item+DomainConvertableType.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -322,6 +331,9 @@
 				5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */,
 				5CE5AE4723F7C66600ED5501 /* Character+CoreDataClass.swift in Sources */,
 				5CE5AE3F23F7C62400ED5501 /* Resource+CoreDataClass.swift in Sources */,
+				5CBFB3B623F7CDA3001ED707 /* Item+DomainConvertableType.swift in Sources */,
+				5CBFB3B423F7CD1F001ED707 /* URLType+DomainConvertableType.swift in Sources */,
+				5CBFB3B823F7CE8E001ED707 /* Resource+DomainConvertableType.swift in Sources */,
 				5CCDD2E423E8C6A70069207E /* DAO.swift in Sources */,
 				5CE5AE4023F7C62400ED5501 /* Resource+CoreDataProperties.swift in Sources */,
 				5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */,

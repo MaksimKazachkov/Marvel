@@ -11,14 +11,14 @@ import Foundation
 public struct URLType {
     
     // A text identifier for the URL.
-    public let type: String
+    public let type: String?
     
     // A full URL (including scheme, domain, and path).
-    public let url: URL
+    public let url: URL?
     
     public init(
-        type: String,
-        url: URL
+        type: String?,
+        url: URL?
     ) {
         self.type = type
         self.url = url

@@ -26,7 +26,7 @@ extension Character {
     @NSManaged public var events: Resource?
     @NSManaged public var series: Resource?
     @NSManaged public var stories: Resource?
-    @NSManaged public var urls: NSSet?
+    @NSManaged public var urls: Set<URLType>
 
 }
 
@@ -40,9 +40,9 @@ extension Character {
     @NSManaged public func removeFromUrls(_ value: URLType)
 
     @objc(addUrls:)
-    @NSManaged public func addToUrls(_ values: NSSet)
+    @NSManaged public func addToUrls(_ values: Set<URLType>)
 
     @objc(removeUrls:)
-    @NSManaged public func removeFromUrls(_ values: NSSet)
+    @NSManaged public func removeFromUrls(_ values: Set<URLType>)
 
 }
