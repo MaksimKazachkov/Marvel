@@ -16,6 +16,7 @@
 		5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */; };
 		5C7F5F1323E9FB3D000FFB89 /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */; };
 		5C7F5F1723E9FBBA000FFB89 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
+		5CBFB3C423F85CFB001ED707 /* XCTestCase+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C323F85CFB001ED707 /* XCTestCase+Injection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersUseCase.swift; sourceTree = "<group>"; };
+		5CBFB3C323F85CFB001ED707 /* XCTestCase+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Injection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				5C7F5EFD23E9FB11000FFB89 /* MarvelUseCaseTests.swift */,
+				5CBFB3C323F85CFB001ED707 /* XCTestCase+Injection.swift */,
 				5C7F5EFF23E9FB11000FFB89 /* Info.plist */,
 			);
 			path = MarvelUseCaseTests;
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBFB3C423F85CFB001ED707 /* XCTestCase+Injection.swift in Sources */,
 				5C7F5EFE23E9FB11000FFB89 /* MarvelUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
