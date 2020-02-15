@@ -56,8 +56,14 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     
     public func update(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
-            guard let self = self, let uid = object.uid, let request = T.CoreDataType.fetchRequest(by: uid) else {
+            guard let self = self else {
                 return
+            }
+            guard let uid = object.uid else {
+                return promise(.failure(DAOError.nilUID))
+            }
+            guard let request = T.CoreDataType.fetchRequest(by: uid) else {
+                return promise(.failure(DAOError.badFetchRequest(uid: uid)))
             }
             do {
                 let entity: T.CoreDataType = try self.findOrFetch(by: request) ?? T.CoreDataType(context: self.context)
@@ -73,8 +79,14 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     
     public func delete(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
-            guard let self = self, let uid = object.uid, let request = T.CoreDataType.fetchRequest(by: uid) else {
+            guard let self = self else {
                 return
+            }
+            guard let uid = object.uid else {
+                return promise(.failure(DAOError.nilUID))
+            }
+            guard let request = T.CoreDataType.fetchRequest(by: uid) else {
+                return promise(.failure(DAOError.badFetchRequest(uid: uid)))
             }
             do {
                 guard let entity = try self.findOrFetch(by: request) else {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C4C06CC23F8B3F500C8DD1B /* DAOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C06CB23F8B3F500C8DD1B /* DAOError.swift */; };
 		5CA2789A23DF9F610091ACD1 /* MarvelDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA2789023DF9F610091ACD1 /* MarvelDAO.framework */; };
 		5CA2789F23DF9F610091ACD1 /* MarvelDAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA2789E23DF9F610091ACD1 /* MarvelDAOTests.swift */; };
 		5CA278A123DF9F610091ACD1 /* MarvelDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CA2789323DF9F610091ACD1 /* MarvelDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C4C06CB23F8B3F500C8DD1B /* DAOError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOError.swift; sourceTree = "<group>"; };
 		5CA2789023DF9F610091ACD1 /* MarvelDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA2789323DF9F610091ACD1 /* MarvelDAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelDAO.h; sourceTree = "<group>"; };
 		5CA2789423DF9F610091ACD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				5CBFB3BC23F800DA001ED707 /* DomainTypeConvertable */,
 				5CBFB3BB23F800CC001ED707 /* CoreDataRepresentable */,
+				5C4C06CB23F8B3F500C8DD1B /* DAOError.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				5CBFB3B423F7CD1F001ED707 /* URLType+DomainConvertableType.swift in Sources */,
 				5CBFB3B823F7CE8E001ED707 /* Resource+DomainConvertableType.swift in Sources */,
 				5CCDD2E423E8C6A70069207E /* DAO.swift in Sources */,
+				5C4C06CC23F8B3F500C8DD1B /* DAOError.swift in Sources */,
 				5CE5AE4023F7C62400ED5501 /* Resource+CoreDataProperties.swift in Sources */,
 				5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */,
 				5CBFB3BE23F80108001ED707 /* URLType+CoreDataRepresentable.swift in Sources */,
