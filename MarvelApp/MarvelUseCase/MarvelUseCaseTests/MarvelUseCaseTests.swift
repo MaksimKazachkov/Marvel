@@ -29,11 +29,10 @@ class MarvelUseCaseTests: XCTestCase {
         subscriptions.removeAll()
     }
     
-    func testExample() {
+    func testFetchCharacters() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let expectation = XCTestExpectation()
-        print("🌕")
         let usecase: CharactersUseCase = injected.container.resolve(CharactersUseCase.self)!
         usecase.fetch(limit: 20, offset: 0)
             .sink(receiveCompletion: { (completion) in

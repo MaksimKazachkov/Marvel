@@ -27,7 +27,6 @@ class Injected {
         registerCharactersRepository()
         registerCharactersDAO()
         registerUseCases()
-        print("🟢")
     }
     
     private func registerCredentials() throws {
@@ -84,7 +83,6 @@ class Injected {
             fatalError("Error initializing mom from: \(modelURL)")
         }
         let persistentContainer = NSPersistentContainer(name: momdName, managedObjectModel: mom)
-        //        psd.type = NSInMemoryStoreType
         let storeURL = try! FileManager
             .default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -96,7 +94,6 @@ class Injected {
             self.container.register(CoreDataDAO<MarvelDomain.Character>.self) { (resolver) -> CoreDataDAO<MarvelDomain.Character> in
                 return CoreDataDAO<MarvelDomain.Character>.init(container: persistentContainer)
             }
-            print("🔵")
         }
     }
     
