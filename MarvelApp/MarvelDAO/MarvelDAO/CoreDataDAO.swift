@@ -14,15 +14,12 @@ import Resolver
 
 public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataType.DomainType {
     
-    @Injected private let container: NSPersistentContainer
+    @Injected private var container: NSPersistentContainer
     
-    private let context: NSManagedObjectContext
-    
-    public init() {
-        self.container = container
-        self.context = container.newBackgroundContext()
-    }
-    
+    private lazy var context: NSManagedObjectContext = {
+       return container.newBackgroundContext()
+    }()
+
     public func create(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
             guard let self = self else {
@@ -53,10 +50,10 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     
     public func update(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
-            guard let self = self else {
+            guard let self = self, let uid = object.uid else {
                 return
             }
-            let predicate = NSPredicate(format: "id == %@", object.uid)
+            let predicate = NSPredicate(format: "id == %@", uid)
             do {
                 guard let entity = try self.findOrFetch(by: predicate) else {
                     return
@@ -73,10 +70,10 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     
     public func delete(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
-            guard let self = self else {
+            guard let self = self, let uid = object.uid else {
                 return
             }
-            let predicate = NSPredicate(format: "id == %@", object.uid)
+            let predicate = NSPredicate(format: "id == %@", uid)
             do {
                 guard let entity = try self.findOrFetch(by: predicate) else {
                     return

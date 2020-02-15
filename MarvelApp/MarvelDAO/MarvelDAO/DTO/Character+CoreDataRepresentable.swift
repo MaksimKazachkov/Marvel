@@ -9,14 +9,19 @@
 import Foundation
 import MarvelDomain
 
-extension Character: CoreDataRepresentable {
+extension MarvelDomain.Character: CoreDataRepresentable {
     
-    public var uid: String {
+    public var uid: String? {
+        guard let id = id else {
+            return nil
+        }
         return String(id)
     }
     
-    public func update(entity: CharacterMO) {
-        entity.id = Int64(id)
+    public func update(entity: Character) {
+        if let id = id {
+            entity.id = Int64(id)
+        }
         entity.name = name
         entity.desc = description
         entity.modified = modified

@@ -13,7 +13,7 @@ public protocol CoreDataRepresentable {
     
     associatedtype CoreDataType: (NSManagedObject & DomainConvertableType)
     
-    var uid: String { get }
+    var uid: String? { get }
     
     func update(entity: CoreDataType)
         

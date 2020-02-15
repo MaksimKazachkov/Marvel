@@ -11,46 +11,46 @@ import Foundation
 public struct Character {
     
     // The unique ID of the character resource.
-    public let id: Int
+    public let id: Int?
     
     // The name of the character.
-    public let name: String
+    public let name: String?
     
     // A short bio or description of the character.
-    public let description: String
+    public let description: String?
     
     // The date the resource was most recently modified.
-    public let modified: Date
+    public let modified: Date?
     
     // The canonical URL identifier for this resource.
-    public let resourceURI: URL
+    public let resourceURI: URL?
     
     // A set of public web site URLs for the resource.
-    public let urls: [URLType]
+    public let urls: [URLType]?
     
     // A resource list containing comics which feature this character.
-    public let comics: Resource
+    public let comics: Resource?
     
     // A resource list of stories in which this character appears.
-    public let stories: Resource
+    public let stories: Resource?
     
     // A resource list of events in which this character appears.
-    public let events: Resource
+    public let events: Resource?
     
     // A resource list of series in which this character appears.
-    public let series: Resource
+    public let series: Resource?
     
     public init(
-        id: Int,
-        name: String,
-        description: String,
-        modified: Date,
-        resourceURI: URL,
-        urls: [URLType],
-        comics: Resource,
-        stories: Resource,
-        events: Resource,
-        series: Resource
+        id: Int?,
+        name: String?,
+        description: String?,
+        modified: Date?,
+        resourceURI: URL?,
+        urls: [URLType]?,
+        comics: Resource?,
+        stories: Resource?,
+        events: Resource?,
+        series: Resource?
     ) {
         self.id = id
         self.name = name
