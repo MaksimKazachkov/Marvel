@@ -46,11 +46,10 @@ class MarvelUseCaseTests: XCTestCase {
             },
                   receiveValue: { (characters) in
                     XCTAssert(!characters.isEmpty)
+                    expectation.fulfill()
             })
             .store(in: &subscriptions)
-        
         wait(for: [expectation], timeout: 60)
-        
     }
     
     func testPerformanceExample() {

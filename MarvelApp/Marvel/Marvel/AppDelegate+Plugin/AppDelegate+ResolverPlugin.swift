@@ -8,10 +8,3 @@
 
 import Foundation
 import MarvelNetwork
-import Resolver
-
-extension Resolver {
-    
-    
-
-}

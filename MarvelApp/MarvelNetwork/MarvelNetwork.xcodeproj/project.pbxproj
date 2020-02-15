@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -321,7 +321,6 @@
 			);
 			mainGroup = 5C007D9323DF95B800FD8AFB;
 			packageReferences = (
-				5C63DF6D23EC8B0400B61C8D /* XCRemoteSwiftPackageReference "Resolver" */,
 			);
 			productRefGroup = 5C007D9E23DF95B800FD8AFB /* Products */;
 			projectDirPath = "";
@@ -630,17 +629,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5C63DF6D23EC8B0400B61C8D /* XCRemoteSwiftPackageReference "Resolver" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hmlongco/Resolver.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 5C007D9423DF95B800FD8AFB /* Project object */;
 }

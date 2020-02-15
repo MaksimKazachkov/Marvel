@@ -37,60 +37,36 @@ extension MarvelDomain.Character: CoreDataRepresentable {
                 if let comicsEntity = entity.comics {
                     comics.update(entity: comicsEntity)
                 } else {
-                    let request: NSFetchRequest<Resource> = MarvelDAO.Resource.fetchRequest(by: entity)
-                    if let comicsEntity = try? context.fetch(request).first {
-                        comics.update(entity: comicsEntity)
-                        entity.comics = comicsEntity
-                    } else {
-                        let comicsEntity = MarvelDAO.Resource(context: context)
-                        comics.update(entity: comicsEntity)
-                        entity.comics = comicsEntity
-                    }
+                    let comicsEntity = MarvelDAO.Resource(context: context)
+                    comics.update(entity: comicsEntity)
+                    entity.comics = comicsEntity
                 }
             }
             if let stories = stories {
                 if let storiesEntity = entity.stories {
                     stories.update(entity: storiesEntity)
                 } else {
-                    let request: NSFetchRequest<Resource> = MarvelDAO.Resource.fetchRequest(by: entity)
-                    if let storiesEntity = try? context.fetch(request).first {
-                        stories.update(entity: storiesEntity)
-                        entity.stories = storiesEntity
-                    } else {
-                        let storiesEntity = MarvelDAO.Resource(context: context)
-                        stories.update(entity: storiesEntity)
-                        entity.stories = storiesEntity
-                    }
+                    let storiesEntity = MarvelDAO.Resource(context: context)
+                    stories.update(entity: storiesEntity)
+                    entity.stories = storiesEntity
                 }
             }
             if let events = events {
                 if let eventsEntity = entity.events {
                     events.update(entity: eventsEntity)
                 } else {
-                    let request: NSFetchRequest<Resource> = MarvelDAO.Resource.fetchRequest(by: entity)
-                    if let eventsEntity = try? context.fetch(request).first {
-                        events.update(entity: eventsEntity)
-                        entity.events = eventsEntity
-                    } else {
-                        let eventsEntity = MarvelDAO.Resource(context: context)
-                        events.update(entity: eventsEntity)
-                        entity.events = eventsEntity
-                    }
+                    let eventsEntity = MarvelDAO.Resource(context: context)
+                    events.update(entity: eventsEntity)
+                    entity.events = eventsEntity
                 }
             }
             if let series = series {
                 if let seriesEntity = entity.series {
                     series.update(entity: seriesEntity)
                 } else {
-                    let request: NSFetchRequest<Resource> = MarvelDAO.Resource.fetchRequest(by: entity)
-                    if let seriesEntity = try? context.fetch(request).first {
-                        series.update(entity: seriesEntity)
-                        entity.series = seriesEntity
-                    } else {
-                        let seriesEntity = MarvelDAO.Resource(context: context)
-                        series.update(entity: seriesEntity)
-                        entity.series = seriesEntity
-                    }
+                    let seriesEntity = MarvelDAO.Resource(context: context)
+                    series.update(entity: seriesEntity)
+                    entity.series = seriesEntity
                 }
             }
         }

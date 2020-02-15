@@ -29,6 +29,7 @@ final public class MarvelCharactersUseCase: CharactersUseCase {
     public func fetch(limit: Int, offset: Int) -> AnyPublisher<[MarvelDomain.Character], Error> {
         return repository.characters(limit: limit, offset: offset)
             .flatMap({ self.save(characters: $0) })
+            .print()
             .eraseToAnyPublisher()
     }
     

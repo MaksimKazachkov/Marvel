@@ -19,7 +19,7 @@ extension Resource {
     
     @nonobjc public class func fetchRequest(by character: Character) -> NSFetchRequest<Resource> {
         let fetchReqeust: NSFetchRequest<Resource> = fetchRequest()
-        fetchReqeust.predicate = NSPredicate(format: "%K == %@", argumentArray: [\Resource.character, character])
+        fetchReqeust.predicate = NSPredicate(format: "%K == %@", argumentArray: [#keyPath(Resource.character), character])
         return fetchRequest()
     }
 

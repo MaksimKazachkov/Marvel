@@ -204,7 +204,6 @@
 			);
 			mainGroup = 5C7F5EE523E9FB11000FFB89;
 			packageReferences = (
-				5C63DF6A23EC894A00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */,
 				5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 5C7F5EF023E9FB11000FFB89 /* Products */;
@@ -506,14 +505,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5C63DF6A23EC894A00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hmlongco/Resolver.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.2;
-			};
-		};
 		5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";

@@ -78,16 +78,21 @@ class Injected {
     private func registerCharactersDAO() {
         let momdName = "Characters"
         guard let modelURL = Bundle(identifier: "com.MaksimKazachkov.MarvelDAO")?.url(forResource: momdName, withExtension:"momd") else {
-                fatalError("Error loading model from bundle")
+            fatalError("Error loading model from bundle")
         }
         guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Error initializing mom from: \(modelURL)")
         }
         let persistentContainer = NSPersistentContainer(name: momdName, managedObjectModel: mom)
-        let psd = NSPersistentStoreDescription()
-        psd.type = NSInMemoryStoreType
+        //        psd.type = NSInMemoryStoreType
+        let storeURL = try! FileManager
+            .default
+            .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appendingPathComponent("Characters.sqlite")
+        let psd = NSPersistentStoreDescription(url: storeURL)
         persistentContainer.persistentStoreDescriptions = [psd]
         persistentContainer.loadPersistentStores { (storeDescription, error) in
+            debugPrint("💡Persistent store url: \(storeDescription.url?.description ?? "🤷‍♂️ Could not find url")")
             self.container.register(CoreDataDAO<MarvelDomain.Character>.self) { (resolver) -> CoreDataDAO<MarvelDomain.Character> in
                 return CoreDataDAO<MarvelDomain.Character>.init(container: persistentContainer)
             }

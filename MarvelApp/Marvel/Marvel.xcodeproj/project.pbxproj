@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C63DF7823EC8B9600B61C8D /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 5C63DF7723EC8B9600B61C8D /* Resolver */; };
 		5C63DF7A23EC8D0400B61C8D /* AppDelegate+ResolverPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DF7923EC8D0400B61C8D /* AppDelegate+ResolverPlugin.swift */; };
 		5C63DFC923EF22A800B61C8D /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5C63DFC823EF22A700B61C8D /* DEV.xcconfig */; };
 		5C63DFCC23EF231700B61C8D /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DFCB23EF231700B61C8D /* AppDelegate+CoreData.swift */; };
@@ -85,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C63DF7823EC8B9600B61C8D /* Resolver in Frameworks */,
 				5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */,
 				5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */,
 			);
@@ -208,7 +206,6 @@
 			);
 			name = Marvel;
 			packageProductDependencies = (
-				5C63DF7723EC8B9600B61C8D /* Resolver */,
 			);
 			productName = Marvel;
 			productReference = 5C73D5A223DA2F38000DDE85 /* Marvel.app */;
@@ -283,7 +280,6 @@
 			);
 			mainGroup = 5C73D59923DA2F38000DDE85;
 			packageReferences = (
-				5C63DF7623EC8B9600B61C8D /* XCRemoteSwiftPackageReference "Resolver" */,
 			);
 			productRefGroup = 5C73D5A323DA2F38000DDE85 /* Products */;
 			projectDirPath = "";
@@ -653,25 +649,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5C63DF7623EC8B9600B61C8D /* XCRemoteSwiftPackageReference "Resolver" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hmlongco/Resolver.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5C63DF7723EC8B9600B61C8D /* Resolver */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C63DF7623EC8B9600B61C8D /* XCRemoteSwiftPackageReference "Resolver" */;
-			productName = Resolver;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C73D59A23DA2F38000DDE85 /* Project object */;
 }
