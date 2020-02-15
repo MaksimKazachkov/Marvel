@@ -12,6 +12,10 @@ import MarvelDomain
 
 extension URLType: DomainConvertableType {
     
+    public static func fetchRequest(by uid: String) -> NSFetchRequest<NSFetchRequestResult>? {
+        return nil
+    }
+
     public func asDomain() -> MarvelDomain.URLType {
         return MarvelDomain.URLType(
             type: type,

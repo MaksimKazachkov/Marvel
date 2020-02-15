@@ -12,6 +12,10 @@ import MarvelDomain
 
 extension Resource: DomainConvertableType {
     
+    public static func fetchRequest(by uid: String) -> NSFetchRequest<NSFetchRequestResult>? {
+        return nil
+    }
+    
     public func asDomain() -> MarvelDomain.Resource {
         return MarvelDomain.Resource(
             available: Int(available),

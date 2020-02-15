@@ -11,9 +11,6 @@
         <relationship name="series" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
         <relationship name="stories" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
         <relationship name="urls" toMany="YES" deletionRule="Cascade" destinationEntity="URLType"/>
-        <fetchIndex name="byPropertyIndex">
-            <fetchIndexElement property="id" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>

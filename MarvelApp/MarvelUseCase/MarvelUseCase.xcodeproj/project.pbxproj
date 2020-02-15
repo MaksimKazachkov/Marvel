@@ -15,7 +15,7 @@
 		5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */; };
 		5C7F5F1323E9FB3D000FFB89 /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */; };
 		5C7F5F1723E9FBBA000FFB89 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
-		5CBFB3C423F85CFB001ED707 /* XCTestCase+Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C323F85CFB001ED707 /* XCTestCase+Injected.swift */; };
+		5CBFB3C423F85CFB001ED707 /* XCTestCase+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C323F85CFB001ED707 /* XCTestCase+Dependency.swift */; };
 		5CBFB3C723F8861D001ED707 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 5CBFB3C623F8861D001ED707 /* Swinject */; };
 		5CBFB3C923F88BA3001ED707 /* CharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F0923E9FB2A000FFB89 /* CharactersUseCase.swift */; };
 		5CBFB3CA23F88BA3001ED707 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
@@ -44,7 +44,7 @@
 		5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersUseCase.swift; sourceTree = "<group>"; };
-		5CBFB3C323F85CFB001ED707 /* XCTestCase+Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Injected.swift"; sourceTree = "<group>"; };
+		5CBFB3C323F85CFB001ED707 /* XCTestCase+Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Dependency.swift"; sourceTree = "<group>"; };
 		5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DEV.xcconfig; path = ../DEV.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				5C7F5EFD23E9FB11000FFB89 /* MarvelUseCaseTests.swift */,
-				5CBFB3C323F85CFB001ED707 /* XCTestCase+Injected.swift */,
+				5CBFB3C323F85CFB001ED707 /* XCTestCase+Dependency.swift */,
 				5C7F5EFF23E9FB11000FFB89 /* Info.plist */,
 			);
 			path = MarvelUseCaseTests;
@@ -249,7 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CBFB3CA23F88BA3001ED707 /* MarvelCharactersUseCase.swift in Sources */,
-				5CBFB3C423F85CFB001ED707 /* XCTestCase+Injected.swift in Sources */,
+				5CBFB3C423F85CFB001ED707 /* XCTestCase+Dependency.swift in Sources */,
 				5CBFB3C923F88BA3001ED707 /* CharactersUseCase.swift in Sources */,
 				5C7F5EFE23E9FB11000FFB89 /* MarvelUseCaseTests.swift in Sources */,
 			);

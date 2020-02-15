@@ -38,7 +38,7 @@ private extension MarvelCharactersUseCase {
     
     func save(characters: [MarvelDomain.Character]) -> AnyPublisher<[MarvelDomain.Character], Error> {
         let publishers = characters
-            .map({ return dao.create(object: $0) })
+            .map({ return dao.update(object: $0) })
         
         return Publishers.MergeMany(publishers)
             .map({ characters })

@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
 public protocol DomainConvertableType {
     
     associatedtype DomainType
-
+        
     func asDomain() -> DomainType
+    
+    static func fetchRequest(by uid: String) -> NSFetchRequest<NSFetchRequestResult>?
     
 }

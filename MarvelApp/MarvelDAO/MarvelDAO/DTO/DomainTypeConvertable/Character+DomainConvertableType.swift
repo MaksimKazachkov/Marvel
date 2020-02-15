@@ -12,6 +12,13 @@ import MarvelDomain
 
 extension Character: DomainConvertableType {
     
+    public static func fetchRequest(by uid: String) -> NSFetchRequest<NSFetchRequestResult>? {
+        let fetchReqeust: NSFetchRequest<Character> = fetchRequest()
+        fetchReqeust.predicate = NSPredicate(format: "%K == %@", argumentArray: [#keyPath(Character.id), uid])
+        fetchReqeust.resultType = .managedObjectResultType
+        return fetchReqeust as? NSFetchRequest<NSFetchRequestResult>
+    }
+    
     public func asDomain() -> MarvelDomain.Character {
         return MarvelDomain.Character(
             id: Int(id),

@@ -15,7 +15,7 @@ import MarvelDomain
 import CoreData
 import Swinject
 
-class Injected {
+class Dependency {
     
     let container = Swinject.Container()
     

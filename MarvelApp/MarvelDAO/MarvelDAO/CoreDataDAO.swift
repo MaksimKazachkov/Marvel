@@ -20,9 +20,9 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     }
     
     private lazy var context: NSManagedObjectContext = {
-       return container.newBackgroundContext()
+        return container.newBackgroundContext()
     }()
-
+    
     public func create(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
             guard let self = self else {
@@ -42,7 +42,10 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
                 return
             }
             do {
-                let entity = try self.findOrFetch(by: predicate)
+                let request = NSFetchRequest<NSFetchRequestResult>()
+                request.resultType = .managedObjectResultType
+                request.predicate = predicate
+                let entity = try self.findOrFetch(by: request)
                 promise(.success(entity?.asDomain()))
             } catch {
                 promise(.failure(error))
@@ -53,14 +56,11 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     
     public func update(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
-            guard let self = self, let uid = object.uid else {
+            guard let self = self, let uid = object.uid, let request = T.CoreDataType.fetchRequest(by: uid) else {
                 return
             }
-            let predicate = NSPredicate(format: "id == %@", uid)
             do {
-                guard let entity = try self.findOrFetch(by: predicate) else {
-                    return
-                }
+                let entity: T.CoreDataType = try self.findOrFetch(by: request) ?? T.CoreDataType(context: self.context)
                 object.update(entity: entity)
                 promise(.success(()))
             } catch {
@@ -73,12 +73,11 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     
     public func delete(object: T) -> AnyPublisher<Void, Error> {
         return Future { [weak self] (promise) in
-            guard let self = self, let uid = object.uid else {
+            guard let self = self, let uid = object.uid, let request = T.CoreDataType.fetchRequest(by: uid) else {
                 return
             }
-            let predicate = NSPredicate(format: "id == %@", uid)
             do {
-                guard let entity = try self.findOrFetch(by: predicate) else {
+                guard let entity = try self.findOrFetch(by: request) else {
                     return
                 }
                 self.context.delete(entity)
@@ -91,12 +90,12 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
         .eraseToAnyPublisher()
     }
     
-    func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> NSFetchRequestResult? {
-        try request.execute().first
+    func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
+        try context.fetch(request).first as? T.CoreDataType
     }
     
     func queryResults(by request: NSFetchRequest<NSFetchRequestResult>) throws -> [NSFetchRequestResult] {
-        try request.execute()
+        try context.fetch(request)
     }
     
 }
@@ -104,21 +103,20 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
 // MARK: - Private methods
 private extension CoreDataDAO {
     
-    func findOrFetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
-        return try find(by: predicate) ?? fetch(by: predicate)
+    func findOrFetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
+        return try find(by: request) ?? fetch(by: request)
     }
     
-    func fetch(by predicate: NSPredicate) throws -> T.CoreDataType? {
-        let request = NSFetchRequest<NSFetchRequestResult>()
-        request.predicate = predicate
-        return try self.queryResult(by: request) as? T.CoreDataType
+    func fetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
+        return try self.queryResult(by: request)
     }
     
-    func find(by predicate: NSPredicate) -> T.CoreDataType? {
+    func find(by request: NSFetchRequest<NSFetchRequestResult>) -> T.CoreDataType? {
         context.registeredObjects
+            .compactMap({ $0 as? T.CoreDataType })
             .filter({ !$0.isFault })
-            .filter({ predicate.evaluate(with: $0) })
-            .first as? T.CoreDataType
+            .filter({ (request.predicate?.evaluate(with: $0) ?? false) })
+            .first
     }
     
     func save(context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
