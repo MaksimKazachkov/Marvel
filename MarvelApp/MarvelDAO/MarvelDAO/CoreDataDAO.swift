@@ -16,6 +16,10 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
     
     @Injected private var container: NSPersistentContainer
     
+    public init() {
+        
+    }
+    
     private lazy var context: NSManagedObjectContext = {
        return container.newBackgroundContext()
     }()

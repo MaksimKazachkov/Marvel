@@ -15,6 +15,10 @@ import Resolver
 final public class MarvelCharactersRepository: CharactersRepository {
     
     @Injected private var client: Client
+    
+    public init() {
+        
+    }
 
     public func characters(limit: Int, offset: Int) -> AnyPublisher<[Character], Error> {
         let model = CharactersRO(limit: limit, offset: offset)
