@@ -8,14 +8,13 @@
 
 import Foundation
 import Core
-import Resolver
 
 public struct URLRequestConstructor {
     
-    @Injected public var configuration: Configuration
+    public let configuration: Configuration
     
-    public init() {
-        
+    public init(configuration: Configuration) {
+        self.configuration = configuration
     }
     
     public func asURLRequest(route: Route) throws -> URLRequest {

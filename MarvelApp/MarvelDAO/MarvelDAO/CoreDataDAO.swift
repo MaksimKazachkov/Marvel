@@ -10,14 +10,13 @@ import Foundation
 import Combine
 import CoreData
 import MarvelDomain
-import Resolver
 
 public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataType.DomainType {
     
-    @Injected private var container: NSPersistentContainer
+    private let container: NSPersistentContainer
     
-    public init() {
-        
+    public init(container: NSPersistentContainer) {
+        self.container = container
     }
     
     private lazy var context: NSManagedObjectContext = {

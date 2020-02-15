@@ -10,14 +10,13 @@ import Foundation
 import Combine
 import MarvelDomain
 import MarvelNetwork
-import Resolver
 
 final public class MarvelCharactersRepository: CharactersRepository {
     
-    @Injected private var client: Client
+    private let client: Client
     
-    public init() {
-        
+    public init(client: Client) {
+        self.client = client
     }
 
     public func characters(limit: Int, offset: Int) -> AnyPublisher<[Character], Error> {

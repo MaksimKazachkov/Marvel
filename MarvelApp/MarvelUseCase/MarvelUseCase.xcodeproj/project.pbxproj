@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C63DF6C23EC894A00B61C8D /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 5C63DF6B23EC894A00B61C8D /* Resolver */; };
 		5C7F5EF923E9FB11000FFB89 /* MarvelUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5EEF23E9FB11000FFB89 /* MarvelUseCase.framework */; };
 		5C7F5EFE23E9FB11000FFB89 /* MarvelUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5EFD23E9FB11000FFB89 /* MarvelUseCaseTests.swift */; };
 		5C7F5F0023E9FB11000FFB89 /* MarvelUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C7F5EF223E9FB11000FFB89 /* MarvelUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,7 +15,11 @@
 		5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */; };
 		5C7F5F1323E9FB3D000FFB89 /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */; };
 		5C7F5F1723E9FBBA000FFB89 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
-		5CBFB3C423F85CFB001ED707 /* XCTestCase+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C323F85CFB001ED707 /* XCTestCase+Injection.swift */; };
+		5CBFB3C423F85CFB001ED707 /* XCTestCase+Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C323F85CFB001ED707 /* XCTestCase+Injected.swift */; };
+		5CBFB3C723F8861D001ED707 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 5CBFB3C623F8861D001ED707 /* Swinject */; };
+		5CBFB3C923F88BA3001ED707 /* CharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F0923E9FB2A000FFB89 /* CharactersUseCase.swift */; };
+		5CBFB3CA23F88BA3001ED707 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
+		5CBFB3CC23F88DDF001ED707 /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +44,8 @@
 		5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersUseCase.swift; sourceTree = "<group>"; };
-		5CBFB3C323F85CFB001ED707 /* XCTestCase+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Injection.swift"; sourceTree = "<group>"; };
+		5CBFB3C323F85CFB001ED707 /* XCTestCase+Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Injected.swift"; sourceTree = "<group>"; };
+		5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DEV.xcconfig; path = ../DEV.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +54,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7F5F0F23E9FB3D000FFB89 /* MarvelDAO.framework in Frameworks */,
+				5CBFB3C723F8861D001ED707 /* Swinject in Frameworks */,
 				5C7F5F1323E9FB3D000FFB89 /* MarvelRepository.framework in Frameworks */,
-				5C63DF6C23EC894A00B61C8D /* Resolver in Frameworks */,
 				5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +74,7 @@
 		5C7F5EE523E9FB11000FFB89 = {
 			isa = PBXGroup;
 			children = (
+				5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */,
 				5C7F5EF123E9FB11000FFB89 /* MarvelUseCase */,
 				5C7F5EFC23E9FB11000FFB89 /* MarvelUseCaseTests */,
 				5C7F5EF023E9FB11000FFB89 /* Products */,
@@ -101,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				5C7F5EFD23E9FB11000FFB89 /* MarvelUseCaseTests.swift */,
-				5CBFB3C323F85CFB001ED707 /* XCTestCase+Injection.swift */,
+				5CBFB3C323F85CFB001ED707 /* XCTestCase+Injected.swift */,
 				5C7F5EFF23E9FB11000FFB89 /* Info.plist */,
 			);
 			path = MarvelUseCaseTests;
@@ -146,7 +151,7 @@
 			);
 			name = MarvelUseCase;
 			packageProductDependencies = (
-				5C63DF6B23EC894A00B61C8D /* Resolver */,
+				5CBFB3C623F8861D001ED707 /* Swinject */,
 			);
 			productName = MarvelUseCase;
 			productReference = 5C7F5EEF23E9FB11000FFB89 /* MarvelUseCase.framework */;
@@ -200,6 +205,7 @@
 			mainGroup = 5C7F5EE523E9FB11000FFB89;
 			packageReferences = (
 				5C63DF6A23EC894A00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */,
+				5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 5C7F5EF023E9FB11000FFB89 /* Products */;
 			projectDirPath = "";
@@ -223,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBFB3CC23F88DDF001ED707 /* DEV.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CBFB3C423F85CFB001ED707 /* XCTestCase+Injection.swift in Sources */,
+				5CBFB3CA23F88BA3001ED707 /* MarvelCharactersUseCase.swift in Sources */,
+				5CBFB3C423F85CFB001ED707 /* XCTestCase+Injected.swift in Sources */,
+				5CBFB3C923F88BA3001ED707 /* CharactersUseCase.swift in Sources */,
 				5C7F5EFE23E9FB11000FFB89 /* MarvelUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +438,7 @@
 		};
 		5C7F5F0723E9FB11000FFB89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,13 +514,21 @@
 				minimumVersion = 1.1.2;
 			};
 		};
+		5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5C63DF6B23EC894A00B61C8D /* Resolver */ = {
+		5CBFB3C623F8861D001ED707 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5C63DF6A23EC894A00B61C8D /* XCRemoteSwiftPackageReference "Resolver" */;
-			productName = Resolver;
+			package = 5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

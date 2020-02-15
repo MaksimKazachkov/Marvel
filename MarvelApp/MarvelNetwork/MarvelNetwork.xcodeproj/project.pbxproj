@@ -20,7 +20,6 @@
 		5C007DD523DF97BC00FD8AFB /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007DC223DF95DA00FD8AFB /* URLTransformer.swift */; };
 		5C007DD723DF97BC00FD8AFB /* HTTPURLResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007DC523DF95DA00FD8AFB /* HTTPURLResponseValidator.swift */; };
 		5C007DD823DF97BC00FD8AFB /* CodableContainerTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C007DC623DF95DA00FD8AFB /* CodableContainerTransformer.swift */; };
-		5C63DF6F23EC8B0400B61C8D /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 5C63DF6E23EC8B0400B61C8D /* Resolver */; };
 		5C63DF7F23EC962A00B61C8D /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5C63DF7E23EC962A00B61C8D /* DEV.xcconfig */; };
 		5C63DF8123EC96D900B61C8D /* XCTestCase+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DF8023EC96D900B61C8D /* XCTestCase+Injection.swift */; };
 		5C63DFAE23EDC9E400B61C8D /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C63DFAD23EDC9E400B61C8D /* Core.framework */; };
@@ -95,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C63DF6F23EC8B0400B61C8D /* Resolver in Frameworks */,
 				5C63DFAE23EDC9E400B61C8D /* Core.framework in Frameworks */,
 				5C007DCE23DF968300FD8AFB /* MarvelDomain.framework in Frameworks */,
 			);
@@ -272,7 +270,6 @@
 			);
 			name = MarvelNetwork;
 			packageProductDependencies = (
-				5C63DF6E23EC8B0400B61C8D /* Resolver */,
 			);
 			productName = MarvelNetwork;
 			productReference = 5C007D9D23DF95B800FD8AFB /* MarvelNetwork.framework */;
@@ -644,14 +641,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5C63DF6E23EC8B0400B61C8D /* Resolver */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C63DF6D23EC8B0400B61C8D /* XCRemoteSwiftPackageReference "Resolver" */;
-			productName = Resolver;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C007D9423DF95B800FD8AFB /* Project object */;
 }
