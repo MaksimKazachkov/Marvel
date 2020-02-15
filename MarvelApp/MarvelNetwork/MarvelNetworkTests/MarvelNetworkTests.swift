@@ -25,37 +25,11 @@ class MarvelNetworkTests: XCTestCase {
         subscriptions.removeAll()
     }
     
-    func testfetchCharacters() {
-        let expectation = XCTestExpectation()
-        let model = CharactersRO(limit: 20, offset: 0)
-        let client = MarvelClient()
-        client.requestData(route: CharactersRoute.characters(model))
-            .sink(receiveCompletion: { (completion) in
-                switch completion {
-                case .finished:
-                    expectation.fulfill()
-                case .failure(let error):
-                    XCTFail(error.localizedDescription)
-                }
-            }) { data in
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    XCTFail(error.localizedDescription)
-                }
-        }
-        .store(in: &subscriptions)
-        
-        wait(for: [expectation], timeout: 60)
-    }
-    
     func testFetchAndDecodeCharacters() {
         let expectation = XCTestExpectation()
         let model = CharactersRO(limit: 20, offset: 0)
         let client = MarvelClient()
         client.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
-            .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .finished:

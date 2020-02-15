@@ -16,11 +16,18 @@ extension Resource {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Resource> {
         return NSFetchRequest<Resource>(entityName: "Resource")
     }
+    
+    @nonobjc public class func fetchRequest(by character: Character) -> NSFetchRequest<Resource> {
+        let fetchReqeust: NSFetchRequest<Resource> = fetchRequest()
+        fetchReqeust.predicate = NSPredicate(format: "%K == %@", argumentArray: [\Resource.character, character])
+        return fetchRequest()
+    }
 
     @NSManaged public var available: Int16
     @NSManaged public var collectionURI: URL?
     @NSManaged public var returned: Int16
     @NSManaged public var items: Set<Item>
+    @NSManaged public var character: Character?
 
 }
 

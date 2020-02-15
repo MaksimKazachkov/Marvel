@@ -6,7 +6,7 @@
         <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="resourceURI" optional="YES" attributeType="URI"/>
-        <relationship name="comics" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
+        <relationship name="comics" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource" inverseName="character" inverseEntity="Resource"/>
         <relationship name="events" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
         <relationship name="series" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
         <relationship name="stories" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
@@ -23,17 +23,17 @@
         <attribute name="available" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="collectionURI" optional="YES" attributeType="URI"/>
         <attribute name="returned" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="comics" inverseEntity="Character"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item"/>
     </entity>
     <entity name="URLType" representedClassName=".URLType" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="URI"/>
     </entity>
-    <fetchRequest name="CharacterFetchRequest" entity="Character" fetchLimit="20"/>
     <elements>
         <element name="Character" positionX="-556.13671875" positionY="-281.76171875" width="128" height="193"/>
         <element name="Item" positionX="249.3515625" positionY="-116.87890625" width="128" height="73"/>
-        <element name="Resource" positionX="-95.9140625" positionY="-266.62109375" width="128" height="103"/>
+        <element name="Resource" positionX="-87.5234375" positionY="-281.4296875" width="128" height="118"/>
         <element name="URLType" positionX="-97.609375" positionY="186.1953125" width="128" height="73"/>
     </elements>
 </model>

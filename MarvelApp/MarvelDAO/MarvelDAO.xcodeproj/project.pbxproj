@@ -15,6 +15,9 @@
 		5CBFB3B423F7CD1F001ED707 /* URLType+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3B323F7CD1F001ED707 /* URLType+DomainConvertableType.swift */; };
 		5CBFB3B623F7CDA3001ED707 /* Item+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3B523F7CDA3001ED707 /* Item+DomainConvertableType.swift */; };
 		5CBFB3B823F7CE8E001ED707 /* Resource+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3B723F7CE8E001ED707 /* Resource+DomainConvertableType.swift */; };
+		5CBFB3BE23F80108001ED707 /* URLType+CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3BD23F80108001ED707 /* URLType+CoreDataRepresentable.swift */; };
+		5CBFB3C023F801CA001ED707 /* Item+CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3BF23F801CA001ED707 /* Item+CoreDataRepresentable.swift */; };
+		5CBFB3C223F80230001ED707 /* Resource+CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C123F80230001ED707 /* Resource+CoreDataRepresentable.swift */; };
 		5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2B723E76CA80069207E /* Characters.xcdatamodeld */; };
 		5CCDD2CF23E7D3570069207E /* CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */; };
 		5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */; };
@@ -53,6 +56,9 @@
 		5CBFB3B323F7CD1F001ED707 /* URLType+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLType+DomainConvertableType.swift"; sourceTree = "<group>"; };
 		5CBFB3B523F7CDA3001ED707 /* Item+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+DomainConvertableType.swift"; sourceTree = "<group>"; };
 		5CBFB3B723F7CE8E001ED707 /* Resource+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resource+DomainConvertableType.swift"; sourceTree = "<group>"; };
+		5CBFB3BD23F80108001ED707 /* URLType+CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLType+CoreDataRepresentable.swift"; sourceTree = "<group>"; };
+		5CBFB3BF23F801CA001ED707 /* Item+CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataRepresentable.swift"; sourceTree = "<group>"; };
+		5CBFB3C123F80230001ED707 /* Resource+CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataRepresentable.swift"; sourceTree = "<group>"; };
 		5CCDD2B823E76CA80069207E /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 		5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepresentable.swift; sourceTree = "<group>"; };
 		5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertableType.swift; sourceTree = "<group>"; };
@@ -141,10 +147,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5CCDD2D423E8C0230069207E /* DTO */ = {
+		5CBFB3BB23F800CC001ED707 /* CoreDataRepresentable */ = {
 			isa = PBXGroup;
 			children = (
 				5CCDD2D523E8C0430069207E /* Character+CoreDataRepresentable.swift */,
+				5CBFB3BD23F80108001ED707 /* URLType+CoreDataRepresentable.swift */,
+				5CBFB3BF23F801CA001ED707 /* Item+CoreDataRepresentable.swift */,
+				5CBFB3C123F80230001ED707 /* Resource+CoreDataRepresentable.swift */,
+			);
+			path = CoreDataRepresentable;
+			sourceTree = "<group>";
+		};
+		5CBFB3BC23F800DA001ED707 /* DomainTypeConvertable */ = {
+			isa = PBXGroup;
+			children = (
+				5CBFB3B523F7CDA3001ED707 /* Item+DomainConvertableType.swift */,
+				5CBFB3B323F7CD1F001ED707 /* URLType+DomainConvertableType.swift */,
+				5CBFB3B723F7CE8E001ED707 /* Resource+DomainConvertableType.swift */,
+				5CCDD2DD23E8C0F40069207E /* Character+DomainConvertableType.swift */,
+			);
+			path = DomainTypeConvertable;
+			sourceTree = "<group>";
+		};
+		5CCDD2D423E8C0230069207E /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				5CBFB3BC23F800DA001ED707 /* DomainTypeConvertable */,
+				5CBFB3BB23F800CC001ED707 /* CoreDataRepresentable */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -165,7 +194,6 @@
 			children = (
 				5CE5AE4523F7C66600ED5501 /* Character+CoreDataClass.swift */,
 				5CE5AE4623F7C66600ED5501 /* Character+CoreDataProperties.swift */,
-				5CCDD2DD23E8C0F40069207E /* Character+DomainConvertableType.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -185,7 +213,6 @@
 			children = (
 				5CE5AE3D23F7C62400ED5501 /* Resource+CoreDataClass.swift */,
 				5CE5AE3E23F7C62400ED5501 /* Resource+CoreDataProperties.swift */,
-				5CBFB3B723F7CE8E001ED707 /* Resource+DomainConvertableType.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -195,7 +222,6 @@
 			children = (
 				5CE5AE4123F7C64500ED5501 /* URLType+CoreDataClass.swift */,
 				5CE5AE4223F7C64500ED5501 /* URLType+CoreDataProperties.swift */,
-				5CBFB3B323F7CD1F001ED707 /* URLType+DomainConvertableType.swift */,
 			);
 			path = URLType;
 			sourceTree = "<group>";
@@ -205,7 +231,6 @@
 			children = (
 				5CE5AE3923F7C5C100ED5501 /* Item+CoreDataClass.swift */,
 				5CE5AE3A23F7C5C100ED5501 /* Item+CoreDataProperties.swift */,
-				5CBFB3B523F7CDA3001ED707 /* Item+DomainConvertableType.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -330,6 +355,8 @@
 				5CE5AE3B23F7C5C100ED5501 /* Item+CoreDataClass.swift in Sources */,
 				5CCDD2B923E76CA80069207E /* Characters.xcdatamodeld in Sources */,
 				5CE5AE4723F7C66600ED5501 /* Character+CoreDataClass.swift in Sources */,
+				5CBFB3C023F801CA001ED707 /* Item+CoreDataRepresentable.swift in Sources */,
+				5CBFB3C223F80230001ED707 /* Resource+CoreDataRepresentable.swift in Sources */,
 				5CE5AE3F23F7C62400ED5501 /* Resource+CoreDataClass.swift in Sources */,
 				5CBFB3B623F7CDA3001ED707 /* Item+DomainConvertableType.swift in Sources */,
 				5CBFB3B423F7CD1F001ED707 /* URLType+DomainConvertableType.swift in Sources */,
@@ -337,6 +364,7 @@
 				5CCDD2E423E8C6A70069207E /* DAO.swift in Sources */,
 				5CE5AE4023F7C62400ED5501 /* Resource+CoreDataProperties.swift in Sources */,
 				5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */,
+				5CBFB3BE23F80108001ED707 /* URLType+CoreDataRepresentable.swift in Sources */,
 				5CE5AE4323F7C64500ED5501 /* URLType+CoreDataClass.swift in Sources */,
 				5CCDD2DE23E8C0F40069207E /* Character+DomainConvertableType.swift in Sources */,
 				5CE5AE4423F7C64500ED5501 /* URLType+CoreDataProperties.swift in Sources */,
