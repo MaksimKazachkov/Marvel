@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C63DF7A23EC8D0400B61C8D /* AppDelegate+ResolverPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DF7923EC8D0400B61C8D /* AppDelegate+ResolverPlugin.swift */; };
+		5C63DF7A23EC8D0400B61C8D /* AppDelegate+Swinject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DF7923EC8D0400B61C8D /* AppDelegate+Swinject.swift */; };
 		5C63DFC923EF22A800B61C8D /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5C63DFC823EF22A700B61C8D /* DEV.xcconfig */; };
 		5C63DFCC23EF231700B61C8D /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DFCB23EF231700B61C8D /* AppDelegate+CoreData.swift */; };
 		5C73D5A623DA2F39000DDE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */; };
@@ -57,7 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C63DF7923EC8D0400B61C8D /* AppDelegate+ResolverPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+ResolverPlugin.swift"; sourceTree = "<group>"; };
+		5C63DF7923EC8D0400B61C8D /* AppDelegate+Swinject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Swinject.swift"; sourceTree = "<group>"; };
 		5C63DFC823EF22A700B61C8D /* DEV.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DEV.xcconfig; path = ../DEV.xcconfig; sourceTree = "<group>"; };
 		5C63DFCB23EF231700B61C8D /* AppDelegate+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CoreData.swift"; sourceTree = "<group>"; };
 		5C73D5A223DA2F38000DDE85 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,13 +106,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C63DFCA23EF22F700B61C8D /* AppDelegate+Plugin */ = {
+		5C63DFCA23EF22F700B61C8D /* AppDelegate+Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				5C63DF7923EC8D0400B61C8D /* AppDelegate+ResolverPlugin.swift */,
+				5C63DF7923EC8D0400B61C8D /* AppDelegate+Swinject.swift */,
 				5C63DFCB23EF231700B61C8D /* AppDelegate+CoreData.swift */,
 			);
-			path = "AppDelegate+Plugin";
+			path = "AppDelegate+Plugins";
 			sourceTree = "<group>";
 		};
 		5C73D59923DA2F38000DDE85 = {
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */,
-				5C63DFCA23EF22F700B61C8D /* AppDelegate+Plugin */,
+				5C63DFCA23EF22F700B61C8D /* AppDelegate+Plugins */,
 				5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */,
 				5C73D5AC23DA2F39000DDE85 /* ContentView.swift */,
 				5C73D5AE23DA2F39000DDE85 /* Assets.xcassets */,
@@ -329,7 +329,7 @@
 				5C63DFCC23EF231700B61C8D /* AppDelegate+CoreData.swift in Sources */,
 				5C73D5AD23DA2F39000DDE85 /* ContentView.swift in Sources */,
 				5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */,
-				5C63DF7A23EC8D0400B61C8D /* AppDelegate+ResolverPlugin.swift in Sources */,
+				5C63DF7A23EC8D0400B61C8D /* AppDelegate+Swinject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
