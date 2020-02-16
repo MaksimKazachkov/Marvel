@@ -22,6 +22,7 @@ class MarvelUseCaseTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try! dependency.registerDependencies()
+        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
     }
     
     override func tearDown() {
@@ -34,7 +35,7 @@ class MarvelUseCaseTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let expectation = XCTestExpectation()
         let usecase: CharactersUseCase = dependency.container.resolve(CharactersUseCase.self)!
-        usecase.fetch(limit: 0, offset: 20)
+        usecase.fetch(limit: 20, offset: 20)
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .finished:
