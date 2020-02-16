@@ -28,16 +28,16 @@ public enum CharactersRoute: Route {
     
     public var parameters: Self.Parameters? {
         switch self {
-        case .characters:
-            return nil
+        case .characters(let model):
+            return [
+                "limit": model.limit,
+                "offset": model.offset
+            ]
         }
     }
     
     public var data: Data? {
-        switch self {
-        case .characters(let model):
-            return try? JSONEncoder().encode(model)
-        }
+        return nil
     }
     
 }

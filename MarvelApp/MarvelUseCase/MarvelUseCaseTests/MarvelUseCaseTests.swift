@@ -22,7 +22,6 @@ class MarvelUseCaseTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try! dependency.registerDependencies()
-        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
     }
     
     override func tearDown() {
