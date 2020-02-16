@@ -15,10 +15,10 @@ import Swinject
 
 class MarvelUseCaseTests: XCTestCase {
     
-    var subscriptions = Set<AnyCancellable>()
-    
     private let dependency = Dependency()
-    
+
+    private var subscriptions = Set<AnyCancellable>()
+        
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try! dependency.registerDependencies()

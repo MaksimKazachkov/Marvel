@@ -10,13 +10,17 @@ import XCTest
 @testable import MarvelNetwork
 import Combine
 import MarvelDomain
+import Swinject
 
 class MarvelNetworkTests: XCTestCase {
     
-    var subscriptions = Set<AnyCancellable>()
+    private let dependency = Dependency()
+
+    private var subscriptions = Set<AnyCancellable>()
         
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        try! dependency.registerDependencies()
     }
     
     override func tearDown() {
@@ -25,23 +29,23 @@ class MarvelNetworkTests: XCTestCase {
     }
     
     func testFetchAndDecodeCharacters() {
-//        let expectation = XCTestExpectation()
-//        let model = CharactersRO(limit: 20, offset: 0)
-//        let client = MarvelClient()
-//        client.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
-//            .sink(receiveCompletion: { (completion) in
-//                switch completion {
-//                case .finished:
-//                    expectation.fulfill()
-//                case .failure(let error):
-//                    XCTFail(error.localizedDescription)
-//                }
-//            }) { (characters: [Character]) in
-//                expectation.fulfill()
-//        }
-//        .store(in: &subscriptions)
-//
-//        wait(for: [expectation], timeout: 60)
+        let expectation = XCTestExpectation()
+        let client: Client = dependency.container.resolve(Client.self)!
+        let model = CharactersRO(limit: 20, offset: 0)
+        client.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                case .finished:
+                    expectation.fulfill()
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
+            }) { (characters: [Character]) in
+                expectation.fulfill()
+        }
+        .store(in: &subscriptions)
+
+        wait(for: [expectation], timeout: 60)
     }
     
     func testPerformanceExample() {
