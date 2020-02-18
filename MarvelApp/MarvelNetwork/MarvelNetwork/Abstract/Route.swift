@@ -11,13 +11,17 @@ import Foundation
 public protocol Route {
     
     typealias Parameters = [String: CustomStringConvertible]
+    
+    typealias Headers = [String: String]
             
     var method: HTTPMethod { get }
     
     var path: String { get }
     
-    var parameters: Parameters? { get }
+    var headers: Headers? { get }
     
-    var data: Data? { get }
+    var queryParameters: Parameters? { get }
+    
+    var body: Data? { get }
     
 }

@@ -71,7 +71,7 @@ public class MarvelClient: Client {
         }
     }
     
-    public func request(route: Route) -> AnyPublisher<(), Error> {
+    public func request(route: Route) -> AnyPublisher<Void, Error> {
         do {
             let request = try constructor.asURLRequest(route: route, with: makeQueryItems(from: credentials))
             return session.dataTaskPublisher(for: request)

@@ -25,7 +25,8 @@ public struct URLRequestConstructor {
         }
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpBody = route.data
+        route.headers?.forEach({ urlRequest.addValue($0.value, forHTTPHeaderField: $0.key) })
+        urlRequest.httpBody = route.body
         
         return URLRequest(url: url)
     }
@@ -46,7 +47,8 @@ public struct URLRequestConstructor {
         }
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpBody = route.data
+        route.headers?.forEach({ urlRequest.addValue($0.value, forHTTPHeaderField: $0.key) })
+        urlRequest.httpBody = route.body
         
         return URLRequest(url: url)
     }
@@ -57,7 +59,7 @@ public struct URLRequestConstructor {
         components.host = configuration.host
         components.port = configuration.port
         components.path = route.path
-        components.queryItems = makeQueryItems(from: route.parameters)
+        components.queryItems = makeQueryItems(from: route.queryParameters)
         
         return components
     }

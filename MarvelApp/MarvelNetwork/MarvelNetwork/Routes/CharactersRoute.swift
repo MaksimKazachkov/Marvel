@@ -26,7 +26,11 @@ public enum CharactersRoute: Route {
         }
     }
     
-    public var parameters: Self.Parameters? {
+    public var headers: Self.Headers? {
+        return nil
+    }
+    
+    public var queryParameters: Self.Parameters? {
         switch self {
         case .characters(let model):
             return [
@@ -36,7 +40,7 @@ public enum CharactersRoute: Route {
         }
     }
     
-    public var data: Data? {
+    public var body: Data? {
         return nil
     }
     
