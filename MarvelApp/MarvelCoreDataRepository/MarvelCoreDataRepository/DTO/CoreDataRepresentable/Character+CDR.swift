@@ -1,8 +1,8 @@
 //
-//  Character+CoreDataRepresentable.swift
-//  MarvelRepository
+//  Character+CDR.swift
+//  MarvelCoreDataRepository
 //
-//  Created by Maksim Kazachkov on 03.02.2020.
+//  Created by Maksim Kazachkov on 22.05.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 
@@ -29,7 +29,7 @@ extension MarvelDomain.Character: CoreDataRepresentable {
         entity.resourceURI = resourceURI
         if let context = entity.managedObjectContext {
             urls?.forEach({
-                let urlEntity = MarvelDAO.URLType(context: context)
+                let urlEntity = MarvelCoreDataRepository.URLType(context: context)
                 $0.update(entity: urlEntity)
                 entity.addToUrls(urlEntity)
             })
@@ -37,7 +37,7 @@ extension MarvelDomain.Character: CoreDataRepresentable {
                 if let comicsEntity = entity.comics {
                     comics.update(entity: comicsEntity)
                 } else {
-                    let comicsEntity = MarvelDAO.Resource(context: context)
+                    let comicsEntity = MarvelCoreDataRepository.Resource(context: context)
                     comics.update(entity: comicsEntity)
                     entity.comics = comicsEntity
                 }
@@ -46,7 +46,7 @@ extension MarvelDomain.Character: CoreDataRepresentable {
                 if let storiesEntity = entity.stories {
                     stories.update(entity: storiesEntity)
                 } else {
-                    let storiesEntity = MarvelDAO.Resource(context: context)
+                    let storiesEntity = MarvelCoreDataRepository.Resource(context: context)
                     stories.update(entity: storiesEntity)
                     entity.stories = storiesEntity
                 }
@@ -55,7 +55,7 @@ extension MarvelDomain.Character: CoreDataRepresentable {
                 if let eventsEntity = entity.events {
                     events.update(entity: eventsEntity)
                 } else {
-                    let eventsEntity = MarvelDAO.Resource(context: context)
+                    let eventsEntity = MarvelCoreDataRepository.Resource(context: context)
                     events.update(entity: eventsEntity)
                     entity.events = eventsEntity
                 }
@@ -64,7 +64,7 @@ extension MarvelDomain.Character: CoreDataRepresentable {
                 if let seriesEntity = entity.series {
                     series.update(entity: seriesEntity)
                 } else {
-                    let seriesEntity = MarvelDAO.Resource(context: context)
+                    let seriesEntity = MarvelCoreDataRepository.Resource(context: context)
                     series.update(entity: seriesEntity)
                     entity.series = seriesEntity
                 }

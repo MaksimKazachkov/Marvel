@@ -1,14 +1,14 @@
 //
-//  DAOError.swift
-//  MarvelDAO
+//  Error.swift
+//  MarvelCoreDataRepository
 //
-//  Created by Maksim Kazachkov on 16.02.2020.
+//  Created by Maksim Kazachkov on 22.05.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 
 import Foundation
 
-enum DAOError: Error, CustomDebugStringConvertible {
+enum Error: Swift.Error, CustomDebugStringConvertible {
     
     case nilUID
     

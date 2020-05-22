@@ -1,8 +1,8 @@
 //
-//  Resource+CoreDataRepresentable.swift
-//  MarvelDAO
+//  Resource+CDR.swift
+//  MarvelCoreDataRepository
 //
-//  Created by Maksim Kazachkov on 15.02.2020.
+//  Created by Maksim Kazachkov on 22.05.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 
@@ -28,7 +28,7 @@ extension MarvelDomain.Resource: CoreDataRepresentable {
         if let context = entity.managedObjectContext {
             items?
                 .forEach({
-                    let itemEntity = MarvelDAO.Item(context: context)
+                    let itemEntity = MarvelCoreDataRepository.Item(context: context)
                     $0.update(entity: itemEntity)
                     entity.addToItems(itemEntity)
                 })

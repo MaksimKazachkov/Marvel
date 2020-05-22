@@ -1,8 +1,8 @@
 //
-//  Item+CoreDataRepresentable.swift
-//  MarvelDAO
+//  Item+CDR.swift
+//  MarvelCoreDataRepository
 //
-//  Created by Maksim Kazachkov on 15.02.2020.
+//  Created by Maksim Kazachkov on 22.05.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 

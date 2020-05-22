@@ -1,8 +1,8 @@
 //
-//  CoreDataDAO.swift
-//  MarvelDAO
+//  CoreDataRepository.swift
+//  MarvelCoreDataRepository
 //
-//  Created by Maksim Kazachkov on 28.01.2020.
+//  Created by Maksim Kazachkov on 22.05.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Combine
 import CoreData
 import MarvelDomain
 
-public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataType.DomainType {
+public class CoreDataRepository<T: CoreDataRepresentable> where T == T.CoreDataType.DomainType {
     
     private let container: NSPersistentContainer
     
@@ -23,7 +23,7 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
         return container.newBackgroundContext()
     }()
     
-    public func create(object: T) -> AnyPublisher<Void, Error> {
+    public func create(object: T) -> AnyPublisher<Void, Swift.Error> {
         return Future { [weak self] (promise) in
             guard let self = self else {
                 return
@@ -36,7 +36,7 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
         .eraseToAnyPublisher()
     }
     
-    public func read(by predicate: NSPredicate) -> AnyPublisher<T?, Error> {
+    public func read(by predicate: NSPredicate) -> AnyPublisher<T?, Swift.Error> {
         return Future { [weak self] (promise) in
             guard let self = self else {
                 return
@@ -54,16 +54,16 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
         .eraseToAnyPublisher()
     }
     
-    public func update(object: T) -> AnyPublisher<Void, Error> {
+    public func update(object: T) -> AnyPublisher<Void, Swift.Error> {
         return Future { [weak self] (promise) in
             guard let self = self else {
                 return
             }
             guard let uid = object.uid else {
-                return promise(.failure(DAOError.nilUID))
+                return promise(.failure(Error.nilUID))
             }
             guard let request = T.CoreDataType.fetchRequest(by: uid) else {
-                return promise(.failure(DAOError.badFetchRequest(uid: uid)))
+                return promise(.failure(Error.badFetchRequest(uid: uid)))
             }
             do {
                 let entity: T.CoreDataType = try self.findOrFetch(by: request) ?? T.CoreDataType(context: self.context)
@@ -77,16 +77,16 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
         .eraseToAnyPublisher()
     }
     
-    public func delete(object: T) -> AnyPublisher<Void, Error> {
+    public func delete(object: T) -> AnyPublisher<Void, Swift.Error> {
         return Future { [weak self] (promise) in
             guard let self = self else {
                 return
             }
             guard let uid = object.uid else {
-                return promise(.failure(DAOError.nilUID))
+                return promise(.failure(Error.nilUID))
             }
             guard let request = T.CoreDataType.fetchRequest(by: uid) else {
-                return promise(.failure(DAOError.badFetchRequest(uid: uid)))
+                return promise(.failure(Error.badFetchRequest(uid: uid)))
             }
             do {
                 guard let entity = try self.findOrFetch(by: request) else {
@@ -110,40 +110,37 @@ public class CoreDataDAO<T: CoreDataRepresentable>: DAO where T == T.CoreDataTyp
         try context.fetch(request)
     }
     
-}
-
-// MARK: - Private methods
-private extension CoreDataDAO {
+    // MARK: - Private methods
     
-    func findOrFetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
-        return try find(by: request) ?? fetch(by: request)
-    }
-    
-    func fetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
-        return try self.queryResult(by: request)
-    }
-    
-    func find(by request: NSFetchRequest<NSFetchRequestResult>) -> T.CoreDataType? {
-        context.registeredObjects
-            .compactMap({ $0 as? T.CoreDataType })
-            .filter({ !$0.isFault })
-            .filter({ (request.predicate?.evaluate(with: $0) ?? false) })
-            .first
-    }
-    
-    func save(context: NSManagedObjectContext) -> AnyPublisher<Void, Error> {
-        return Future { (promise) in
-            guard context.hasChanges else {
-                return
-            }
-            do {
-                try context.save()
-                promise(.success(()))
-            } catch {
-                context.rollback()
-                promise(.failure(error))
-            }
-        }.eraseToAnyPublisher()
-    }
+    private func findOrFetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
+           return try find(by: request) ?? fetch(by: request)
+       }
+       
+    private func fetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
+           return try self.queryResult(by: request)
+       }
+       
+    private func find(by request: NSFetchRequest<NSFetchRequestResult>) -> T.CoreDataType? {
+           context.registeredObjects
+               .compactMap({ $0 as? T.CoreDataType })
+               .filter({ !$0.isFault })
+               .filter({ (request.predicate?.evaluate(with: $0) ?? false) })
+               .first
+       }
+       
+    private func save(context: NSManagedObjectContext) -> AnyPublisher<Void, Swift.Error> {
+           return Future { (promise) in
+               guard context.hasChanges else {
+                   return
+               }
+               do {
+                   try context.save()
+                   promise(.success(()))
+               } catch {
+                   context.rollback()
+                   promise(.failure(error))
+               }
+           }.eraseToAnyPublisher()
+       }
     
 }

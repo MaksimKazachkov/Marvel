@@ -1,15 +1,15 @@
 //
-//  MarvelDAOTests.swift
-//  MarvelDAOTests
+//  MarvelCoreDataRepositoryTests.swift
+//  MarvelCoreDataRepositoryTests
 //
-//  Created by Maksim Kazachkov on 28.01.2020.
+//  Created by Maksim Kazachkov on 22.05.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 
 import XCTest
-@testable import MarvelRepository
+@testable import MarvelCoreDataRepository
 
-class MarvelDAOTests: XCTestCase {
+class MarvelCoreDataRepositoryTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
