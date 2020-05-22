@@ -7,111 +7,120 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C7F5EC823E9F83F000FFB89 /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5EBE23E9F83F000FFB89 /* MarvelRepository.framework */; };
-		5C7F5ECD23E9F83F000FFB89 /* MarvelRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5ECC23E9F83F000FFB89 /* MarvelRepositoryTests.swift */; };
-		5C7F5ECF23E9F83F000FFB89 /* MarvelRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C7F5EC123E9F83F000FFB89 /* MarvelRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C7F5EDA23E9F864000FFB89 /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5ED923E9F864000FFB89 /* CharactersRepository.swift */; };
-		5C7F5EDC23E9F8CB000FFB89 /* MarvelCharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5EDB23E9F8CB000FFB89 /* MarvelCharactersRepository.swift */; };
-		5C7F5EE023E9F8D5000FFB89 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5EDE23E9F8D5000FFB89 /* MarvelDomain.framework */; };
-		5C7F5EE223E9F8D5000FFB89 /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5EDF23E9F8D5000FFB89 /* MarvelNetwork.framework */; };
+		84521D7F2478551A00338FAD /* MarvelNetworkRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D752478551A00338FAD /* MarvelNetworkRepository.framework */; };
+		84521D842478551A00338FAD /* MarvelNetworkRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521D832478551A00338FAD /* MarvelNetworkRepositoryTests.swift */; };
+		84521D862478551A00338FAD /* MarvelNetworkRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 84521D782478551A00338FAD /* MarvelNetworkRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84521D902478552E00338FAD /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521D8F2478552E00338FAD /* CharactersRepository.swift */; };
+		84521D942478553900338FAD /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D922478553900338FAD /* MarvelDomain.framework */; };
+		84521D952478553900338FAD /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D922478553900338FAD /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84521D962478553900338FAD /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D932478553900338FAD /* MarvelNetwork.framework */; };
+		84521D972478553900338FAD /* MarvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D932478553900338FAD /* MarvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84521D9C2478588B00338FAD /* CharactersNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5C7F5EC923E9F83F000FFB89 /* PBXContainerItemProxy */ = {
+		84521D802478551A00338FAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5C7F5EB523E9F83F000FFB89 /* Project object */;
+			containerPortal = 84521D6C2478551A00338FAD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5C7F5EBD23E9F83F000FFB89;
-			remoteInfo = MarvelRepository;
+			remoteGlobalIDString = 84521D742478551A00338FAD;
+			remoteInfo = MarvelNetworkRepository;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		84521D982478553900338FAD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84521D972478553900338FAD /* MarvelNetwork.framework in Embed Frameworks */,
+				84521D952478553900338FAD /* MarvelDomain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5C7F5EBE23E9F83F000FFB89 /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C7F5EC123E9F83F000FFB89 /* MarvelRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelRepository.h; sourceTree = "<group>"; };
-		5C7F5EC223E9F83F000FFB89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C7F5EC723E9F83F000FFB89 /* MarvelRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C7F5ECC23E9F83F000FFB89 /* MarvelRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepositoryTests.swift; sourceTree = "<group>"; };
-		5C7F5ECE23E9F83F000FFB89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C7F5ED923E9F864000FFB89 /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
-		5C7F5EDB23E9F8CB000FFB89 /* MarvelCharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersRepository.swift; sourceTree = "<group>"; };
-		5C7F5EDE23E9F8D5000FFB89 /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C7F5EDF23E9F8D5000FFB89 /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84521D752478551A00338FAD /* MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84521D782478551A00338FAD /* MarvelNetworkRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelNetworkRepository.h; sourceTree = "<group>"; };
+		84521D792478551A00338FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84521D7E2478551A00338FAD /* MarvelNetworkRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelNetworkRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84521D832478551A00338FAD /* MarvelNetworkRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelNetworkRepositoryTests.swift; sourceTree = "<group>"; };
+		84521D852478551A00338FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84521D8F2478552E00338FAD /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
+		84521D922478553900338FAD /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84521D932478553900338FAD /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersNetworkRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5C7F5EBB23E9F83F000FFB89 /* Frameworks */ = {
+		84521D722478551A00338FAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7F5EE223E9F8D5000FFB89 /* MarvelNetwork.framework in Frameworks */,
-				5C7F5EE023E9F8D5000FFB89 /* MarvelDomain.framework in Frameworks */,
+				84521D962478553900338FAD /* MarvelNetwork.framework in Frameworks */,
+				84521D942478553900338FAD /* MarvelDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C7F5EC423E9F83F000FFB89 /* Frameworks */ = {
+		84521D7B2478551A00338FAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7F5EC823E9F83F000FFB89 /* MarvelRepository.framework in Frameworks */,
+				84521D7F2478551A00338FAD /* MarvelNetworkRepository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C7F5EB423E9F83F000FFB89 = {
+		84521D6B2478551A00338FAD = {
 			isa = PBXGroup;
 			children = (
-				5C7F5EC023E9F83F000FFB89 /* MarvelRepository */,
-				5C7F5ECB23E9F83F000FFB89 /* MarvelRepositoryTests */,
-				5C7F5EBF23E9F83F000FFB89 /* Products */,
-				5C7F5EDD23E9F8D5000FFB89 /* Frameworks */,
+				84521D772478551A00338FAD /* MarvelNetworkRepository */,
+				84521D822478551A00338FAD /* MarvelNetworkRepositoryTests */,
+				84521D762478551A00338FAD /* Products */,
+				84521D912478553900338FAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		5C7F5EBF23E9F83F000FFB89 /* Products */ = {
+		84521D762478551A00338FAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C7F5EBE23E9F83F000FFB89 /* MarvelRepository.framework */,
-				5C7F5EC723E9F83F000FFB89 /* MarvelRepositoryTests.xctest */,
+				84521D752478551A00338FAD /* MarvelNetworkRepository.framework */,
+				84521D7E2478551A00338FAD /* MarvelNetworkRepositoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C7F5EC023E9F83F000FFB89 /* MarvelRepository */ = {
+		84521D772478551A00338FAD /* MarvelNetworkRepository */ = {
 			isa = PBXGroup;
 			children = (
-				5C7F5ED823E9F84F000FFB89 /* Characters */,
-				5C7F5EC123E9F83F000FFB89 /* MarvelRepository.h */,
-				5C7F5EC223E9F83F000FFB89 /* Info.plist */,
+				84521D782478551A00338FAD /* MarvelNetworkRepository.h */,
+				84521D8F2478552E00338FAD /* CharactersRepository.swift */,
+				84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */,
+				84521D792478551A00338FAD /* Info.plist */,
 			);
-			path = MarvelRepository;
+			path = MarvelNetworkRepository;
 			sourceTree = "<group>";
 		};
-		5C7F5ECB23E9F83F000FFB89 /* MarvelRepositoryTests */ = {
+		84521D822478551A00338FAD /* MarvelNetworkRepositoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C7F5ECC23E9F83F000FFB89 /* MarvelRepositoryTests.swift */,
-				5C7F5ECE23E9F83F000FFB89 /* Info.plist */,
+				84521D832478551A00338FAD /* MarvelNetworkRepositoryTests.swift */,
+				84521D852478551A00338FAD /* Info.plist */,
 			);
-			path = MarvelRepositoryTests;
+			path = MarvelNetworkRepositoryTests;
 			sourceTree = "<group>";
 		};
-		5C7F5ED823E9F84F000FFB89 /* Characters */ = {
+		84521D912478553900338FAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C7F5ED923E9F864000FFB89 /* CharactersRepository.swift */,
-				5C7F5EDB23E9F8CB000FFB89 /* MarvelCharactersRepository.swift */,
-			);
-			path = Characters;
-			sourceTree = "<group>";
-		};
-		5C7F5EDD23E9F8D5000FFB89 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5C7F5EDE23E9F8D5000FFB89 /* MarvelDomain.framework */,
-				5C7F5EDF23E9F8D5000FFB89 /* MarvelNetwork.framework */,
+				84521D922478553900338FAD /* MarvelDomain.framework */,
+				84521D932478553900338FAD /* MarvelNetwork.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,75 +128,74 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5C7F5EB923E9F83F000FFB89 /* Headers */ = {
+		84521D702478551A00338FAD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7F5ECF23E9F83F000FFB89 /* MarvelRepository.h in Headers */,
+				84521D862478551A00338FAD /* MarvelNetworkRepository.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5C7F5EBD23E9F83F000FFB89 /* MarvelRepository */ = {
+		84521D742478551A00338FAD /* MarvelNetworkRepository */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C7F5ED223E9F83F000FFB89 /* Build configuration list for PBXNativeTarget "MarvelRepository" */;
+			buildConfigurationList = 84521D892478551A00338FAD /* Build configuration list for PBXNativeTarget "MarvelNetworkRepository" */;
 			buildPhases = (
-				5C7F5EB923E9F83F000FFB89 /* Headers */,
-				5C7F5EBA23E9F83F000FFB89 /* Sources */,
-				5C7F5EBB23E9F83F000FFB89 /* Frameworks */,
-				5C7F5EBC23E9F83F000FFB89 /* Resources */,
+				84521D702478551A00338FAD /* Headers */,
+				84521D712478551A00338FAD /* Sources */,
+				84521D722478551A00338FAD /* Frameworks */,
+				84521D732478551A00338FAD /* Resources */,
+				84521D982478553900338FAD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MarvelRepository;
-			packageProductDependencies = (
-			);
-			productName = MarvelRepository;
-			productReference = 5C7F5EBE23E9F83F000FFB89 /* MarvelRepository.framework */;
+			name = MarvelNetworkRepository;
+			productName = MarvelNetworkRepository;
+			productReference = 84521D752478551A00338FAD /* MarvelNetworkRepository.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5C7F5EC623E9F83F000FFB89 /* MarvelRepositoryTests */ = {
+		84521D7D2478551A00338FAD /* MarvelNetworkRepositoryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C7F5ED523E9F83F000FFB89 /* Build configuration list for PBXNativeTarget "MarvelRepositoryTests" */;
+			buildConfigurationList = 84521D8C2478551A00338FAD /* Build configuration list for PBXNativeTarget "MarvelNetworkRepositoryTests" */;
 			buildPhases = (
-				5C7F5EC323E9F83F000FFB89 /* Sources */,
-				5C7F5EC423E9F83F000FFB89 /* Frameworks */,
-				5C7F5EC523E9F83F000FFB89 /* Resources */,
+				84521D7A2478551A00338FAD /* Sources */,
+				84521D7B2478551A00338FAD /* Frameworks */,
+				84521D7C2478551A00338FAD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5C7F5ECA23E9F83F000FFB89 /* PBXTargetDependency */,
+				84521D812478551A00338FAD /* PBXTargetDependency */,
 			);
-			name = MarvelRepositoryTests;
-			productName = MarvelRepositoryTests;
-			productReference = 5C7F5EC723E9F83F000FFB89 /* MarvelRepositoryTests.xctest */;
+			name = MarvelNetworkRepositoryTests;
+			productName = MarvelNetworkRepositoryTests;
+			productReference = 84521D7E2478551A00338FAD /* MarvelNetworkRepositoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5C7F5EB523E9F83F000FFB89 /* Project object */ = {
+		84521D6C2478551A00338FAD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Maksim Kazachkov";
 				TargetAttributes = {
-					5C7F5EBD23E9F83F000FFB89 = {
+					84521D742478551A00338FAD = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
 					};
-					5C7F5EC623E9F83F000FFB89 = {
+					84521D7D2478551A00338FAD = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 5C7F5EB823E9F83F000FFB89 /* Build configuration list for PBXProject "MarvelRepository" */;
+			buildConfigurationList = 84521D6F2478551A00338FAD /* Build configuration list for PBXProject "MarvelNetworkRepository" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -195,28 +203,26 @@
 				en,
 				Base,
 			);
-			mainGroup = 5C7F5EB423E9F83F000FFB89;
-			packageReferences = (
-			);
-			productRefGroup = 5C7F5EBF23E9F83F000FFB89 /* Products */;
+			mainGroup = 84521D6B2478551A00338FAD;
+			productRefGroup = 84521D762478551A00338FAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C7F5EBD23E9F83F000FFB89 /* MarvelRepository */,
-				5C7F5EC623E9F83F000FFB89 /* MarvelRepositoryTests */,
+				84521D742478551A00338FAD /* MarvelNetworkRepository */,
+				84521D7D2478551A00338FAD /* MarvelNetworkRepositoryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5C7F5EBC23E9F83F000FFB89 /* Resources */ = {
+		84521D732478551A00338FAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C7F5EC523E9F83F000FFB89 /* Resources */ = {
+		84521D7C2478551A00338FAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -226,35 +232,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5C7F5EBA23E9F83F000FFB89 /* Sources */ = {
+		84521D712478551A00338FAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7F5EDC23E9F8CB000FFB89 /* MarvelCharactersRepository.swift in Sources */,
-				5C7F5EDA23E9F864000FFB89 /* CharactersRepository.swift in Sources */,
+				84521D9C2478588B00338FAD /* CharactersNetworkRepository.swift in Sources */,
+				84521D902478552E00338FAD /* CharactersRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C7F5EC323E9F83F000FFB89 /* Sources */ = {
+		84521D7A2478551A00338FAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7F5ECD23E9F83F000FFB89 /* MarvelRepositoryTests.swift in Sources */,
+				84521D842478551A00338FAD /* MarvelNetworkRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5C7F5ECA23E9F83F000FFB89 /* PBXTargetDependency */ = {
+		84521D812478551A00338FAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C7F5EBD23E9F83F000FFB89 /* MarvelRepository */;
-			targetProxy = 5C7F5EC923E9F83F000FFB89 /* PBXContainerItemProxy */;
+			target = 84521D742478551A00338FAD /* MarvelNetworkRepository */;
+			targetProxy = 84521D802478551A00338FAD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5C7F5ED023E9F83F000FFB89 /* Debug */ = {
+		84521D872478551A00338FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -317,7 +323,7 @@
 			};
 			name = Debug;
 		};
-		5C7F5ED123E9F83F000FFB89 /* Release */ = {
+		84521D882478551A00338FAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -374,7 +380,7 @@
 			};
 			name = Release;
 		};
-		5C7F5ED323E9F83F000FFB89 /* Debug */ = {
+		84521D8A2478551A00338FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -383,14 +389,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = MarvelRepository/Info.plist;
+				INFOPLIST_FILE = MarvelNetworkRepository/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelRepository;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelNetworkRepository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -399,7 +405,7 @@
 			};
 			name = Debug;
 		};
-		5C7F5ED423E9F83F000FFB89 /* Release */ = {
+		84521D8B2478551A00338FAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -408,14 +414,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = MarvelRepository/Info.plist;
+				INFOPLIST_FILE = MarvelNetworkRepository/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelRepository;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelNetworkRepository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -423,36 +429,36 @@
 			};
 			name = Release;
 		};
-		5C7F5ED623E9F83F000FFB89 /* Debug */ = {
+		84521D8D2478551A00338FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MarvelRepositoryTests/Info.plist;
+				INFOPLIST_FILE = MarvelNetworkRepositoryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelRepositoryTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelNetworkRepositoryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		5C7F5ED723E9F83F000FFB89 /* Release */ = {
+		84521D8E2478551A00338FAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MarvelRepositoryTests/Info.plist;
+				INFOPLIST_FILE = MarvelNetworkRepositoryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelRepositoryTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MaksimKazachkov.MarvelNetworkRepositoryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,34 +468,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C7F5EB823E9F83F000FFB89 /* Build configuration list for PBXProject "MarvelRepository" */ = {
+		84521D6F2478551A00338FAD /* Build configuration list for PBXProject "MarvelNetworkRepository" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C7F5ED023E9F83F000FFB89 /* Debug */,
-				5C7F5ED123E9F83F000FFB89 /* Release */,
+				84521D872478551A00338FAD /* Debug */,
+				84521D882478551A00338FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C7F5ED223E9F83F000FFB89 /* Build configuration list for PBXNativeTarget "MarvelRepository" */ = {
+		84521D892478551A00338FAD /* Build configuration list for PBXNativeTarget "MarvelNetworkRepository" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C7F5ED323E9F83F000FFB89 /* Debug */,
-				5C7F5ED423E9F83F000FFB89 /* Release */,
+				84521D8A2478551A00338FAD /* Debug */,
+				84521D8B2478551A00338FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C7F5ED523E9F83F000FFB89 /* Build configuration list for PBXNativeTarget "MarvelRepositoryTests" */ = {
+		84521D8C2478551A00338FAD /* Build configuration list for PBXNativeTarget "MarvelNetworkRepositoryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C7F5ED623E9F83F000FFB89 /* Debug */,
-				5C7F5ED723E9F83F000FFB89 /* Release */,
+				84521D8D2478551A00338FAD /* Debug */,
+				84521D8E2478551A00338FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5C7F5EB523E9F83F000FFB89 /* Project object */;
+	rootObject = 84521D6C2478551A00338FAD /* Project object */;
 }

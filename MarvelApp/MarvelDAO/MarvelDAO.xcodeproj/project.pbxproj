@@ -24,7 +24,6 @@
 		5CCDD2D623E8C0430069207E /* Character+CoreDataRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2D523E8C0430069207E /* Character+CoreDataRepresentable.swift */; };
 		5CCDD2D823E8C05A0069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */; };
 		5CCDD2DE23E8C0F40069207E /* Character+DomainConvertableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2DD23E8C0F40069207E /* Character+DomainConvertableType.swift */; };
-		5CCDD2E423E8C6A70069207E /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD2E323E8C6A70069207E /* DAO.swift */; };
 		5CE5AE3B23F7C5C100ED5501 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5AE3923F7C5C100ED5501 /* Item+CoreDataClass.swift */; };
 		5CE5AE3C23F7C5C100ED5501 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5AE3A23F7C5C100ED5501 /* Item+CoreDataProperties.swift */; };
 		5CE5AE3F23F7C62400ED5501 /* Resource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5AE3D23F7C62400ED5501 /* Resource+CoreDataClass.swift */; };
@@ -33,6 +32,7 @@
 		5CE5AE4423F7C64500ED5501 /* URLType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5AE4223F7C64500ED5501 /* URLType+CoreDataProperties.swift */; };
 		5CE5AE4723F7C66600ED5501 /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5AE4523F7C66600ED5501 /* Character+CoreDataClass.swift */; };
 		5CE5AE4823F7C66600ED5501 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5AE4623F7C66600ED5501 /* Character+CoreDataProperties.swift */; };
+		84521DC624785A5100338FAD /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521DC524785A5100338FAD /* DAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,6 @@
 		5CCDD2D523E8C0430069207E /* Character+CoreDataRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataRepresentable.swift"; sourceTree = "<group>"; };
 		5CCDD2D723E8C05A0069207E /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCDD2DD23E8C0F40069207E /* Character+DomainConvertableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+DomainConvertableType.swift"; sourceTree = "<group>"; };
-		5CCDD2E323E8C6A70069207E /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		5CE5AE3923F7C5C100ED5501 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5CE5AE3A23F7C5C100ED5501 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5CE5AE3D23F7C62400ED5501 /* Resource+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resource+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		5CE5AE4223F7C64500ED5501 /* URLType+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLType+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5CE5AE4523F7C66600ED5501 /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5CE5AE4623F7C66600ED5501 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84521DC524785A5100338FAD /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,11 +202,12 @@
 		5CCDD2E523E8C6B50069207E /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
-				5CCDD2E323E8C6A70069207E /* DAO.swift */,
+				84521DC524785A5100338FAD /* DAO.swift */,
 				5CCDD2CE23E7D3570069207E /* CoreDataRepresentable.swift */,
 				5CCDD2D023E7D3DB0069207E /* DomainConvertableType.swift */,
 			);
-			path = Abstract;
+			name = Abstract;
+			path = ../../MarvelCoreDataRepository/MarvelCoreDataRepository/Abstract;
 			sourceTree = "<group>";
 		};
 		5CE5AE1623F5D53C00ED5501 /* Resource */ = {
@@ -358,9 +359,9 @@
 				5CBFB3C223F80230001ED707 /* Resource+CoreDataRepresentable.swift in Sources */,
 				5CE5AE3F23F7C62400ED5501 /* Resource+CoreDataClass.swift in Sources */,
 				5CBFB3B623F7CDA3001ED707 /* Item+DomainConvertableType.swift in Sources */,
+				84521DC624785A5100338FAD /* DAO.swift in Sources */,
 				5CBFB3B423F7CD1F001ED707 /* URLType+DomainConvertableType.swift in Sources */,
 				5CBFB3B823F7CE8E001ED707 /* Resource+DomainConvertableType.swift in Sources */,
-				5CCDD2E423E8C6A70069207E /* DAO.swift in Sources */,
 				5C4C06CC23F8B3F500C8DD1B /* DAOError.swift in Sources */,
 				5CE5AE4023F7C62400ED5501 /* Resource+CoreDataProperties.swift in Sources */,
 				5CCDD2D123E7D3DB0069207E /* DomainConvertableType.swift in Sources */,
