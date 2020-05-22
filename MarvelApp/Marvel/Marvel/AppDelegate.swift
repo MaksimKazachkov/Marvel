@@ -10,13 +10,9 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    private var plugins: [UIApplicationDelegate] = [
-        AppDelegateSwinjectPlugin()
-    ]
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        plugins.forEach({ _ = $0.application?(application, didFinishLaunchingWithOptions: launchOptions) })
         return true
     }
 

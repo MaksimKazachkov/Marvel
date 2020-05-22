@@ -3,26 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C0B055823FC7366005132DD /* EnvironmentDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B055723FC7366005132DD /* EnvironmentDependency.swift */; };
-		5C0B055A23FC7479005132DD /* NetworkDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B055923FC7479005132DD /* NetworkDependency.swift */; };
-		5C0B055C23FC74BA005132DD /* RepositoryDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B055B23FC74BA005132DD /* RepositoryDependency.swift */; };
-		5C0B055E23FC74E7005132DD /* DAODependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B055D23FC74E7005132DD /* DAODependency.swift */; };
-		5C0B056023FC7547005132DD /* UseCaseDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B055F23FC7547005132DD /* UseCaseDependency.swift */; };
-		5C0B056223FC75ED005132DD /* RegisterDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B056123FC75ED005132DD /* RegisterDependency.swift */; };
 		5C0B056723FC7744005132DD /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056323FC7744005132DD /* Core.framework */; };
 		5C0B056823FC7744005132DD /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056323FC7744005132DD /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C0B056923FC7744005132DD /* MarvelDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056423FC7744005132DD /* MarvelDAO.framework */; };
-		5C0B056A23FC7744005132DD /* MarvelDAO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056423FC7744005132DD /* MarvelDAO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C0B056B23FC7744005132DD /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056523FC7744005132DD /* MarvelNetwork.framework */; };
-		5C0B056C23FC7744005132DD /* MarvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056523FC7744005132DD /* MarvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C0B056D23FC7744005132DD /* MarvelUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056623FC7744005132DD /* MarvelUseCase.framework */; };
 		5C0B056E23FC7744005132DD /* MarvelUseCase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B056623FC7744005132DD /* MarvelUseCase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C0B057123FC78CA005132DD /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 5C0B057023FC78CA005132DD /* Swinject */; };
-		5C63DF7A23EC8D0400B61C8D /* AppDelegateSwinjectPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DF7923EC8D0400B61C8D /* AppDelegateSwinjectPlugin.swift */; };
 		5C63DFC923EF22A800B61C8D /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5C63DFC823EF22A700B61C8D /* DEV.xcconfig */; };
 		5C73D5A623DA2F39000DDE85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */; };
 		5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */; };
@@ -34,8 +22,6 @@
 		5C73D5CB23DA2F39000DDE85 /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C73D5CA23DA2F39000DDE85 /* MarvelUITests.swift */; };
 		5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; };
 		5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22F23E711B30069207E /* MarvelRepository.framework */; };
-		5CCDD23523E711B30069207E /* MarvelRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22F23E711B30069207E /* MarvelRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,10 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5C0B056C23FC7744005132DD /* MarvelNetwork.framework in Embed Frameworks */,
-				5CCDD23523E711B30069207E /* MarvelRepository.framework in Embed Frameworks */,
 				5C0B056823FC7744005132DD /* Core.framework in Embed Frameworks */,
-				5C0B056A23FC7744005132DD /* MarvelDAO.framework in Embed Frameworks */,
 				5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */,
 				5C0B056E23FC7744005132DD /* MarvelUseCase.framework in Embed Frameworks */,
 			);
@@ -75,17 +58,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C0B055723FC7366005132DD /* EnvironmentDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentDependency.swift; sourceTree = "<group>"; };
-		5C0B055923FC7479005132DD /* NetworkDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDependency.swift; sourceTree = "<group>"; };
-		5C0B055B23FC74BA005132DD /* RepositoryDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDependency.swift; sourceTree = "<group>"; };
-		5C0B055D23FC74E7005132DD /* DAODependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAODependency.swift; sourceTree = "<group>"; };
-		5C0B055F23FC7547005132DD /* UseCaseDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseDependency.swift; sourceTree = "<group>"; };
-		5C0B056123FC75ED005132DD /* RegisterDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDependency.swift; sourceTree = "<group>"; };
 		5C0B056323FC7744005132DD /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0B056423FC7744005132DD /* MarvelDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0B056523FC7744005132DD /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0B056623FC7744005132DD /* MarvelUseCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelUseCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C63DF7923EC8D0400B61C8D /* AppDelegateSwinjectPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateSwinjectPlugin.swift; sourceTree = "<group>"; };
 		5C63DFC823EF22A700B61C8D /* DEV.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DEV.xcconfig; path = ../DEV.xcconfig; sourceTree = "<group>"; };
 		5C73D5A223DA2F38000DDE85 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +80,8 @@
 		5CCDD22D23E711B30069207E /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCDD22E23E711B30069207E /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCDD22F23E711B30069207E /* MarvelRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84842B4924786B9500941051 /* MarvelCoreDataRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCoreDataRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84842B4A24786B9500941051 /* MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C0B056B23FC7744005132DD /* MarvelNetwork.framework in Frameworks */,
-				5CCDD23423E711B30069207E /* MarvelRepository.framework in Frameworks */,
-				5C0B057123FC78CA005132DD /* Swinject in Frameworks */,
 				5C0B056723FC7744005132DD /* Core.framework in Frameworks */,
-				5C0B056923FC7744005132DD /* MarvelDAO.framework in Frameworks */,
 				5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */,
 				5C0B056D23FC7744005132DD /* MarvelUseCase.framework in Frameworks */,
 			);
@@ -138,28 +112,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C0B055623FC6E8E005132DD /* AppDelegate+Swinject */ = {
-			isa = PBXGroup;
-			children = (
-				5C63DF7923EC8D0400B61C8D /* AppDelegateSwinjectPlugin.swift */,
-				5C0B056123FC75ED005132DD /* RegisterDependency.swift */,
-				5C0B055723FC7366005132DD /* EnvironmentDependency.swift */,
-				5C0B055923FC7479005132DD /* NetworkDependency.swift */,
-				5C0B055B23FC74BA005132DD /* RepositoryDependency.swift */,
-				5C0B055D23FC74E7005132DD /* DAODependency.swift */,
-				5C0B055F23FC7547005132DD /* UseCaseDependency.swift */,
-			);
-			path = "AppDelegate+Swinject";
-			sourceTree = "<group>";
-		};
-		5C63DFCA23EF22F700B61C8D /* AppDelegate+Plugins */ = {
-			isa = PBXGroup;
-			children = (
-				5C0B055623FC6E8E005132DD /* AppDelegate+Swinject */,
-			);
-			path = "AppDelegate+Plugins";
-			sourceTree = "<group>";
-		};
 		5C73D59923DA2F38000DDE85 = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */,
-				5C63DFCA23EF22F700B61C8D /* AppDelegate+Plugins */,
 				5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */,
 				5C73D5AC23DA2F39000DDE85 /* ContentView.swift */,
 				5C73D5AE23DA2F39000DDE85 /* Assets.xcassets */,
@@ -226,6 +177,8 @@
 		5CCDD22C23E711B30069207E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84842B4924786B9500941051 /* MarvelCoreDataRepository.framework */,
+				84842B4A24786B9500941051 /* MarvelNetworkRepository.framework */,
 				5C0B056323FC7744005132DD /* Core.framework */,
 				5C0B056423FC7744005132DD /* MarvelDAO.framework */,
 				5C0B056523FC7744005132DD /* MarvelNetwork.framework */,
@@ -255,7 +208,6 @@
 			);
 			name = Marvel;
 			packageProductDependencies = (
-				5C0B057023FC78CA005132DD /* Swinject */,
 			);
 			productName = Marvel;
 			productReference = 5C73D5A223DA2F38000DDE85 /* Marvel.app */;
@@ -330,7 +282,6 @@
 			);
 			mainGroup = 5C73D59923DA2F38000DDE85;
 			packageReferences = (
-				5C0B056F23FC78CA005132DD /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 5C73D5A323DA2F38000DDE85 /* Products */;
 			projectDirPath = "";
@@ -377,15 +328,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C73D5A623DA2F39000DDE85 /* AppDelegate.swift in Sources */,
-				5C0B055E23FC74E7005132DD /* DAODependency.swift in Sources */,
 				5C73D5AD23DA2F39000DDE85 /* ContentView.swift in Sources */,
-				5C0B056223FC75ED005132DD /* RegisterDependency.swift in Sources */,
-				5C0B056023FC7547005132DD /* UseCaseDependency.swift in Sources */,
 				5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */,
-				5C0B055C23FC74BA005132DD /* RepositoryDependency.swift in Sources */,
-				5C63DF7A23EC8D0400B61C8D /* AppDelegateSwinjectPlugin.swift in Sources */,
-				5C0B055823FC7366005132DD /* EnvironmentDependency.swift in Sources */,
-				5C0B055A23FC7479005132DD /* NetworkDependency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,25 +649,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5C0B056F23FC78CA005132DD /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5C0B057023FC78CA005132DD /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C0B056F23FC78CA005132DD /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C73D59A23DA2F38000DDE85 /* Project object */;
 }

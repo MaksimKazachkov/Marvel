@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */; };
 		5C7F5F1723E9FBBA000FFB89 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
 		5CBFB3C423F85CFB001ED707 /* XCTestCase+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C323F85CFB001ED707 /* XCTestCase+Dependency.swift */; };
-		5CBFB3C723F8861D001ED707 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 5CBFB3C623F8861D001ED707 /* Swinject */; };
 		5CBFB3C923F88BA3001ED707 /* CharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F0923E9FB2A000FFB89 /* CharactersUseCase.swift */; };
 		5CBFB3CA23F88BA3001ED707 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
 		5CBFB3CC23F88DDF001ED707 /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */; };
@@ -72,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CBFB3C723F8861D001ED707 /* Swinject in Frameworks */,
 				5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */,
 				84842B46247869DF00941051 /* MarvelNetworkRepository.framework in Frameworks */,
 				84842B44247869DF00941051 /* MarvelCoreDataRepository.framework in Frameworks */,
@@ -173,7 +171,6 @@
 			);
 			name = MarvelUseCase;
 			packageProductDependencies = (
-				5CBFB3C623F8861D001ED707 /* Swinject */,
 			);
 			productName = MarvelUseCase;
 			productReference = 5C7F5EEF23E9FB11000FFB89 /* MarvelUseCase.framework */;
@@ -226,7 +223,6 @@
 			);
 			mainGroup = 5C7F5EE523E9FB11000FFB89;
 			packageReferences = (
-				5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 5C7F5EF023E9FB11000FFB89 /* Products */;
 			projectDirPath = "";
@@ -525,25 +521,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5CBFB3C623F8861D001ED707 /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5CBFB3C523F8861D001ED707 /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C7F5EE623E9FB11000FFB89 /* Project object */;
 }
