@@ -11,15 +11,17 @@
 		5C7F5EFE23E9FB11000FFB89 /* MarvelUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5EFD23E9FB11000FFB89 /* MarvelUseCaseTests.swift */; };
 		5C7F5F0023E9FB11000FFB89 /* MarvelUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C7F5EF223E9FB11000FFB89 /* MarvelUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C7F5F0A23E9FB2A000FFB89 /* CharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F0923E9FB2A000FFB89 /* CharactersUseCase.swift */; };
-		5C7F5F0F23E9FB3D000FFB89 /* MarvelDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0C23E9FB3D000FFB89 /* MarvelDAO.framework */; };
 		5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */; };
-		5C7F5F1323E9FB3D000FFB89 /* MarvelRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */; };
 		5C7F5F1723E9FBBA000FFB89 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
 		5CBFB3C423F85CFB001ED707 /* XCTestCase+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB3C323F85CFB001ED707 /* XCTestCase+Dependency.swift */; };
 		5CBFB3C723F8861D001ED707 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 5CBFB3C623F8861D001ED707 /* Swinject */; };
 		5CBFB3C923F88BA3001ED707 /* CharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F0923E9FB2A000FFB89 /* CharactersUseCase.swift */; };
 		5CBFB3CA23F88BA3001ED707 /* MarvelCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */; };
 		5CBFB3CC23F88DDF001ED707 /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */; };
+		84842B44247869DF00941051 /* MarvelCoreDataRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84842B42247869DF00941051 /* MarvelCoreDataRepository.framework */; };
+		84842B45247869DF00941051 /* MarvelCoreDataRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84842B42247869DF00941051 /* MarvelCoreDataRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84842B46247869DF00941051 /* MarvelNetworkRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84842B43247869DF00941051 /* MarvelNetworkRepository.framework */; };
+		84842B47247869DF00941051 /* MarvelNetworkRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84842B43247869DF00941051 /* MarvelNetworkRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,21 @@
 			remoteInfo = MarvelUseCase;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84842B48247869DF00941051 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84842B47247869DF00941051 /* MarvelNetworkRepository.framework in Embed Frameworks */,
+				84842B45247869DF00941051 /* MarvelCoreDataRepository.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C7F5EEF23E9FB11000FFB89 /* MarvelUseCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelUseCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +63,8 @@
 		5C7F5F1623E9FBBA000FFB89 /* MarvelCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersUseCase.swift; sourceTree = "<group>"; };
 		5CBFB3C323F85CFB001ED707 /* XCTestCase+Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Dependency.swift"; sourceTree = "<group>"; };
 		5CBFB3CB23F88DDF001ED707 /* DEV.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DEV.xcconfig; path = ../DEV.xcconfig; sourceTree = "<group>"; };
+		84842B42247869DF00941051 /* MarvelCoreDataRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCoreDataRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84842B43247869DF00941051 /* MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7F5F0F23E9FB3D000FFB89 /* MarvelDAO.framework in Frameworks */,
 				5CBFB3C723F8861D001ED707 /* Swinject in Frameworks */,
-				5C7F5F1323E9FB3D000FFB89 /* MarvelRepository.framework in Frameworks */,
 				5C7F5F1123E9FB3D000FFB89 /* MarvelDomain.framework in Frameworks */,
+				84842B46247869DF00941051 /* MarvelNetworkRepository.framework in Frameworks */,
+				84842B44247869DF00941051 /* MarvelCoreDataRepository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +134,8 @@
 		5C7F5F0B23E9FB3D000FFB89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84842B42247869DF00941051 /* MarvelCoreDataRepository.framework */,
+				84842B43247869DF00941051 /* MarvelNetworkRepository.framework */,
 				5C7F5F0C23E9FB3D000FFB89 /* MarvelDAO.framework */,
 				5C7F5F0D23E9FB3D000FFB89 /* MarvelDomain.framework */,
 				5C7F5F0E23E9FB3D000FFB89 /* MarvelRepository.framework */,
@@ -144,6 +165,7 @@
 				5C7F5EEB23E9FB11000FFB89 /* Sources */,
 				5C7F5EEC23E9FB11000FFB89 /* Frameworks */,
 				5C7F5EED23E9FB11000FFB89 /* Resources */,
+				84842B48247869DF00941051 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

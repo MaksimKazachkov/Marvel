@@ -141,6 +141,6 @@ public class CoreDataRepository<T: CoreDataRepresentable> where T == T.CoreDataT
                    promise(.failure(error))
                }
            }.eraseToAnyPublisher()
-       }
+    }
     
 }

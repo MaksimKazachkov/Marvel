@@ -15,41 +15,41 @@ import Swinject
 
 class MarvelUseCaseTests: XCTestCase {
     
-    private let dependency = Dependency()
+//    private let dependency = Dependency()
 
     private var subscriptions = Set<AnyCancellable>()
         
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        try! dependency.registerDependencies()
+//        try! dependency.registerDependencies()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         subscriptions.removeAll()
     }
-    
-    func testFetchCharacters() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let expectation = XCTestExpectation()
-        let usecase: CharactersUseCase = dependency.container.resolve(CharactersUseCase.self)!
-        usecase.fetch(limit: 20, offset: 20)
-            .sink(receiveCompletion: { (completion) in
-                switch completion {
-                case .finished:
-                    expectation.fulfill()
-                case .failure(let error):
-                    XCTFail(error.localizedDescription)
-                }
-            },
-                  receiveValue: { (characters) in
-                    XCTAssert(!characters.isEmpty)
-                    expectation.fulfill()
-            })
-            .store(in: &subscriptions)
-        wait(for: [expectation], timeout: 60)
-    }
+//
+//    func testFetchCharacters() {
+//        // This is an example of a functional test case.
+//        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//        let expectation = XCTestExpectation()
+//        let usecase: CharactersUseCase = dependency.container.resolve(CharactersUseCase.self)!
+//        usecase.fetch(limit: 20, offset: 20)
+//            .sink(receiveCompletion: { (completion) in
+//                switch completion {
+//                case .finished:
+//                    expectation.fulfill()
+//                case .failure(let error):
+//                    XCTFail(error.localizedDescription)
+//                }
+//            },
+//                  receiveValue: { (characters) in
+//                    XCTAssert(!characters.isEmpty)
+//                    expectation.fulfill()
+//            })
+//            .store(in: &subscriptions)
+//        wait(for: [expectation], timeout: 60)
+//    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

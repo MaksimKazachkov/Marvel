@@ -9,25 +9,25 @@
 import Foundation
 import Combine
 import MarvelDomain
-import MarvelRepository
-import MarvelDAO
+import MarvelNetworkRepository
+import MarvelCoreDataRepository
 
 final public class MarvelCharactersUseCase: CharactersUseCase {
         
-    private let repository: CharactersRepository
+    private let networkRepository: CharactersRepository
 
-    private let dao: CoreDataDAO<MarvelDomain.Character>
+    private let coreDataRepository: CoreDataRepository<MarvelDomain.Character>
     
     public init(
-        repository: CharactersRepository,
-        dao: CoreDataDAO<MarvelDomain.Character>
+        networkRepository: CharactersRepository,
+        coreDataRepository: CoreDataRepository<MarvelDomain.Character>
     ) {
-        self.repository = repository
-        self.dao = dao
+        self.networkRepository = networkRepository
+        self.coreDataRepository = coreDataRepository
     }
     
     public func fetch(limit: Int, offset: Int) -> AnyPublisher<[MarvelDomain.Character], Error> {
-        return repository.characters(limit: limit, offset: offset)
+        return networkRepository.characters(limit: limit, offset: offset)
             .flatMap({ self.save(characters: $0) })
             .eraseToAnyPublisher()
     }
@@ -38,7 +38,7 @@ private extension MarvelCharactersUseCase {
     
     func save(characters: [MarvelDomain.Character]) -> AnyPublisher<[MarvelDomain.Character], Error> {
         let publishers = characters
-            .map({ return dao.update(object: $0) })
+            .map({ return coreDataRepository.update(object: $0) })
         
         return Publishers.MergeMany(publishers)
             .map({ characters })
