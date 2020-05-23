@@ -29,6 +29,7 @@ target 'MarvelUseCase' do
     
     target 'MarvelUseCaseTests' do
       inherit! :search_paths
+      swinject
     end
 
 end
