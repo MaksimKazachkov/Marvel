@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Assembler {
+public protocol Assembler {
     
     associatedtype T
     

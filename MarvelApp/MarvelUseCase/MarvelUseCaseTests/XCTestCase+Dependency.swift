@@ -13,44 +13,36 @@ import MarvelNetworkRepository
 import MarvelCoreDataRepository
 import MarvelDomain
 import CoreData
-//
-//class Dependency {
-//
+
+class Dependency {
+
 //    let container = Swinject.Container()
-//
-//    func registerDependencies() throws {
-//        try registerCredentials()
-//        try registerConfiguration()
+
+    func registerDependencies() throws {
+        try registerCredentials()
+        try registerConfiguration()
 //        registerURLConstructor()
 //        registerMarvelClient()
 //        registerCharactersRepository()
 //        registerCharactersDAO()
 //        registerUseCases()
-//    }
-//
-//    private func registerCredentials() throws {
-//        guard
-//            let object = Bundle(identifier: "com.MaksimKazachkov.MarvelUseCaseTests")?.object(forInfoDictionaryKey: "Credentials") else {
-//                return
-//        }
-//        let data = try JSONSerialization.data(withJSONObject: object, options: [])
-//        let credentials = try JSONDecoder().decode(Credentials.self, from: data)
-//        container.register(Credentials.self) { (resolver) -> Credentials in
-//            return credentials
-//        }
-//    }
-//
-//    private func registerConfiguration() throws {
-//        guard
-//            let object = Bundle(identifier: "com.MaksimKazachkov.MarvelUseCaseTests")?.object(forInfoDictionaryKey: "Configuration") else {
-//                return
-//        }
-//        let data = try JSONSerialization.data(withJSONObject: object, options: [])
-//        let configuration = try JSONDecoder().decode(Configuration.self, from: data)
-//        container.register(Configuration.self) { (resolver) -> Configuration in
-//            return configuration
-//        }
-//    }
+    }
+
+    private func registerCredentials() throws {
+        let assembler = CredentialsAssembler(
+            bundleIdentifier: "com.MaksimKazachkov.MarvelUseCaseTests",
+            infoDictionaryKey: "Credentials"
+        )
+        let credentials = try assembler.resolve()
+    }
+
+    private func registerConfiguration() throws {
+        let assembler = ConfigurationAssembler(
+            bundleIdentifier: "com.MaksimKazachkov.MarvelUseCaseTests",
+            infoDictionaryKey: "Configuration"
+        )
+        let configuration = try assembler.resolve()
+    }
 //
 //    private func registerURLConstructor() {
 //        container.register(URLRequestConstructor.self) { (resolver) -> URLRequestConstructor in
@@ -103,5 +95,5 @@ import CoreData
 //                dao: resolver.resolve(CoreDataDAO<MarvelDomain.Character>.self)!)
 //        }
 //    }
-//
-//}
+
+}

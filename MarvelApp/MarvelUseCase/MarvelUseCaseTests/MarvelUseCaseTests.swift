@@ -11,7 +11,6 @@ import CoreData
 @testable import MarvelUseCase
 import Combine
 import MarvelDomain
-import Swinject
 
 class MarvelUseCaseTests: XCTestCase {
     

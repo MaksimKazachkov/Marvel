@@ -8,13 +8,18 @@
 
 import Foundation
 
-struct CredentialsAssembler: Assembler {
+public struct CredentialsAssembler: Assembler {
     
-    let bundleIdentifier: String
+    public let bundleIdentifier: String
 
-    let infoDictionaryKey: String
+    public let infoDictionaryKey: String
     
-    func resolve() throws -> Credentials {
+    public init(bundleIdentifier: String, infoDictionaryKey: String) {
+        self.bundleIdentifier = infoDictionaryKey
+        self.infoDictionaryKey = infoDictionaryKey
+    }
+    
+    public func resolve() throws -> Credentials {
         guard let bundle = Bundle(identifier: bundleIdentifier) else {
             throw AssemblerError.nilBundleIdentifier(bundleIdentifier)
         }

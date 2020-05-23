@@ -8,13 +8,18 @@
 
 import Foundation
 
-struct ConfigurationAssembler: Assembler {
+public struct ConfigurationAssembler: Assembler {
     
-    let bundleIdentifier: String
+    public let bundleIdentifier: String
 
-    let infoDictionaryKey: String
+    public let infoDictionaryKey: String
     
-    func resolve() throws -> Configuration {
+    public init(bundleIdentifier: String, infoDictionaryKey: String) {
+        self.bundleIdentifier = infoDictionaryKey
+        self.infoDictionaryKey = infoDictionaryKey
+    }
+    
+    public func resolve() throws -> Configuration {
         guard let bundle = Bundle(identifier: bundleIdentifier) else {
             throw AssemblerError.nilBundleIdentifier(bundleIdentifier)
         }
