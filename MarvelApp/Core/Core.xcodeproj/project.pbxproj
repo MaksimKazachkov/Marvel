@@ -13,13 +13,9 @@
 		5C63DFA723EDC83700B61C8D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DFA623EDC83700B61C8D /* Configuration.swift */; };
 		5C63DFA923EDC89800B61C8D /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DFA823EDC89800B61C8D /* Credentials.swift */; };
 		5C63DFAB23EDC90400B61C8D /* MD5Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DFAA23EDC90400B61C8D /* MD5Encryptor.swift */; };
-		84842B502479055E00941051 /* CredentialsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B4F2479055E00941051 /* CredentialsAssembler.swift */; };
-		84842B53247906D200941051 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B52247906D200941051 /* Assembler.swift */; };
-		84842B55247906E600941051 /* AssemblerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B54247906E600941051 /* AssemblerError.swift */; };
-		84842B5C24790B1800941051 /* ConfigurationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B5B24790B1800941051 /* ConfigurationAssembler.swift */; };
-		84842B63247913C300941051 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B62247913C300941051 /* Container.swift */; };
+		84842B502479055E00941051 /* PlistAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B4F2479055E00941051 /* PlistAssembly.swift */; };
+		84842B55247906E600941051 /* PlistAssemblyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B54247906E600941051 /* PlistAssemblyError.swift */; };
 		84842B652479156C00941051 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B642479156C00941051 /* Injected.swift */; };
-		84842B6D2479188600941051 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B6C2479188600941051 /* Resolver.swift */; };
 		9736A0E3E04296102A6EE30F /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C7CE968FE82EFF04E7F5FC /* Pods_Core.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,13 +41,9 @@
 		5C63DFAA23EDC90400B61C8D /* MD5Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Encryptor.swift; sourceTree = "<group>"; };
 		823DF7FA9A0F615C724EA78D /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		83C7CE968FE82EFF04E7F5FC /* Pods_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84842B4F2479055E00941051 /* CredentialsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsAssembler.swift; sourceTree = "<group>"; };
-		84842B52247906D200941051 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
-		84842B54247906E600941051 /* AssemblerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerError.swift; sourceTree = "<group>"; };
-		84842B5B24790B1800941051 /* ConfigurationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationAssembler.swift; sourceTree = "<group>"; };
-		84842B62247913C300941051 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		84842B4F2479055E00941051 /* PlistAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistAssembly.swift; sourceTree = "<group>"; };
+		84842B54247906E600941051 /* PlistAssemblyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistAssemblyError.swift; sourceTree = "<group>"; };
 		84842B642479156C00941051 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
-		84842B6C2479188600941051 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		C6ACB02E09A00C88DB3D0255 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,39 +120,11 @@
 		84842B512479069E00941051 /* DI */ = {
 			isa = PBXGroup;
 			children = (
-				84842B662479169600941051 /* Assembler */,
-				84842B62247913C300941051 /* Container.swift */,
-				84842B6C2479188600941051 /* Resolver.swift */,
+				84842B4F2479055E00941051 /* PlistAssembly.swift */,
+				84842B54247906E600941051 /* PlistAssemblyError.swift */,
 				84842B642479156C00941051 /* Injected.swift */,
 			);
 			path = DI;
-			sourceTree = "<group>";
-		};
-		84842B562479079E00941051 /* Credentials */ = {
-			isa = PBXGroup;
-			children = (
-				84842B4F2479055E00941051 /* CredentialsAssembler.swift */,
-			);
-			path = Credentials;
-			sourceTree = "<group>";
-		};
-		84842B57247909CF00941051 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				84842B5B24790B1800941051 /* ConfigurationAssembler.swift */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
-		84842B662479169600941051 /* Assembler */ = {
-			isa = PBXGroup;
-			children = (
-				84842B57247909CF00941051 /* Configuration */,
-				84842B562479079E00941051 /* Credentials */,
-				84842B52247906D200941051 /* Assembler.swift */,
-				84842B54247906E600941051 /* AssemblerError.swift */,
-			);
-			path = Assembler;
 			sourceTree = "<group>";
 		};
 		88875341B3DD641862491BDC /* Frameworks */ = {
@@ -317,15 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84842B5C24790B1800941051 /* ConfigurationAssembler.swift in Sources */,
 				5C63DFAB23EDC90400B61C8D /* MD5Encryptor.swift in Sources */,
 				84842B652479156C00941051 /* Injected.swift in Sources */,
-				84842B502479055E00941051 /* CredentialsAssembler.swift in Sources */,
-				84842B53247906D200941051 /* Assembler.swift in Sources */,
-				84842B6D2479188600941051 /* Resolver.swift in Sources */,
+				84842B502479055E00941051 /* PlistAssembly.swift in Sources */,
 				5C63DFA923EDC89800B61C8D /* Credentials.swift in Sources */,
-				84842B63247913C300941051 /* Container.swift in Sources */,
-				84842B55247906E600941051 /* AssemblerError.swift in Sources */,
+				84842B55247906E600941051 /* PlistAssemblyError.swift in Sources */,
 				5C63DFA723EDC83700B61C8D /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

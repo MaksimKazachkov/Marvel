@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AssemblerError: Swift.Error, CustomDebugStringConvertible {
+enum PlistAssemblyError: Swift.Error, CustomDebugStringConvertible {
     
     case nilBundleIdentifier(String)
     case nilInfoDictionary(String)

@@ -7,22 +7,23 @@
 //
 
 import Foundation
-
-@propertyWrapper
-public struct Injected<T> {
-    
-    private var object: T!
-    
-    public init(container: Container = .main) {
-        self.object = container.resolve(T.self)!
-    }
-    
-    public var wrappedValue: T {
-        get { object }
-        mutating set { object = newValue }
-    }
-    public var projectedValue: Injected<T> {
-        get { self }
-        mutating set { self = newValue }
-    }
-}
+import Swinject
+//
+//@propertyWrapper
+//public struct Injected<T> {
+//
+//    private var object: T!
+//
+//    public init(container: Container = .main) {
+//        self.object = container.resolve(T.self)!
+//    }
+//
+//    public var wrappedValue: T {
+//        get { object }
+//        mutating set { object = newValue }
+//    }
+//    public var projectedValue: Injected<T> {
+//        get { self }
+//        mutating set { self = newValue }
+//    }
+//}
