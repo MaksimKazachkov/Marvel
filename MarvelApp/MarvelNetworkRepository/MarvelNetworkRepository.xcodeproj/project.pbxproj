@@ -14,6 +14,8 @@
 		84521D942478553900338FAD /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D922478553900338FAD /* MarvelDomain.framework */; };
 		84521D962478553900338FAD /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D932478553900338FAD /* MarvelNetwork.framework */; };
 		84521D9C2478588B00338FAD /* CharactersNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */; };
+		CD8533ACDD0338473A9528D4 /* Pods_MarvelNetworkRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09FDF6284FC947CF8E2BE5A /* Pods_MarvelNetworkRepository.framework */; };
+		FE818391B695020284B4F79B /* Pods_MarvelNetworkRepositoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B16023960E8CB23E99FA21D /* Pods_MarvelNetworkRepositoryTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		164A1CD2BB83A937272108DF /* Pods-MarvelNetworkRepositoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetworkRepositoryTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelNetworkRepositoryTests/Pods-MarvelNetworkRepositoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		1B16023960E8CB23E99FA21D /* Pods_MarvelNetworkRepositoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelNetworkRepositoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54AD8FE18DA8E8C39A9F8898 /* Pods-MarvelNetworkRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetworkRepository.release.xcconfig"; path = "Target Support Files/Pods-MarvelNetworkRepository/Pods-MarvelNetworkRepository.release.xcconfig"; sourceTree = "<group>"; };
 		84521D752478551A00338FAD /* MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84521D782478551A00338FAD /* MarvelNetworkRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelNetworkRepository.h; sourceTree = "<group>"; };
 		84521D792478551A00338FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +42,9 @@
 		84521D922478553900338FAD /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84521D932478553900338FAD /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersNetworkRepository.swift; sourceTree = "<group>"; };
+		B09FDF6284FC947CF8E2BE5A /* Pods_MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D288E4424B4C5B2633A90619 /* Pods-MarvelNetworkRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetworkRepository.debug.xcconfig"; path = "Target Support Files/Pods-MarvelNetworkRepository/Pods-MarvelNetworkRepository.debug.xcconfig"; sourceTree = "<group>"; };
+		EADF85B9B5576FE0D6A86CDC /* Pods-MarvelNetworkRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetworkRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelNetworkRepositoryTests/Pods-MarvelNetworkRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,7 @@
 			files = (
 				84521D962478553900338FAD /* MarvelNetwork.framework in Frameworks */,
 				84521D942478553900338FAD /* MarvelDomain.framework in Frameworks */,
+				CD8533ACDD0338473A9528D4 /* Pods_MarvelNetworkRepository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +63,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				84521D7F2478551A00338FAD /* MarvelNetworkRepository.framework in Frameworks */,
+				FE818391B695020284B4F79B /* Pods_MarvelNetworkRepositoryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41894EC84F5765D85B01DE72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D288E4424B4C5B2633A90619 /* Pods-MarvelNetworkRepository.debug.xcconfig */,
+				54AD8FE18DA8E8C39A9F8898 /* Pods-MarvelNetworkRepository.release.xcconfig */,
+				EADF85B9B5576FE0D6A86CDC /* Pods-MarvelNetworkRepositoryTests.debug.xcconfig */,
+				164A1CD2BB83A937272108DF /* Pods-MarvelNetworkRepositoryTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../Pods;
+			sourceTree = "<group>";
+		};
 		84521D6B2478551A00338FAD = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +89,7 @@
 				84521D822478551A00338FAD /* MarvelNetworkRepositoryTests */,
 				84521D762478551A00338FAD /* Products */,
 				84521D912478553900338FAD /* Frameworks */,
+				41894EC84F5765D85B01DE72 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +127,8 @@
 			children = (
 				84521D922478553900338FAD /* MarvelDomain.framework */,
 				84521D932478553900338FAD /* MarvelNetwork.framework */,
+				B09FDF6284FC947CF8E2BE5A /* Pods_MarvelNetworkRepository.framework */,
+				1B16023960E8CB23E99FA21D /* Pods_MarvelNetworkRepositoryTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +151,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84521D892478551A00338FAD /* Build configuration list for PBXNativeTarget "MarvelNetworkRepository" */;
 			buildPhases = (
+				A6F2FF7C24A6ADA4A573E553 /* [CP] Check Pods Manifest.lock */,
 				84521D702478551A00338FAD /* Headers */,
 				84521D712478551A00338FAD /* Sources */,
 				84521D722478551A00338FAD /* Frameworks */,
@@ -144,6 +170,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84521D8C2478551A00338FAD /* Build configuration list for PBXNativeTarget "MarvelNetworkRepositoryTests" */;
 			buildPhases = (
+				27967DB935BB85A25725AE54 /* [CP] Check Pods Manifest.lock */,
 				84521D7A2478551A00338FAD /* Sources */,
 				84521D7B2478551A00338FAD /* Frameworks */,
 				84521D7C2478551A00338FAD /* Resources */,
@@ -212,6 +239,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27967DB935BB85A25725AE54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarvelNetworkRepositoryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6F2FF7C24A6ADA4A573E553 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarvelNetworkRepository-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84521D712478551A00338FAD /* Sources */ = {
@@ -364,6 +438,7 @@
 		};
 		84521D8A2478551A00338FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D288E4424B4C5B2633A90619 /* Pods-MarvelNetworkRepository.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -389,6 +464,7 @@
 		};
 		84521D8B2478551A00338FAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54AD8FE18DA8E8C39A9F8898 /* Pods-MarvelNetworkRepository.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -413,6 +489,7 @@
 		};
 		84521D8D2478551A00338FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EADF85B9B5576FE0D6A86CDC /* Pods-MarvelNetworkRepositoryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -431,6 +508,7 @@
 		};
 		84521D8E2478551A00338FAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 164A1CD2BB83A937272108DF /* Pods-MarvelNetworkRepositoryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

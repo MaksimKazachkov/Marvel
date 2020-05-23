@@ -11,12 +11,12 @@ import MarvelNetwork
 import MarvelNetworkRepository
 import Swinject
 
-//public struct NetworkRepositoryAssembly: Assembly {
-//    
-//    public init() {}
-//    
-//    public func assemble(container: Container) {
-//
-//    }
-//    
-//}
+public struct NetworkRepositoryAssembly: Assembly {
+    
+    public init() {}
+    
+    public func assemble(container: Container) {
+
+    }
+    
+}

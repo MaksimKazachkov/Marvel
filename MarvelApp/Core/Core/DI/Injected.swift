@@ -8,22 +8,24 @@
 
 import Foundation
 import Swinject
-//
-//@propertyWrapper
-//public struct Injected<T> {
-//
-//    private var object: T!
-//
-//    public init(container: Container = .main) {
-//        self.object = container.resolve(T.self)!
-//    }
-//
-//    public var wrappedValue: T {
-//        get { object }
-//        mutating set { object = newValue }
-//    }
-//    public var projectedValue: Injected<T> {
-//        get { self }
-//        mutating set { self = newValue }
-//    }
-//}
+
+public let assembler = Assembler()
+
+@propertyWrapper
+public struct Injected<T> {
+
+    private var object: T!
+
+    public init(assembler: Assembler = assembler) {
+        self.object = assembler.resolver.resolve(T.self)!
+    }
+
+    public var wrappedValue: T {
+        get { object }
+        mutating set { object = newValue }
+    }
+    public var projectedValue: Injected<T> {
+        get { self }
+        mutating set { self = newValue }
+    }
+}

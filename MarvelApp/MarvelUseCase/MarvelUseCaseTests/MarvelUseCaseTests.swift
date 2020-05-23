@@ -14,10 +14,13 @@ import MarvelDomain
 
 class MarvelUseCaseTests: XCTestCase {
     
+    private let assemblerHelper = AssemblerHelper()
+    
     private var subscriptions = Set<AnyCancellable>()
         
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        try! assemblerHelper.applyAssemblies()
     }
     
     override func tearDown() {
