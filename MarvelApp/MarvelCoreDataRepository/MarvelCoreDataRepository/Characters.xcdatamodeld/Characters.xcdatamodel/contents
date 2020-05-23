@@ -28,9 +28,9 @@
         <attribute name="url" optional="YES" attributeType="URI"/>
     </entity>
     <elements>
-        <element name="Character" positionX="-556.13671875" positionY="-281.76171875" width="128" height="193"/>
-        <element name="Item" positionX="249.3515625" positionY="-116.87890625" width="128" height="73"/>
-        <element name="Resource" positionX="-87.5234375" positionY="-281.4296875" width="128" height="118"/>
-        <element name="URLType" positionX="-97.609375" positionY="186.1953125" width="128" height="73"/>
+        <element name="Character" positionX="-556.13671875" positionY="-280.76171875" width="128" height="193"/>
+        <element name="Item" positionX="-46.7109375" positionY="-214.21875" width="128" height="73"/>
+        <element name="Resource" positionX="-238.45703125" positionY="-376.234375" width="128" height="118"/>
+        <element name="URLType" positionX="-226.40625" positionY="-106.20703125" width="128" height="73"/>
     </elements>
 </model>
