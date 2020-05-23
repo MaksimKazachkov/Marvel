@@ -15,13 +15,13 @@ import MarvelDomain
 import CoreData
 
 class Dependency {
-
-//    let container = Swinject.Container()
+    
+    private let container: Container = .main
 
     func registerDependencies() throws {
         try registerCredentials()
         try registerConfiguration()
-//        registerURLConstructor()
+        registerURLConstructor()
 //        registerMarvelClient()
 //        registerCharactersRepository()
 //        registerCharactersDAO()
@@ -34,6 +34,7 @@ class Dependency {
             infoDictionaryKey: "Credentials"
         )
         let credentials = try assembler.resolve()
+        container.register(credentials)
     }
 
     private func registerConfiguration() throws {
@@ -42,13 +43,13 @@ class Dependency {
             infoDictionaryKey: "Configuration"
         )
         let configuration = try assembler.resolve()
+        container.register(configuration)
     }
-//
-//    private func registerURLConstructor() {
-//        container.register(URLRequestConstructor.self) { (resolver) -> URLRequestConstructor in
-//            return URLRequestConstructor(configuration: resolver.resolve(Configuration.self)!)
-//        }
-//    }
+
+    private func registerURLConstructor() {
+        let urlConstructor = URLRequestConstructor(configuration: container.resolve(Configuration.self)!)
+        container.register(urlConstructor)
+    }
 //
 //    private func registerMarvelClient() {
 //        container.register(Client.self) { (resolver) -> MarvelClient in

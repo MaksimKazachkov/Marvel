@@ -14,18 +14,23 @@ import MarvelDomain
 
 class MarvelUseCaseTests: XCTestCase {
     
-//    private let dependency = Dependency()
+    private let dependency = Dependency()
 
     private var subscriptions = Set<AnyCancellable>()
         
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-//        try! dependency.registerDependencies()
+        try! dependency.registerDependencies()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         subscriptions.removeAll()
+    }
+    
+    func testSome() {
+        let expectation = XCTestExpectation()
+        expectation.fulfill()
     }
 //
 //    func testFetchCharacters() {

@@ -1,5 +1,5 @@
 //
-//  ConfigurationAssembler.swift
+//  CredentialsAssembler.swift
 //  Core
 //
 //  Created by Maksim Kazachkov on 23.05.2020.
@@ -8,18 +8,18 @@
 
 import Foundation
 
-public struct ConfigurationAssembler: Assembler {
+public struct CredentialsAssembler: Assembler {
     
     public let bundleIdentifier: String
 
     public let infoDictionaryKey: String
     
     public init(bundleIdentifier: String, infoDictionaryKey: String) {
-        self.bundleIdentifier = infoDictionaryKey
+        self.bundleIdentifier = bundleIdentifier
         self.infoDictionaryKey = infoDictionaryKey
     }
     
-    public func resolve() throws -> Configuration {
+    public func resolve() throws -> Credentials {
         guard let bundle = Bundle(identifier: bundleIdentifier) else {
             throw AssemblerError.nilBundleIdentifier(bundleIdentifier)
         }
@@ -27,7 +27,7 @@ public struct ConfigurationAssembler: Assembler {
             throw AssemblerError.nilInfoDictionary(infoDictionaryKey)
         }
         let data = try JSONSerialization.data(withJSONObject: object, options: [])
-        return try JSONDecoder().decode(Configuration.self, from: data)
+        return try JSONDecoder().decode(Credentials.self, from: data)
     }
     
 }
