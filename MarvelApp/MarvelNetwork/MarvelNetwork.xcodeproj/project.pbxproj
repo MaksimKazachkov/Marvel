@@ -23,7 +23,6 @@
 		5C63DF7F23EC962A00B61C8D /* DEV.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5C63DF7E23EC962A00B61C8D /* DEV.xcconfig */; };
 		5C63DF8123EC96D900B61C8D /* XCTestCase+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C63DF8023EC96D900B61C8D /* XCTestCase+Injection.swift */; };
 		5C63DFAE23EDC9E400B61C8D /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C63DFAD23EDC9E400B61C8D /* Core.framework */; };
-		5C63DFAF23EDC9E400B61C8D /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C63DFAD23EDC9E400B61C8D /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CCDD27023E71D850069207E /* CharactersRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD26F23E71D850069207E /* CharactersRO.swift */; };
 		5CCDD27623E720560069207E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD27523E720560069207E /* HTTPMethod.swift */; };
 		5CCDD27A23E720640069207E /* JSONNestedDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD27923E720640069207E /* JSONNestedDecoder.swift */; };
@@ -43,20 +42,6 @@
 			remoteInfo = MarvelNetwork;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5C63DFB023EDC9E400B61C8D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5C63DFAF23EDC9E400B61C8D /* Core.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C007D9D23DF95B800FD8AFB /* MarvelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,7 +247,6 @@
 				5C007D9923DF95B800FD8AFB /* Sources */,
 				5C007D9A23DF95B800FD8AFB /* Frameworks */,
 				5C007D9B23DF95B800FD8AFB /* Resources */,
-				5C63DFB023EDC9E400B61C8D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

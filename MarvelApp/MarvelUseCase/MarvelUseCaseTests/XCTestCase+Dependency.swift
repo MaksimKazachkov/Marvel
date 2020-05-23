@@ -7,13 +7,12 @@
 //
 
 import Foundation
-//import MarvelNetwork
-//import Core
-//import MarvelRepository
-//import MarvelDAO
-//import MarvelDomain
-//import CoreData
-//import Swinject
+import MarvelNetwork
+import Core
+import MarvelNetworkRepository
+import MarvelCoreDataRepository
+import MarvelDomain
+import CoreData
 //
 //class Dependency {
 //

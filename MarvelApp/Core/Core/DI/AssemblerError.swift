@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CredentialsAssemblerError: Swift.Error, CustomDebugStringConvertible {
+enum AssemblerError: Swift.Error, CustomDebugStringConvertible {
     
     case nilBundleIdentifier(String)
     case nilInfoDictionary(String)

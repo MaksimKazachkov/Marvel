@@ -12,9 +12,7 @@
 		84521D862478551A00338FAD /* MarvelNetworkRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 84521D782478551A00338FAD /* MarvelNetworkRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84521D902478552E00338FAD /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521D8F2478552E00338FAD /* CharactersRepository.swift */; };
 		84521D942478553900338FAD /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D922478553900338FAD /* MarvelDomain.framework */; };
-		84521D952478553900338FAD /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D922478553900338FAD /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84521D962478553900338FAD /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D932478553900338FAD /* MarvelNetwork.framework */; };
-		84521D972478553900338FAD /* MarvelNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D932478553900338FAD /* MarvelNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84521D9C2478588B00338FAD /* CharactersNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,21 +25,6 @@
 			remoteInfo = MarvelNetworkRepository;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		84521D982478553900338FAD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				84521D972478553900338FAD /* MarvelNetwork.framework in Embed Frameworks */,
-				84521D952478553900338FAD /* MarvelDomain.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		84521D752478551A00338FAD /* MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +130,6 @@
 				84521D712478551A00338FAD /* Sources */,
 				84521D722478551A00338FAD /* Frameworks */,
 				84521D732478551A00338FAD /* Resources */,
-				84521D982478553900338FAD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
