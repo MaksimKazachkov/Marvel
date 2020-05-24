@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Core
 import MarvelNetwork
 import MarvelNetworkRepository
 import Swinject
@@ -16,7 +17,15 @@ public struct NetworkRepositoryAssembly: Assembly {
     public init() {}
     
     public func assemble(container: Container) {
-
+        container.register(Client.self) { r -> MarvelClient in
+            return MarvelClient(
+                credentials: r.resolve(Credentials.self)!,
+                constructor: r.resolve(URLRequestConstructor.self)!
+            )
+        }
+        container.register(CharactersRepository.self) { (resolver) -> CharactersRepository in
+            return MarvelCharactersRepository(client: resolver.resolve(Client.self)!)
+        }
     }
     
 }

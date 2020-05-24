@@ -11,6 +11,10 @@ import Swinject
 
 public let assembler = Assembler()
 
+public var resolver: Resolver {
+    assembler.resolver
+}
+
 @propertyWrapper
 public struct Injected<T> {
 
