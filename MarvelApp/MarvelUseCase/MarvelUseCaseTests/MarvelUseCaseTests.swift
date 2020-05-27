@@ -17,6 +17,8 @@ class MarvelUseCaseTests: XCTestCase {
     
     private let factory = AssemblyFactory()
     
+    @LazyInjected private var usecase: CharactersUseCase
+    
     private var subscriptions = Set<AnyCancellable>()
         
     override func setUp() {
@@ -33,7 +35,6 @@ class MarvelUseCaseTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let expectation = XCTestExpectation()
-        let usecase: CharactersUseCase = resolver.resolve(CharactersUseCase.self)!
         usecase.fetch(limit: 20, offset: 20)
             .sink(receiveCompletion: { (completion) in
                 switch completion {

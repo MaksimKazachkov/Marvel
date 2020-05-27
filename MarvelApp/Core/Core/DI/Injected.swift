@@ -9,19 +9,17 @@
 import Foundation
 import Swinject
 
-public let assembler = Assembler()
-
-public var resolver: Resolver {
-    assembler.resolver
-}
-
 @propertyWrapper
 public struct Injected<T> {
 
     private var object: T!
+    
+    public init() {
+        self.object = resolver.resolve(T.self)!
+    }
 
-    public init(assembler: Assembler = assembler) {
-        self.object = assembler.resolver.resolve(T.self)!
+    public init(resolver: Resolver = resolver) {
+        self.object = resolver.resolve(T.self)!
     }
 
     public var wrappedValue: T {
@@ -32,4 +30,5 @@ public struct Injected<T> {
         get { self }
         mutating set { self = newValue }
     }
+    
 }
