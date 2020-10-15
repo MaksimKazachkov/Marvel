@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol StateType {
+public protocol StateType {
         
     associatedtype Action: ActionType
     
@@ -17,5 +17,3 @@ protocol StateType {
     init()
     
 }
-
-protocol ActionType {}

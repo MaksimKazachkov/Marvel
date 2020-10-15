@@ -9,22 +9,15 @@
 import Foundation
 import SwiftUI
 
-protocol DispatchingStoreType {
-    
-    associatedtype T: StateType
-
-    func dispatch(action: T.Action)
-}
-
-final class Store<T: StateType>: ObservableObject, DispatchingStoreType {
+public final class Store<T: StateType>: ObservableObject, DispatchingStoreType {
     
     @Published private(set) var state: T
     
-    init(state: T = T()) {
+    public init(state: T = T()) {
         self.state = state
     }
     
-    func dispatch(action: T.Action) {
+    public func dispatch(action: T.Action) {
         state = state.reducer(state: state, action: action)
     }
     

@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct AppState: StateType {
+public struct AppState: StateType {
     
-    func reducer(state: AppState, action: Action) -> AppState {
+    public func reducer(state: AppState, action: Action) -> AppState {
         var state = state
         switch action {
         case .some:
@@ -19,14 +19,11 @@ struct AppState: StateType {
         return state
     }
     
+    public init() {}
     
-    enum Action: ActionType {
+    public enum Action: ActionType {
         
         case some
-        
-        var asAction: AppState.Action {
-            return self
-        }
                 
     }
 

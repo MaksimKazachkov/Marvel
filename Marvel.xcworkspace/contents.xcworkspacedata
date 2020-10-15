@@ -23,6 +23,9 @@
       location = "group:MarvelApp/MarvelDomain/MarvelDomain.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MarvelApp/Redux/Redux.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MarvelApp/Marvel/Marvel.xcodeproj">
    </FileRef>
    <FileRef
