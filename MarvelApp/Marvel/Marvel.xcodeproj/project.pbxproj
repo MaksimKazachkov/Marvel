@@ -24,6 +24,9 @@
 		5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8391EA1139A917ED4CC4846C /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3041332B6672665F7BE55F /* Pods_Marvel.framework */; };
 		E7F365AB9D27C6E04B0B35B0 /* Pods_MarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D19A3655DDDCF98DE484992 /* Pods_MarvelUITests.framework */; };
+		E9E2AC7F2538A14500262CEC /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AC7E2538A14500262CEC /* AppStore.swift */; };
+		E9E2AC832538A1AE00262CEC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AC822538A1AE00262CEC /* AppState.swift */; };
+		E9E2AC902538CFD400262CEC /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AC8F2538CFD400262CEC /* StateType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		98518F4EA0E301FD0F14EE1E /* Pods-MarvelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelUITests/Pods-MarvelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C04710BCFE79166B0D541581 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD3041332B6672665F7BE55F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E2AC7E2538A14500262CEC /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		E9E2AC822538A1AE00262CEC /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E9E2AC8F2538CFD400262CEC /* StateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,9 @@
 				5C73D5B323DA2F39000DDE85 /* LaunchScreen.storyboard */,
 				5C73D5B623DA2F39000DDE85 /* Info.plist */,
 				5C73D5B023DA2F39000DDE85 /* Preview Content */,
+				E9E2AC7E2538A14500262CEC /* AppStore.swift */,
+				E9E2AC822538A1AE00262CEC /* AppState.swift */,
+				E9E2AC8F2538CFD400262CEC /* StateType.swift */,
 			);
 			path = Marvel;
 			sourceTree = "<group>";
@@ -241,6 +250,8 @@
 			dependencies = (
 			);
 			name = Marvel;
+			packageProductDependencies = (
+			);
 			productName = Marvel;
 			productReference = 5C73D5A223DA2F38000DDE85 /* Marvel.app */;
 			productType = "com.apple.product-type.application";
@@ -315,6 +326,8 @@
 				Base,
 			);
 			mainGroup = 5C73D59923DA2F38000DDE85;
+			packageReferences = (
+			);
 			productRefGroup = 5C73D5A323DA2F38000DDE85 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -445,8 +458,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C73D5A623DA2F39000DDE85 /* AppDelegate.swift in Sources */,
+				E9E2AC832538A1AE00262CEC /* AppState.swift in Sources */,
 				5C73D5AD23DA2F39000DDE85 /* ContentView.swift in Sources */,
+				E9E2AC902538CFD400262CEC /* StateType.swift in Sources */,
 				5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */,
+				E9E2AC7F2538A14500262CEC /* AppStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
