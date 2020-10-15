@@ -10,6 +10,7 @@ import Foundation
 import Combine
 import MarvelDomain
 import MarvelNetwork
+import Core
 
 final public class MarvelCharactersRepository: CharactersRepository {
     
@@ -19,8 +20,8 @@ final public class MarvelCharactersRepository: CharactersRepository {
         self.client = client
     }
 
-    public func characters(limit: Int, offset: Int) -> AnyPublisher<[Character], Error> {
-        let model = CharactersRO(limit: limit, offset: offset)
+    public func characters(with paging: Paging) -> AnyPublisher<[Character], Error> {
+        let model = CharactersRO(limit: paging.limit, offset: paging.offset)
         return client.requestObjects(
             route: CharactersRoute.characters(model),
             at: "data.results"

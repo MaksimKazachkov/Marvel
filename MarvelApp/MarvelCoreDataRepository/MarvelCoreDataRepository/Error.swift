@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum Error: Swift.Error, CustomDebugStringConvertible {
+public enum Error: Swift.Error, CustomDebugStringConvertible {
     
     case nilUID
     
     case badFetchRequest(uid: String)
     
-    var debugDescription: String {
+    public var debugDescription: String {
         switch self {
         case .nilUID:
             return "Can not perform operation for entity with nil uid"

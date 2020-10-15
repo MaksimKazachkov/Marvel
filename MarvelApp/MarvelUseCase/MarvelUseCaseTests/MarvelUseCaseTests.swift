@@ -35,7 +35,9 @@ class MarvelUseCaseTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let expectation = XCTestExpectation()
-        usecase.fetch(limit: 20, offset: 20)
+        let paging = Paging(limit: 20, offset: 20)
+        usecase.fetch(with: paging)
+            .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .finished:

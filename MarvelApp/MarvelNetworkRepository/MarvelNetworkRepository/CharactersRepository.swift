@@ -10,9 +10,10 @@ import Foundation
 import Combine
 import MarvelNetwork
 import MarvelDomain
+import Core
 
 public protocol CharactersRepository {
     
-    func characters(limit: Int, offset: Int) -> AnyPublisher<[Character], Error>
+    func characters(with paging: Paging) -> AnyPublisher<[Character], Error>
     
 }

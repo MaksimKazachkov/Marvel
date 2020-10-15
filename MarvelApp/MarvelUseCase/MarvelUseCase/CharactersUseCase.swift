@@ -9,9 +9,10 @@
 import Foundation
 import Combine
 import MarvelDomain
+import Core
 
 public protocol CharactersUseCase {
     
-    func fetch(limit: Int, offset: Int) -> AnyPublisher<[Character], Error>
+    func fetch(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Error>
     
 }

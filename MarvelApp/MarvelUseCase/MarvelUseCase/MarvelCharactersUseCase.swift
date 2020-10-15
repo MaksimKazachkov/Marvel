@@ -11,9 +11,10 @@ import Combine
 import MarvelDomain
 import MarvelNetworkRepository
 import MarvelCoreDataRepository
+import Core
 
 final public class MarvelCharactersUseCase: CharactersUseCase {
-        
+
     private let networkRepository: CharactersRepository
 
     private let coreDataRepository: CoreDataRepository<MarvelDomain.Character>
@@ -26,8 +27,8 @@ final public class MarvelCharactersUseCase: CharactersUseCase {
         self.coreDataRepository = coreDataRepository
     }
     
-    public func fetch(limit: Int, offset: Int) -> AnyPublisher<[MarvelDomain.Character], Error> {
-        return networkRepository.characters(limit: limit, offset: offset)
+    public func fetch(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
+        return networkRepository.characters(with: paging)
             .flatMap({ self.save(characters: $0) })
             .eraseToAnyPublisher()
     }
@@ -36,7 +37,7 @@ final public class MarvelCharactersUseCase: CharactersUseCase {
 
 private extension MarvelCharactersUseCase {
     
-    func save(characters: [MarvelDomain.Character]) -> AnyPublisher<[MarvelDomain.Character], Error> {
+    func save(characters: [MarvelDomain.Character]) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
         let publishers = characters
             .map({ return coreDataRepository.update(object: $0) })
         

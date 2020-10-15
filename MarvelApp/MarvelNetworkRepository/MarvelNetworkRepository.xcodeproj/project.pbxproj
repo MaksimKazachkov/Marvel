@@ -15,6 +15,9 @@
 		84521D962478553900338FAD /* MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84521D932478553900338FAD /* MarvelNetwork.framework */; };
 		84521D9C2478588B00338FAD /* CharactersNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */; };
 		CD8533ACDD0338473A9528D4 /* Pods_MarvelNetworkRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09FDF6284FC947CF8E2BE5A /* Pods_MarvelNetworkRepository.framework */; };
+		E9E2AC5E253830F800262CEC /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E2AC5D253830F800262CEC /* Core.framework */; };
+		E9E2AC5F253830F800262CEC /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9E2AC5D253830F800262CEC /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9E2AC742538346A00262CEC /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AC732538346A00262CEC /* Typealiases.swift */; };
 		FE818391B695020284B4F79B /* Pods_MarvelNetworkRepositoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B16023960E8CB23E99FA21D /* Pods_MarvelNetworkRepositoryTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,20 @@
 			remoteInfo = MarvelNetworkRepository;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E9E2AC60253830F800262CEC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E9E2AC5F253830F800262CEC /* Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		164A1CD2BB83A937272108DF /* Pods-MarvelNetworkRepositoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetworkRepositoryTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelNetworkRepositoryTests/Pods-MarvelNetworkRepositoryTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,6 +61,8 @@
 		84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersNetworkRepository.swift; sourceTree = "<group>"; };
 		B09FDF6284FC947CF8E2BE5A /* Pods_MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D288E4424B4C5B2633A90619 /* Pods-MarvelNetworkRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetworkRepository.debug.xcconfig"; path = "Target Support Files/Pods-MarvelNetworkRepository/Pods-MarvelNetworkRepository.debug.xcconfig"; sourceTree = "<group>"; };
+		E9E2AC5D253830F800262CEC /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E2AC732538346A00262CEC /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		EADF85B9B5576FE0D6A86CDC /* Pods-MarvelNetworkRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetworkRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelNetworkRepositoryTests/Pods-MarvelNetworkRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +74,7 @@
 				84521D962478553900338FAD /* MarvelNetwork.framework in Frameworks */,
 				84521D942478553900338FAD /* MarvelDomain.framework in Frameworks */,
 				CD8533ACDD0338473A9528D4 /* Pods_MarvelNetworkRepository.framework in Frameworks */,
+				E9E2AC5E253830F800262CEC /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +127,7 @@
 			children = (
 				84521D782478551A00338FAD /* MarvelNetworkRepository.h */,
 				84521D8F2478552E00338FAD /* CharactersRepository.swift */,
+				E9E2AC732538346A00262CEC /* Typealiases.swift */,
 				84521D9B2478588B00338FAD /* CharactersNetworkRepository.swift */,
 				84521D792478551A00338FAD /* Info.plist */,
 			);
@@ -125,6 +146,7 @@
 		84521D912478553900338FAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9E2AC5D253830F800262CEC /* Core.framework */,
 				84521D922478553900338FAD /* MarvelDomain.framework */,
 				84521D932478553900338FAD /* MarvelNetwork.framework */,
 				B09FDF6284FC947CF8E2BE5A /* Pods_MarvelNetworkRepository.framework */,
@@ -156,6 +178,7 @@
 				84521D712478551A00338FAD /* Sources */,
 				84521D722478551A00338FAD /* Frameworks */,
 				84521D732478551A00338FAD /* Resources */,
+				E9E2AC60253830F800262CEC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,7 +215,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Maksim Kazachkov";
 				TargetAttributes = {
 					84521D742478551A00338FAD = {
@@ -294,6 +317,7 @@
 			files = (
 				84521D9C2478588B00338FAD /* CharactersNetworkRepository.swift in Sources */,
 				84521D902478552E00338FAD /* CharactersRepository.swift in Sources */,
+				E9E2AC742538346A00262CEC /* Typealiases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +366,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -405,6 +430,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
