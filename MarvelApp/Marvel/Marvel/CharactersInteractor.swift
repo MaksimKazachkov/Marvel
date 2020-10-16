@@ -11,7 +11,13 @@ import Combine
 import MarvelUseCase
 import Redux
 
-class CharactersInteractor {
+protocol CharactersInteractorType {
+    
+    func loadCharacters()
+    
+}
+
+class CharactersInteractor: CharactersInteractorType {
     
     let useCase: CharactersUseCase
     let appState: Store<AppState>
