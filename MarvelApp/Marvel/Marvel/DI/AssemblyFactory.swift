@@ -25,7 +25,8 @@ struct AssemblyFactory {
             makeNetworkCharactersRepositoryAssembly(),
             try makeCoreDataRepositoryAssembly(),
             makeUseCaseAssembly(),
-            makeInteractorAssembly()
+            makeInteractorAssembly(),
+            makeContainerAssembly()
         ])
     }
     
@@ -65,6 +66,10 @@ struct AssemblyFactory {
     
     private func makeInteractorAssembly() -> Assembly {
         return InteractorAssembly()
+    }
+    
+    private func makeContainerAssembly() -> Assembly {
+        return ContainerAssembly()
     }
     
 }

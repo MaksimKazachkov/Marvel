@@ -7,15 +7,11 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 import MarvelUseCase
 import Redux
-
-protocol CharactersInteractorType {
-    
-    func loadCharacters()
-    
-}
+import Core
 
 class CharactersInteractor: CharactersInteractorType {
     
@@ -30,8 +26,9 @@ class CharactersInteractor: CharactersInteractorType {
     }
     
     func loadCharacters() {
+        appState.dispatch(action: .characters(.loading))
         useCase
-            .fetch(with: Paging(limit: 20, offset: 0))
+            .fetch(with: Paging(limit: 20, offset: 40))
             .map { AppState.Action.characters(.loaded($0)) }
             .catch { Just(AppState.Action.characters(.failed($0))) }
             .sink { appStore.dispatch(action: $0) }
@@ -40,3 +37,4 @@ class CharactersInteractor: CharactersInteractorType {
     }
     
 }
+

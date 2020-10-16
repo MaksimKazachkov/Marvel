@@ -9,16 +9,18 @@
 import SwiftUI
 import Redux
 import MarvelDomain
+import Core
 
 struct ContentView: View {
     
     @EnvironmentObject var appStore: Store<AppState>
+    @Environment(\.contentViewContainer) var container: ContentViewContainer
     
     var body: some View {
         switch appStore.state.characters {
         case .idle:
             Text("Idle").onTapGesture(perform: {
-                appStore.dispatch(action: .characters(.loading))
+                container.charactersInteractor.loadCharacters()
             })
         case .loading:
             Text("Loading")
@@ -49,6 +51,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
                 .environmentObject(appStore)
+                .environment(\.contentViewContainer, resolver.resolve(ContentViewContainer.self)!)
         }
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import Redux
+import Core
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         try! AssemblyFactory().applyAssemblies()
         let contentView = ContentView()
             .environmentObject(appStore)
-
+            .environment(\.contentViewContainer, resolver.resolve(ContentViewContainer.self)!)
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
