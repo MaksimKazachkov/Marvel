@@ -102,16 +102,15 @@ public class CoreDataRepository<T: CoreDataRepresentable> where T == T.CoreDataT
         .eraseToAnyPublisher()
     }
     
-    func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
+    public func queryResult(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
         try context.fetch(request).first as? T.CoreDataType
     }
     
-    func queryResults(by request: NSFetchRequest<NSFetchRequestResult>) throws -> [NSFetchRequestResult] {
+    public func queryResults(by request: NSFetchRequest<NSFetchRequestResult>) throws -> [NSFetchRequestResult] {
         try context.fetch(request)
     }
     
     // MARK: - Private methods
-    
     private func findOrFetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
            return try find(by: request) ?? fetch(by: request)
        }

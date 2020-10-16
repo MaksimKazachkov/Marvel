@@ -12,11 +12,12 @@ import MarvelDomain
 import MarvelNetworkRepository
 import MarvelCoreDataRepository
 import Core
+import CoreData
 
-final public class MarvelCharactersUseCase: CharactersUseCase {
-
+public struct MarvelCharactersUseCase: CharactersUseCase {
+    
     private let networkRepository: CharactersRepository
-
+    
     private let coreDataRepository: CoreDataRepository<MarvelDomain.Character>
     
     public init(
@@ -28,16 +29,38 @@ final public class MarvelCharactersUseCase: CharactersUseCase {
     }
     
     public func fetch(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
+        return Publishers.Merge(
+            fetchForPersistance(with: paging),
+            fetchFromNetwork(with: paging)
+        )
+        .eraseToAnyPublisher()
+    }
+    
+    func fetchFromNetwork(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
         return networkRepository.characters(with: paging)
             .flatMap({ self.save(characters: $0) })
             .eraseToAnyPublisher()
     }
     
-}
-
-private extension MarvelCharactersUseCase {
+    private func fetchForPersistance(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
+        return Future { (promise) in
+            do {
+                let request: NSFetchRequest<NSFetchRequestResult> = Character.CoreDataType.fetchRequest()
+                request.resultType = .managedObjectResultType
+                request.fetchLimit = paging.limit
+                request.fetchOffset = paging.offset
+                let entities = try self.coreDataRepository.queryResults(by: request)
+                    .compactMap({ $0 as? MarvelDomain.Character.CoreDataType })
+                    .compactMap({ $0.asDomain() })
+                promise(.success(entities))
+            } catch {
+                promise(.failure(error))
+            }
+        }
+        .eraseToAnyPublisher()
+    }
     
-    func save(characters: [MarvelDomain.Character]) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
+    private func save(characters: [MarvelDomain.Character]) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
         let publishers = characters
             .map({ return coreDataRepository.update(object: $0) })
         

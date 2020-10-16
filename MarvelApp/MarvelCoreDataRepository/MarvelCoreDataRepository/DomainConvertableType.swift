@@ -17,4 +17,6 @@ public protocol DomainConvertableType {
     
     static func fetchRequest(by uid: String) -> NSFetchRequest<NSFetchRequestResult>?
     
+    static func fetchRequest() -> NSFetchRequest<NSFetchRequestResult>
+        
 }
