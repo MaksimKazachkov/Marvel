@@ -28,7 +28,7 @@ class CharactersInteractor: CharactersInteractorType {
     func loadCharacters() {
         appState.dispatch(action: .characters(.loading))
         useCase
-            .fetch(with: Paging(limit: 20, offset: 40))
+            .fetch(with: Paging(limit: 20, offset: 0))
             .map { AppState.Action.characters(.loaded($0)) }
             .catch { Just(AppState.Action.characters(.failed($0))) }
             .sink { appStore.dispatch(action: $0) }
