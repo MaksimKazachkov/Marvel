@@ -24,6 +24,7 @@
 		5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8391EA1139A917ED4CC4846C /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3041332B6672665F7BE55F /* Pods_Marvel.framework */; };
 		E7F365AB9D27C6E04B0B35B0 /* Pods_MarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D19A3655DDDCF98DE484992 /* Pods_MarvelUITests.framework */; };
+		E9D8452C2539D8F100B5760E /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8452B2539D8F100B5760E /* CharactersInteractor.swift */; };
 		E9E2AD142538DC9100262CEC /* Redux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E2AD132538DC9100262CEC /* Redux.framework */; };
 		E9E2AD152538DC9100262CEC /* Redux.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9E2AD132538DC9100262CEC /* Redux.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		98518F4EA0E301FD0F14EE1E /* Pods-MarvelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelUITests/Pods-MarvelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C04710BCFE79166B0D541581 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD3041332B6672665F7BE55F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9D8452B2539D8F100B5760E /* CharactersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersInteractor.swift; sourceTree = "<group>"; };
 		E9E2AD132538DC9100262CEC /* Redux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Redux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 				5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */,
 				5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */,
 				5C73D5AC23DA2F39000DDE85 /* ContentView.swift */,
+				E9D8452B2539D8F100B5760E /* CharactersInteractor.swift */,
 				5C73D5AE23DA2F39000DDE85 /* Assets.xcassets */,
 				5C73D5B323DA2F39000DDE85 /* LaunchScreen.storyboard */,
 				5C73D5B623DA2F39000DDE85 /* Info.plist */,
@@ -454,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D8452C2539D8F100B5760E /* CharactersInteractor.swift in Sources */,
 				5C73D5A623DA2F39000DDE85 /* AppDelegate.swift in Sources */,
 				5C73D5AD23DA2F39000DDE85 /* ContentView.swift in Sources */,
 				5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */,

@@ -7,17 +7,38 @@
 //
 
 import SwiftUI
+import Redux
+import MarvelDomain
 
 struct ContentView: View {
+    
+    @EnvironmentObject var appStore: Store<AppState>
+    
     var body: some View {
-        ZStack {
-            VStack(alignment: .center, spacing: 20) {
-                Text("Name")
-                    .font(.headline)
-                HStack(alignment: .center, spacing: 20) {
-                    Text("Description")
-                        .font(.footnote)
-                }
+        switch appStore.state.characters {
+        case .idle:
+            Text("Idle").onTapGesture(perform: {
+                appStore.dispatch(action: .characters(.loading))
+            })
+        case .loading:
+            Text("Loading")
+        case .loaded:
+            Text("Loaded")
+        case .failed:
+            Text("Failed")
+        }
+    }
+    
+}
+
+struct CharacterList: View {
+    
+    @Binding var props: [Character]
+    
+    var body: some View {
+        List {
+            ForEach(props) { row in
+                Text(row.name ?? "No data")
             }
         }
     }
@@ -25,6 +46,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .environmentObject(appStore)
+        }
     }
 }

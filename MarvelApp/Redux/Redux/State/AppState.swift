@@ -7,14 +7,17 @@
 //
 
 import Foundation
+import MarvelDomain
 
 public struct AppState: StateType {
     
+    public var characters: ObjectType<[Character], Swift.Error> = .idle
+        
     public func reducer(state: AppState, action: Action) -> AppState {
         var state = state
         switch action {
-        case .some:
-            break
+        case .characters(let action):
+            state.characters = action.objectType
         }
         return state
     }
@@ -23,9 +26,8 @@ public struct AppState: StateType {
     
     public enum Action: ActionType {
         
-        case some
+        case characters(ObjectTypeAction<[Character], Swift.Error>)
                 
     }
 
-    
 }

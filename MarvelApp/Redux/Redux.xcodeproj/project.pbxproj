@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9D8451425397CB300B5760E /* ObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8451325397CB300B5760E /* ObjectType.swift */; };
+		E9D8451925397DCE00B5760E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D8451825397DCE00B5760E /* MarvelDomain.framework */; };
+		E9D8451A25397DCE00B5760E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9D8451825397DCE00B5760E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9D8451F2539830A00B5760E /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8451E2539830A00B5760E /* ActionType.swift */; };
+		E9D845222539870F00B5760E /* ObjectTypeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845212539870F00B5760E /* ObjectTypeAction.swift */; };
 		E9E2ACCF2538D8D500262CEC /* Redux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E2ACC52538D8D400262CEC /* Redux.framework */; };
 		E9E2ACD42538D8D500262CEC /* ReduxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACD32538D8D500262CEC /* ReduxTests.swift */; };
 		E9E2ACD62538D8D500262CEC /* Redux.h in Headers */ = {isa = PBXBuildFile; fileRef = E9E2ACC82538D8D400262CEC /* Redux.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,8 +23,6 @@
 		E9E2ACE92538D8F400262CEC /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACE32538D8F400262CEC /* StateType.swift */; };
 		E9E2ACF12538D95300262CEC /* DispatchingStoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACF02538D95300262CEC /* DispatchingStoreType.swift */; };
 		E9E2ACF22538D95300262CEC /* DispatchingStoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACF02538D95300262CEC /* DispatchingStoreType.swift */; };
-		E9E2ACF82538D96C00262CEC /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACF72538D96C00262CEC /* ActionType.swift */; };
-		E9E2ACF92538D96C00262CEC /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACF72538D96C00262CEC /* ActionType.swift */; };
 		E9E2AD0F2538D9C300262CEC /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AD0E2538D9C300262CEC /* AppStore.swift */; };
 		E9E2AD102538D9C300262CEC /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AD0E2538D9C300262CEC /* AppStore.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +37,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E9D8451B25397DCE00B5760E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E9D8451A25397DCE00B5760E /* MarvelDomain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E9D8451325397CB300B5760E /* ObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectType.swift; sourceTree = "<group>"; };
+		E9D8451825397DCE00B5760E /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9D8451E2539830A00B5760E /* ActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionType.swift; sourceTree = "<group>"; };
+		E9D845212539870F00B5760E /* ObjectTypeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTypeAction.swift; sourceTree = "<group>"; };
 		E9E2ACC52538D8D400262CEC /* Redux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Redux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E2ACC82538D8D400262CEC /* Redux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Redux.h; sourceTree = "<group>"; };
 		E9E2ACC92538D8D400262CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,7 +66,6 @@
 		E9E2ACE22538D8F400262CEC /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		E9E2ACE32538D8F400262CEC /* StateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
 		E9E2ACF02538D95300262CEC /* DispatchingStoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchingStoreType.swift; sourceTree = "<group>"; };
-		E9E2ACF72538D96C00262CEC /* ActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionType.swift; sourceTree = "<group>"; };
 		E9E2AD0E2538D9C300262CEC /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D8451925397DCE00B5760E /* MarvelDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +89,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9D8451725397DCE00B5760E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9D8451825397DCE00B5760E /* MarvelDomain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9E2ACBB2538D8D400262CEC = {
 			isa = PBXGroup;
 			children = (
 				E9E2ACC72538D8D400262CEC /* Redux */,
 				E9E2ACD22538D8D500262CEC /* ReduxTests */,
 				E9E2ACC62538D8D400262CEC /* Products */,
+				E9D8451725397DCE00B5760E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,9 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				E9E2ACE32538D8F400262CEC /* StateType.swift */,
-				E9E2ACF72538D96C00262CEC /* ActionType.swift */,
 				E9E2ACF02538D95300262CEC /* DispatchingStoreType.swift */,
 				E9E2ACE22538D8F400262CEC /* Store.swift */,
+				E9D8451E2539830A00B5760E /* ActionType.swift */,
+				E9D845212539870F00B5760E /* ObjectTypeAction.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -130,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E2ACE12538D8F300262CEC /* AppState.swift */,
+				E9D8451325397CB300B5760E /* ObjectType.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -156,6 +188,7 @@
 				E9E2ACC12538D8D400262CEC /* Sources */,
 				E9E2ACC22538D8D400262CEC /* Frameworks */,
 				E9E2ACC32538D8D400262CEC /* Resources */,
+				E9D8451B25397DCE00B5760E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,12 +275,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D845222539870F00B5760E /* ObjectTypeAction.swift in Sources */,
 				E9E2ACE82538D8F400262CEC /* StateType.swift in Sources */,
 				E9E2ACE42538D8F400262CEC /* AppState.swift in Sources */,
-				E9E2ACF82538D96C00262CEC /* ActionType.swift in Sources */,
 				E9E2AD0F2538D9C300262CEC /* AppStore.swift in Sources */,
+				E9D8451425397CB300B5760E /* ObjectType.swift in Sources */,
 				E9E2ACF12538D95300262CEC /* DispatchingStoreType.swift in Sources */,
 				E9E2ACE62538D8F400262CEC /* Store.swift in Sources */,
+				E9D8451F2539830A00B5760E /* ActionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +291,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9E2ACE72538D8F400262CEC /* Store.swift in Sources */,
-				E9E2ACF92538D96C00262CEC /* ActionType.swift in Sources */,
 				E9E2ACE92538D8F400262CEC /* StateType.swift in Sources */,
 				E9E2ACD42538D8D500262CEC /* ReduxTests.swift in Sources */,
 				E9E2ACE52538D8F400262CEC /* AppState.swift in Sources */,

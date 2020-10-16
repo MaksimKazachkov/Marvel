@@ -11,7 +11,7 @@ import SwiftUI
 
 public final class Store<T: StateType>: ObservableObject, DispatchingStoreType {
     
-    @Published private(set) var state: T
+    @Published public private(set) var state: T
     
     public init(state: T = T()) {
         self.state = state
