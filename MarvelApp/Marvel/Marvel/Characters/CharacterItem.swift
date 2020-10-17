@@ -15,7 +15,7 @@ struct CharacterItem: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            LoadImageView(fetcher: ImageFetcher(url: character.resourceURI!))
+            LoadImageView(fetcher: ImageFetcher(url: character.resourceURI!.appendingPathComponent("portrait_incredible.jpg")))
                 .frame(width: 250, height: 300)
                 .cornerRadius(5)
                 .shadow(radius: 10)
