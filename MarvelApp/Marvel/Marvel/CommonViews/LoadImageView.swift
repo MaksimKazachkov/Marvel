@@ -24,7 +24,7 @@ struct LoadImageView: View {
                     .foregroundColor(.gray)
             }
         }.onAppear(perform: {
-            try? fetcher.downloadImage()
+            fetcher.downloadImage()
         })
     }
 }

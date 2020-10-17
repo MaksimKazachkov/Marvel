@@ -8,17 +8,61 @@
 
 import SwiftUI
 import Combine
+import MarvelDomain
 
 final class ImageFetcher: ObservableObject {
     
+    enum AspectRationType {
+        
+        case portrait(ImageType), standard(ImageType), landscape(ImageType), detail, fullSize
+        
+    }
+    
+    enum ImageType: String {
+        
+        case small, medium, xLarge, fantastic, uncanny, incredible
+        
+    }
+    
+    struct ImageVariant {
+        
+        let url: URL
+        
+        public init(url: URL, aspectRation: AspectRationType) {
+            var url = url
+            switch aspectRation {
+            case .portrait(let type):
+                url.appendPathComponent("portrait_\(type)")
+            case .standard(let type):
+                url.appendPathComponent("standard_\(type)")
+            case .landscape(let type):
+                url.appendPathComponent("landscape_\(type)")
+            case .detail:
+                url.appendPathComponent("detail")
+            case .fullSize:
+                url.appendPathComponent("fullSize")
+            }
+            self.url = url
+        }
+        
+    }
+      
     @Published var image: UIImage? = nil
     
     private static let imageCache = NSCache<AnyObject, AnyObject>()
 
     private let url: URL?
     
-    init(url: URL?) {
-        self.url = url
+    init(thumbnail: MarvelDomain.Image, aspectRation: AspectRationType) {
+        guard let url = URL(string: thumbnail.path) else {
+            self.url = nil
+            return
+        }
+        let imageVariant = ImageVariant(
+            url: url,
+            aspectRation: aspectRation
+        )
+        self.url = imageVariant.url.appendingPathExtension(thumbnail.extensionType.rawValue)
     }
     
     public func downloadImage() {
@@ -28,7 +72,7 @@ final class ImageFetcher: ObservableObject {
         }
         let urlString = url.absoluteString
         
-        if let imageFromCache = ImageFetcher.imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+        if let imageFromCache = fetchFromCache(forKey: urlString) {
             self.image = imageFromCache
             return
         }
@@ -40,7 +84,7 @@ final class ImageFetcher: ObservableObject {
                 guard let image = UIImage(data: data) else {
                     return
                 }
-                ImageFetcher.imageCache.setObject(image, forKey: urlString  as AnyObject)
+                self.save(image, forKey: urlString)
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
                 }
@@ -48,6 +92,14 @@ final class ImageFetcher: ObservableObject {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func fetchFromCache(forKey key: String) -> UIImage? {
+        return ImageFetcher.imageCache.object(forKey: key as AnyObject) as? UIImage
+    }
+    
+    private func save(_ image: UIImage, forKey key: String) {
+        ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
     }
     
 }

@@ -18,12 +18,13 @@ struct CharacterItem: View {
             if let thumbnail = character.thumbnail{
                 LoadImageView(
                     fetcher: ImageFetcher(
-                        url: URL(string: thumbnail.path)?.appendingPathComponent("portrait_incredible.\(thumbnail.extensionType.rawValue)")
+                        thumbnail: thumbnail,
+                        aspectRation: .portrait(.uncanny)
                     )
                 )
-                    .frame(width: 250, height: 300)
-                    .cornerRadius(5)
-                    .shadow(radius: 10)
+                .frame(width: 250, height: 300)
+                .cornerRadius(5)
+                .shadow(radius: 10)
             }
             VStack(spacing: 4) {
                 if let name = character.name {
@@ -61,7 +62,7 @@ struct CharacterView_Previews: PreviewProvider {
         events: nil,
         series: nil
     )
-
+    
     static var previews: some View {
         Group {
             CharacterItem(character: character)
