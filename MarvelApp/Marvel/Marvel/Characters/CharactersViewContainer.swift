@@ -13,7 +13,7 @@ import MarvelUseCase
 import Redux
 import Core
 
-struct ContentViewContainer: EnvironmentKey {
+struct CharactersViewContainer: EnvironmentKey {
     
     let charactersInteractor: CharactersInteractorType
     
@@ -30,8 +30,8 @@ struct ContentViewContainer: EnvironmentKey {
 }
 
 extension EnvironmentValues {
-    var contentViewContainer: ContentViewContainer {
-        get { self[ContentViewContainer.self] }
-        set { self[ContentViewContainer.self] = newValue }
+    var contentViewContainer: CharactersViewContainer {
+        get { self[CharactersViewContainer.self] }
+        set { self[CharactersViewContainer.self] = newValue }
     }
 }

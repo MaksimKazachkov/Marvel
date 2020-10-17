@@ -16,13 +16,13 @@ import MarvelDomain
 import Redux
 import Swinject
 
-public struct ContainerAssembly: Assembly {
+public struct CharactersAssembly: Assembly {
     
     public init() {}
     
     public func assemble(container: Container) {
-        container.register(ContentViewContainer.self) { r -> ContentViewContainer in
-            return ContentViewContainer(
+        container.register(CharactersViewContainer.self) { r -> CharactersViewContainer in
+            return CharactersViewContainer(
                 charactersInteractor: r.resolve(CharactersInteractorType.self)!
             )
         }

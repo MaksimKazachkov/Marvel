@@ -69,7 +69,7 @@ struct AssemblyFactory {
     }
     
     private func makeContainerAssembly() -> Assembly {
-        return ContainerAssembly()
+        return CharactersAssembly()
     }
     
 }
