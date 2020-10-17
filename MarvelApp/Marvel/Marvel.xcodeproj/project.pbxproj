@@ -25,8 +25,6 @@
 		8391EA1139A917ED4CC4846C /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3041332B6672665F7BE55F /* Pods_Marvel.framework */; };
 		E7F365AB9D27C6E04B0B35B0 /* Pods_MarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D19A3655DDDCF98DE484992 /* Pods_MarvelUITests.framework */; };
 		E9CAB618253ACDDC003C393D /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB617253ACDDC003C393D /* CharacterItem.swift */; };
-		E9CAB619253ACDDC003C393D /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB617253ACDDC003C393D /* CharacterItem.swift */; };
-		E9CAB61A253ACDDC003C393D /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB617253ACDDC003C393D /* CharacterItem.swift */; };
 		E9CAB61E253AD0F5003C393D /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB61D253AD0F5003C393D /* ImageFetcher.swift */; };
 		E9CAB61F253AD0F5003C393D /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB61D253AD0F5003C393D /* ImageFetcher.swift */; };
 		E9CAB620253AD0F5003C393D /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB61D253AD0F5003C393D /* ImageFetcher.swift */; };
@@ -225,7 +223,6 @@
 				5C73D5B023DA2F39000DDE85 /* Preview Content */,
 				5C73D5A523DA2F39000DDE85 /* AppDelegate.swift */,
 				5C73D5A723DA2F39000DDE85 /* SceneDelegate.swift */,
-				E9CAB626253AD20E003C393D /* Character */,
 				E9DFDED6253A2DC70091A7D0 /* Characters */,
 				5C73D5AE23DA2F39000DDE85 /* Assets.xcassets */,
 				5C73D5B323DA2F39000DDE85 /* LaunchScreen.storyboard */,
@@ -288,14 +285,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		E9CAB626253AD20E003C393D /* Character */ = {
-			isa = PBXGroup;
-			children = (
-				E9CAB617253ACDDC003C393D /* CharacterItem.swift */,
-			);
-			path = Character;
-			sourceTree = "<group>";
-		};
 		E9CAB63F253AD708003C393D /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +312,7 @@
 			children = (
 				E9DFDEE1253A2E160091A7D0 /* CharactersInteractor */,
 				E9DFDED9253A2DDC0091A7D0 /* CharactersViewContainer.swift */,
+				E9CAB617253ACDDC003C393D /* CharacterItem.swift */,
 				5C73D5AC23DA2F39000DDE85 /* CharactersRow.swift */,
 			);
 			path = Characters;
@@ -588,7 +578,6 @@
 			files = (
 				E9DFDEB5253A240A0091A7D0 /* AssemblyFactory.swift in Sources */,
 				E9DFDEBB253A240A0091A7D0 /* UseCaseAssembly.swift in Sources */,
-				E9CAB619253ACDDC003C393D /* CharacterItem.swift in Sources */,
 				E9DFDEE6253A2E290091A7D0 /* CharactersInteractorType.swift in Sources */,
 				E9DFDEC7253A24C00091A7D0 /* InteractorAssembly.swift in Sources */,
 				E9DFDEB8253A240A0091A7D0 /* NetworkRepositoryAssembly.swift in Sources */,
@@ -607,7 +596,6 @@
 			files = (
 				E9DFDEB6253A240A0091A7D0 /* AssemblyFactory.swift in Sources */,
 				E9DFDEBC253A240A0091A7D0 /* UseCaseAssembly.swift in Sources */,
-				E9CAB61A253ACDDC003C393D /* CharacterItem.swift in Sources */,
 				E9DFDEE7253A2E290091A7D0 /* CharactersInteractorType.swift in Sources */,
 				E9DFDEC8253A24C00091A7D0 /* InteractorAssembly.swift in Sources */,
 				E9DFDEB9253A240A0091A7D0 /* NetworkRepositoryAssembly.swift in Sources */,
