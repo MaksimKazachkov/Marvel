@@ -15,10 +15,16 @@ struct CharacterItem: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            LoadImageView(fetcher: ImageFetcher(url: character.resourceURI!.appendingPathComponent("portrait_incredible.jpg")))
-                .frame(width: 250, height: 300)
-                .cornerRadius(5)
-                .shadow(radius: 10)
+            if let thumbnail = character.thumbnail{
+                LoadImageView(
+                    fetcher: ImageFetcher(
+                        url: URL(string: thumbnail.path)?.appendingPathComponent("portrait_incredible.\(thumbnail.extensionType.rawValue)")
+                    )
+                )
+                    .frame(width: 250, height: 300)
+                    .cornerRadius(5)
+                    .shadow(radius: 10)
+            }
             VStack(spacing: 4) {
                 if let name = character.name {
                     Text(name)
@@ -45,8 +51,11 @@ struct CharacterView_Previews: PreviewProvider {
         name: "Ajaxis",
         description: "Formerly known as Emil Blonsky, a spy of Soviet Yugoslavian origin working for the KGB, the Abomination gained his powers after receiving a dose of gamma radiation similar to that which transformed Bruce Banner into the incredible Hulk.",
         modified: nil,
-        resourceURI: URL(string:"http://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_incredible.jpg"),
+        resourceURI: nil,
         urls: nil,
+        thumbnail: MarvelDomain.Image.init(
+            path: "http://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_incredible",
+            extensionType: .jpg),
         comics: nil,
         stories: nil,
         events: nil,

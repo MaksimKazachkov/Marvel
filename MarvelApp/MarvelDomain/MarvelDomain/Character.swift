@@ -28,6 +28,8 @@ public struct Character: Identifiable {
     // A set of public web site URLs for the resource.
     public let urls: [URLType]?
     
+    public let thumbnail: Image?
+    
     // A resource list containing comics which feature this character.
     public let comics: Resource?
     
@@ -47,6 +49,7 @@ public struct Character: Identifiable {
         modified: Date?,
         resourceURI: URL?,
         urls: [URLType]?,
+        thumbnail: Image?,
         comics: Resource?,
         stories: Resource?,
         events: Resource?,
@@ -58,6 +61,7 @@ public struct Character: Identifiable {
         self.modified = modified
         self.resourceURI = resourceURI
         self.urls = urls
+        self.thumbnail = thumbnail
         self.comics = comics
         self.stories = stories
         self.events = events

@@ -15,13 +15,17 @@ final class ImageFetcher: ObservableObject {
     
     private static let imageCache = NSCache<AnyObject, AnyObject>()
 
-    private let url: URL
+    private let url: URL?
     
-    init(url: URL) {
+    init(url: URL?) {
         self.url = url
     }
     
-    public func downloadImage() throws {
+    public func downloadImage() {
+        guard let url = url else {
+            image = nil
+            return
+        }
         let urlString = url.absoluteString
         
         if let imageFromCache = ImageFetcher.imageCache.object(forKey: urlString as AnyObject) as? UIImage {
@@ -32,7 +36,7 @@ final class ImageFetcher: ObservableObject {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
             do {
-                let data = try Data(contentsOf: self.url)
+                let data = try Data(contentsOf: url)
                 guard let image = UIImage(data: data) else {
                     return
                 }

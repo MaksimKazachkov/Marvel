@@ -28,6 +28,16 @@ extension MarvelDomain.Character: CoreDataRepresentable {
         entity.modified = modified
         entity.resourceURI = resourceURI
         if let context = entity.managedObjectContext {
+            if let thumbnail = thumbnail {
+                if let imageEntity = entity.thumbnail {
+                    thumbnail.update(entity: imageEntity)
+                } else {
+                    let imageEntity = MarvelCoreDataRepository.Image(context: context)
+                    thumbnail.update(entity: imageEntity)
+                    entity.thumbnail = imageEntity
+                }
+            }
+            
             urls?.forEach({
                 let urlEntity = MarvelCoreDataRepository.URLType(context: context)
                 $0.update(entity: urlEntity)

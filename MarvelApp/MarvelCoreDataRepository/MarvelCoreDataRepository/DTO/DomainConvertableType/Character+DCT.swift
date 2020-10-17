@@ -27,6 +27,7 @@ extension Character: DomainConvertableType {
             modified: modified,
             resourceURI: resourceURI,
             urls: urls.map({ $0.asDomain() }),
+            thumbnail: thumbnail?.asDomain(),
             comics: comics?.asDomain(),
             stories: stories?.asDomain(),
             events: events?.asDomain(),

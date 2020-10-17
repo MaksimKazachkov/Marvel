@@ -1,8 +1,8 @@
 //
 //  Character+CoreDataProperties.swift
-//  MarvelDAO
+//  MarvelCoreDataRepository
 //
-//  Created by Maksim Kazachkov on 15.02.2020.
+//  Created by Максим Казачков on 17.10.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 //
@@ -27,6 +27,7 @@ extension Character {
     @NSManaged public var series: Resource?
     @NSManaged public var stories: Resource?
     @NSManaged public var urls: Set<URLType>
+    @NSManaged public var thumbnail: Image?
 
 }
 

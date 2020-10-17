@@ -32,6 +32,14 @@
 		84842B3C247861FD00941051 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B2F2478618C00941051 /* Character+CoreDataProperties.swift */; };
 		84842B3F2478626B00941051 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B3E2478626B00941051 /* CoreDataRepository.swift */; };
 		A4086A05D1ACEF595FF4F8D6 /* Pods_MarvelCoreDataRepositoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC15B4FA75912C95A3905908 /* Pods_MarvelCoreDataRepositoryTests.framework */; };
+		E9926C7A253AEB20007EDA77 /* Image+DCT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926C79253AEB20007EDA77 /* Image+DCT.swift */; };
+		E9926C7B253AEB20007EDA77 /* Image+DCT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926C79253AEB20007EDA77 /* Image+DCT.swift */; };
+		E9926C87253AEC65007EDA77 /* Image+CDR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926C86253AEC65007EDA77 /* Image+CDR.swift */; };
+		E9926C88253AEC65007EDA77 /* Image+CDR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926C86253AEC65007EDA77 /* Image+CDR.swift */; };
+		E9926CAD253AF636007EDA77 /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926CAB253AF636007EDA77 /* Image+CoreDataClass.swift */; };
+		E9926CAE253AF636007EDA77 /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926CAB253AF636007EDA77 /* Image+CoreDataClass.swift */; };
+		E9926CAF253AF636007EDA77 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926CAC253AF636007EDA77 /* Image+CoreDataProperties.swift */; };
+		E9926CB0253AF636007EDA77 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9926CAC253AF636007EDA77 /* Image+CoreDataProperties.swift */; };
 		EE9AD7F0420B4752AAA97353 /* Pods_MarvelCoreDataRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C52AC0AC022BCA4520F5D6 /* Pods_MarvelCoreDataRepository.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +86,10 @@
 		D6C52AC0AC022BCA4520F5D6 /* Pods_MarvelCoreDataRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCoreDataRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80713104539BD455854C178 /* Pods-MarvelCoreDataRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCoreDataRepository.release.xcconfig"; path = "Target Support Files/Pods-MarvelCoreDataRepository/Pods-MarvelCoreDataRepository.release.xcconfig"; sourceTree = "<group>"; };
 		DC15B4FA75912C95A3905908 /* Pods_MarvelCoreDataRepositoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCoreDataRepositoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9926C79253AEB20007EDA77 /* Image+DCT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+DCT.swift"; sourceTree = "<group>"; };
+		E9926C86253AEC65007EDA77 /* Image+CDR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CDR.swift"; sourceTree = "<group>"; };
+		E9926CAB253AF636007EDA77 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataClass.swift"; path = "MarvelCoreDataRepository/NSManagedObjectes/Character/Image+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E9926CAC253AF636007EDA77 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "MarvelCoreDataRepository/NSManagedObjectes/Character/Image+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F0A6B3127A3881A45EADD106 /* Pods-MarvelCoreDataRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCoreDataRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCoreDataRepositoryTests/Pods-MarvelCoreDataRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +196,7 @@
 				84842B132478606B00941051 /* URLType+DCT.swift */,
 				84842B152478607800941051 /* Resource+DCT.swift */,
 				84842B172478608900941051 /* Character+DCT.swift */,
+				E9926C79253AEB20007EDA77 /* Image+DCT.swift */,
 			);
 			path = DomainConvertableType;
 			sourceTree = "<group>";
@@ -195,6 +208,7 @@
 				84842B1C2478610C00941051 /* URLType+CDR.swift */,
 				84842B1E2478611D00941051 /* Item+CDR.swift */,
 				84842B202478615600941051 /* Resource+CDR.swift */,
+				E9926C86253AEC65007EDA77 /* Image+CDR.swift */,
 			);
 			path = CoreDataRepresentable;
 			sourceTree = "<group>";
@@ -238,12 +252,22 @@
 		84842B312478618C00941051 /* NSManagedObjectes */ = {
 			isa = PBXGroup;
 			children = (
+				E9926C64253AEA13007EDA77 /* Image */,
 				84842B272478618C00941051 /* Item */,
 				84842B2A2478618C00941051 /* URLType */,
 				84842B2D2478618C00941051 /* Resource */,
 				84842B302478618C00941051 /* Character */,
 			);
 			path = NSManagedObjectes;
+			sourceTree = "<group>";
+		};
+		E9926C64253AEA13007EDA77 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E9926CAB253AF636007EDA77 /* Image+CoreDataClass.swift */,
+				E9926CAC253AF636007EDA77 /* Image+CoreDataProperties.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,10 +440,14 @@
 				84842B232478616E00941051 /* Error.swift in Sources */,
 				84842B3C247861FD00941051 /* Character+CoreDataProperties.swift in Sources */,
 				84842B3B247861FA00941051 /* Character+CoreDataClass.swift in Sources */,
+				E9926C7A253AEB20007EDA77 /* Image+DCT.swift in Sources */,
 				84842B3F2478626B00941051 /* CoreDataRepository.swift in Sources */,
 				84842B3A247861F600941051 /* Resource+CoreDataProperties.swift in Sources */,
 				84842B182478608900941051 /* Character+DCT.swift in Sources */,
 				84842B0B24785FF700941051 /* CoreDataRepresentable.swift in Sources */,
+				E9926CAF253AF636007EDA77 /* Image+CoreDataProperties.swift in Sources */,
+				E9926C87253AEC65007EDA77 /* Image+CDR.swift in Sources */,
+				E9926CAD253AF636007EDA77 /* Image+CoreDataClass.swift in Sources */,
 				84842B142478606B00941051 /* URLType+DCT.swift in Sources */,
 				84842B1D2478610C00941051 /* URLType+CDR.swift in Sources */,
 				84842B162478607800941051 /* Resource+DCT.swift in Sources */,
@@ -433,7 +461,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9926C7B253AEB20007EDA77 /* Image+DCT.swift in Sources */,
+				E9926CB0253AF636007EDA77 /* Image+CoreDataProperties.swift in Sources */,
+				E9926C88253AEC65007EDA77 /* Image+CDR.swift in Sources */,
 				84842AFC24785F8A00941051 /* MarvelCoreDataRepositoryTests.swift in Sources */,
+				E9926CAE253AF636007EDA77 /* Image+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

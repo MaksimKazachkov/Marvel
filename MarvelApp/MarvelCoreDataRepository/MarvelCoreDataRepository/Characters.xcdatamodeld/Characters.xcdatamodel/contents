@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Character" representedClassName=".Character" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
@@ -10,7 +10,13 @@
         <relationship name="events" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
         <relationship name="series" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
         <relationship name="stories" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Image"/>
         <relationship name="urls" toMany="YES" deletionRule="Cascade" destinationEntity="URLType"/>
+    </entity>
+    <entity name="Image" representedClassName=".Image" syncable="YES">
+        <attribute name="ext" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character"/>
     </entity>
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -28,9 +34,10 @@
         <attribute name="url" optional="YES" attributeType="URI"/>
     </entity>
     <elements>
-        <element name="Character" positionX="-556.13671875" positionY="-280.76171875" width="128" height="193"/>
+        <element name="Character" positionX="-556.13671875" positionY="-280.76171875" width="128" height="208"/>
         <element name="Item" positionX="-46.7109375" positionY="-214.21875" width="128" height="73"/>
-        <element name="Resource" positionX="-238.45703125" positionY="-376.234375" width="128" height="118"/>
-        <element name="URLType" positionX="-226.40625" positionY="-106.20703125" width="128" height="73"/>
+        <element name="Resource" positionX="-264.75390625" positionY="-284.9765625" width="128" height="118"/>
+        <element name="URLType" positionX="-128.08203125" positionY="-104.8515625" width="128" height="73"/>
+        <element name="Image" positionX="-358.28125" positionY="-20.26171875" width="128" height="88"/>
     </elements>
 </model>

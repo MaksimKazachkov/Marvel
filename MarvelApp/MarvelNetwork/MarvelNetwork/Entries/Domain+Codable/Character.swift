@@ -20,10 +20,12 @@ extension Character: Codable {
             modified: Date(),
             resourceURI: try container.decode(.resourceURI, transformer: URLTransformer()),
             urls: try container.decode([URLType].self, forKey: .urls),
+            thumbnail: try container.decode(Image.self, forKey: .thumbnail),
             comics: try container.decode(Resource.self, forKey: .comics),
             stories: try container.decode(Resource.self, forKey: .stories),
             events: try container.decode(Resource.self, forKey: .events),
-            series: try container.decode(Resource.self, forKey: .series))
+            series: try container.decode(Resource.self, forKey: .series)
+        )
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -33,6 +35,7 @@ extension Character: Codable {
         try container.encode(modified, forKey: .modified)
         try container.encode(resourceURI, forKey: .resourceURI)
         try container.encode(urls, forKey: .urls)
+        try container.encode(thumbnail, forKey: .thumbnail)
         try container.encode(comics, forKey: .comics)
         try container.encode(stories, forKey: .stories)
         try container.encode(events, forKey: .events)
@@ -41,7 +44,7 @@ extension Character: Codable {
     
     private enum CodingKeys: String, CodingKey {
         
-        case id, name, description, modified, resourceURI, urls,
+        case id, name, description, modified, resourceURI, urls, thumbnail,
         comics, stories, events, series
         
     }

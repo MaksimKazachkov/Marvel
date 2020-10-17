@@ -13,9 +13,18 @@ public struct Image {
     public enum ExtensionType: String {
         
         case jpg, png, gif
-        
+
         public init(rawValue: String) {
-            self = ExtensionType(rawValue: rawValue)
+            switch rawValue {
+            case "jpg":
+                self = .jpg
+            case "png":
+                self = .png
+            case "gif":
+                self = .gif
+            default:
+                self = .jpg
+            }
         }
         
     }
