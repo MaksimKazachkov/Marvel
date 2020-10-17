@@ -31,6 +31,8 @@
 		E9CAB638253AD5C1003C393D /* LoadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB637253AD5C1003C393D /* LoadImageView.swift */; };
 		E9CAB639253AD5C1003C393D /* LoadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB637253AD5C1003C393D /* LoadImageView.swift */; };
 		E9CAB63A253AD5C1003C393D /* LoadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB637253AD5C1003C393D /* LoadImageView.swift */; };
+		E9CAB652253ADD48003C393D /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB617253ACDDC003C393D /* CharacterItem.swift */; };
+		E9CAB655253ADD48003C393D /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB617253ACDDC003C393D /* CharacterItem.swift */; };
 		E9D8452C2539D8F100B5760E /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8452B2539D8F100B5760E /* CharactersInteractor.swift */; };
 		E9DFDEAE253A240A0091A7D0 /* CoreDataRepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DFDEA9253A24090091A7D0 /* CoreDataRepositoryAssembly.swift */; };
 		E9DFDEAF253A240A0091A7D0 /* CoreDataRepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DFDEA9253A24090091A7D0 /* CoreDataRepositoryAssembly.swift */; };
@@ -582,6 +584,7 @@
 				E9DFDEC7253A24C00091A7D0 /* InteractorAssembly.swift in Sources */,
 				E9DFDEB8253A240A0091A7D0 /* NetworkRepositoryAssembly.swift in Sources */,
 				E9CAB61F253AD0F5003C393D /* ImageFetcher.swift in Sources */,
+				E9CAB652253ADD48003C393D /* CharacterItem.swift in Sources */,
 				E9DFDEAF253A240A0091A7D0 /* CoreDataRepositoryAssembly.swift in Sources */,
 				E9DFDED1253A2BC40091A7D0 /* CharactersAssembly.swift in Sources */,
 				E9CAB639253AD5C1003C393D /* LoadImageView.swift in Sources */,
@@ -600,6 +603,7 @@
 				E9DFDEC8253A24C00091A7D0 /* InteractorAssembly.swift in Sources */,
 				E9DFDEB9253A240A0091A7D0 /* NetworkRepositoryAssembly.swift in Sources */,
 				E9CAB620253AD0F5003C393D /* ImageFetcher.swift in Sources */,
+				E9CAB655253ADD48003C393D /* CharacterItem.swift in Sources */,
 				E9DFDEB0253A240A0091A7D0 /* CoreDataRepositoryAssembly.swift in Sources */,
 				E9DFDED2253A2BC40091A7D0 /* CharactersAssembly.swift in Sources */,
 				E9CAB63A253AD5C1003C393D /* LoadImageView.swift in Sources */,

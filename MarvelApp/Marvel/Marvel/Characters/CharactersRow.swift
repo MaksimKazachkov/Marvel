@@ -24,8 +24,14 @@ struct CharactersRow: View {
             })
         case .loading:
             Text("Loading")
-        case .loaded:
-            Text("Loaded")
+        case .loaded(let data):
+            ScrollView {
+                VStack {
+                    ForEach(data, id: \.id) { character in
+                        CharacterItem(character: character)
+                    }
+                }
+            }
         case .failed:
             Text("Failed")
         }

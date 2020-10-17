@@ -11,7 +11,7 @@ import MarvelDomain
 
 struct CharacterItem: View {
     
-    @Binding var character: Character
+    var character: Character
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
@@ -55,7 +55,7 @@ struct CharacterView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            CharacterItem(character: $character)
+            CharacterItem(character: character)
         }
     }
 }
