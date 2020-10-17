@@ -11,7 +11,7 @@ import Redux
 import MarvelDomain
 import Core
 
-struct CharactersView: View {
+struct CharactersRow: View {
     
     @EnvironmentObject var appStore: Store<AppState>
     @Environment(\.contentViewContainer) var container: CharactersViewContainer
@@ -49,7 +49,7 @@ struct CharacterList: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CharactersView()
+            CharactersRow()
                 .environmentObject(appStore)
                 .environment(\.contentViewContainer, resolver.resolve(CharactersViewContainer.self)!)
         }
