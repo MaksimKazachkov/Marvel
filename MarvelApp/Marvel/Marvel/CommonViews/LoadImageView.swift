@@ -11,17 +11,19 @@ import Combine
 
 struct LoadImageView: View {
     
-    @State var fetcher: ImageFetcher
+    @ObservedObject var fetcher: ImageFetcher
     
     var body: some View {
         ZStack {
-            if let image = fetcher.image {
+            switch fetcher.state {
+            case .loaded(let image):
                 Image(uiImage: image)
                     .resizable()
                     .renderingMode(.original)
-            } else {
-                Rectangle()
-                    .foregroundColor(.gray)
+            case .loading:
+                Text("Loading")
+            case .failed(let error):
+                Text("Failed with error: \(error.localizedDescription)")
             }
         }.onAppear(perform: {
             fetcher.downloadImage()

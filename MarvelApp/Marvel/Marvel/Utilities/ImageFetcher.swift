@@ -10,11 +10,57 @@ import SwiftUI
 import Combine
 import MarvelDomain
 
+enum ImageFetcherError: Swift.Error, CustomDebugStringConvertible {
+    
+    case incorrectData, badURL
+    
+    var debugDescription: String {
+        switch self {
+        case .incorrectData:
+            return "Data is currupt"
+        case .badURL:
+            return "Can not create url"
+        }
+    }
+    
+}
+
 final class ImageFetcher: ObservableObject {
     
     enum AspectRationType {
         
         case portrait(ImageType), standard(ImageType), landscape(ImageType), detail, fullSize
+        
+        var path: String {
+            switch self {
+            case .portrait(let value):
+                return "portrait_\(value)"
+            case .standard(let value):
+                return "standard_\(value)"
+            case .landscape(let value):
+                return "landscape_\(value)"
+            case .detail:
+                return "detail"
+            case .fullSize:
+                return "fullSize"
+            }
+        }
+        
+    }
+    
+    enum LoadState {
+        
+        case loading, loaded(UIImage), failed(Swift.Error)
+        
+        var image: UIImage? {
+            switch self {
+            case .loaded(let value):
+                return value
+            case .loading,
+                 .failed:
+                return nil
+            }
+        }
         
     }
     
@@ -29,29 +75,18 @@ final class ImageFetcher: ObservableObject {
         let url: URL
         
         public init(url: URL, aspectRation: AspectRationType) {
-            var url = url
-            switch aspectRation {
-            case .portrait(let type):
-                url.appendPathComponent("portrait_\(type)")
-            case .standard(let type):
-                url.appendPathComponent("standard_\(type)")
-            case .landscape(let type):
-                url.appendPathComponent("landscape_\(type)")
-            case .detail:
-                url.appendPathComponent("detail")
-            case .fullSize:
-                url.appendPathComponent("fullSize")
-            }
-            self.url = url
+            self.url = url.appendingPathComponent(aspectRation.path)
         }
         
     }
-      
-    @Published var image: UIImage? = nil
+    
+    @Published var state: LoadState = .loading
     
     private static let imageCache = NSCache<AnyObject, AnyObject>()
-
+    
     private let url: URL?
+    
+    private var cancelBag = Set<AnyCancellable>()
     
     init(thumbnail: MarvelDomain.Image, aspectRation: AspectRationType) {
         guard let url = URL(string: thumbnail.path) else {
@@ -67,39 +102,51 @@ final class ImageFetcher: ObservableObject {
     
     public func downloadImage() {
         guard let url = url else {
-            image = nil
+            state = .failed(ImageFetcherError.badURL)
             return
         }
         let urlString = url.absoluteString
         
-        if let imageFromCache = fetchFromCache(forKey: urlString) {
-            self.image = imageFromCache
+        if let image = fetchFromCache(forKey: urlString) {
+            state = .loaded(image)
             return
         }
         
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let self = self else { return }
+        networkPulisher(with: url)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
+            .map { LoadState.loaded($0) }
+            .catch { Just(LoadState.failed($0)) }
+//            .flatMap { [self] in saveToCachePublisher($0, forKey: urlString) }
+            .print()
+            .assign(to: \.state, on: self)
+            .store(in: &cancelBag)
+    }
+    
+    private func networkPulisher(with url: URL) -> AnyPublisher<UIImage, Swift.Error> {
+        return Future { (promise) in
             do {
                 let data = try Data(contentsOf: url)
-                guard let image = UIImage(data: data) else {
-                    return
-                }
-                self.save(image, forKey: urlString)
-                DispatchQueue.main.async { [weak self] in
-                    self?.image = image
+                if let image = UIImage(data: data) {
+                    promise(.success(image))
+                } else {
+                    promise(.failure(ImageFetcherError.incorrectData))
                 }
             } catch {
-                print(error.localizedDescription)
+                promise(.failure(error))
             }
+            
         }
+        .eraseToAnyPublisher()
+    }
+    
+    private func saveToCachePublisher(_ image: UIImage, forKey key: String) -> Just<UIImage> {
+        ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
+        return Just(image)
     }
     
     private func fetchFromCache(forKey key: String) -> UIImage? {
         return ImageFetcher.imageCache.object(forKey: key as AnyObject) as? UIImage
-    }
-    
-    private func save(_ image: UIImage, forKey key: String) {
-        ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
     }
     
 }

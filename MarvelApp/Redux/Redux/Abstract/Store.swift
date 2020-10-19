@@ -18,7 +18,10 @@ public final class Store<T: StateType>: ObservableObject, DispatchingStoreType {
     }
     
     public func dispatch(action: T.Action) {
-        state = state.reducer(state: state, action: action)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.state = self.state.reducer(state: self.state, action: action)
+        }
     }
     
 }
