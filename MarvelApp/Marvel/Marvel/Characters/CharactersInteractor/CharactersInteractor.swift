@@ -29,6 +29,8 @@ class CharactersInteractor: CharactersInteractorType {
         appState.dispatch(action: .characters(.loading))
         useCase
             .fetch(with: Paging(limit: 20, offset: 0))
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
             .map { AppState.Action.characters(.loaded($0)) }
             .catch { Just(AppState.Action.characters(.failed($0))) }
             .sink { appStore.dispatch(action: $0) }

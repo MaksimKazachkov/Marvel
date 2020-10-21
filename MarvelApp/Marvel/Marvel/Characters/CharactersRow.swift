@@ -19,19 +19,16 @@ struct CharactersRow: View {
     var body: some View {
         switch appStore.state.characters {
         case .idle:
-            Text("Idle").onTapGesture(perform: {
-                container.charactersInteractor.loadCharacters()
-            })
+            Text("Idle")
+                .onTapGesture {
+                    container.charactersInteractor.loadCharacters()
+                }
         case .loading:
             Text("Loading")
         case .loaded(let data):
-            ScrollView {
-                VStack {
-                    ForEach(data, id: \.id) { character in
-                        CharacterItem(character: character)
-                    }
-                }
-            }
+            Spacer()
+            CharacterList(props: data)
+            Spacer()
         case .failed:
             Text("Failed")
         }
@@ -41,15 +38,46 @@ struct CharactersRow: View {
 
 struct CharacterList: View {
     
-    @Binding var props: [Character]
+    var props: [Character]
     
     var body: some View {
-        List {
-            ForEach(props) { row in
-                Text(row.name ?? "No data")
+        GeometryReader { (bounds) in
+            ScrollView(.horizontal, showsIndicators: true) {
+                HStack(spacing: 20) {
+                    ForEach(props, id: \.id) { character in
+                        GeometryReader { geometry in
+                            CharacterItem(character: character)
+                                .rotation3DEffect(
+                                    getAngle(geometry: geometry, bounds: bounds),
+                                    axis: (
+                                        x: 0,
+                                        y: 10,
+                                        z: 0
+                                    )
+                                )
+                        }
+                        .frame(width: 250, height: 320)
+                    }
+                }
+                .padding(30)
+                .padding(.bottom, 30)
             }
+            .offset(y: -30)
         }
     }
+    
+    func getAngle(geometry: GeometryProxy, bounds: GeometryProxy) -> Angle {
+        return Angle(degrees: Double(geometry.frame(in: .global).minX - 60) / -getAngleMultiplier(bounds: bounds))
+    }
+    
+    func getAngleMultiplier(bounds: GeometryProxy) -> Double {
+        if bounds.size.width > 500 {
+            return 80
+        } else {
+            return 20
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

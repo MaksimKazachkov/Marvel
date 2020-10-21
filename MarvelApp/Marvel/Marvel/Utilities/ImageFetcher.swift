@@ -12,7 +12,7 @@ import MarvelDomain
 
 enum ImageFetcherError: Swift.Error, CustomDebugStringConvertible {
     
-    case incorrectData, badURL
+    case incorrectData, badURL, noImageInCache
     
     var debugDescription: String {
         switch self {
@@ -20,6 +20,8 @@ enum ImageFetcherError: Swift.Error, CustomDebugStringConvertible {
             return "Data is currupt"
         case .badURL:
             return "Can not create url"
+        case .noImageInCache:
+            return "Image is not stored in cache"
         }
     }
     
@@ -98,6 +100,7 @@ final class ImageFetcher: ObservableObject {
             aspectRation: aspectRation
         )
         self.url = imageVariant.url.appendingPathExtension(thumbnail.extensionType.rawValue)
+        downloadImage()
     }
     
     public func downloadImage() {
@@ -107,18 +110,17 @@ final class ImageFetcher: ObservableObject {
         }
         let urlString = url.absoluteString
         
-        if let image = fetchFromCache(forKey: urlString) {
-            state = .loaded(image)
-            return
-        }
-        
-        networkPulisher(with: url)
+        fetchFromCache(forKey: urlString)
+            .catch({ _ in self.networkPulisher(with: url) })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .map { LoadState.loaded($0) }
             .catch { Just(LoadState.failed($0)) }
-//            .flatMap { [self] in saveToCachePublisher($0, forKey: urlString) }
-            .print()
+            .handleEvents(receiveOutput: { [weak self] (state) in
+                if let image = state.image {
+                    self?.saveToCache(image, forKey: urlString)
+                }
+            })
             .assign(to: \.state, on: self)
             .store(in: &cancelBag)
     }
@@ -140,13 +142,21 @@ final class ImageFetcher: ObservableObject {
         .eraseToAnyPublisher()
     }
     
-    private func saveToCachePublisher(_ image: UIImage, forKey key: String) -> Just<UIImage> {
-        ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
-        return Just(image)
+    private func saveToCache(_ image: UIImage, forKey key: String) {
+        DispatchQueue.global(qos: .background).async {
+            ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
+        }
     }
-    
-    private func fetchFromCache(forKey key: String) -> UIImage? {
-        return ImageFetcher.imageCache.object(forKey: key as AnyObject) as? UIImage
+
+    private func fetchFromCache(forKey key: String) -> AnyPublisher<UIImage, Swift.Error> {
+        return Future { (promise) in
+            if let image = ImageFetcher.imageCache.object(forKey: key as AnyObject) as? UIImage {
+                promise(.success(image))
+            } else {
+                promise(.failure(ImageFetcherError.noImageInCache))
+            }
+        }
+        .eraseToAnyPublisher()
     }
     
 }

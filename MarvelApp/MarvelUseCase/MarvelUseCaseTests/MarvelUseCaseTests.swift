@@ -37,7 +37,6 @@ class MarvelUseCaseTests: XCTestCase {
         let expectation = XCTestExpectation()
         let paging = Paging(limit: 20, offset: 20)
         usecase.fetch(with: paging)
-            .print()
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .finished:

@@ -35,9 +35,6 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
                 .flatMap({ self.savePublisher(data: $0) }).print()
                 .eraseToAnyPublisher()
         )
-//        return persistencePublisher(with: paging)
-        .subscribe(on: DispatchQueue.global(qos: .background))
-        .receive(on: DispatchQueue.main)
         .eraseToAnyPublisher()
     }
     

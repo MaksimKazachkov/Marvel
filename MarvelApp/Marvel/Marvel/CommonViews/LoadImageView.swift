@@ -25,9 +25,7 @@ struct LoadImageView: View {
             case .failed(let error):
                 Text("Failed with error: \(error.localizedDescription)")
             }
-        }.onAppear(perform: {
-            fetcher.downloadImage()
-        })
+        }
     }
 }
 

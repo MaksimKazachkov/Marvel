@@ -22,25 +22,21 @@ struct CharacterItem: View {
                         aspectRation: .portrait(.uncanny)
                     )
                 )
-                .frame(width: 250, height: 300)
                 .cornerRadius(5)
                 .shadow(radius: 10)
             }
-            VStack(spacing: 4) {
+            VStack {
                 if let name = character.name {
                     Text(name)
+                        .frame(width: 240, alignment: .center)
+                        .multilineTextAlignment(.leading)
                         .foregroundColor(.primary)
                         .font(.headline)
                 }
-                if let description = character.description {
-                    Text(description)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                }
             }
-            .padding(.horizontal)
         }
+        .padding(.top, 20)
+        .padding(.horizontal, 20)
     }
     
 }
@@ -55,7 +51,7 @@ struct CharacterView_Previews: PreviewProvider {
         resourceURI: nil,
         urls: nil,
         thumbnail: MarvelDomain.Image.init(
-            path: "http://i.annihil.us/u/prod/marvel/i/mg/3/40/4bb4680432f73/portrait_incredible",
+            path: "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec",
             extensionType: .jpg),
         comics: nil,
         stories: nil,
