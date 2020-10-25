@@ -12,7 +12,7 @@ import CoreData
 import MarvelDomain
 
 public class CoreDataRepository<T: CoreDataRepresentable> where T == T.CoreDataType.DomainType {
-    
+        
     private let container: NSPersistentContainer
     
     public init(container: NSPersistentContainer) {

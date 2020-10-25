@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 import MarvelUseCase
+import MarvelDomain
 import Redux
 import Core
 
@@ -25,17 +26,24 @@ class CharactersInteractor: CharactersInteractorType {
         self.appState = appState
     }
     
-    func loadCharacters() {
-        appState.dispatch(action: .characters(.loading))
+    func fetchCharacters() {
         useCase
-            .fetch(with: Paging(limit: 20, offset: 0))
+            .fetch(with: appState.state.paging)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
-            .map { AppState.Action.characters(.loaded($0)) }
-            .catch { Just(AppState.Action.characters(.failed($0))) }
+            .handleEvents(receiveOutput: { [weak self] (value) in
+                guard let self = self else { return }
+                let canPaginate = value.count == self.appState.state.paging.limit
+                self.appState.dispatch(action: .setCanPaginate(canPaginate))
+                self.appState.dispatch(action: .setPaging(Paging(
+                                                            limit: self.appState.state.paging.limit,
+                                                            offset: self.appState.state.paging.offset + self.appState.state.paging.limit)))
+            })
+            .map { AppState.Action.setCharacters($0) }
+            .catch { _ in Just(AppState.Action.setCharacters([])) }
             .sink { appStore.dispatch(action: $0) }
             .store(in: &cancelBag)
-
+        
     }
     
 }

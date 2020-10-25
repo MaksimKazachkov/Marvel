@@ -16,6 +16,7 @@
 		5CD7B3BB23DD561200E52D0E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3BA23DD561200E52D0E /* Image.swift */; };
 		5CD7B3BD23DD5A1900E52D0E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7B3BC23DD5A1900E52D0E /* Resource.swift */; };
 		C74064BD0C93CCDB852D2D75 /* Pods_MarvelDomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FAA12D90DF6F44E5DBC06C /* Pods_MarvelDomainTests.framework */; };
+		E97BA89125461869000C5FB1 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BA89025461869000C5FB1 /* Paging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		5CD7B3BA23DD561200E52D0E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		5CD7B3BC23DD5A1900E52D0E /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		708F4E8B77D6B2D63A8735E4 /* Pods-MarvelDomain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelDomain.release.xcconfig"; path = "Target Support Files/Pods-MarvelDomain/Pods-MarvelDomain.release.xcconfig"; sourceTree = "<group>"; };
+		E97BA89025461869000C5FB1 /* Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
 		FA724A3E5C5EFAB3E78DB5DC /* Pods-MarvelDomainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelDomainTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelDomainTests/Pods-MarvelDomainTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				5CD7B3BA23DD561200E52D0E /* Image.swift */,
 				5CD7B3BC23DD5A1900E52D0E /* Resource.swift */,
 				5CD7B3B823DD55A500E52D0E /* URLType.swift */,
+				E97BA89025461869000C5FB1 /* Paging.swift */,
 			);
 			path = MarvelDomain;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CD7B3B723DD540000E52D0E /* Character.swift in Sources */,
+				E97BA89125461869000C5FB1 /* Paging.swift in Sources */,
 				5CD7B3BD23DD5A1900E52D0E /* Resource.swift in Sources */,
 				5CD7B3B923DD55A500E52D0E /* URLType.swift in Sources */,
 				5CD7B3BB23DD561200E52D0E /* Image.swift in Sources */,

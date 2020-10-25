@@ -10,6 +10,6 @@ import Foundation
 
 protocol CharactersInteractorType {
     
-    func loadCharacters()
+    func fetchCharacters()
     
 }

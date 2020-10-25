@@ -21,7 +21,7 @@ struct LoadImageView: View {
                     .resizable()
                     .renderingMode(.original)
             case .loading:
-                Text("Loading")
+                Spinner(style: .medium)
             case .failed(let error):
                 Text("Failed with error: \(error.localizedDescription)")
             }

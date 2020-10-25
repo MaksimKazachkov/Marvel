@@ -17,20 +17,16 @@ struct CharactersRow: View {
     @Environment(\.contentViewContainer) var container: CharactersViewContainer
     
     var body: some View {
-        switch appStore.state.characters {
-        case .idle:
-            Text("Idle")
-                .onTapGesture {
-                    container.charactersInteractor.loadCharacters()
+        CharacterList(
+            props: CharacterList.Props(
+                characters: appStore.state.characters,
+                canPaginate: appStore.state.canPaginate,
+                performFetch: {
+                    container.charactersInteractor.fetchCharacters()
                 }
-        case .loading:
-            Text("Loading")
-        case .loaded(let data):
-            Spacer()
-            CharacterList(props: data)
-            Spacer()
-        case .failed:
-            Text("Failed")
+            )
+        ).onAppear {
+            container.charactersInteractor.fetchCharacters()
         }
     }
     
@@ -38,13 +34,21 @@ struct CharactersRow: View {
 
 struct CharacterList: View {
     
-    var props: [Character]
+    struct Props {
+        
+        var characters: [Character]
+        var canPaginate: Bool
+        var performFetch: (() -> Void)?
+        
+    }
+    
+    var props: Props
     
     var body: some View {
         GeometryReader { (bounds) in
             ScrollView(.horizontal, showsIndicators: true) {
                 HStack(spacing: 20) {
-                    ForEach(props, id: \.id) { character in
+                    ForEach(props.characters, id: \.id) { character in
                         GeometryReader { geometry in
                             CharacterItem(character: character)
                                 .rotation3DEffect(
@@ -57,6 +61,9 @@ struct CharacterList: View {
                                 )
                         }
                         .frame(width: 250, height: 320)
+                    }
+                    if props.canPaginate {
+                        Spinner(style: .medium).onAppear(perform: props.performFetch)
                     }
                 }
                 .padding(30)

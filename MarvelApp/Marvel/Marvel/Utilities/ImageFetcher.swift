@@ -110,7 +110,7 @@ final class ImageFetcher: ObservableObject {
         }
         let urlString = url.absoluteString
         
-        fetchFromCache(forKey: urlString)
+        cachePublisher(forKey: urlString)
             .catch({ _ in self.networkPulisher(with: url) })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -123,6 +123,17 @@ final class ImageFetcher: ObservableObject {
             })
             .assign(to: \.state, on: self)
             .store(in: &cancelBag)
+    }
+    
+    private func cachePublisher(forKey key: String) -> AnyPublisher<UIImage, Swift.Error> {
+        return Future { (promise) in
+            if let image = ImageFetcher.imageCache.object(forKey: key as AnyObject) as? UIImage {
+                promise(.success(image))
+            } else {
+                promise(.failure(ImageFetcherError.noImageInCache))
+            }
+        }
+        .eraseToAnyPublisher()
     }
     
     private func networkPulisher(with url: URL) -> AnyPublisher<UIImage, Swift.Error> {
@@ -146,17 +157,6 @@ final class ImageFetcher: ObservableObject {
         DispatchQueue.global(qos: .background).async {
             ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
         }
-    }
-
-    private func fetchFromCache(forKey key: String) -> AnyPublisher<UIImage, Swift.Error> {
-        return Future { (promise) in
-            if let image = ImageFetcher.imageCache.object(forKey: key as AnyObject) as? UIImage {
-                promise(.success(image))
-            } else {
-                promise(.failure(ImageFetcherError.noImageInCache))
-            }
-        }
-        .eraseToAnyPublisher()
     }
     
 }

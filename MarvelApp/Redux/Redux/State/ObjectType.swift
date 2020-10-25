@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// For non paginated object
 public enum ObjectType<Value, Error: Swift.Error> {
     
     case idle

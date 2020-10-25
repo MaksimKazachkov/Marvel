@@ -16,6 +16,8 @@ import CoreData
 
 public struct MarvelCharactersUseCase: CharactersUseCase {
     
+    typealias CoreDataType = MarvelDomain.Character.CoreDataType
+    
     private let networkRepository: CharactersRepository
     
     private let coreDataRepository: CoreDataRepository<MarvelDomain.Character>
@@ -32,7 +34,7 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
         return Publishers.Merge(
             persistencePublisher(with: paging),
             networkPublisher(with: paging)
-                .flatMap({ self.savePublisher(data: $0) }).print()
+                .flatMap({ self.savePublisher(data: $0) })
                 .eraseToAnyPublisher()
         )
         .eraseToAnyPublisher()
@@ -41,7 +43,13 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
     private func persistencePublisher(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
         return Future { (promise) in
             do {
-                let request: NSFetchRequest<NSFetchRequestResult> = MarvelDomain.Character.CoreDataType.fetchRequest()
+                let request: NSFetchRequest<NSFetchRequestResult> = CoreDataType.fetchRequest()
+                request.sortDescriptors = [
+                    NSSortDescriptor(
+                        key: #keyPath(CoreDataType.modified),
+                        ascending: true
+                    )
+                ]
                 request.resultType = .managedObjectResultType
                 request.fetchLimit = paging.limit
                 request.fetchOffset = paging.offset
