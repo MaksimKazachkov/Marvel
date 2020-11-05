@@ -13,6 +13,6 @@ import Core
 
 public protocol CharactersUseCase {
     
-    func fetch(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Error>
+    func fetch(with paging: Paging) -> AnyPublisher<[Character], Error>
     
 }

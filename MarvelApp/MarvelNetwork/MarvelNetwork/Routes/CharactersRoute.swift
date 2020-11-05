@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import MarvelDomain
 
 public enum CharactersRoute: Route {
     
-    case characters(CharactersRO)
+    case characters(Paging)
     
     public var method: HTTPMethod {
         switch self {

@@ -21,9 +21,8 @@ final public class MarvelCharactersRepository: CharactersRepository {
     }
 
     public func characters(with paging: Paging) -> AnyPublisher<[Character], Error> {
-        let model = CharactersRO(limit: paging.limit, offset: paging.offset)
         return client.requestObjects(
-            route: CharactersRoute.characters(model),
+            route: CharactersRoute.characters(paging),
             at: "data.results"
         ).eraseToAnyPublisher()
     }

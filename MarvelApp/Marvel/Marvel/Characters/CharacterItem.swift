@@ -28,14 +28,12 @@ struct CharacterItem: View {
             VStack {
                 if let name = character.name {
                     Text(name)
-                        .frame(width: 240, alignment: .center)
-                        .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.center)
                         .foregroundColor(.primary)
                         .font(.headline)
                 }
             }
         }
-        .padding(.top, 20)
         .padding(.horizontal, 20)
     }
     

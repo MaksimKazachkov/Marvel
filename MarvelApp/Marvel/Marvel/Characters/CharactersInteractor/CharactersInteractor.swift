@@ -34,10 +34,7 @@ class CharactersInteractor: CharactersInteractorType {
             .handleEvents(receiveOutput: { [weak self] (value) in
                 guard let self = self else { return }
                 let canPaginate = value.count == self.appState.state.paging.limit
-                self.appState.dispatch(action: .setCanPaginate(canPaginate))
-                self.appState.dispatch(action: .setPaging(Paging(
-                                                            limit: self.appState.state.paging.limit,
-                                                            offset: self.appState.state.paging.offset + self.appState.state.paging.limit)))
+                self.appState.dispatch(action: .setCanPaginate(false))
             })
             .map { AppState.Action.setCharacters($0) }
             .catch { _ in Just(AppState.Action.setCharacters([])) }

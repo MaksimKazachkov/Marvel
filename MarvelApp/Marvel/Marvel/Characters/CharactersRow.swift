@@ -22,7 +22,7 @@ struct CharactersRow: View {
                 characters: appStore.state.characters,
                 canPaginate: appStore.state.canPaginate,
                 performFetch: {
-                    container.charactersInteractor.fetchCharacters()
+                    //                    container.charactersInteractor.fetchCharacters()
                 }
             )
         ).onAppear {
@@ -60,7 +60,7 @@ struct CharacterList: View {
                                     )
                                 )
                         }
-                        .frame(width: 250, height: 320)
+                        .frame(width: 300, height: 420)
                     }
                     if props.canPaginate {
                         Spinner(style: .medium).onAppear(perform: props.performFetch)
