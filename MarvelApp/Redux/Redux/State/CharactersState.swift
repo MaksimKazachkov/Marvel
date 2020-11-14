@@ -12,6 +12,8 @@ import ReSwift
 
 public struct CharactersState: StateType, Equatable {
     
+    public var isLoading: Bool = false
+    
     public var characters: [Character] = []
         
     public var paging = Paging(limit: 20, offset: 0)

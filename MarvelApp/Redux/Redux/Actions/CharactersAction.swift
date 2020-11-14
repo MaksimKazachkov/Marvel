@@ -14,5 +14,6 @@ public enum CharactersAction: Action {
     case characters([Character])
     case canPaginate(Bool)
     case paging(Paging)
+    case loading(Bool)
 
 }

@@ -9,7 +9,7 @@ import Foundation
 import ReSwift
 
 public func charactersReducer(action: Action, state: CharactersState?) -> CharactersState {
-    var state = state ?? CharactersState()    
+    var state = state ?? CharactersState()
     switch action {
     case let charactersActions as CharactersAction:
         switch charactersActions {
@@ -19,6 +19,8 @@ public func charactersReducer(action: Action, state: CharactersState?) -> Charac
             state.canPaginate = value
         case .paging(let value):
             break
+        case .loading(let isLoading):
+            state.isLoading = isLoading
         }
     default:
         break

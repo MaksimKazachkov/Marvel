@@ -5,18 +5,19 @@ use_frameworks!
 
 platform :ios, '13.2'
 
-def swinject
+def di
   pod 'Swinject'
 end
 
-def reswift
+def redux
   pod 'ReSwift'
+  pod 'ReSwiftThunk'
 end
 
 target 'Marvel' do
     project 'MarvelApp/Marvel/Marvel'
-    swinject
-    reswift
+    di
+    redux
     
     target 'MarvelTests' do
       inherit! :search_paths
@@ -30,11 +31,11 @@ end
 
 target 'Redux' do
     project 'MarvelApp/Redux/Redux'
-    reswift
+    redux
     
     target 'ReduxTests' do
       inherit! :search_paths
-      reswift
+      redux
     end
 
 end
@@ -42,18 +43,18 @@ end
 
 target 'MarvelUseCase' do
     project 'MarvelApp/MarvelUseCase/MarvelUseCase'
-    swinject
+    di
     
     target 'MarvelUseCaseTests' do
       inherit! :search_paths
-      swinject
+      di
     end
 
 end
 
 target 'Core' do
     project 'MarvelApp/Core/Core'
-    swinject
+    di
     
     target 'CoreTests' do
       inherit! :search_paths
