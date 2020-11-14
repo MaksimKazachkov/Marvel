@@ -14,14 +14,14 @@ import Core
 
 final public class MarvelCharactersRepository: CharactersRepository {
     
-    private let client: Client
+    private let fetcher: Fetcher
     
-    public init(client: Client) {
-        self.client = client
+    public init(client: Fetcher) {
+        self.fetcher = client
     }
 
     public func characters(with paging: Paging) -> AnyPublisher<[Character], Error> {
-        return client.requestObjects(
+        return fetcher.requestObjects(
             route: CharactersRoute.characters(paging),
             at: "data.results"
         ).eraseToAnyPublisher()

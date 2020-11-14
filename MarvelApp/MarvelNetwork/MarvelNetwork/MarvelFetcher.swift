@@ -10,7 +10,7 @@ import Foundation
 import Combine
 import Core
 
-public class MarvelClient: Client {
+public class MarvelFetcher: Fetcher {
     
     private let configuration: URLSessionConfiguration = .default
     
@@ -85,10 +85,6 @@ public class MarvelClient: Client {
         }
     }
     
-}
-
-private extension Client {
-
     func makeQueryItems(from credentials: Credentials) throws -> [URLQueryItem] {
         guard let hash = credentials.hash else {
             throw URLError(.fileDoesNotExist)

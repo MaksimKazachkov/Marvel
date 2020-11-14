@@ -30,7 +30,7 @@ class MarvelNetworkTests: XCTestCase {
     
     func testFetchAndDecodeCharacters() {
         let expectation = XCTestExpectation()
-        let client: Client = dependency.container.resolve(Client.self)!
+        let client: Fetcher = dependency.container.resolve(Fetcher.self)!
         let model = CharactersRO(limit: 20, offset: 0)
         client.requestObjects(route: CharactersRoute.characters(model), at: "data.results")
             .sink(receiveCompletion: { (completion) in

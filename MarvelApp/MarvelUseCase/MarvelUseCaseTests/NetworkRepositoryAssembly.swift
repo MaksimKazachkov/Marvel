@@ -17,14 +17,14 @@ public struct NetworkRepositoryAssembly: Assembly {
     public init() {}
     
     public func assemble(container: Container) {
-        container.register(Client.self) { r -> MarvelClient in
-            return MarvelClient(
+        container.register(Fetcher.self) { r -> MarvelFetcher in
+            return MarvelFetcher(
                 credentials: r.resolve(Credentials.self)!,
                 constructor: r.resolve(URLRequestConstructor.self)!
             )
         }
         container.register(CharactersRepository.self) { (resolver) -> CharactersRepository in
-            return MarvelCharactersRepository(client: resolver.resolve(Client.self)!)
+            return MarvelCharactersRepository(client: resolver.resolve(Fetcher.self)!)
         }
     }
     

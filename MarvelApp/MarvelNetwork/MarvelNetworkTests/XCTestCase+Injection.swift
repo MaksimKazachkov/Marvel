@@ -53,8 +53,8 @@ class Dependency {
     }
     
     private func registerMarvelClient() {
-        container.register(Client.self) { (resolver) -> MarvelClient in
-            return MarvelClient(
+        container.register(Fetcher.self) { (resolver) -> MarvelFetcher in
+            return MarvelFetcher(
                 credentials: resolver.resolve(Credentials.self)!,
                 constructor: resolver.resolve(URLRequestConstructor.self)!
             )

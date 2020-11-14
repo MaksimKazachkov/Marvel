@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-public protocol Client {
+public protocol Fetcher {
         
     func requestObject<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<T, Error>
     func requestObjects<T: Codable>(route: Route, at keyPath: String) -> AnyPublisher<[T], Error>
