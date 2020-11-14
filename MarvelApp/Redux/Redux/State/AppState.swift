@@ -9,36 +9,35 @@
 import Foundation
 import MarvelDomain
 
-public struct AppState: StateType {
+public struct CharactersState {
     
     public var characters: [Character] = []
         
     public var paging = Paging(limit: 20, offset: 0)
     
     public var canPaginate: Bool = false
-        
-    public func reducer(state: AppState, action: Action) -> AppState {
-        var state = state
-        switch action {
-        case .setCharacters(let data):
-            state.characters.append(contentsOf: data)
-        case .setCanPaginate(let value):
-            state.canPaginate = value
-        case .setPaging(let value):
-            break
-//            state.paging = value
-        }
-        return state
+
+}
+
+public func reducer(state: CharactersState, action: Action) -> CharactersState {
+    var state = state
+    switch action {
+    case .setCharacters(let data):
+        state.characters.append(contentsOf: data)
+    case .setCanPaginate(let value):
+        state.canPaginate = value
+    case .setPaging(let value):
+        break
     }
-    
-    public init() {}
-    
-    public enum Action: ActionType {
-        
-        case setCharacters([Character])
-        case setCanPaginate(Bool)
-        case setPaging(Paging)
-                
-    }
+    return state
+}
+
+public init() {}
+
+public enum Action: ActionType {
+
+    case setCharacters([Character])
+    case setCanPaginate(Bool)
+    case setPaging(Paging)
 
 }

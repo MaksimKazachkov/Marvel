@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Resource {
+public struct Resource: Equatable {
     
     // The number of total available resources in this list
     public let available: Int?
@@ -22,7 +22,7 @@ public struct Resource {
     // A list of summary views of the items in this resource list.
     public let items: [Item]?
     
-    public struct Item {
+    public struct Item: Equatable {
         
         public let name: String?
         

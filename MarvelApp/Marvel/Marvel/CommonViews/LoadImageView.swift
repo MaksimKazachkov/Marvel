@@ -28,9 +28,3 @@ struct LoadImageView: View {
         }
     }
 }
-
-//struct LoadImage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoadImage()
-//    }
-//}

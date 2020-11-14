@@ -8,9 +8,9 @@
 
 import Foundation
 
-public struct Image {
+public struct Image: Equatable {
     
-    public enum ExtensionType: String {
+    public enum ExtensionType: String, Equatable {
         
         case jpg, png, gif
 

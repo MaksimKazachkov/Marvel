@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         try! AssemblyFactory().applyAssemblies()
         let contentView = CharactersRow()
-            .environmentObject(appStore)
+            .environmentObject(charactersStore)
             .environment(\.contentViewContainer, resolver.resolve(CharactersViewContainer.self)!)
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

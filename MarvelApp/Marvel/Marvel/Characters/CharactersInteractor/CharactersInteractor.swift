@@ -17,28 +17,28 @@ import Core
 class CharactersInteractor: CharactersInteractorType {
     
     let useCase: CharactersUseCase
-    let appState: Store<AppState>
+    let store: StoreWrapper<CharactersState>
     
     private var cancelBag = Set<AnyCancellable>()
     
-    init(useCase: CharactersUseCase, appState: Store<AppState>) {
+    init(useCase: CharactersUseCase, store: StoreWrapper<CharactersState>) {
         self.useCase = useCase
-        self.appState = appState
+        self.store = store
     }
     
     func fetchCharacters() {
         useCase
-            .fetch(with: appState.state.paging)
+            .fetch(with: store.state.paging)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .handleEvents(receiveOutput: { [weak self] (value) in
                 guard let self = self else { return }
-                let canPaginate = value.count == self.appState.state.paging.limit
-                self.appState.dispatch(action: .setCanPaginate(false))
+                let canPaginate = value.count == self.store.state.paging.limit
+                self.store.dispatch(CharactersAction.canPaginate(false))
             })
-            .map { AppState.Action.setCharacters($0) }
-            .catch { _ in Just(AppState.Action.setCharacters([])) }
-            .sink { appStore.dispatch(action: $0) }
+            .map { CharactersAction.characters($0) }
+            .catch { _ in Just(CharactersAction.characters([])) }
+            .sink { self.store.dispatch($0) }
             .store(in: &cancelBag)
         
     }

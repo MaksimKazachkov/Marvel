@@ -24,7 +24,7 @@ public struct InteractorAssembly: Assembly {
         container.register(CharactersInteractorType.self) { r -> CharactersInteractor in
             return CharactersInteractor(
                 useCase: r.resolve(CharactersUseCase.self)!,
-                appState: appStore
+                store: charactersStore
             )
         }
     }

@@ -1,16 +1,20 @@
 PODS:
+  - ReSwift (6.0.0)
   - Swinject (2.7.1)
 
 DEPENDENCIES:
+  - ReSwift
   - Swinject
 
 SPEC REPOS:
   trunk:
+    - ReSwift
     - Swinject
 
 SPEC CHECKSUMS:
+  ReSwift: 14e6f9409fe6bdc635e588208296a01f43b959c9
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: 44fac0412d042344f84ea9d8f31d909726dc9734
+PODFILE CHECKSUM: 743033ec4f68857999579afc8175d310d448f66b
 
 COCOAPODS: 1.9.3

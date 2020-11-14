@@ -8,7 +8,7 @@
 import Foundation
 
 /// For non paginated object
-public enum ObjectType<Value, Error: Swift.Error> {
+public enum ObjectState<Value, Error: Swift.Error> {
     
     case idle
     case loading

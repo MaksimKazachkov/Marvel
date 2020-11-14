@@ -9,9 +9,14 @@ def swinject
   pod 'Swinject'
 end
 
+def reswift
+  pod 'ReSwift'
+end
+
 target 'Marvel' do
     project 'MarvelApp/Marvel/Marvel'
     swinject
+    reswift
     
     target 'MarvelTests' do
       inherit! :search_paths
@@ -22,6 +27,18 @@ target 'Marvel' do
     end
 
 end
+
+target 'Redux' do
+    project 'MarvelApp/Redux/Redux'
+    reswift
+    
+    target 'ReduxTests' do
+      inherit! :search_paths
+      reswift
+    end
+
+end
+
 
 target 'MarvelUseCase' do
     project 'MarvelApp/MarvelUseCase/MarvelUseCase'

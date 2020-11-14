@@ -13,14 +13,14 @@ import Core
 
 struct CharactersRow: View {
     
-    @EnvironmentObject var appStore: Store<AppState>
+    @EnvironmentObject var store: StoreWrapper<CharactersState>
     @Environment(\.contentViewContainer) var container: CharactersViewContainer
     
     var body: some View {
         CharacterList(
             props: CharacterList.Props(
-                characters: appStore.state.characters,
-                canPaginate: appStore.state.canPaginate,
+                characters: store.state.characters,
+                canPaginate: store.state.canPaginate,
                 performFetch: {
                     //                    container.charactersInteractor.fetchCharacters()
                 }
@@ -91,7 +91,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             CharactersRow()
-                .environmentObject(appStore)
+                .environmentObject(charactersStore)
                 .environment(\.contentViewContainer, resolver.resolve(CharactersViewContainer.self)!)
         }
     }
