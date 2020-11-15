@@ -1,5 +1,5 @@
 //
-//  FetchCharactersAction.swift
+//  FetchCharacters.swift
 //  Redux
 //
 //  Created by Максим Казачков on 14.11.2020.
@@ -14,7 +14,7 @@ import ReSwiftThunk
 
 private var cancelBag = Set<AnyCancellable>()
 
-public let fetchCharactersAction = Thunk<CharactersState> { (dispatch, getState) in
+public let fetchCharacters = Thunk<CharactersState> { (dispatch, getState) in
     guard let state = getState() else { return }
     let useCase = resolver.resolve(CharactersUseCase.self)!
     useCase

@@ -24,7 +24,7 @@ struct CharactersRow: View {
                 }
             )
         ).onAppear {
-            store.dispatch(fetchCharactersAction)
+            store.dispatch(fetchCharacters)
         }
     }
     
