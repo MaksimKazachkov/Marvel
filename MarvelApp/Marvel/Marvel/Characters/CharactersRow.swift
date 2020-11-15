@@ -16,37 +16,23 @@ struct CharactersRow: View {
     @EnvironmentObject var store: StoreWrapper<CharactersState>
     
     var body: some View {
-        CharacterList(
-            props: CharacterList.Props(
-                characters: store.state.characters,
-                canPaginate: store.state.paging.canPaginate,
-                performFetch: {
-                }
-            )
-        ).onAppear {
-            store.dispatch(fetchCharacters)
-        }
+        CharacterList(store: store)
+            .onAppear {
+                store.dispatch(fetchCharacters)
+            }
     }
     
 }
 
 struct CharacterList: View {
     
-    struct Props {
-        
-        var characters: [Character]
-        var canPaginate: Bool
-        var performFetch: (() -> Void)?
-        
-    }
-    
-    var props: Props
+    @ObservedObject var store: StoreWrapper<CharactersState>
     
     var body: some View {
         GeometryReader { (bounds) in
             ScrollView(.horizontal, showsIndicators: true) {
                 HStack(spacing: 20) {
-                    ForEach(props.characters, id: \.id) { character in
+                    ForEach(store.state.characters, id: \.id) { character in
                         GeometryReader { geometry in
                             CharacterItem(character: character)
                                 .rotation3DEffect(
@@ -60,8 +46,8 @@ struct CharacterList: View {
                         }
                         .frame(width: 300, height: 420)
                     }
-                    if props.canPaginate {
-                        Spinner(style: .medium).onAppear(perform: props.performFetch)
+                    if store.state.paging.canPaginate {
+                        Spinner(style: .medium).onAppear(perform: { store.dispatch(fetchCharacters) } )
                     }
                 }
                 .padding(30)
