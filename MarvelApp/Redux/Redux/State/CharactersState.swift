@@ -12,7 +12,7 @@ import ReSwift
 
 public struct CharactersState: StateType, Equatable {
     
-    public var isLoading: Bool = true
+    public var isLoading: Bool = false
     
     public var characters: [Character] = []
         

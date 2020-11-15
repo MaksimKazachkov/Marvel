@@ -16,8 +16,8 @@ struct CharactersRow: View {
     @EnvironmentObject var store: StoreWrapper<CharactersState>
     
     var body: some View {
-        if store.state.characters.isEmpty, store.state.isLoading {
-            Spinner(style: .medium)
+        if store.state.characters.isEmpty {
+            Spinner(style: .large)
                 .onAppear {
                     store.dispatch(fetchCharacters)
                 }

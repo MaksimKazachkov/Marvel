@@ -18,17 +18,29 @@ public let fetchCharacters = Thunk<CharactersState> { (dispatch, getState) in
     guard let state = getState() else { return }
     guard state.paging.canPaginate else { return }
     dispatch(CharactersAction.loading(true))
+    print("PAGING: \(state.paging)")
     let useCase = resolver.resolve(CharactersUseCase.self)!
     useCase
         .fetch(with: state.paging)
         .subscribe(on: DispatchQueue.global(qos: .background))
         .receive(on: DispatchQueue.main)
-        .handleEvents(receiveOutput: { (value) in
-            dispatch(CharactersAction.loading(false))
-            dispatch(CharactersAction.updatePagingOffset(value.count))
+        .handleEvents(receiveOutput: { (output) in
+            dispatch(CharactersAction.updatePagingOffset(output.count))
         })
         .map { CharactersAction.characters($0) }
         .catch { _ in Just(CharactersAction.characters([])) }
-        .sink { dispatch($0) }
+        .sink(
+            receiveCompletion: { (result) in
+                switch result {
+                case .failure(let error):
+                    dispatch(CharactersAction.loading(false))
+                case .finished:
+                    dispatch(CharactersAction.loading(false))
+                }
+            },
+            receiveValue: { (action) in
+                dispatch(action)
+            }
+        )
         .store(in: &cancelBag)
 }
