@@ -14,13 +14,16 @@ public struct Paging: Equatable {
     
     public private(set) var offset: Int
     
+    public private(set) var canPaginate: Bool = true
+    
     public init(limit: Int, offset: Int) {
         self.limit = limit
         self.offset = offset
     }
         
-    mutating func updateOffset() {
-        offset += limit
+    mutating public func update(offset: Int) {
+        self.offset += offset
+        self.canPaginate = offset == limit
     }
     
 }

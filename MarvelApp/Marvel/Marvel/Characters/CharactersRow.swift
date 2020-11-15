@@ -19,7 +19,7 @@ struct CharactersRow: View {
         CharacterList(
             props: CharacterList.Props(
                 characters: store.state.characters,
-                canPaginate: store.state.canPaginate,
+                canPaginate: store.state.paging.canPaginate,
                 performFetch: {
                 }
             )

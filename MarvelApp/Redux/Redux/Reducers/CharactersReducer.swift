@@ -15,12 +15,12 @@ public func charactersReducer(action: Action, state: CharactersState?) -> Charac
         switch charactersActions {
         case .characters(let data):
             state.characters.append(contentsOf: data)
-        case .canPaginate(let value):
-            state.canPaginate = value
         case .paging(let value):
             state.paging = value
         case .loading(let value):
             state.isLoading = value
+        case .updatePagingOffset(let value):
+            state.paging.update(offset: value)
         }
     default:
         break

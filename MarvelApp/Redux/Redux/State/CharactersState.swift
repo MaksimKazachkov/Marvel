@@ -18,6 +18,4 @@ public struct CharactersState: StateType, Equatable {
         
     public var paging = Paging(limit: 20, offset: 0)
     
-    public var canPaginate: Bool = false
-
 }

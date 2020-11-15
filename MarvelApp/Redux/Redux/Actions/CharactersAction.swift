@@ -11,9 +11,9 @@ import ReSwift
 
 public enum CharactersAction: Action {
 
-    case characters([Character])
-    case canPaginate(Bool)
-    case paging(Paging)
     case loading(Bool)
+    case paging(Paging)
+    case updatePagingOffset(Int)
+    case characters([Character])
 
 }
