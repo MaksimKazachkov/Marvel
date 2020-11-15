@@ -17,12 +17,14 @@ private var cancelBag = Set<AnyCancellable>()
 public let fetchCharacters = Thunk<CharactersState> { (dispatch, getState) in
     guard let state = getState() else { return }
     guard state.paging.canPaginate else { return }
+    dispatch(CharactersAction.loading(true))
     let useCase = resolver.resolve(CharactersUseCase.self)!
     useCase
         .fetch(with: state.paging)
         .subscribe(on: DispatchQueue.global(qos: .background))
         .receive(on: DispatchQueue.main)
         .handleEvents(receiveOutput: { (value) in
+            dispatch(CharactersAction.loading(false))
             dispatch(CharactersAction.updatePagingOffset(value.count))
         })
         .map { CharactersAction.characters($0) }

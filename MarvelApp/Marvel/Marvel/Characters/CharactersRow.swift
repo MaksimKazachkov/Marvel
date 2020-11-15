@@ -16,10 +16,14 @@ struct CharactersRow: View {
     @EnvironmentObject var store: StoreWrapper<CharactersState>
     
     var body: some View {
-        CharacterList(store: store)
-            .onAppear {
-                store.dispatch(fetchCharacters)
-            }
+        if store.state.characters.isEmpty, store.state.isLoading {
+            Spinner(style: .medium)
+                .onAppear {
+                    store.dispatch(fetchCharacters)
+                }
+        } else {
+            CharacterList(store: store)
+        }
     }
     
 }
@@ -45,9 +49,14 @@ struct CharacterList: View {
                                 )
                         }
                         .frame(width: 300, height: 420)
+                        .onAppear {
+                            if store.state.characters.last == character {
+                                store.dispatch(fetchCharacters)
+                            }
+                        }
                     }
-                    if store.state.paging.canPaginate {
-                        Spinner(style: .medium).onAppear(perform: { store.dispatch(fetchCharacters) } )
+                    if store.state.isLoading {
+                        Spinner(style: .medium)
                     }
                 }
                 .padding(30)

@@ -297,8 +297,8 @@
 		E9DFDED6253A2DC70091A7D0 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				E9CAB617253ACDDC003C393D /* CharacterItem.swift */,
 				5C73D5AC23DA2F39000DDE85 /* CharactersRow.swift */,
+				E9CAB617253ACDDC003C393D /* CharacterItem.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
