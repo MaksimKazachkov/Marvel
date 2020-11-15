@@ -31,12 +31,12 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
     }
     
     public func fetch(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
-        return Publishers.Merge(
-            persistencePublisher(with: paging),
-            networkPublisher(with: paging)
-                .flatMap({ self.savePublisher(data: $0) })
-                .eraseToAnyPublisher()
-        )
+//        return Publishers.Merge(
+//            persistencePublisher(with: paging),
+        networkPublisher(with: paging)
+//                .flatMap({ self.savePublisher(data: $0) })
+//                .eraseToAnyPublisher()
+//        )
         .eraseToAnyPublisher()
     }
     

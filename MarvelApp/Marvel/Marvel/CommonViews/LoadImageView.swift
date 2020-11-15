@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Core
 
 struct LoadImageView: View {
     
@@ -19,11 +20,19 @@ struct LoadImageView: View {
             case .loaded(let image):
                 Image(uiImage: image)
                     .resizable()
-                    .renderingMode(.original)
+                    .aspectRatio(contentMode: .fit)
             case .loading:
-                Spinner(style: .medium)
-            case .failed(let error):
-                Text("Failed with error: \(error.localizedDescription)")
+                ZStack {
+                    Color.gray
+                    SpinnerView(
+                        style: .medium,
+                        color: .white
+                    )
+                }
+            case .failed:
+                ZStack {
+                    Color.gray
+                }
             }
         }
     }

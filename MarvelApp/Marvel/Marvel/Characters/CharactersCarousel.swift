@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
+//  CharactersCarousel.swift
 //  Marvel
 //
-//  Created by Maksim Kazachkov on 23.01.2020.
+//  Created by Максим Казачков on 15.11.2020.
 //  Copyright © 2020 Maksim Kazachkov. All rights reserved.
 //
 
@@ -11,31 +11,14 @@ import Redux
 import MarvelDomain
 import Core
 
-struct CharactersRow: View {
-    
-    @EnvironmentObject var store: StoreWrapper<CharactersState>
-    
-    var body: some View {
-        if store.state.characters.isEmpty {
-            Spinner(style: .large)
-                .onAppear {
-                    store.dispatch(fetchCharacters)
-                }
-        } else {
-            CharacterList(store: store)
-        }
-    }
-    
-}
-
-struct CharacterList: View {
+struct CharactersCarouselView: View {
     
     @ObservedObject var store: StoreWrapper<CharactersState>
     
     var body: some View {
         GeometryReader { (bounds) in
             ScrollView(.horizontal, showsIndicators: true) {
-                HStack(spacing: 20) {
+                LazyHStack(spacing: 20) {
                     ForEach(store.state.characters, id: \.id) { character in
                         GeometryReader { geometry in
                             CharacterItem(character: character)
@@ -47,20 +30,19 @@ struct CharacterList: View {
                                         z: 0
                                     )
                                 )
-                        }
-                        .frame(width: 300, height: 420)
-                        .onAppear {
-                            if store.state.characters.last == character {
-                                store.dispatch(fetchCharacters)
-                            }
+                                .onAppear {
+                                    if store.state.characters.isThresholdItem(offset: 3, item: character) {
+                                        store.dispatch(fetchCharacters)
+                                    }
+                                }
                         }
                     }
+                    .frame(width: 300, height: 420)
                     if store.state.isLoading {
-                        Spinner(style: .medium)
+                        SpinnerView(style: .medium)
                     }
                 }
                 .padding(30)
-                .padding(.bottom, 30)
             }
             .offset(y: -30)
         }
@@ -78,13 +60,4 @@ struct CharacterList: View {
         }
     }
     
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            CharactersRow()
-                .environmentObject(charactersStore)
-        }
-    }
 }

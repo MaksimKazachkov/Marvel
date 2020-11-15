@@ -1,5 +1,5 @@
 //
-//  CharacterView.swift
+//  CharacterItemView.swift
 //  Marvel
 //
 //  Created by Максим Казачков on 17.10.2020.
@@ -8,14 +8,15 @@
 
 import SwiftUI
 import MarvelDomain
+import Core
 
-struct CharacterItem: View {
+struct CharacterItemView: View {
     
     var character: Character
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            if let thumbnail = character.thumbnail{
+            if let thumbnail = character.thumbnail {
                 LoadImageView(
                     fetcher: ImageFetcher(
                         thumbnail: thumbnail,
@@ -24,6 +25,10 @@ struct CharacterItem: View {
                 )
                 .cornerRadius(5)
                 .shadow(radius: 10)
+            } else {
+                Color.gray
+                    .cornerRadius(5)
+                    .shadow(radius: 10)
             }
             VStack {
                 if let name = character.name {
@@ -34,12 +39,11 @@ struct CharacterItem: View {
                 }
             }
         }
-        .padding(.horizontal, 20)
     }
     
 }
 
-struct CharacterView_Previews: PreviewProvider {
+struct CharacterItemView_Previews: PreviewProvider {
     
     @State static var character = Character(
         id: 1010870,
@@ -59,7 +63,7 @@ struct CharacterView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            CharacterItem(character: character)
+            CharacterItemView(character: character)
         }
     }
 }

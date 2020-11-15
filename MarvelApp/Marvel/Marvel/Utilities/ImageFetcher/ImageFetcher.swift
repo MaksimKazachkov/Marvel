@@ -10,79 +10,9 @@ import SwiftUI
 import Combine
 import MarvelDomain
 
-enum ImageFetcherError: Swift.Error, CustomDebugStringConvertible {
+public final class ImageFetcher: ObservableObject {
     
-    case incorrectData, badURL, noImageInCache
-    
-    var debugDescription: String {
-        switch self {
-        case .incorrectData:
-            return "Data is currupt"
-        case .badURL:
-            return "Can not create url"
-        case .noImageInCache:
-            return "Image is not stored in cache"
-        }
-    }
-    
-}
-
-final class ImageFetcher: ObservableObject {
-    
-    enum AspectRationType {
-        
-        case portrait(ImageType), standard(ImageType), landscape(ImageType), detail, fullSize
-        
-        var path: String {
-            switch self {
-            case .portrait(let value):
-                return "portrait_\(value)"
-            case .standard(let value):
-                return "standard_\(value)"
-            case .landscape(let value):
-                return "landscape_\(value)"
-            case .detail:
-                return "detail"
-            case .fullSize:
-                return "fullSize"
-            }
-        }
-        
-    }
-    
-    enum LoadState {
-        
-        case loading, loaded(UIImage), failed(Swift.Error)
-        
-        var image: UIImage? {
-            switch self {
-            case .loaded(let value):
-                return value
-            case .loading,
-                 .failed:
-                return nil
-            }
-        }
-        
-    }
-    
-    enum ImageType: String {
-        
-        case small, medium, xLarge, fantastic, uncanny, incredible
-        
-    }
-    
-    struct ImageVariant {
-        
-        let url: URL
-        
-        public init(url: URL, aspectRation: AspectRationType) {
-            self.url = url.appendingPathComponent(aspectRation.path)
-        }
-        
-    }
-    
-    @Published var state: LoadState = .loading
+    @Published public var state: LoadState = .loading
     
     private static let imageCache = NSCache<AnyObject, AnyObject>()
     
@@ -90,7 +20,7 @@ final class ImageFetcher: ObservableObject {
     
     private var cancelBag = Set<AnyCancellable>()
     
-    init(thumbnail: MarvelDomain.Image, aspectRation: AspectRationType) {
+    public init(thumbnail: MarvelDomain.Image, aspectRation: AspectRationType) {
         guard let url = URL(string: thumbnail.path) else {
             self.url = nil
             return
@@ -105,13 +35,13 @@ final class ImageFetcher: ObservableObject {
     
     public func downloadImage() {
         guard let url = url else {
-            state = .failed(ImageFetcherError.badURL)
+            state = .failed(Error.badURL)
             return
         }
         let urlString = url.absoluteString
         
         cachePublisher(forKey: urlString)
-            .catch({ _ in self.networkPulisher(with: url) })
+            .catch({ _ in self.networkPublisher(with: url) })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
             .map { LoadState.loaded($0) }
@@ -130,20 +60,20 @@ final class ImageFetcher: ObservableObject {
             if let image = ImageFetcher.imageCache.object(forKey: key as AnyObject) as? UIImage {
                 promise(.success(image))
             } else {
-                promise(.failure(ImageFetcherError.noImageInCache))
+                promise(.failure(Error.noImageInCache))
             }
         }
         .eraseToAnyPublisher()
     }
     
-    private func networkPulisher(with url: URL) -> AnyPublisher<UIImage, Swift.Error> {
+    private func networkPublisher(with url: URL) -> AnyPublisher<UIImage, Swift.Error> {
         return Future { (promise) in
             do {
                 let data = try Data(contentsOf: url)
                 if let image = UIImage(data: data) {
                     promise(.success(image))
                 } else {
-                    promise(.failure(ImageFetcherError.incorrectData))
+                    promise(.failure(Error.incorrectData))
                 }
             } catch {
                 promise(.failure(error))

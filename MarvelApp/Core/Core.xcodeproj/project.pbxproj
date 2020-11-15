@@ -20,6 +20,12 @@
 		84842B55247906E600941051 /* PlistAssemblyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B54247906E600941051 /* PlistAssemblyError.swift */; };
 		84842B652479156C00941051 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842B642479156C00941051 /* Injected.swift */; };
 		9736A0E3E04296102A6EE30F /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C7CE968FE82EFF04E7F5FC /* Pods_Core.framework */; };
+		E9EC9D482561BBDB0034E8E6 /* ImageFetcher+AspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC9D422561BBDA0034E8E6 /* ImageFetcher+AspectRatio.swift */; };
+		E9EC9D492561BBDB0034E8E6 /* ImageFetcher+ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC9D432561BBDA0034E8E6 /* ImageFetcher+ImageType.swift */; };
+		E9EC9D4A2561BBDB0034E8E6 /* ImageFetcher+ImageVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC9D442561BBDB0034E8E6 /* ImageFetcher+ImageVariant.swift */; };
+		E9EC9D4B2561BBDB0034E8E6 /* ImageFetcher+LoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC9D452561BBDB0034E8E6 /* ImageFetcher+LoadState.swift */; };
+		E9EC9D4C2561BBDB0034E8E6 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC9D462561BBDB0034E8E6 /* ImageFetcher.swift */; };
+		E9EC9D4D2561BBDB0034E8E6 /* ImageFetcher+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC9D472561BBDB0034E8E6 /* ImageFetcher+Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,12 @@
 		84842B642479156C00941051 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		C6ACB02E09A00C88DB3D0255 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
 		D96D5F5D09524777B284AFED /* Pods-CoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreTests.release.xcconfig"; path = "Target Support Files/Pods-CoreTests/Pods-CoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		E9EC9D422561BBDA0034E8E6 /* ImageFetcher+AspectRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageFetcher+AspectRatio.swift"; sourceTree = "<group>"; };
+		E9EC9D432561BBDA0034E8E6 /* ImageFetcher+ImageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageFetcher+ImageType.swift"; sourceTree = "<group>"; };
+		E9EC9D442561BBDB0034E8E6 /* ImageFetcher+ImageVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageFetcher+ImageVariant.swift"; sourceTree = "<group>"; };
+		E9EC9D452561BBDB0034E8E6 /* ImageFetcher+LoadState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageFetcher+LoadState.swift"; sourceTree = "<group>"; };
+		E9EC9D462561BBDB0034E8E6 /* ImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		E9EC9D472561BBDB0034E8E6 /* ImageFetcher+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageFetcher+Error.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +132,8 @@
 		5C63DFAC23EDC90800B61C8D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5C63DFAA23EDC90400B61C8D /* MD5Encryptor.swift */,
+				E9EC9D212561BB260034E8E6 /* ImageFetcher */,
+				E9EC9D1E2561BB180034E8E6 /* Encryptors */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -165,6 +178,28 @@
 			);
 			name = Pods;
 			path = ../../Pods;
+			sourceTree = "<group>";
+		};
+		E9EC9D1E2561BB180034E8E6 /* Encryptors */ = {
+			isa = PBXGroup;
+			children = (
+				5C63DFAA23EDC90400B61C8D /* MD5Encryptor.swift */,
+			);
+			path = Encryptors;
+			sourceTree = "<group>";
+		};
+		E9EC9D212561BB260034E8E6 /* ImageFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				E9EC9D462561BBDB0034E8E6 /* ImageFetcher.swift */,
+				E9EC9D422561BBDA0034E8E6 /* ImageFetcher+AspectRatio.swift */,
+				E9EC9D472561BBDB0034E8E6 /* ImageFetcher+Error.swift */,
+				E9EC9D432561BBDA0034E8E6 /* ImageFetcher+ImageType.swift */,
+				E9EC9D442561BBDB0034E8E6 /* ImageFetcher+ImageVariant.swift */,
+				E9EC9D452561BBDB0034E8E6 /* ImageFetcher+LoadState.swift */,
+			);
+			name = ImageFetcher;
+			path = ../../../Marvel/Marvel/Utilities/ImageFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,11 +364,17 @@
 				5C63DFAB23EDC90400B61C8D /* MD5Encryptor.swift in Sources */,
 				84842B652479156C00941051 /* Injected.swift in Sources */,
 				84842B502479055E00941051 /* PlistAssembly.swift in Sources */,
+				E9EC9D492561BBDB0034E8E6 /* ImageFetcher+ImageType.swift in Sources */,
 				845A4B1A247EF36D00955E4D /* LazyInjected.swift in Sources */,
 				5C63DFA923EDC89800B61C8D /* Credentials.swift in Sources */,
 				84842B55247906E600941051 /* PlistAssemblyError.swift in Sources */,
+				E9EC9D4C2561BBDB0034E8E6 /* ImageFetcher.swift in Sources */,
 				845A4B1C247EF53E00955E4D /* Shared.swift in Sources */,
 				5C63DFA723EDC83700B61C8D /* Configuration.swift in Sources */,
+				E9EC9D4A2561BBDB0034E8E6 /* ImageFetcher+ImageVariant.swift in Sources */,
+				E9EC9D482561BBDB0034E8E6 /* ImageFetcher+AspectRatio.swift in Sources */,
+				E9EC9D4D2561BBDB0034E8E6 /* ImageFetcher+Error.swift in Sources */,
+				E9EC9D4B2561BBDB0034E8E6 /* ImageFetcher+LoadState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

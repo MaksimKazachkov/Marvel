@@ -9,9 +9,11 @@
 import Foundation
 import SwiftUI
 
-struct Spinner: UIViewRepresentable {
+struct SpinnerView: UIViewRepresentable {
     
     let style: UIActivityIndicatorView.Style
+    
+    var color: UIColor? = nil
 
     func makeUIView(context: Context) -> UIActivityIndicatorView {
         let spinner = UIActivityIndicatorView(style: style)
@@ -20,6 +22,10 @@ struct Spinner: UIViewRepresentable {
         return spinner
     }
     
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {}
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
+        if let color = color {
+            uiView.color = color
+        }
+    }
     
 }
