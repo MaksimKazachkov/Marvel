@@ -7,26 +7,26 @@
 
 import Foundation
 import Combine
-import ReSwift
 import MarvelUseCase
 import Core
+import ReSwift
+import ReSwiftThunk
 
 private var cancelBag = Set<AnyCancellable>()
 
-public func fetchCharacters(state: CharactersState, store: StoreWrapper<CharactersState>) -> Action? {
+public let fetchCharactersAction = Thunk<CharactersState> { (dispatch, getState) in
+    guard let state = getState() else { return }
     let useCase = resolver.resolve(CharactersUseCase.self)!
     useCase
-        .fetch(with: store.state.paging)
+        .fetch(with: state.paging)
         .subscribe(on: DispatchQueue.global(qos: .background))
         .receive(on: DispatchQueue.main)
         .handleEvents(receiveOutput: { (value) in
-            let canPaginate = value.count == store.state.paging.limit
-            store.dispatch(CharactersAction.canPaginate(canPaginate))
+            let canPaginate = value.count == state.paging.limit
+            dispatch(CharactersAction.canPaginate(canPaginate))
         })
         .map { CharactersAction.characters($0) }
         .catch { _ in Just(CharactersAction.characters([])) }
-        .sink { store.dispatch($0) }
+        .sink { dispatch($0) }
         .store(in: &cancelBag)
-    
-    return nil
 }

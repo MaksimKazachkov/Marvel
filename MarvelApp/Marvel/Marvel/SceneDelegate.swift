@@ -23,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         try! AssemblyFactory().applyAssemblies()
         let contentView = CharactersRow()
             .environmentObject(charactersStore)
-            .environment(\.contentViewContainer, resolver.resolve(CharactersViewContainer.self)!)
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

@@ -14,7 +14,6 @@ import Core
 struct CharactersRow: View {
     
     @EnvironmentObject var store: StoreWrapper<CharactersState>
-    @Environment(\.contentViewContainer) var container: CharactersViewContainer
     
     var body: some View {
         CharacterList(
@@ -22,11 +21,10 @@ struct CharactersRow: View {
                 characters: store.state.characters,
                 canPaginate: store.state.canPaginate,
                 performFetch: {
-                    //                    container.charactersInteractor.fetchCharacters()
                 }
             )
         ).onAppear {
-            container.charactersInteractor.fetchCharacters()
+            store.dispatch(fetchCharactersAction)
         }
     }
     
@@ -92,7 +90,6 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             CharactersRow()
                 .environmentObject(charactersStore)
-                .environment(\.contentViewContainer, resolver.resolve(CharactersViewContainer.self)!)
         }
     }
 }

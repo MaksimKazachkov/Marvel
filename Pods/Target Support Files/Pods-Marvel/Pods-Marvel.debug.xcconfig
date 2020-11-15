@@ -1,11 +1,11 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift" "${PODS_CONFIGURATION_BUILD_DIR}/Swinject"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift" "${PODS_CONFIGURATION_BUILD_DIR}/ReSwiftThunk" "${PODS_CONFIGURATION_BUILD_DIR}/Swinject"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift/ReSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Swinject/Swinject.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift/ReSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReSwiftThunk/ReSwiftThunk.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Swinject/Swinject.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift/ReSwift.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/Swinject/Swinject.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/Swinject"
-OTHER_LDFLAGS = $(inherited) -framework "ReSwift" -framework "Swinject"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift/ReSwift.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/ReSwiftThunk/ReSwiftThunk.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/Swinject/Swinject.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/ReSwift" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/ReSwiftThunk" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/Swinject"
+OTHER_LDFLAGS = $(inherited) -framework "ReSwift" -framework "ReSwiftThunk" -framework "Swinject"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

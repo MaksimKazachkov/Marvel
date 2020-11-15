@@ -12,7 +12,7 @@ public let charactersStore = StoreWrapper<CharactersState>(
     store: Store<CharactersState>(
         reducer: charactersReducer,
         state: nil,
-        middleware: [],
+        middleware: [charactersMiddleware],
         automaticallySkipsRepeats: true
     )
 )
