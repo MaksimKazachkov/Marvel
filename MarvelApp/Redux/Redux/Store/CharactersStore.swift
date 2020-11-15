@@ -1,5 +1,5 @@
 //
-//  AppStore.swift
+//  CharactersStore.swift
 //  Redux
 //
 //  Created by Максим Казачков on 15.10.2020.

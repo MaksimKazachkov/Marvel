@@ -18,9 +18,9 @@ public func charactersReducer(action: Action, state: CharactersState?) -> Charac
         case .canPaginate(let value):
             state.canPaginate = value
         case .paging(let value):
-            break
-        case .loading(let isLoading):
-            state.isLoading = isLoading
+            state.paging = value
+        case .loading(let value):
+            state.isLoading = value
         }
     default:
         break

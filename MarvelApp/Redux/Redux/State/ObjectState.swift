@@ -1,5 +1,5 @@
 //
-//  ObjectType.swift
+//  ObjectState.swift
 //  Redux
 //
 //  Created by Максим Казачков on 16.10.2020.

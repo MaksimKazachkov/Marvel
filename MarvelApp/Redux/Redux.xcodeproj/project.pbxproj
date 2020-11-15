@@ -29,8 +29,8 @@
 		E9E2ACE52538D8F400262CEC /* CharactersState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACE12538D8F300262CEC /* CharactersState.swift */; };
 		E9E2ACE62538D8F400262CEC /* StoreWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACE22538D8F400262CEC /* StoreWrapper.swift */; };
 		E9E2ACE72538D8F400262CEC /* StoreWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2ACE22538D8F400262CEC /* StoreWrapper.swift */; };
-		E9E2AD0F2538D9C300262CEC /* StoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AD0E2538D9C300262CEC /* StoreFactory.swift */; };
-		E9E2AD102538D9C300262CEC /* StoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AD0E2538D9C300262CEC /* StoreFactory.swift */; };
+		E9E2AD0F2538D9C300262CEC /* CharactersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AD0E2538D9C300262CEC /* CharactersStore.swift */; };
+		E9E2AD102538D9C300262CEC /* CharactersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2AD0E2538D9C300262CEC /* CharactersStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,7 @@
 		E9E2ACD52538D8D500262CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9E2ACE12538D8F300262CEC /* CharactersState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersState.swift; sourceTree = "<group>"; };
 		E9E2ACE22538D8F400262CEC /* StoreWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWrapper.swift; sourceTree = "<group>"; };
-		E9E2AD0E2538D9C300262CEC /* StoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreFactory.swift; sourceTree = "<group>"; };
+		E9E2AD0E2538D9C300262CEC /* CharactersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersStore.swift; sourceTree = "<group>"; };
 		FA9D655F95DA0BDD2766395E /* Pods-Redux.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux.release.xcconfig"; path = "Target Support Files/Pods-Redux/Pods-Redux.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,8 +135,8 @@
 		E9D61D4725604F47008E5559 /* Reducers */ = {
 			isa = PBXGroup;
 			children = (
-				E9D61D5025605129008E5559 /* CharactersReducer.swift */,
 				E9D61D53256058D0008E5559 /* ObjectReducer.swift */,
+				E9D61D5025605129008E5559 /* CharactersReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E2ACE22538D8F400262CEC /* StoreWrapper.swift */,
-				E9E2AD0E2538D9C300262CEC /* StoreFactory.swift */,
+				E9E2AD0E2538D9C300262CEC /* CharactersStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -225,8 +225,8 @@
 		E9E2AD072538D9AB00262CEC /* State */ = {
 			isa = PBXGroup;
 			children = (
-				E9E2ACE12538D8F300262CEC /* CharactersState.swift */,
 				E9D8451325397CB300B5760E /* ObjectState.swift */,
+				E9E2ACE12538D8F300262CEC /* CharactersState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -411,7 +411,7 @@
 				E9D61D5125605129008E5559 /* CharactersReducer.swift in Sources */,
 				E9D845222539870F00B5760E /* ObjectAction.swift in Sources */,
 				E9E2ACE42538D8F400262CEC /* CharactersState.swift in Sources */,
-				E9E2AD0F2538D9C300262CEC /* StoreFactory.swift in Sources */,
+				E9E2AD0F2538D9C300262CEC /* CharactersStore.swift in Sources */,
 				E9D8451425397CB300B5760E /* ObjectState.swift in Sources */,
 				E9E2ACE62538D8F400262CEC /* StoreWrapper.swift in Sources */,
 				E9E0AAB325608329001BEE98 /* CharactersMiddleware.swift in Sources */,
@@ -427,7 +427,7 @@
 				E9E2ACE72538D8F400262CEC /* StoreWrapper.swift in Sources */,
 				E9E2ACD42538D8D500262CEC /* ReduxTests.swift in Sources */,
 				E9E2ACE52538D8F400262CEC /* CharactersState.swift in Sources */,
-				E9E2AD102538D9C300262CEC /* StoreFactory.swift in Sources */,
+				E9E2AD102538D9C300262CEC /* CharactersStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

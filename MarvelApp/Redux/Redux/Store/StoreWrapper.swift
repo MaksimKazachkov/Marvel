@@ -1,5 +1,5 @@
 //
-//  AppStore.swift
+//  StoreWrapper.swift
 //  Marvel
 //
 //  Created by Максим Казачков on 15.10.2020.

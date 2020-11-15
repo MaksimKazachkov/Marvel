@@ -1,5 +1,5 @@
 //
-//  AppState.swift
+//  CharactersState.swift
 //  Marvel
 //
 //  Created by Максим Казачков on 15.10.2020.
