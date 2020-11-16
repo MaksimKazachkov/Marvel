@@ -198,8 +198,7 @@
 				E9EC9D442561BBDB0034E8E6 /* ImageFetcher+ImageVariant.swift */,
 				E9EC9D452561BBDB0034E8E6 /* ImageFetcher+LoadState.swift */,
 			);
-			name = ImageFetcher;
-			path = ../../../Marvel/Marvel/Utilities/ImageFetcher;
+			path = ImageFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

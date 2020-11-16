@@ -57,7 +57,6 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
                 let entities = try self.coreDataRepository.queryResults(by: request)
                     .compactMap({ $0 as? CoreDataType })
                     .compactMap({ $0.asDomain() })
-                guard !entities.isEmpty else { return }
                 promise(.success(entities))
             } catch {
                 promise(.failure(error))

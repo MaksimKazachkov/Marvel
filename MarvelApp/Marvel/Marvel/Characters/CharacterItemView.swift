@@ -33,13 +33,11 @@ struct CharacterItemView: View {
                     .shadow(radius: 10)
                     .frame(width: 300, height: 450)
             }
-            VStack {
-                if let name = character.name {
-                    Text(name)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.primary)
-                        .font(.headline)
-                }
+            if let name = character.name {
+                Text(name)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.primary)
+                    .font(.headline)
             }
         }
     }
