@@ -36,7 +36,6 @@ struct DateTransformer: DecodingContainerTransformer {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.locale = Locale(identifier: "en_US_POSIX")
-//        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.dateFormat = dateFormat.rawValue
         guard let date = formatter.date(from: decoded) else {
             throw Error.canNotCreateDate(
