@@ -26,6 +26,7 @@ extension MarvelDomain.Resource: CoreDataRepresentable {
         }
         
         if let context = entity.managedObjectContext {
+            entity.removeFromItems(entity.items)
             items?
                 .forEach({
                     let itemEntity = MarvelCoreDataRepository.Item(context: context)

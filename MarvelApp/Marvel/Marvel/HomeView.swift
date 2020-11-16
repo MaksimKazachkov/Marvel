@@ -22,7 +22,6 @@ struct HomeView: View {
                     store.dispatch(fetchCharacters)
                 }
         } else {
-            Spacer()
             CharactersCarouselView(store: store)
         }
     }

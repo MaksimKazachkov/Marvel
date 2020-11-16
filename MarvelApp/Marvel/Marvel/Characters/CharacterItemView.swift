@@ -25,10 +25,13 @@ struct CharacterItemView: View {
                 )
                 .cornerRadius(5)
                 .shadow(radius: 10)
+                .frame(width: 300, height: 450)
+                .aspectRatio(contentMode: .fit)
             } else {
                 Color.gray
                     .cornerRadius(5)
                     .shadow(radius: 10)
+                    .frame(width: 300, height: 450)
             }
             VStack {
                 if let name = character.name {
@@ -53,7 +56,7 @@ struct CharacterItemView_Previews: PreviewProvider {
         resourceURI: nil,
         urls: nil,
         thumbnail: MarvelDomain.Image.init(
-            path: "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec",
+            path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
             extensionType: .jpg),
         comics: nil,
         stories: nil,
@@ -62,8 +65,6 @@ struct CharacterItemView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        Group {
-            CharacterItemView(character: character)
-        }
+        CharacterItemView(character: character)
     }
 }

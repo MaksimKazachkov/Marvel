@@ -30,6 +30,8 @@
 		5CCDD28323E7218C0069207E /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDD28223E7218C0069207E /* Fetcher.swift */; };
 		AAC507DCF4F34B1A257FD5A5 /* Pods_MarvelNetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A54BAD7CA019E059D7F5B3 /* Pods_MarvelNetworkTests.framework */; };
 		E97BA89825461B67000C5FB1 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BA89725461B67000C5FB1 /* Paging.swift */; };
+		E9A280CD2562A6AE009CA93F /* DateTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A280CC2562A6AE009CA93F /* DateTransformer.swift */; };
+		E9A280D425631153009CA93F /* CharactersParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A280D325631153009CA93F /* CharactersParameters.swift */; };
 		F449BB1963D0401FA9613620 /* Pods_MarvelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDF34CD01A1F7AC7E355ED8 /* Pods_MarvelNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		88A54BAD7CA019E059D7F5B3 /* Pods_MarvelNetworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelNetworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31FBF1BB22156B5864010C4 /* Pods-MarvelNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelNetwork.release.xcconfig"; path = "Target Support Files/Pods-MarvelNetwork/Pods-MarvelNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		E97BA89725461B67000C5FB1 /* Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
+		E9A280CC2562A6AE009CA93F /* DateTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTransformer.swift; sourceTree = "<group>"; };
+		E9A280D325631153009CA93F /* CharactersParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersParameters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +148,8 @@
 				5CCDD27D23E7206C0069207E /* ServerError.swift */,
 				5CCDD27F23E7206F0069207E /* URLRequestConstructor.swift */,
 				5CCDD28123E721770069207E /* Abstract */,
-				5C007DBB23DF95C400FD8AFB /* Entries */,
+				5C007DBB23DF95C400FD8AFB /* DTO */,
+				E9A280D22563110A009CA93F /* Parameters */,
 				5C007DC123DF95DA00FD8AFB /* Routes */,
 				5C007DC723DF95DA00FD8AFB /* Utilities */,
 			);
@@ -161,12 +166,12 @@
 			path = MarvelNetworkTests;
 			sourceTree = "<group>";
 		};
-		5C007DBB23DF95C400FD8AFB /* Entries */ = {
+		5C007DBB23DF95C400FD8AFB /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				5CCDD27223E71ED60069207E /* Domain+Codable */,
 			);
-			path = Entries;
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		5C007DC123DF95DA00FD8AFB /* Routes */ = {
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				5C007DC223DF95DA00FD8AFB /* URLTransformer.swift */,
+				E9A280CC2562A6AE009CA93F /* DateTransformer.swift */,
 			);
 			path = Transformers;
 			sourceTree = "<group>";
@@ -226,6 +232,14 @@
 				5CCDD28223E7218C0069207E /* Fetcher.swift */,
 			);
 			path = Abstract;
+			sourceTree = "<group>";
+		};
+		E9A280D22563110A009CA93F /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				E9A280D325631153009CA93F /* CharactersParameters.swift */,
+			);
+			path = Parameters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,9 +409,11 @@
 				5C007DD523DF97BC00FD8AFB /* URLTransformer.swift in Sources */,
 				E97BA89825461B67000C5FB1 /* Paging.swift in Sources */,
 				5CCDD28023E7206F0069207E /* URLRequestConstructor.swift in Sources */,
+				E9A280D425631153009CA93F /* CharactersParameters.swift in Sources */,
 				5CCDD27C23E720680069207E /* Route.swift in Sources */,
 				5CCDD27623E720560069207E /* HTTPMethod.swift in Sources */,
 				5C007DD723DF97BC00FD8AFB /* HTTPURLResponseValidator.swift in Sources */,
+				E9A280CD2562A6AE009CA93F /* DateTransformer.swift in Sources */,
 				5C007DD823DF97BC00FD8AFB /* CodableContainerTransformer.swift in Sources */,
 				5C007DBF23DF95D000FD8AFB /* MarvelFetcher.swift in Sources */,
 				5CCDD28323E7218C0069207E /* Fetcher.swift in Sources */,

@@ -20,7 +20,6 @@ struct LoadImageView: View {
             case .loaded(let image):
                 Image(uiImage: image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
             case .loading:
                 ZStack {
                     Color.gray

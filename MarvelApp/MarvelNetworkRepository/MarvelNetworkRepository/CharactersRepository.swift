@@ -14,6 +14,8 @@ import Core
 
 public protocol CharactersRepository {
     
-    func characters(with paging: Paging) -> AnyPublisher<[Character], Error>
+    func characters(
+        parameters: CharactersParameters
+    ) -> AnyPublisher<[Character], Error>
     
 }

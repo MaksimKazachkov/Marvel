@@ -19,10 +19,12 @@ final public class MarvelCharactersRepository: CharactersRepository {
     public init(client: Fetcher) {
         self.fetcher = client
     }
-
-    public func characters(with paging: Paging) -> AnyPublisher<[Character], Error> {
+    
+    public func characters(
+        parameters: CharactersParameters
+    ) -> AnyPublisher<[Character], Error> {
         return fetcher.requestObjects(
-            route: CharactersRoute.characters(paging),
+            route: CharactersRoute.characters(parameters),
             at: "data.results"
         ).eraseToAnyPublisher()
     }

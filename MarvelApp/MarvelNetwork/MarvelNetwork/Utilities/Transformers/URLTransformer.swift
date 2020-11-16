@@ -8,7 +8,7 @@
 
 import Foundation
 
-class URLTransformer: DecodingContainerTransformer {
+struct URLTransformer: DecodingContainerTransformer {
     
     typealias Input = String
     typealias Output = URL

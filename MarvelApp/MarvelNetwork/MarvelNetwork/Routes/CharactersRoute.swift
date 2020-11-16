@@ -11,7 +11,7 @@ import MarvelDomain
 
 public enum CharactersRoute: Route {
     
-    case characters(Paging)
+    case characters(CharactersParameters)
     
     public var method: HTTPMethod {
         switch self {
@@ -33,10 +33,11 @@ public enum CharactersRoute: Route {
     
     public var queryParameters: Self.Parameters? {
         switch self {
-        case .characters(let model):
+        case .characters(let query):
             return [
-                "limit": model.limit,
-                "offset": model.offset
+                "limit": query.paging.limit,
+                "offset": query.paging.offset,
+                "orderBy": query.orderBy
             ]
         }
     }

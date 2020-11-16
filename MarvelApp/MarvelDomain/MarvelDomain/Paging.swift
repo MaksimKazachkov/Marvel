@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Paging: Equatable {
+public struct Paging: Equatable, Hashable {
     
     public private(set) var limit: Int
     

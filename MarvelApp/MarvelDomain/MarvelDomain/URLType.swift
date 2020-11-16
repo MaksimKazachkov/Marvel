@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct URLType: Equatable {
+public struct URLType: Equatable, Hashable {
     
     // A text identifier for the URL.
     public let type: String?

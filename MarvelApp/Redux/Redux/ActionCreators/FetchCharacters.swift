@@ -18,7 +18,6 @@ public let fetchCharacters = Thunk<CharactersState> { (dispatch, getState) in
     guard let state = getState() else { return }
     guard state.paging.canPaginate else { return }
     dispatch(CharactersAction.loading(true))
-    print("PAGING: \(state.paging)")
     let useCase = resolver.resolve(CharactersUseCase.self)!
     useCase
         .fetch(with: state.paging)

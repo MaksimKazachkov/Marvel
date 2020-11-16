@@ -21,29 +21,34 @@ struct CharactersCarouselView: View {
                 LazyHStack(spacing: 5) {
                     ForEach(store.state.characters, id: \.id) { character in
                         GeometryReader { geometry in
-                            CharacterItemView(character: character)
-                                .onAppear {
-                                    if store.state.characters.isThresholdItem(offset: 3, item: character) {
-                                        store.dispatch(fetchCharacters)
+                            VStack {
+                                Spacer()
+                                CharacterItemView(character: character)
+                                    .onAppear {
+                                        if store.state.characters.isThresholdItem(offset: 0, item: character) {
+                                            store.dispatch(fetchCharacters)
+                                        }
                                     }
-                                }
-                                .rotation3DEffect(
-                                    getAngle(geometry: geometry, bounds: bounds),
-                                    axis: (
-                                        x: 0,
-                                        y: 10,
-                                        z: 0
+                                    .rotation3DEffect(
+                                        getAngle(geometry: geometry, bounds: bounds),
+                                        axis: (
+                                            x: 0,
+                                            y: 10,
+                                            z: 0
+                                        )
                                     )
-                                )
+                                Spacer()
+                            }
                         }
                     }
-                    .frame(width: 300, height: 440)
+                    .frame(width: 300)
                     if store.state.isLoading {
                         SpinnerView(style: .medium)
                     }
-                }.padding(30)
+                }
+                .offset(x: 40)
+                .padding(30)
             }
-            //.offset(y: -30)
         }
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Character: Identifiable, Equatable {
+public struct Character: Identifiable, Equatable, Hashable {
     
     // The unique ID of the character resource.
     public let id: Int?

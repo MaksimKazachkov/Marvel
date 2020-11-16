@@ -38,6 +38,7 @@ extension MarvelDomain.Character: CoreDataRepresentable {
                 }
             }
             
+            entity.removeFromUrls(entity.urls)
             urls?.forEach({
                 let urlEntity = MarvelCoreDataRepository.URLType(context: context)
                 $0.update(entity: urlEntity)

@@ -10,7 +10,7 @@ import Foundation
 
 public extension ImageFetcher {
     
-    public enum AspectRationType {
+    enum AspectRationType {
         
         case portrait(ImageType), standard(ImageType), landscape(ImageType), detail, fullSize
         

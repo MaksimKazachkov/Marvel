@@ -17,7 +17,7 @@ extension Character: Codable {
             id: try container.decode(Int.self, forKey: .id),
             name: try container.decode(String.self, forKey: .name),
             description: try container.decode(String.self, forKey: .description),
-            modified: Date(),
+            modified: try container.decode(.modified, transformer: DateTransformer(dateFormat: .iso8601)),
             resourceURI: try container.decode(.resourceURI, transformer: URLTransformer()),
             urls: try container.decode([URLType].self, forKey: .urls),
             thumbnail: try container.decode(Image.self, forKey: .thumbnail),

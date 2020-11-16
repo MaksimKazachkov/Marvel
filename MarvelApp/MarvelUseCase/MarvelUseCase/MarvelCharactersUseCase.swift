@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 import MarvelDomain
+import MarvelNetwork
 import MarvelNetworkRepository
 import MarvelCoreDataRepository
 import Core
@@ -31,12 +32,12 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
     }
     
     public func fetch(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
-//        return Publishers.Merge(
-//            persistencePublisher(with: paging),
-        networkPublisher(with: paging)
-//                .flatMap({ self.savePublisher(data: $0) })
-//                .eraseToAnyPublisher()
-//        )
+        return Publishers.Merge(
+            persistencePublisher(with: paging),
+            networkPublisher(with: paging)
+                .flatMap({ self.savePublisher(data: $0) })
+                .eraseToAnyPublisher()
+        )
         .eraseToAnyPublisher()
     }
     
@@ -46,7 +47,7 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
                 let request: NSFetchRequest<NSFetchRequestResult> = CoreDataType.fetchRequest()
                 request.sortDescriptors = [
                     NSSortDescriptor(
-                        key: #keyPath(CoreDataType.modified),
+                        key: #keyPath(CoreDataType.name),
                         ascending: true
                     )
                 ]
@@ -66,7 +67,12 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
     }
     
     func networkPublisher(with paging: Paging) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {
-        return networkRepository.characters(with: paging)
+        return networkRepository.characters(
+            parameters: CharactersParameters(
+                paging: paging,
+                orderBy: .name
+            )
+        )
     }
     
     private func savePublisher(data: [MarvelDomain.Character]) -> AnyPublisher<[MarvelDomain.Character], Swift.Error> {

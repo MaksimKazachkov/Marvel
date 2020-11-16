@@ -13,8 +13,14 @@ public func charactersReducer(action: Action, state: CharactersState?) -> Charac
     switch action {
     case let charactersActions as CharactersAction:
         switch charactersActions {
-        case .characters(let data):
-            state.characters.append(contentsOf: data)
+        case .characters(let characters):
+            characters.forEach { (character) in
+                if let index = state.characters.firstIndex(where: { $0.id == character.id }) {
+                    state.characters[index] = character
+                } else {
+                    state.characters.append(character)
+                }
+            }
         case .paging(let value):
             state.paging = value
         case .loading(let value):
@@ -27,3 +33,4 @@ public func charactersReducer(action: Action, state: CharactersState?) -> Charac
     }
     return state
 }
+
