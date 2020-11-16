@@ -25,7 +25,7 @@ struct CharactersCarouselView: View {
                                 Spacer()
                                 CharacterItemView(character: character)
                                     .onAppear {
-                                        if store.state.characters.isThresholdItem(offset: 0, item: character) {
+                                        if store.state.characters.isLastItem(character) {
                                             store.dispatch(fetchCharacters)
                                         }
                                     }
@@ -46,7 +46,6 @@ struct CharactersCarouselView: View {
                         SpinnerView(style: .medium)
                     }
                 }
-                .offset(x: 40)
                 .padding(30)
             }
         }
