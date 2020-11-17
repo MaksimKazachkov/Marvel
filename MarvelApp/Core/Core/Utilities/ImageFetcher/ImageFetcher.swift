@@ -41,6 +41,7 @@ public final class ImageFetcher: ObservableObject {
         let urlString = url.absoluteString
         
         cachePublisher(forKey: urlString)
+            .catch({ _ in self.diskPublisher(forKey: urlString) })
             .catch({ _ in self.networkPublisher(with: url) })
             .subscribe(on: DispatchQueue.global(qos: .background))
             .receive(on: DispatchQueue.main)
@@ -48,7 +49,7 @@ public final class ImageFetcher: ObservableObject {
             .catch { Just(LoadState.failed($0)) }
             .handleEvents(receiveOutput: { [weak self] (state) in
                 if let image = state.image {
-                    self?.saveToCache(image, forKey: urlString)
+                    self?.save(image, forKey: urlString)
                 }
             })
             .assign(to: \.state, on: self)
@@ -62,6 +63,27 @@ public final class ImageFetcher: ObservableObject {
             } else {
                 promise(.failure(Error.noImageInCache))
             }
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    private func diskPublisher(forKey key: String) -> AnyPublisher<UIImage, Swift.Error> {
+        return Future { [unowned self] (promise) in
+            let decodedKey = self.decode(key)
+            guard let filePath = self.filePath(forKey: decodedKey) else {
+                promise(.failure(Error.badFilePath))
+                return
+            }
+            guard let data = FileManager.default.contents(atPath: filePath.path) else {
+                promise(.failure(Error.noImageOnDisk))
+                return
+            }
+            guard let image = UIImage(data: data) else {
+                promise(.failure(Error.incorrectData))
+                return
+            }
+            promise(.success(image))
+            
         }
         .eraseToAnyPublisher()
     }
@@ -83,10 +105,53 @@ public final class ImageFetcher: ObservableObject {
         .eraseToAnyPublisher()
     }
     
-    private func saveToCache(_ image: UIImage, forKey key: String) {
-        DispatchQueue.global(qos: .background).async {
+    private func save(_ image: UIImage, forKey key: String) {
+        DispatchQueue.global(qos: .background).async { [ weak self] in
             ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
+            do {
+                try self?.saveToDisk(image, forKey: key)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
+    }
+    
+    private func saveToCache(_ image: UIImage, forKey key: String) {
+        ImageFetcher.imageCache.setObject(image, forKey: key as AnyObject)
+    }
+    
+    private func saveToDisk(_ image: UIImage, forKey key: String) throws {
+        let decodedKey = decode(key)
+        guard let filePath = filePath(forKey: decodedKey) else {
+            return
+        }
+        guard FileManager.default.fileExists(atPath: filePath.path) else {
+            return
+        }
+        guard let data = image.jpegData(compressionQuality: 1) else {
+            return
+        }
+        try data.write(to: filePath, options: .atomic)
+    }
+    
+    private func filePath(forKey key: String) -> URL? {
+        let fileManager: FileManager = .default
+        guard let documentURL = fileManager.urls(
+                for: .documentDirectory,
+                in: .userDomainMask).first else { return nil }
+        
+        return documentURL.appendingPathComponent(key)
+    }
+    
+    private func encode(_ key: String) -> String? {
+        guard let data = Data(base64Encoded: key) else {
+            return nil
+        }
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func decode(_ key: String) -> String {
+        return Data(key.utf8).base64EncodedString()
     }
     
 }

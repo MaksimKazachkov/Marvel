@@ -12,7 +12,7 @@ public extension ImageFetcher {
     
     enum Error: Swift.Error, CustomDebugStringConvertible {
         
-        case incorrectData, badURL, noImageInCache
+        case incorrectData, badURL, noImageInCache, badFilePath, noImageOnDisk
         
         public var debugDescription: String {
             switch self {
@@ -22,6 +22,10 @@ public extension ImageFetcher {
                 return "Can not create url"
             case .noImageInCache:
                 return "Image is not stored in cache"
+            case .badFilePath:
+                return "Can't create filePath"
+            case .noImageOnDisk:
+                return "Image is not stored on disk"
             }
         }
         
