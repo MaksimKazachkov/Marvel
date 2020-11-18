@@ -18,12 +18,25 @@ struct CharactersHomeView: View {
     
     private var actionCreators = ActionCreators.Characters()
     
-    @State var isCarouselView = false
+    enum Mode {
+        case grid, carousel
+        
+        mutating func toggle() {
+            switch self {
+            case .grid:
+                self = .carousel
+            case .carousel:
+                self = .grid
+            }
+        }
+    }
+    
+    @State var mode: Mode = .carousel
     
     var layoutButton: some View {
-        Button(action: { self.isCarouselView.toggle() }) {
+        Button(action: { self.mode.toggle() }) {
             Image(systemName: "text.justify")
-                .rotationEffect(.degrees(isCarouselView ? 0 : 90))
+                .rotationEffect(.degrees(mode == .carousel ? 0 : 90))
                 .imageScale(.large)
                 .padding()
         }
@@ -38,9 +51,10 @@ struct CharactersHomeView: View {
                             store.dispatch(actionCreators.fetch())
                         }
                 } else {
-                    if isCarouselView {
+                    switch mode {
+                    case .carousel:
                         CharactersCarouselView(store: store)
-                    } else {
+                    case .grid:
                         CharactersGridView(store: store)
                     }
                 }

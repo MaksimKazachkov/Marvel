@@ -51,7 +51,7 @@ struct CharactersGridView: View {
                 }
                 }.padding()
             if store.state.isLoading {
-                SpinnerView(style: .medium)
+                SpinnerView(style: .medium).padding(.bottom)
             }
         }
     }
