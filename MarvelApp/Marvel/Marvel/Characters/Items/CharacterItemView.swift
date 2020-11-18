@@ -14,26 +14,41 @@ struct CharacterItemView: View {
     
     var character: Character
     
+    var imageSize: CGSize
+    
+    var aspectRation: ImageFetcher.AspectRationType
+    
+    var showName: Bool = true
+    
     var body: some View {
-        VStack(alignment: .center, spacing: 10) {
+        VStack(
+            alignment: .center,
+            spacing: 10
+        ) {
             if let thumbnail = character.thumbnail {
                 LoadImageView(
                     fetcher: ImageFetcher(
                         thumbnail: thumbnail,
-                        aspectRation: .portrait(.uncanny)
+                        aspectRation: aspectRation
                     )
                 )
                 .cornerRadius(5)
                 .shadow(radius: 10)
-                .frame(width: 300, height: 450)
+                .frame(
+                    width: imageSize.width,
+                    height: imageSize.height
+                )
                 .aspectRatio(contentMode: .fit)
             } else {
                 Color.gray
                     .cornerRadius(5)
                     .shadow(radius: 10)
-                    .frame(width: 300, height: 450)
+                    .frame(
+                        width: imageSize.width,
+                        height: imageSize.height
+                    )
             }
-            if let name = character.name {
+            if showName, let name = character.name {
                 Text(name)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.primary)
@@ -63,6 +78,13 @@ struct CharacterItemView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        CharacterItemView(character: character)
+        CharacterItemView(
+            character: character,
+            imageSize: CGSize(
+                width: 300,
+                height: 450
+            ),
+            aspectRation: .portrait(.uncanny)
+        )
     }
 }

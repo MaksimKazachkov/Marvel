@@ -12,7 +12,7 @@ public extension ImageFetcher {
     
     enum ImageType: String {
         
-        case small, medium, xLarge, fantastic, uncanny, incredible
+        case small, medium, large, xLarge, fantastic, uncanny, incredible
         
     }
     

@@ -16,6 +16,6 @@ public struct CharactersState: StateType, Equatable {
     
     public var characters: [Character] = []
         
-    public var paging = Paging(limit: 2, offset: 0)
+    public var paging = Paging(limit: 10, offset: 0)
     
 }

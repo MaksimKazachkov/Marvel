@@ -36,7 +36,6 @@ extension ActionCreators {
                     })
                     .map { CharactersAction.characters($0) }
                     .replaceError(with: CharactersAction.characters([]))
-                    .print()
                     .sink(
                         receiveCompletion: { (result) in
                             switch result {
@@ -56,21 +55,5 @@ extension ActionCreators {
         }
     
     }
+    
 }
-
-//extension Store {
-//
-//    func dispatchObservable(_ callbackActionCreator: @escaping (@escaping () -> Void) -> (State, Store<State>) -> Action?) -> Future<State> {
-//        return Observable.create({ observer in
-//            let actionCreator = callbackActionCreator({
-//                observer.onNext(self.state)
-//                observer.onCompleted()
-//            })
-//
-//            self.dispatch(actionCreator)
-//
-//            return Disposables.create()
-//        })
-//    }
-//
-//}

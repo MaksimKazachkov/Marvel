@@ -16,7 +16,7 @@ struct CharactersCarouselView: View {
     
     @ObservedObject var store: StoreWrapper<CharactersState>
     
-//    private var cancelBag = Set<AnyCancellable>()
+    var actionCreators = ActionCreators.Characters()
     
     var body: some View {
         GeometryReader { (bounds) in
@@ -26,20 +26,27 @@ struct CharactersCarouselView: View {
                         GeometryReader { geometry in
                             VStack {
                                 Spacer()
-                                CharacterItemView(character: character)
-                                    .onAppear {
-                                        if store.state.characters.isLastItem(character) {
-//                                            store.dispatch(ActionCreators.Characters.fetch())
-                                        }
+                                CharacterItemView(
+                                    character: character,
+                                    imageSize: CGSize(
+                                        width: 300,
+                                        height: 450
+                                    ),
+                                    aspectRation: .portrait(.uncanny)
+                                )
+                                .onAppear {
+                                    if store.state.characters.isLastItem(character) {
+                                        store.dispatch(actionCreators.fetch())
                                     }
-                                    .rotation3DEffect(
-                                        getAngle(geometry: geometry, bounds: bounds),
-                                        axis: (
-                                            x: 0,
-                                            y: 10,
-                                            z: 0
-                                        )
+                                }
+                                .rotation3DEffect(
+                                    getAngle(geometry: geometry, bounds: bounds),
+                                    axis: (
+                                        x: 0,
+                                        y: 10,
+                                        z: 0
                                     )
+                                )
                                 Spacer()
                             }
                         }
