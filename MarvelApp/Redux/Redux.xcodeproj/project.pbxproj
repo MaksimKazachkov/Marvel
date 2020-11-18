@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		240AC66E9570283E0AAC1E42 /* Pods_Redux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92CF4BAEFCD8000D4448B72 /* Pods_Redux.framework */; };
 		5221FD57BA52937404B308E1 /* Pods_ReduxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D42E36FC60EC6A92435BCD7 /* Pods_ReduxTests.framework */; };
+		E946A24B256453FF00BA46D8 /* ActionCreators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946A24A256453FF00BA46D8 /* ActionCreators.swift */; };
 		E9D61D4E256050FC008E5559 /* CharactersAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61D4D256050FC008E5559 /* CharactersAction.swift */; };
 		E9D61D5125605129008E5559 /* CharactersReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61D5025605129008E5559 /* CharactersReducer.swift */; };
 		E9D61D54256058D0008E5559 /* ObjectReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61D53256058D0008E5559 /* ObjectReducer.swift */; };
@@ -65,6 +66,7 @@
 		A1DB069DD588A3D87C57FA69 /* Pods-ReduxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxTests/Pods-ReduxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A92CF4BAEFCD8000D4448B72 /* Pods_Redux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Redux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20ACE00731166168CC32659 /* Pods-Redux.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux.debug.xcconfig"; path = "Target Support Files/Pods-Redux/Pods-Redux.debug.xcconfig"; sourceTree = "<group>"; };
+		E946A24A256453FF00BA46D8 /* ActionCreators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCreators.swift; sourceTree = "<group>"; };
 		E9D61D4D256050FC008E5559 /* CharactersAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersAction.swift; sourceTree = "<group>"; };
 		E9D61D5025605129008E5559 /* CharactersReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersReducer.swift; sourceTree = "<group>"; };
 		E9D61D53256058D0008E5559 /* ObjectReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectReducer.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		E9D61D5725605BFB008E5559 /* ActionCreators */ = {
 			isa = PBXGroup;
 			children = (
+				E946A24A256453FF00BA46D8 /* ActionCreators.swift */,
 				E9D61D6525607170008E5559 /* FetchCharacters.swift */,
 			);
 			path = ActionCreators;
@@ -415,6 +418,7 @@
 				E9D8451425397CB300B5760E /* ObjectState.swift in Sources */,
 				E9E2ACE62538D8F400262CEC /* StoreWrapper.swift in Sources */,
 				E9E0AAB325608329001BEE98 /* CharactersMiddleware.swift in Sources */,
+				E946A24B256453FF00BA46D8 /* ActionCreators.swift in Sources */,
 				E9D61D4E256050FC008E5559 /* CharactersAction.swift in Sources */,
 				E9D61D54256058D0008E5559 /* ObjectReducer.swift in Sources */,
 			);

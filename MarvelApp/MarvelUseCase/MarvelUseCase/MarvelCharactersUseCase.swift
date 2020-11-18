@@ -35,8 +35,8 @@ public struct MarvelCharactersUseCase: CharactersUseCase {
         return Publishers.Merge(
             persistencePublisher(with: paging),
             networkPublisher(with: paging)
-                .flatMap({ self.savePublisher(data: $0) })
-                .eraseToAnyPublisher()
+//                .flatMap({ self.savePublisher(data: $0) })
+//                .eraseToAnyPublisher()
         )
         .eraseToAnyPublisher()
     }

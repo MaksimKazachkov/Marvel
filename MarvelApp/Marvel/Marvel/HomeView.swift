@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 import Redux
 import MarvelDomain
 import Core
@@ -15,11 +16,13 @@ struct HomeView: View {
     
     @EnvironmentObject var store: StoreWrapper<CharactersState>
     
+    private var actionCreators = ActionCreators.Characters()
+        
     var body: some View {
         if store.state.characters.isEmpty {
             SpinnerView(style: .large)
                 .onAppear {
-                    store.dispatch(fetchCharacters)
+                    store.dispatch(actionCreators.fetch())
                 }
         } else {
             CharactersCarouselView(store: store)

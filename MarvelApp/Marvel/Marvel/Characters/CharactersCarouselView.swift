@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 import Redux
 import MarvelDomain
 import Core
@@ -14,6 +15,8 @@ import Core
 struct CharactersCarouselView: View {
     
     @ObservedObject var store: StoreWrapper<CharactersState>
+    
+//    private var cancelBag = Set<AnyCancellable>()
     
     var body: some View {
         GeometryReader { (bounds) in
@@ -26,7 +29,7 @@ struct CharactersCarouselView: View {
                                 CharacterItemView(character: character)
                                     .onAppear {
                                         if store.state.characters.isLastItem(character) {
-                                            store.dispatch(fetchCharacters)
+//                                            store.dispatch(ActionCreators.Characters.fetch())
                                         }
                                     }
                                     .rotation3DEffect(

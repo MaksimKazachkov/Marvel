@@ -125,7 +125,7 @@ public final class ImageFetcher: ObservableObject {
         guard let filePath = filePath(forKey: decodedKey) else {
             return
         }
-        guard FileManager.default.fileExists(atPath: filePath.path) else {
+        guard !FileManager.default.fileExists(atPath: filePath.path) else {
             return
         }
         guard let data = image.jpegData(compressionQuality: 1) else {
@@ -134,12 +134,14 @@ public final class ImageFetcher: ObservableObject {
         try data.write(to: filePath, options: .atomic)
     }
     
+    private func documentsDirectory() -> URL? {
+        return FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask).first
+    }
+    
     private func filePath(forKey key: String) -> URL? {
-        let fileManager: FileManager = .default
-        guard let documentURL = fileManager.urls(
-                for: .documentDirectory,
-                in: .userDomainMask).first else { return nil }
-        
+        guard let documentURL = documentsDirectory() else { return nil }
         return documentURL.appendingPathComponent(key)
     }
     
@@ -151,7 +153,7 @@ public final class ImageFetcher: ObservableObject {
     }
     
     func decode(_ key: String) -> String {
-        return Data(key.utf8).base64EncodedString()
+        return Data(key.utf8).base64EncodedString().appending(".jpg")
     }
     
 }
