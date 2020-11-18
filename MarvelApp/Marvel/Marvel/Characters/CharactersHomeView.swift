@@ -41,7 +41,7 @@ struct CharactersHomeView: View {
                 .padding()
         }
     }
-        
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -58,7 +58,8 @@ struct CharactersHomeView: View {
                         CharactersGridView(store: store)
                     }
                 }
-            }.navigationBarItems(trailing: layoutButton)
+            }
+            .navigationBarItems(trailing: layoutButton)
         }
     }
     
