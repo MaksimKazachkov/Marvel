@@ -15,9 +15,7 @@ import Core
 struct CharactersGridView: View {
     
     @ObservedObject var store: StoreWrapper<CharactersState>
-    
-    var actionCreators = ActionCreators.Characters()
-    
+        
     var columns = Array(
         repeating: GridItem(
             .flexible(),
@@ -34,18 +32,18 @@ struct CharactersGridView: View {
                 ForEach(
                     store.state.characters,
                     id: \.id) { character in
-                    CharacterItemView(
+                    CharacterView(
                         character: character,
                         imageSize: CGSize(
                             width: (UIScreen.main.bounds.width - 50) / 2,
                             height: 180
                         ),
                         aspectRation: .standard(.large),
-                        showName: false
+                        isShowName: false
                     )
                     .onAppear {
                         if store.state.characters.isLastItem(character) {
-                            store.dispatch(actionCreators.fetch())
+                            store.dispatch(ActionCreators.Characters.fetch())
                         }
                     }
                 }

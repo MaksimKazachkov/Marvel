@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		240AC66E9570283E0AAC1E42 /* Pods_Redux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92CF4BAEFCD8000D4448B72 /* Pods_Redux.framework */; };
 		5221FD57BA52937404B308E1 /* Pods_ReduxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D42E36FC60EC6A92435BCD7 /* Pods_ReduxTests.framework */; };
+		84434EDC257B987C00238B28 /* CancellableAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84434EDB257B987C00238B28 /* CancellableAction.swift */; };
+		84434EDD257B987C00238B28 /* CancellableAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84434EDB257B987C00238B28 /* CancellableAction.swift */; };
+		84434EE1257B98AF00238B28 /* AnyCancellable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84434EE0257B98AF00238B28 /* AnyCancellable+.swift */; };
+		84434EE2257B98AF00238B28 /* AnyCancellable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84434EE0257B98AF00238B28 /* AnyCancellable+.swift */; };
 		E946A24B256453FF00BA46D8 /* ActionCreators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946A24A256453FF00BA46D8 /* ActionCreators.swift */; };
 		E9D61D4E256050FC008E5559 /* CharactersAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61D4D256050FC008E5559 /* CharactersAction.swift */; };
 		E9D61D5125605129008E5559 /* CharactersReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D61D5025605129008E5559 /* CharactersReducer.swift */; };
@@ -62,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		78FADB5743E0BE6AB219C1B5 /* Pods-ReduxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxTests.release.xcconfig"; path = "Target Support Files/Pods-ReduxTests/Pods-ReduxTests.release.xcconfig"; sourceTree = "<group>"; };
+		84434EDB257B987C00238B28 /* CancellableAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableAction.swift; sourceTree = "<group>"; };
+		84434EE0257B98AF00238B28 /* AnyCancellable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCancellable+.swift"; sourceTree = "<group>"; };
 		8D42E36FC60EC6A92435BCD7 /* Pods_ReduxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReduxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DB069DD588A3D87C57FA69 /* Pods-ReduxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxTests.debug.xcconfig"; path = "Target Support Files/Pods-ReduxTests/Pods-ReduxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A92CF4BAEFCD8000D4448B72 /* Pods_Redux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Redux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84434EDF257B989500238B28 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84434EE0257B98AF00238B28 /* AnyCancellable+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BEB0879EF513275D404B8749 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +144,7 @@
 			children = (
 				E9D845212539870F00B5760E /* ObjectAction.swift */,
 				E9D61D4D256050FC008E5559 /* CharactersAction.swift */,
+				84434EDB257B987C00238B28 /* CancellableAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -195,6 +210,7 @@
 		E9E2ACC72538D8D400262CEC /* Redux */ = {
 			isa = PBXGroup;
 			children = (
+				84434EDF257B989500238B28 /* Extensions */,
 				E9E0AAB12560830D001BEE98 /* Middlewares */,
 				E9D61D5725605BFB008E5559 /* ActionCreators */,
 				E9D61D4525604F12008E5559 /* Actions */,
@@ -418,7 +434,9 @@
 				E9D8451425397CB300B5760E /* ObjectState.swift in Sources */,
 				E9E2ACE62538D8F400262CEC /* StoreWrapper.swift in Sources */,
 				E9E0AAB325608329001BEE98 /* CharactersMiddleware.swift in Sources */,
+				84434EDC257B987C00238B28 /* CancellableAction.swift in Sources */,
 				E946A24B256453FF00BA46D8 /* ActionCreators.swift in Sources */,
+				84434EE1257B98AF00238B28 /* AnyCancellable+.swift in Sources */,
 				E9D61D4E256050FC008E5559 /* CharactersAction.swift in Sources */,
 				E9D61D54256058D0008E5559 /* ObjectReducer.swift in Sources */,
 			);
@@ -429,7 +447,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9E2ACE72538D8F400262CEC /* StoreWrapper.swift in Sources */,
+				84434EE2257B98AF00238B28 /* AnyCancellable+.swift in Sources */,
 				E9E2ACD42538D8D500262CEC /* ReduxTests.swift in Sources */,
+				84434EDD257B987C00238B28 /* CancellableAction.swift in Sources */,
 				E9E2ACE52538D8F400262CEC /* CharactersState.swift in Sources */,
 				E9E2AD102538D9C300262CEC /* CharactersStore.swift in Sources */,
 			);

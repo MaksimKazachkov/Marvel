@@ -1,5 +1,5 @@
 //
-//  CharacterItemView.swift
+//  CharacterView.swift
 //  Marvel
 //
 //  Created by Максим Казачков on 17.10.2020.
@@ -10,7 +10,7 @@ import SwiftUI
 import MarvelDomain
 import Core
 
-struct CharacterItemView: View {
+struct CharacterView: View {
     
     var character: Character
     
@@ -18,7 +18,7 @@ struct CharacterItemView: View {
     
     var aspectRation: ImageFetcher.AspectRationType
     
-    var showName: Bool = true
+    var isShowName: Bool = true
     
     var body: some View {
         VStack(
@@ -48,7 +48,7 @@ struct CharacterItemView: View {
                         height: imageSize.height
                     )
             }
-            if showName, let name = character.name {
+            if isShowName, let name = character.name {
                 Text(name)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.primary)
@@ -78,7 +78,7 @@ struct CharacterItemView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        CharacterItemView(
+        CharacterView(
             character: character,
             imageSize: CGSize(
                 width: 300,

@@ -7,10 +7,19 @@
 //
 
 import Foundation
-import MarvelDomain
+import Combine
 import ReSwift
+import MarvelDomain
 
-public struct CharactersState: StateType, Equatable {
+protocol StateTypeCancellable {
+    
+    var cancelBag: Set<AnyCancellable> { get set }
+    
+}
+
+public struct CharactersState: StateType, Equatable, StateTypeCancellable {
+    
+    var cancelBag = Set<AnyCancellable>()
     
     public var isLoading: Bool = false
     

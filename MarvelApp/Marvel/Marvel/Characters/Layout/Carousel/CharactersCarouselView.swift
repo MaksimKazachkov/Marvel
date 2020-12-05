@@ -15,9 +15,7 @@ import Core
 struct CharactersCarouselView: View {
     
     @ObservedObject var store: StoreWrapper<CharactersState>
-    
-    var actionCreators = ActionCreators.Characters()
-    
+        
     var body: some View {
         GeometryReader { (bounds) in
             ScrollView(.horizontal, showsIndicators: true) {
@@ -26,7 +24,7 @@ struct CharactersCarouselView: View {
                         GeometryReader { geometry in
                             VStack {
                                 Spacer()
-                                CharacterItemView(
+                                CharacterView(
                                     character: character,
                                     imageSize: CGSize(
                                         width: 300,
@@ -36,7 +34,7 @@ struct CharactersCarouselView: View {
                                 )
                                 .onAppear {
                                     if store.state.characters.isLastItem(character) {
-                                        store.dispatch(actionCreators.fetch())
+                                        store.dispatch(ActionCreators.Characters.fetch())
                                     }
                                 }
                                 .rotation3DEffect(

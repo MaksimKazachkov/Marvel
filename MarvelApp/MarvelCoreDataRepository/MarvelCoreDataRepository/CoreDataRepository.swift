@@ -12,7 +12,7 @@ import CoreData
 import MarvelDomain
 
 public class CoreDataRepository<T: CoreDataRepresentable> where T == T.CoreDataType.DomainType {
-        
+    
     private let container: NSPersistentContainer
     
     public init(container: NSPersistentContainer) {
@@ -112,34 +112,34 @@ public class CoreDataRepository<T: CoreDataRepresentable> where T == T.CoreDataT
     
     // MARK: - Private methods
     private func findOrFetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
-           return try find(by: request) ?? fetch(by: request)
-       }
-       
-    private func fetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
-           return try self.queryResult(by: request)
-       }
-       
+        return try find(by: request) ?? fetch(by: request)
+    }
+    
     private func find(by request: NSFetchRequest<NSFetchRequestResult>) -> T.CoreDataType? {
-           context.registeredObjects
-               .compactMap({ $0 as? T.CoreDataType })
-               .filter({ !$0.isFault })
-               .filter({ (request.predicate?.evaluate(with: $0) ?? false) })
-               .first
-       }
-       
+        context.registeredObjects
+            .compactMap({ $0 as? T.CoreDataType })
+            .filter({ !$0.isFault })
+            .filter({ (request.predicate?.evaluate(with: $0) ?? false) })
+            .first
+    }
+    
+    private func fetch(by request: NSFetchRequest<NSFetchRequestResult>) throws -> T.CoreDataType? {
+        return try queryResult(by: request)
+    }
+    
     private func save(context: NSManagedObjectContext) -> AnyPublisher<Void, Swift.Error> {
-           return Future { (promise) in
-               guard context.hasChanges else {
-                   return
-               }
-               do {
-                   try context.save()
-                   promise(.success(()))
-               } catch {
-                   context.rollback()
-                   promise(.failure(error))
-               }
-           }.eraseToAnyPublisher()
+        return Future { (promise) in
+            guard context.hasChanges else {
+                return
+            }
+            do {
+                try context.save()
+                promise(.success(()))
+            } catch {
+                context.rollback()
+                promise(.failure(error))
+            }
+        }.eraseToAnyPublisher()
     }
     
 }

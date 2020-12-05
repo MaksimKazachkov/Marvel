@@ -7,22 +7,17 @@
 
 import Foundation
 import Combine
-import MarvelUseCase
-import Core
 import ReSwift
 import ReSwiftThunk
+import Core
+import MarvelUseCase
 
 extension ActionCreators {
     
-    public class Characters {
+    public enum Characters {
         
-        private lazy var cancelBag = Set<AnyCancellable>()
-        
-        public init() {}
-        
-        public func fetch() -> Thunk<CharactersState> {
-            return Thunk<CharactersState> { [weak self] (dispatch, getState) in
-                guard let self = self else { return }
+        public static func fetch() -> Thunk<CharactersState> {
+            return Thunk<CharactersState> { (dispatch, getState) in
                 guard let state = getState() else { return }
                 guard state.paging.canPaginate else { return }
                 dispatch(CharactersAction.loading(true))
@@ -31,11 +26,7 @@ extension ActionCreators {
                     .fetch(with: state.paging)
                     .subscribe(on: DispatchQueue.global(qos: .background))
                     .receive(on: DispatchQueue.main)
-                    .handleEvents(receiveOutput: { (output) in
-                        dispatch(CharactersAction.updatePagingOffset(output.count))
-                    })
-                    .map { CharactersAction.characters($0) }
-                    .replaceError(with: CharactersAction.characters([]))
+                    .replaceError(with: [])
                     .sink(
                         receiveCompletion: { (result) in
                             switch result {
@@ -46,14 +37,15 @@ extension ActionCreators {
                                 dispatch(CharactersAction.loading(false))
                             }
                         },
-                        receiveValue: { (action) in
-                            dispatch(action)
+                        receiveValue: { (value) in
+                            dispatch(CharactersAction.updatePagingOffset(value.count))
+                            dispatch(CharactersAction.characters(value))
                         }
                     )
-                    .store(in: &self.cancelBag)
+                    .store(by: dispatch)
             }
         }
-    
+        
     }
     
 }

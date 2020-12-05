@@ -135,9 +135,12 @@ public final class ImageFetcher: ObservableObject {
     }
     
     private func documentsDirectory() -> URL? {
-        return FileManager.default.urls(
-            for: .documentDirectory,
-            in: .userDomainMask).first
+        return FileManager.default
+            .urls(
+                for: .documentDirectory,
+                in: .userDomainMask
+            )
+            .first
     }
     
     private func filePath(forKey key: String) -> URL? {

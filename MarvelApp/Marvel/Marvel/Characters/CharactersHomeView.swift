@@ -15,9 +15,7 @@ import Core
 struct CharactersHomeView: View {
     
     @EnvironmentObject var store: StoreWrapper<CharactersState>
-    
-    private var actionCreators = ActionCreators.Characters()
-    
+        
     enum Mode {
         case grid, carousel
         
@@ -48,7 +46,7 @@ struct CharactersHomeView: View {
                 if store.state.characters.isEmpty {
                     SpinnerView(style: .large)
                         .onAppear {
-                            store.dispatch(actionCreators.fetch())
+                            store.dispatch(ActionCreators.Characters.fetch())
                         }
                 } else {
                     switch mode {
