@@ -28,10 +28,10 @@ public func charactersReducer(action: Action, state: CharactersState?) -> Charac
         case .updatePagingOffset(let value):
             state.paging.update(offset: value)
         }
-    case let storeCancellableAction as CancellableAction:
-        switch storeCancellableAction {
-        case .store(let cancellable):
-            cancellable.store(in: &state.cancelBag)
+    case let cancellableAction as CancellableAction:
+        switch cancellableAction {
+        case .store(let value):
+            value.store(in: &state.cancelBag)
         }
     default:
         break
