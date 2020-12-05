@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8431C7A2257BBBEE00427049 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8431C7A1257BBBEE00427049 /* MarvelDomain.framework */; };
+		8431C7A3257BBBEE00427049 /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8431C7A1257BBBEE00427049 /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84842AF724785F8A00941051 /* MarvelCoreDataRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84842AED24785F8A00941051 /* MarvelCoreDataRepository.framework */; };
 		84842AFC24785F8A00941051 /* MarvelCoreDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84842AFB24785F8A00941051 /* MarvelCoreDataRepositoryTests.swift */; };
 		84842AFE24785F8A00941051 /* MarvelCoreDataRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 84842AF024785F8A00941051 /* MarvelCoreDataRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,9 +55,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8431C7A4257BBBEE00427049 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8431C7A3257BBBEE00427049 /* MarvelDomain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6F3C89EF46EBEA8C14852DB1 /* Pods-MarvelCoreDataRepositoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCoreDataRepositoryTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelCoreDataRepositoryTests/Pods-MarvelCoreDataRepositoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		80571A82F60877FF868D2360 /* Pods-MarvelCoreDataRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCoreDataRepository.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCoreDataRepository/Pods-MarvelCoreDataRepository.debug.xcconfig"; sourceTree = "<group>"; };
+		8431C7A1257BBBEE00427049 /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84842AED24785F8A00941051 /* MarvelCoreDataRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelCoreDataRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84842AF024785F8A00941051 /* MarvelCoreDataRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelCoreDataRepository.h; sourceTree = "<group>"; };
 		84842AF124785F8A00941051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE9AD7F0420B4752AAA97353 /* Pods_MarvelCoreDataRepository.framework in Frameworks */,
+				8431C7A2257BBBEE00427049 /* MarvelDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +135,7 @@
 		0B77EAE45A82BE100C2165AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8431C7A1257BBBEE00427049 /* MarvelDomain.framework */,
 				D6C52AC0AC022BCA4520F5D6 /* Pods_MarvelCoreDataRepository.framework */,
 				DC15B4FA75912C95A3905908 /* Pods_MarvelCoreDataRepositoryTests.framework */,
 			);
@@ -293,6 +312,7 @@
 				84842AE924785F8A00941051 /* Sources */,
 				84842AEA24785F8A00941051 /* Frameworks */,
 				84842AEB24785F8A00941051 /* Resources */,
+				8431C7A4257BBBEE00427049 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

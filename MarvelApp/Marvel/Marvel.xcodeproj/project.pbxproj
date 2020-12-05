@@ -293,12 +293,12 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		E946A2652565B14600BA46D8 /* Items */ = {
+		E946A2652565B14600BA46D8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				E9CAB617253ACDDC003C393D /* CharacterView.swift */,
 			);
-			path = Items;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E9CAB63F253AD708003C393D /* CommonViews */ = {
@@ -325,7 +325,7 @@
 		E9DFDED6253A2DC70091A7D0 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				E946A2652565B14600BA46D8 /* Items */,
+				E946A2652565B14600BA46D8 /* Views */,
 				E946A2602565B05E00BA46D8 /* Layout */,
 				5C73D5AC23DA2F39000DDE85 /* CharactersHomeView.swift */,
 			);
