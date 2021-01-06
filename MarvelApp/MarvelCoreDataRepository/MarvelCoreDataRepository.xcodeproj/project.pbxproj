@@ -105,8 +105,8 @@
 		DC15B4FA75912C95A3905908 /* Pods_MarvelCoreDataRepositoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCoreDataRepositoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9926C79253AEB20007EDA77 /* Image+DCT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+DCT.swift"; sourceTree = "<group>"; };
 		E9926C86253AEC65007EDA77 /* Image+CDR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CDR.swift"; sourceTree = "<group>"; };
-		E9926CAB253AF636007EDA77 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataClass.swift"; path = "MarvelCoreDataRepository/NSManagedObjectes/Character/Image+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		E9926CAC253AF636007EDA77 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "MarvelCoreDataRepository/NSManagedObjectes/Character/Image+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E9926CAB253AF636007EDA77 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataClass.swift"; path = "MarvelCoreDataRepository/NSManagedObjectes/Image/Image+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E9926CAC253AF636007EDA77 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "MarvelCoreDataRepository/NSManagedObjectes/Image/Image+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		F0A6B3127A3881A45EADD106 /* Pods-MarvelCoreDataRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCoreDataRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCoreDataRepositoryTests/Pods-MarvelCoreDataRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,7 +271,7 @@
 		84842B312478618C00941051 /* NSManagedObjectes */ = {
 			isa = PBXGroup;
 			children = (
-				E9926C64253AEA13007EDA77 /* Image */,
+				B55489CC25A63199001E9738 /* Image */,
 				84842B272478618C00941051 /* Item */,
 				84842B2A2478618C00941051 /* URLType */,
 				84842B2D2478618C00941051 /* Resource */,
@@ -280,7 +280,7 @@
 			path = NSManagedObjectes;
 			sourceTree = "<group>";
 		};
-		E9926C64253AEA13007EDA77 /* Image */ = {
+		B55489CC25A63199001E9738 /* Image */ = {
 			isa = PBXGroup;
 			children = (
 				E9926CAB253AF636007EDA77 /* Image+CoreDataClass.swift */,

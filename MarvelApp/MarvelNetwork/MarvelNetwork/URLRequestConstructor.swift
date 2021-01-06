@@ -27,7 +27,8 @@ public struct URLRequestConstructor {
         var urlRequest = URLRequest(url: url)
         route.headers?.forEach({ urlRequest.addValue($0.value, forHTTPHeaderField: $0.key) })
         urlRequest.httpBody = route.body
-        
+        urlRequest.httpMethod = route.method.rawValue.uppercased()
+
         return URLRequest(url: url)
     }
     
@@ -49,6 +50,7 @@ public struct URLRequestConstructor {
         var urlRequest = URLRequest(url: url)
         route.headers?.forEach({ urlRequest.addValue($0.value, forHTTPHeaderField: $0.key) })
         urlRequest.httpBody = route.body
+        urlRequest.httpMethod = route.method.rawValue.uppercased()
         
         return URLRequest(url: url)
     }
