@@ -73,7 +73,7 @@ public final class ImageFetcher: ObservableObject {
     private func diskPublisher(forKey key: String) -> AnyPublisher<UIImage, Swift.Error> {
         return Future { [unowned self] (promise) in
             let decodedKey = self.decode(key)
-            guard let filePath = self.filePath(forKey: decodedKey) else {
+            guard let filePath = self.fileURL(forKey: decodedKey) else {
                 promise(.failure(Error.badFilePath))
                 return
             }
@@ -125,19 +125,19 @@ public final class ImageFetcher: ObservableObject {
     
     private func saveToDisk(_ image: UIImage, forKey key: String) throws {
         let decodedKey = decode(key)
-        guard let filePath = filePath(forKey: decodedKey) else {
+        guard let fileURL = fileURL(forKey: decodedKey) else {
             return
         }
-        guard !FileManager.default.fileExists(atPath: filePath.path) else {
+        guard !FileManager.default.fileExists(atPath: fileURL.path) else {
             return
         }
         guard let data = image.jpegData(compressionQuality: 1) else {
             return
         }
-        try data.write(to: filePath, options: .atomic)
+        try data.write(to: fileURL, options: .atomic)
     }
     
-    private func documentsDirectory() -> URL? {
+    private func documentsURL() -> URL? {
         return FileManager.default
             .urls(
                 for: .documentDirectory,
@@ -146,12 +146,12 @@ public final class ImageFetcher: ObservableObject {
             .first
     }
     
-    private func directory(atPath path: String, rootDirectory: URL) -> URL? {
-        let directory = rootDirectory.appendingPathComponent(path)
-        if !FileManager.default.fileExists(atPath: directory.path) {
+    private func findOrCreate(at url: URL, path: String) -> URL? {
+        let newURL = url.appendingPathComponent(path)
+        if !FileManager.default.fileExists(atPath: newURL.path) {
             do {
                 try FileManager.default.createDirectory(
-                    atPath: directory.path,
+                    atPath: newURL.path,
                     withIntermediateDirectories: true,
                     attributes: nil
                 )
@@ -160,29 +160,29 @@ public final class ImageFetcher: ObservableObject {
                 return nil
             }
         }
+        return newURL
+    }
+    
+    private func imagesURL() -> URL? {
+        guard let documentsURL = documentsURL() else { return nil }
+        guard let imagesURL = findOrCreate(at: documentsURL, path: "images") else { return nil }
+        return imagesURL
+    }
+    
+    private func charactersURL() -> URL? {
+        guard let imagesURL = imagesURL() else { return nil }
+        guard let directory = findOrCreate(at: imagesURL, path: "characters") else { return nil }
         return directory
     }
     
-    private func imagesDirectory() -> URL? {
-        guard let rootDirectory = documentsDirectory() else { return nil }
-        guard let directory = directory(atPath: "images", rootDirectory: rootDirectory) else { return nil }
-        return directory
+    private func aspectRationURL() -> URL? {
+        guard let charactersURL = charactersURL() else { return nil }
+        guard let url = findOrCreate(at: charactersURL, path: "\(aspectRation.path)") else { return nil }
+        return url
     }
     
-    private func charactersDirectory() -> URL? {
-        guard let rootDirectory = imagesDirectory() else { return nil }
-        guard let directory = directory(atPath: "characters", rootDirectory: rootDirectory) else { return nil }
-        return directory
-    }
-    
-    private func aspectRationDirectory() -> URL? {
-        guard let rootDirectory = charactersDirectory() else { return nil }
-        guard let directory = directory(atPath: "\(aspectRation.path)", rootDirectory: rootDirectory) else { return nil }
-        return directory
-    }
-    
-    private func filePath(forKey key: String) -> URL? {
-        guard let directory = aspectRationDirectory() else { return nil }
+    private func fileURL(forKey key: String) -> URL? {
+        guard let directory = aspectRationURL() else { return nil }
         return directory.appendingPathComponent(key)
     }
     
