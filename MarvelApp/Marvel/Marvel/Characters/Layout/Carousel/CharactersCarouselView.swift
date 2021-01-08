@@ -15,7 +15,7 @@ import Core
 struct CharactersCarouselView: View {
     
     @ObservedObject var store: StoreWrapper<CharactersState>
-        
+    
     var body: some View {
         GeometryReader { (bounds) in
             ScrollView(.horizontal, showsIndicators: true) {
@@ -71,4 +71,14 @@ struct CharactersCarouselView: View {
         }
     }
     
+}
+
+struct CharactersCarouselView_Previews: PreviewProvider {
+    static var previews: some View {
+        CharactersCarouselView(store: charactersStore)
+            .onAppear {
+                try! AssemblyFactory().applyAssemblies()
+                charactersStore.dispatch(ActionCreators.Characters.fetch())
+            }
+    }
 }

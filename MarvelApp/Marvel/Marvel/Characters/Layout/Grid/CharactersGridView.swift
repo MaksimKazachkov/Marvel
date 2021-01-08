@@ -55,3 +55,12 @@ struct CharactersGridView: View {
     }
 }
 
+struct CharactersGridView_Previews: PreviewProvider {
+    static var previews: some View {
+        CharactersGridView(store: charactersStore)
+            .onAppear {
+                try! AssemblyFactory().applyAssemblies()
+                charactersStore.dispatch(ActionCreators.Characters.fetch())
+            }
+    }
+}

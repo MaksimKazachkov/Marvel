@@ -18,10 +18,9 @@ struct SearchView: View {
         HStack(spacing: 15){
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)
-            
             TextField(placeholder, text: $query)
         }
-        .padding(.vertical,12)
+        .padding(.vertical, 14)
         .padding(.horizontal)
         .background(Color.white)
         .clipShape(Capsule())

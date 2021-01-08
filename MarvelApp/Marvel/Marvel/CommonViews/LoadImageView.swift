@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import Core
+import MarvelDomain
 
 struct LoadImageView: View {
     
@@ -37,8 +38,19 @@ struct LoadImageView: View {
     }
 }
 
-//struct LoadImageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoadImageView(fetcher: ImageFetcher(thumbnail: ., aspectRation: <#T##ImageFetcher.AspectRationType#>))
-//    }
-//}
+struct LoadImageView_Previews: PreviewProvider {
+    
+    @State static var thumbnail = MarvelDomain.Image(
+        path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+        extensionType: .jpg
+    )
+    
+    static var previews: some View {
+        LoadImageView(
+            fetcher: ImageFetcher(
+                thumbnail: thumbnail,
+                aspectRation: .portrait(.uncanny)
+            )
+        )
+    }
+}

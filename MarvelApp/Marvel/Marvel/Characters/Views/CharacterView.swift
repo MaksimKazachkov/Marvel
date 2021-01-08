@@ -63,14 +63,15 @@ struct CharacterItemView_Previews: PreviewProvider {
     
     @State static var character = Character(
         id: 1010870,
-        name: "Ajaxis",
-        description: "Formerly known as Emil Blonsky, a spy of Soviet Yugoslavian origin working for the KGB, the Abomination gained his powers after receiving a dose of gamma radiation similar to that which transformed Bruce Banner into the incredible Hulk.",
+        name: "3-D Man",
+        description: nil,
         modified: nil,
         resourceURI: nil,
         urls: nil,
-        thumbnail: MarvelDomain.Image.init(
+        thumbnail: MarvelDomain.Image(
             path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
-            extensionType: .jpg),
+            extensionType: .jpg
+        ),
         comics: nil,
         stories: nil,
         events: nil,

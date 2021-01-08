@@ -66,9 +66,11 @@ struct CharactersHomeView: View {
 
 struct CharactersHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            CharactersHomeView()
-                .environmentObject(charactersStore)
-        }
+        CharactersHomeView()
+            .environmentObject(charactersStore)
+            .onAppear {
+                try! AssemblyFactory().applyAssemblies()
+                charactersStore.dispatch(ActionCreators.Characters.fetch())
+            }
     }
 }
