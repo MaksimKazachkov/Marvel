@@ -23,6 +23,7 @@
 		5CCDD23023E711B30069207E /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; };
 		5CCDD23123E711B30069207E /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCDD22D23E711B30069207E /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8391EA1139A917ED4CC4846C /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3041332B6672665F7BE55F /* Pods_Marvel.framework */; };
+		B55489CF25A86D37001E9738 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55489CE25A86D37001E9738 /* SearchView.swift */; };
 		E7F365AB9D27C6E04B0B35B0 /* Pods_MarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D19A3655DDDCF98DE484992 /* Pods_MarvelUITests.framework */; };
 		E946A2532565A9D500BA46D8 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946A2522565A9D500BA46D8 /* TabBarView.swift */; };
 		E946A2672565B16A00BA46D8 /* CharactersGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946A2662565B16A00BA46D8 /* CharactersGridView.swift */; };
@@ -118,6 +119,7 @@
 		84842B4924786B9500941051 /* MarvelCoreDataRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCoreDataRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84842B4A24786B9500941051 /* MarvelNetworkRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelNetworkRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98518F4EA0E301FD0F14EE1E /* Pods-MarvelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelUITests/Pods-MarvelUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B55489CE25A86D37001E9738 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C04710BCFE79166B0D541581 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD3041332B6672665F7BE55F /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E946A2522565A9D500BA46D8 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				E9CAB637253AD5C1003C393D /* LoadImageView.swift */,
 				E97BA88C2545F4C8000C5FB1 /* SpinnerView.swift */,
+				B55489CE25A86D37001E9738 /* SearchView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				E9DFDEB7253A240A0091A7D0 /* NetworkRepositoryAssembly.swift in Sources */,
 				E9DFDEAE253A240A0091A7D0 /* CoreDataRepositoryAssembly.swift in Sources */,
 				E9DFDEB1253A240A0091A7D0 /* URLRequestConstructorAssembly.swift in Sources */,
+				B55489CF25A86D37001E9738 /* SearchView.swift in Sources */,
 				E9CAB638253AD5C1003C393D /* LoadImageView.swift in Sources */,
 				E9DFDEBA253A240A0091A7D0 /* UseCaseAssembly.swift in Sources */,
 				5C73D5A823DA2F39000DDE85 /* SceneDelegate.swift in Sources */,

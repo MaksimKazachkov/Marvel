@@ -36,3 +36,9 @@ struct LoadImageView: View {
         }
     }
 }
+
+//struct LoadImageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoadImageView(fetcher: ImageFetcher(thumbnail: ., aspectRation: <#T##ImageFetcher.AspectRationType#>))
+//    }
+//}

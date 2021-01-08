@@ -29,3 +29,9 @@ struct SpinnerView: UIViewRepresentable {
     }
     
 }
+
+struct SpinnerView_Previews: PreviewProvider {
+    static var previews: some View {
+        SpinnerView(style: .large, color: .black)
+    }
+}

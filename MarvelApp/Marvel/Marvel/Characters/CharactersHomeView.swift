@@ -49,6 +49,7 @@ struct CharactersHomeView: View {
                             store.dispatch(ActionCreators.Characters.fetch())
                         }
                 } else {
+                    SearchView(placeholder: "Search")
                     switch mode {
                     case .carousel:
                         CharactersCarouselView(store: store)

@@ -20,7 +20,10 @@ public final class ImageFetcher: ObservableObject {
     
     private var cancelBag = Set<AnyCancellable>()
     
+    private let aspectRation: AspectRationType
+    
     public init(thumbnail: MarvelDomain.Image, aspectRation: AspectRationType) {
+        self.aspectRation = aspectRation
         guard let url = URL(string: thumbnail.path) else {
             self.url = nil
             return
@@ -143,9 +146,44 @@ public final class ImageFetcher: ObservableObject {
             .first
     }
     
+    private func directory(atPath path: String, rootDirectory: URL) -> URL? {
+        let directory = rootDirectory.appendingPathComponent(path)
+        if !FileManager.default.fileExists(atPath: directory.path) {
+            do {
+                try FileManager.default.createDirectory(
+                    atPath: directory.path,
+                    withIntermediateDirectories: true,
+                    attributes: nil
+                )
+            } catch {
+                print("Unable to create directory \(error.localizedDescription)")
+                return nil
+            }
+        }
+        return directory
+    }
+    
+    private func imagesDirectory() -> URL? {
+        guard let rootDirectory = documentsDirectory() else { return nil }
+        guard let directory = directory(atPath: "images", rootDirectory: rootDirectory) else { return nil }
+        return directory
+    }
+    
+    private func charactersDirectory() -> URL? {
+        guard let rootDirectory = imagesDirectory() else { return nil }
+        guard let directory = directory(atPath: "characters", rootDirectory: rootDirectory) else { return nil }
+        return directory
+    }
+    
+    private func aspectRationDirectory() -> URL? {
+        guard let rootDirectory = charactersDirectory() else { return nil }
+        guard let directory = directory(atPath: "\(aspectRation.path)", rootDirectory: rootDirectory) else { return nil }
+        return directory
+    }
+    
     private func filePath(forKey key: String) -> URL? {
-        guard let documentURL = documentsDirectory() else { return nil }
-        return documentURL.appendingPathComponent(key)
+        guard let directory = aspectRationDirectory() else { return nil }
+        return directory.appendingPathComponent(key)
     }
     
     private func encode(_ key: String) -> String? {
