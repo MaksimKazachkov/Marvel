@@ -6,4 +6,4 @@ Xcode 12.5
 
 Стек: SwiftUI, Combine, CoreData, ReSwift
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/MaksimKazachkov/Marvel/blob/802611a03d3a0011b667fcb5edf3c173cd386b88/Demo.mov)
+[![Watch the video](https://github.com/MaksimKazachkov/Marvel/blob/802611a03d3a0011b667fcb5edf3c173cd386b88/Demo.mov)
