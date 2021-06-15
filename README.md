@@ -1,3 +1,3 @@
 # Marvel
 
-Xcode 12.4
+Xcode 12.5
